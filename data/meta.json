@@ -1,0 +1,7 @@
+{
+  "built_from": {
+    "daily_trajs": "/diancpfs/user/chenghui/VibeSearchBench.github.io/data/trajs/claude-opus-4.6_custom_serper_simulated/trajs_reextract",
+    "pro_trajs": "/diancpfs/user/chenghui/VibeSearchBench.github.io/data/trajs/claude-opus-4.6_custom_serper_simulated/trajs"
+  },
+  "demo_mode": false
+}

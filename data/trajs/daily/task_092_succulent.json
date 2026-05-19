@@ -1,0 +1,1066 @@
+{
+  "qid": "task_092_succulent",
+  "subset": "daily",
+  "sample_idx": 2,
+  "question": "我想要了解十二卷属相关的一系列信息，麻烦参考给出的知识图谱三元组结构（实体-关系-属性值）为我整理输出对应内容，具体需求如下：\n1. 首先请说明十二卷属的主要品种群有哪些，每个品种群对应的所属叶系、分布省区、典型识别特征分别是什么；同时列出各品种群下包含的具体品种，每个品种的鉴别维度、推荐花器、易发病虫害分别是什么；另外针对每个易发病虫害，列出对应的具体防治方法，以及每种防治方法的类型、施用时机、有效成分或操作要点。\n2. 单独筛选出叶质较软的品种群，列出其中权威机构认定的代表品种，每个代表品种对应的学名、生长干湿条件、原产地、光照条件、鉴别维度分别是什么。\n3. 请单独说明白银寿的种植土质配方、适合使用的花盆类型，以及需要防范的病虫害风险。\n4. 请单独说明叶斑病的防治方法有哪些，每种防治方法对应的防治类型、施用时机和操作要点分别是什么。\n5. 请单独说明铜制剂的有效成分是什么，以及它的农药类别和作用机制。",
+  "termination": "answer",
+  "metrics": {
+    "node_precision": 0.1366,
+    "node_recall": 0.25,
+    "node_f1": 0.1767,
+    "triplet_precision": 0.0922,
+    "triplet_recall": 0.2149,
+    "triplet_f1": 0.129
+  },
+  "stats": {
+    "user_turns": 11,
+    "assistant_turns": 55,
+    "tool_calls": 71
+  },
+  "response_preview": "```json\n[\n  {\"head\": \"十二卷属\", \"relation\": \"主要品种群\", \"tail\": \"玉露群\"},\n  {\"head\": \"十二卷属\", \"relation\": \"主要品种群\", \"tail\": \"寿群\"},\n  {\"head\": \"十二卷属\", \"relation\": \"主要品种群\", \"tail\": \"玉扇群\"},\n  {\"head\": \"十二卷属\", \"relation\": \"主要品种群\", \"tail\": \"万象群\"},\n  {\"head\": \"十二卷属\", \"relation\": \"主要品种群\", \"tail\": \"瑞鹤系(Albicantes)\"},\n  {\"head\": \"十二卷属\", \"relation\": \"主要品种群\", \"tail\": \"鹰爪系(Coarctatae)\"},\n  {\"head\": \"十二卷属\", \"relation\": \"主要品种群\", \"tail\": \"琉璃殿系(Limifoliae)\"},\n  {\"head\": \"十二卷属\", \"relation\": \"主要品种群\", \"tail\": \"条纹系(Margaritiferae)\"},\n  {\"head\": \"十二卷属\", \"relation\": \"主要品种群\", \"tail\": \"风车系(Scabrae)\"},\n  {\"head\": \"十二卷属\", \"relation\": \"主要品种群\", \"tail\": \"龙鳞系(Tessellatae)\"},\n  {\"head\": \"十二卷属\", \"relation\": \"主要品种群\", \"tail\": \"龙城系(Trifariae)\"},\n\n  {\"head\": \"玉露群\", \"relation\": \"所属叶系\", \"tail\": \"软叶系\"},\n  {\"head\": \"玉露群\", \"relation\": \"分布省区\", \"tail\": \"南非东开普省（Baviaanskloof等地）\"},\n  {\"head\": \"玉露群\", \"relation\": \"典型识别特征\", \"tail\": \"窗面凸起呈水滴/半球形，半透明\"},\n  {\"head\": \"玉露群\", \"relation\": \"包含品种\", \"tail\": \"姬玉露\"},\n  {\"head\": \"玉露群\", \"relation\": \"包含品种\", \"tail\": \"帝玉露\"},\n  {\"head\": \"玉露群\", \"relation\": \"包含品种\", \"tail\": \"草玉露\"},\n  {\"head\": \"玉露群\", \"relation\": \"包含品种\", \"tail\": \"冰灯玉露\"},\n  {\"head\": \"玉露群\", \"relation\": \"包含品种\", \"tail\": \"黑肌玉露\"},\n  {\"head\": \"玉露群\", \"relation\": \"包含品种\", \"tail\": \"OB-1\"},\n  {\"head\": \"玉露群\", \"relation\": \"包含品种\", \"tail\": \"水晶玉露\"},\n  {\"head\": \"玉露群\", \"relation\": \"包含品种\", \"tail\": \"赤线玉露\"},\n  {\"head\": \"玉露群\", \"relation\": \"包含品种\", \"tail\": \"紫肌玉露\"},\n  {\"head\": \"玉露群\", \"relation\": \"包含品种\", \"tail\": \"樱水晶\"},\n  {\"head\": \"玉露群\", \"relation\": \"包含品种\", \"tail\": \n\n… [36443 chars truncated]",
+  "turns": [
+    {
+      "type": "user",
+      "content": "我最近想养十二卷属的多肉，能不能给我讲讲相关的品种介绍、种养技巧还有病虫害防治这些知识呀？"
+    },
+    {
+      "type": "assistant",
+      "thinking": "The user is asking about Haworthia (十二卷属) succulents, including variety introductions, cultivation techniques, and pest/disease prevention. Let me search for comprehensive information on this topic.",
+      "content": "好的！十二卷属（*Haworthia*）是非常受欢迎的多肉植物，品种丰富、观赏性强，非常适合室内养护。让我先帮您搜索一些全面的资料！",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01Qj5GMa44TsnuiwsfcBBL33",
+          "name": "search",
+          "args": {
+            "query": "十二卷属多肉植物品种介绍大全",
+            "topn": 8
+          },
+          "result": "A Google search for '十二卷属多肉植物品种介绍大全' found 8 results:\n\n## Web Results\n\n0. [常见的十二卷有哪些 - 多肉联萌](https://www.drlmeng.com/renrenshierjuan.html)\nDate published: Apr 17, 2017\n条纹十二卷Haworthia fasciata 也叫条纹蛇尾兰，是最常见的十二卷，没在办公室里见过，都不好意思说自己上过班。其特征是叶细长硬质，深绿色，叶背有横条白斑， ...\n\n1. [九种不易黑腐的十二卷属多肉，便宜好看又好养，选它们准没错- 知乎](https://zhuanlan.zhihu.com/p/433245839)\nDate published: Nov 14, 2021\n条纹十二卷是一种生长比较缓慢的多肉植物，它的植株可以长到20厘米高，非常适合养成桌面或窗台上的小盆栽，如果阳光充足，加上环境凉爽干燥，它就可以在春末和 ...\n\n2. [多肉植物十二卷属一千多个品种个个惊艳OVER 1000 ... - YouTube](https://www.youtube.com/watch?v=FgllwpMi-OI)\nDate published: Jul 18, 2020\n多肉植物十二卷属一千多个品种个个惊艳OVER 1000 Types of Succulents! 盆景花園. 6.8K views · 5 years ago ...more. 盆景花园Garden Club of Bonsai ...\n\n3. [十二卷属原产地美图欣赏 - 23h8 爱生活吧！](https://www.23h8.com/3988.html)\nHaworthia十二卷属又被称为瓦苇属，是一种小型的多肉植物，原产于南非，生长在灌木丛、杂草丛或者树荫下。 该属品种较多，又可细分为玉露、寿、玉扇、万象和硬叶等，体形差异较 ...\n\n4. [外型奇特的多肉植物(1)：十二之卷 - 有肉SUCCULAND](https://succuland.com.tw/brands-project/succulent-haworthia-fasciata/)\n十二之卷是相當能耐蔭的多肉植物，也就是說他的陽光需求度沒有這麼高，把他種在散光處即可，陽光直射處（太陽照到有影子的地方）就給那些需要很多陽光、容易徒長的多肉，陽台的邊 ...\n\n5. [十二卷多肉植物简介及常见问题大全 - 花百科](https://www.huabaike.com/shier/)\n十二卷多肉植物栏目,提供全面专业的十二卷多肉分类介绍,汇总常见十二卷多肉的家庭种植方法,家庭养十二卷多肉注意事项,成为您的多肉小帮手.\n\n6. [十二卷屬- 維基百科，自由的百科全書](https://zh.wikipedia.org/zh-tw/%E5%8D%81%E4%BA%8C%E5%8D%B7%E5%B1%9E)\n十二卷屬（學名：Haworthia），又稱瓦葦屬，是阿福花科多肉植物的一個屬，原產於非洲南部，主要分布在南非共和國。十二卷屬植物同蘆薈一樣同屬阿福花亞科，外觀通常類似微型 ...\n\n7. [十二卷属](https://cn.haworthia.com/)\n十二卷（Haworthia）是在非洲南部生长的一属多肉植物，以英国植物学家阿德里安·哈沃斯（Adrian Haworth）命名。十二卷体型较小，多数有着低矮的花朵状多肉叶片。"
+        },
+        {
+          "id": "toolu_vrtx_01K4zbNwyryhK1GZ6dG34nLf",
+          "name": "search",
+          "args": {
+            "query": "十二卷属多肉养护技巧浇水光照配土",
+            "topn": 8
+          },
+          "result": "A Google search for '十二卷属多肉养护技巧浇水光照配土' found 8 results:\n\n## Web Results\n\n0. [想请教一下养护Haworthia（十二卷）的技巧。 - Reddit](https://www.reddit.com/r/haworthia/comments/x9uxl8/kindly_requesting_for_some_tips_how_to_care_for/?tl=zh-hans)\nDate published: Sep 9, 2022\n我主要使用陶土盆。我的培养基是2份浮石加1份袋装多肉植物专用土。这样排水和干燥都很快。我平均每3-4周浇一次水。十二卷很容易生根，但并不总是很快。只需 ...\n\n1. [多肉十二卷屬養護，如果出現果凍狀是缺水的信號，不曬太陽多澆水 ...](https://www.youtube.com/watch?v=C98GW91quC4)\nDate published: May 11, 2022\n推薦訂閱：https://bit.ly/3yAJ5dq #多肉十二卷属#玉露养不死却养不好的多肉十二卷属，只要找对了养护技巧，养好不是梦。\n\n2. [條紋十二卷的栽培照護方法 - PictureThis](https://www.picturethisai.com/zh-tw/care/Haworthia_fasciata.html)\n條紋十二卷的兩個關鍵護理要點是確保足夠的光線- 明亮且間接的光線是最佳的，以及細心的澆水習慣。由於條紋十二卷具有耐旱的特性，讓土壤在澆 ... 多肉&仙人掌專用土.\n\n3. [多肉植物十二卷的浇水心得经验 - 芜湖市花卉协会](https://hhxh.whit.edu.cn/info/1015/1020.htm)\n十二卷浇水是种好十二卷类植物非常重要的一环，十二卷有了良好根系就有了一切，虽然根系不是唯一决定性因素，但是无疑是最重要的之一，而没有合适的水管理，根系总在好好坏坏之 ...\n\n4. [十二卷属多肉植物，如何养护？光照、浇水、繁殖](https://www.bilibili.com/video/BV1Uy4y1u75J/)\n下载App. 打开App，流畅又高清. 十二卷属多肉植物，如何养护？光照、浇水、繁殖. 多肉先生的园艺. 相关推荐. 查看更多. 金枝玉叶，盆景制作入门级教程，从一根扦插枝条开始. 2.7 ...\n\n5. [呕心总结！堪比九阴真经的十二卷养护攻略](https://zhuanlan.zhihu.com/p/81389326)\nDate published: Sep 6, 2019\n玉扇、万象、康平、小型硬叶类需要的光照强度在12000LX；寿类、青蟹类需要的光照强度在8000~10000LX；玉露在6000LX左右。 LX是一个英文缩写，指照度的国际 ...\n\n6. [多肉植物Haworthia的栽培介質、溫度和澆水技巧](https://vocus.cc/article/65b7b808fd897800019650e2)\nDate published: Feb 19, 2024\n我目前配土除了幼苗期或發根階段的植物赤玉土和非顆粒土拉高比例，其他植物是5到6成疏水的顆粒土搭配2到3成的赤玉土，最後1成泥炭，澆水頻率約1週1次。 目前 ...\n\n7. [多肉植物养护系列一一条纹十二卷的养护技巧 - 搜狐](https://www.sohu.com/a/156463751_624134)\nDate published: Jul 12, 2017\n1、土壤：条纹十二卷对土壤要求不严，以肥沃、疏松的沙壤土为宜，盆栽时由于根系浅，以浅栽为好，用肥沃、排水良好的腐叶土掺粗砂栽培。"
+        },
+        {
+          "id": "toolu_vrtx_01Fou8qyLXLoAtHTpVwNwfjM",
+          "name": "search",
+          "args": {
+            "query": "十二卷属多肉病虫害防治",
+            "topn": 8
+          },
+          "result": "A Google search for '十二卷属多肉病虫害防治' found 8 results:\n\n## Web Results\n\n0. [[PDF] 十二卷属多肉植物万象栽培技术研究](https://pdf.hanspub.org/br20230100000_20877346.pdf)\nDate published: Jan 9, 2023\n病虫害防治. 在栽培管理措施得当的情况下，万象一般不会出现病虫害，其病虫害高发多见于高温闷热且通风不. 良的夏季。 7.1. 虫害防治技术. 万象常见的虫害有 ...\n\n1. [多肉十二卷屬養護，如果出現果凍狀是缺水的信號，不曬太陽多澆水 ...](https://www.youtube.com/watch?v=C98GW91quC4)\nDate published: May 11, 2022\n... 十二卷属养护00:52 1.生长环境02:08 2.土壤要求02:48 3.养分充足03:47 4.水分适量04:48 5.病虫害治疗与预防新手养多肉|多肉十二卷属养护，如果出现 ...\n\n2. [十二卷属植物的栽培环境 - 知乎专栏](https://zhuanlan.zhihu.com/p/291185635)\nDate published: Nov 13, 2020\n为了预防病害发生，需要注意通风。在温室环境中，安装风扇是很有效的。但如果风向固定的话，吹风的一侧会过于干燥。因此应将风扇 ...\n\n3. [浅谈多肉十二卷养护的那些事 - 十堰](https://shiyan.com/thread-695168-1-1.html)\n收到十二以后先修一下根系，把毛细根，不好的根系修剪掉，留下主根。也可以给它们泡个药浴，以防有遗留的虫卵在里面。然后放通风阴凉处晾一天一夜后上盆。都讲养肉先养根，根系 ...\n\n4. [多肉植物十二卷属（Haworthia）养护指南– 是多肉植物中极具人气的 ...](https://www.gardeningeye.com/25895/)\nDate published: Mar 31, 2025\n十二卷属不耐寒霜，需室内或温室越冬。其叶片半透明肉质部分可透光，形成“植物窗口”效应，配合雕塑化外形，成为社交媒体上的高颜值 ...\n\n5. [十二卷的种植养护 - 多肉联萌](https://www.drlmeng.com/12yanghu.html)\nDate published: Jan 5, 2016\n所以建议干透浇透并在浇透后配合风扇吹；冬天，极少浇水，喷喷水即可，话说人也是一样的，在冬天喝水量也是比其它季节少一些的。 四季的说完了，我们来说天气的， ...\n\n6. [十二之卷：多肉植物的終極指南](https://h.17eat.com/876/)\n... 多肉達人。 十二之卷：多肉植物的終極指南. 目錄. 十二之卷簡介; 十二之卷種類; 十二之卷照料方式; 十二之卷肥培管理; 十二之卷病蟲害防治; 十二之卷相關資源. 十二之卷簡介.\n\n7. [多肉十二卷属的养殖方法和注意事项 - 百度经验](https://jingyan.baidu.com/article/93f9803fcc1edaa1e56f5530.html)\nDate published: Feb 28, 2020\n9、病虫害治疗与预防：. 十二卷属比较强健，病虫害相对发生少，病害主要是根腐病或叶腐病，发现早及时摘除腐叶或切除腐根杀菌消毒后晾晒往往不会损失 ..."
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "content": "搜到了很多有价值的内容，让我进一步深入查看几篇详细的文章：",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01GVQtrAz6vu8sQ999NY3821",
+          "name": "visit",
+          "args": {
+            "url": [
+              "https://www.drlmeng.com/renrenshierjuan.html",
+              "https://zhuanlan.zhihu.com/p/81389326",
+              "https://zhuanlan.zhihu.com/p/433245839",
+              "https://www.gardeningeye.com/25895/"
+            ],
+            "goal": "十二卷属多肉植物的品种介绍、养护技巧（光照、浇水、配土、温度）以及病虫害防治的详细信息"
+          },
+          "result": "The useful information in https://www.drlmeng.com/renrenshierjuan.html for user goal 十二卷属多肉植物的品种介绍、养护技巧（光照、浇水、配土、温度）以及病虫害防治的详细信息 as follows:\n\nEvidence in page:\n常见的十二卷有哪些 – 多肉联萌\n\n自从瓦苇属改名十二卷属后，说到十二卷，有些人可能就先想到了很仙的玉露，很透的寿，很贵的万象，却忘记那些你一定在在办公室内看过，却已经忘记它们名字的真の十二卷。像下面的这些：\n\n　　虽然他们的样子已经脱离了现在群众的口味，但不能否认的是，它们大概是最能抗住办公室折磨的多肉。半年里不浇水，死不了，只是植株会干到脱形，半年里天天浇水也死不了，只是根系会都烂掉，夏天暴晒也死不了，只是植株叶色会变灰干瘪；放办公室不给光照也徒得不会很离谱，只是叶心会发白；总而言之是超级抗虐的多肉。能够把它们折磨死的人，才称得上是当之无愧的植物杀手。\n　　这些个十二卷，原产地大多在南非，杂交的园艺品种也是多得让人认不过来，有几个品种非常常见，虽然它们很绿，但看在好养也常见面的份上，不如让我们认识认识它们，指不定哪天在办公室的MM面前也可以摆弄一番。\n　　人人都见过的条纹十二卷\n　　条纹十二卷 Haworthia fasciata 也叫条纹蛇尾兰，是最常见的十二卷，没在办公室里见过，都不好意思说自己上过班。其特征是叶细长硬质，深绿色，叶背有横条白斑，排成一列列条纹，正面则无白斑，叶片放射性排列形成莲座，通常植株小巧，5-6厘米大小，但好养易群生成一大盆。\n\n　　也是个熟面孔的鹰爪十二卷\n　　鹰爪十二卷 Haworthia reinwardtii 因也叶似鹰爪，也有鹰爪芦荟、虎纹鹰爪的叫法，和条纹十二卷一样多见于室内绿植。其特征是，叶片向内包裹略呈螺旋状排列形成莲座，通常植株小巧，6-7厘米大小，但实际可叶片叠着叶片一层往上生长，达到20厘米长，但长长了也显得不那么可爱了。\n\n　　也不知哪去的十二镐\n　　十二镐，和条纹十二卷相似。其特征是叶背条状白纹较粗厚，且也正面也有白斑，早些年还能听到十二镐，也不知道是字太难打还是越来越不受待见，就越来越少听到了。\n\n　　好辨认的点纹十二卷\n　　点纹十二卷 Haworthia margaritiferae 也叫龙爪之爪，叶细长三角状，叶基部较宽，深绿色，叶表外层有明显凹凸颗粒白点，点状，不连成条，叶表里层光滑无白点，跟条纹、鹰爪十二卷区别明显。\n\n　　听说过去常见的松之雪和松之霜\n　　松之霜 Haworthia radula 株型较大，叶高度肉质，绿色到棕色，基部较宽，前端细长，略内凹，叶正面和背面密布细小白色疣点，叶片正面光滑无白白斑，植株直径可达15cm。\n\n　　松之雪 Haworthia attenuata 深绿色，基部较宽，叶背有白色斑点，叶片正面光滑无白白斑，植株直径约6-12cm,易群生，可露养，光照充分，叶色会变成橘红，像燃烧的火焰。\n\n　　了解完上述的常见十二卷后，也该关心关心它们的养护方式，其实也不需要怎么关心，只要你把花在照顾“多肉”身上的精力抽一点出来，多关心下它们就可以了。\n\nSummary:\n十二卷属多肉植物常见品种包括条纹十二卷（Haworthia fasciata，叶细长深绿，叶背有横条白斑）、鹰爪十二卷（Haworthia reinwardtii，叶片螺旋包裹，形似鹰爪）、十二镐（叶背与正面均有粗厚白纹）、点纹十二卷（Haworthia margaritiferae，叶表外层有凹凸颗粒白点）、松之雪（Haworthia attenuata，叶背有白点，光照充足时叶色变橘红）和松之霜（Haworthia radula，叶肉质，密布白色疣点）。这些品种普遍耐阴、耐旱、耐晒，适应力强，适合办公室环境。养护方面，它们对光照要求不高，可耐弱光但避免长期无光导致徒长；浇水应遵循“干透浇透”原则，避免积水烂根；配土建议使用疏松透气的颗粒土，如泥炭+赤玉土+珍珠岩混合；温度适应范围广，但冬季需注意防寒。病虫害较少，主要注意通风，防止根腐病和介壳虫侵扰，整体管理简单，属于“超级抗虐”的多肉植物。\n\n=======\nThe useful information in https://zhuanlan.zhihu.com/p/81389326 for user goal 十二卷属多肉植物的品种介绍、养护技巧（光照、浇水、配土、温度）以及病虫害防治的详细信息 as follows:\n\nSummary:\nThe webpage could not be accessed.\n\n=======\nThe useful information in https://zhuanlan.zhihu.com/p/433245839 for user goal 十二卷属多肉植物的品种介绍、养护技巧（光照、浇水、配土、温度）以及病虫害防治的详细信息 as follows:\n\nEvidence in page:\n九种不易黑腐的十二卷属多肉，便宜好看又好养，选它们准没错\n\n很多花友的多肉都在夏天高温时黑腐或化水烂掉的，今天介绍的一类多肉就不容易黑腐，比较适合新手栽种，它们就是阿福花科十二卷属（瓦苇属，Haworthia）的多肉，它们大多是原产于南非地区的，种类非常多，形态和颜色都特别丰富。\n\n十二卷属的多肉植物不仅容易照顾，而且非常适合在室内栽种。它们的植株小巧，对光照需求也没有那么强烈，有适当散射光就可以生长健壮，它们的叶子肥厚，叶片通常是绿色、红色或棕色的，也有接近黑色的品种。\n\n第一种，玉露（Haworthia Cooperi）\n\n玉露的品种极其丰富，它们是原产于南非\n\n… [3946 chars truncated]"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01FLsnwRQHeYWqBoLhRzPBTQ",
+          "name": "visit",
+          "args": {
+            "url": [
+              "https://pdf.hanspub.org/br20230100000_20877346.pdf",
+              "https://www.drlmeng.com/12yanghu.html"
+            ],
+            "goal": "十二卷属多肉植物的病虫害防治详细信息，以及养护技巧"
+          },
+          "result": "The useful information in https://pdf.hanspub.org/br20230100000_20877346.pdf for user goal 十二卷属多肉植物的病虫害防治详细信息，以及养护技巧 as follows:\n\nEvidence in page:\nIt is also necessary to control effectively the insect pests such as scale insects and root rot, which are easy to occur in summer.\n\nSummary:\nFor the cultivation of Haworthia maughanii, a species within the Haworthia genus, effective pest and disease control is crucial, particularly during summer when scale insects and root rot are common. To prevent these issues, maintain a mild and dry environment with sufficient sunlight, and follow the watering principle of 'appropriate watering during the growing season and controlled watering during the dormancy period.' Proper substrate composition and environmental management are essential for healthy growth and pest prevention.\n\n=======\nThe useful information in https://www.drlmeng.com/12yanghu.html for user goal 十二卷属多肉植物的病虫害防治详细信息，以及养护技巧 as follows:\n\nEvidence in page:\n关于十二卷的药肥\n药：1.高锰酸钾（播种，洗颗粒土），播种前准备好的土用高锰酸钾消毒后，不容易长菌，同时还能提高发芽率。这里多句嘴，一直不是很赞同植株入盆前把土全面消毒，尤其是高温消毒，微生物环境完全破坏掉了，植物的小菜上哪儿加呀？\n2.多菌灵。国产的大牌子就很好了，春夏销量最好的东西，没有之一，噗哈哈。\n3.土虫丹。比较冷门，但是之前看见有些仙友换盆时土里有只大大的高蛋白肥肥的毛毛虫甚是可爱，呵呵，吓死了多少宝宝，失色了多少花容。\n4.介壳系列。其实十二卷真的很少长这类东西吧，我是没见过，也可能是预防工作做得太好了。\n5.DX。这个是**，丢一些在土表即可，有味道别放多，放多了连你自己都不愿意亲近植物了\n\nSummary:\n十二卷的病虫害防治主要依赖于预防和合理用药。常用药物包括高锰酸钾（用于播种前土壤消毒，可防菌并提高发芽率）、多菌灵（春夏季节使用效果显著，是防治真菌病害的常用药）、土虫丹（用于清除土中毛毛虫等害虫）、介壳类药剂（十二卷较少发生，但可作为预防使用）以及DX（需谨慎使用，仅少量置于土表，避免浓度过高影响人与植物的亲近）。作者强调不建议对土壤进行高温全面消毒，以免破坏有益微生物环境。整体防治策略应以预防为主，结合良好通风、合理浇水与配土，减少病虫害发生。\n"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "content": "好的，资料收集得比较充分了！下面我为您做一份**系统全面的十二卷属多肉养护指南**：\n\n---\n\n# 🌿 十二卷属（*Haworthia*）多肉植物养护全攻略\n\n十二卷属，又称**瓦苇属**，是阿福花科的多肉植物，原产于**南非及纳米比亚**的干旱地带，多自然生长在岩石缝隙或灌木丛的荫蔽处。它们体型小巧、造型精致，尤其以螺旋纹样、几何构造和半透明\"窗\"效应闻名，非常适合室内种植。\n\n---\n\n## 一、🏷️ 常见品种介绍\n\n十二卷属品种多达上千种，可大致分为**软叶类**（叶片较软、多有透明\"窗\"）和**硬叶类**（叶片坚硬、多有白色疣点或条纹）两大类。以下是最值得入手的代表品种：\n\n### 🍃 软叶类（更具\"仙气\"，适合进阶玩家）\n\n| 品种 | 学名 | 特点 |\n|------|------|------|\n| **玉露** | *H. cooperi* | 叶顶有晶莹剔透的\"窗\"，品种极其丰富，是十二卷的\"颜值担当\" |\n| **寿** | *H. retusa* | 莲座形无茎，叶顶\"窗\"上有网状纹路，形态别致 |\n| **玉扇** | *H. truncata* | 叶片排成一列呈扇形，截面透明/灰白，具几何美感，部分锦化品种极为珍贵 |\n| **万象** | *H. maughanii* | 形态类似玉扇但叶片排列方式不同，名品多、价格较高 |\n| **水晶掌** | *H. cymbiformis* | 外形类似玉露但更\"狂野\"，养护难度低，适合新手 |\n\n### 🪨 硬叶类（皮实好养，适合新手和办公室）\n\n| 品种 | 学名 | 特点 |\n|------|------|------|\n| **条纹十二卷** | *H. fasciata* | 最常见的十二卷！叶背有白色横条纹，似斑马纹，超级耐旱耐阴 |\n| **鹰爪十二卷** | *H. reinwardtii* | 叶片螺旋包裹形似鹰爪，茎可不断长高至20cm |\n| **点纹十二卷** | *H. margaritiferae* | 叶表有凹凸白色颗粒点，与条纹类明显不同 |\n| **琉璃殿** | *H. limifolia* | 叶面纹路似搓衣板，植株紧凑呈玫瑰花形，非常皮实 |\n| **九轮塔** | *H. coarctata* | 形态似鹰爪十二卷，有温差时叶色可变紫红 |\n| **松之雪** | *H. attenuata* | 光照充足时叶色变为橘红色，像燃烧的火焰，非常惊艳 |\n\n> 💡 **新手推荐**：条纹十二卷、琉璃殿、水晶掌、九轮塔——它们极其耐旱耐阴，半年不浇水都死不了，堪称\"超级抗虐\"多肉。\n\n---\n\n## 二、🌱 养护技巧\n\n### 1. ☀️ 光照\n- **散射光为主**，避免夏季强烈阳光直射（尤其是软叶类的玉露、寿等），否则叶片会灼伤、变灰干瘪。\n- 硬叶类（条纹十二卷等）可承受稍强光照，光照充足时叶色更亮甚至变色。\n- **光照参考强度**：\n  - 玉扇、万象：约 12000 Lux\n  - 寿类：8000~10000 Lux\n  - 玉露类：约 6000 Lux\n- 冬季可增加光照，夏季一定要遮阴。\n- 室内养护放在**明亮窗台**（有散射光）即可。\n\n### 2. 💧 浇水\n- **核心原则：干透浇透**。等盆土完全干透后，一次性浇透水。\n- **避免浇到叶心**，防止积水引发腐烂。\n- **季节调整**：\n  - 🌸 **春秋（生长旺季）**：盆土微干即可浇水，频率相对较高（约7-10天一次，视环境而定）。\n  - ☀️ **夏季（休眠/半休眠）**：控水！减少浇水频率，高温闷热时可能2-3周甚至更长才浇一次。\n  - ❄️ **冬季**：极少浇水，可偶尔喷雾保湿，低温时宁干勿湿。\n- 浇水后建议配合**风扇吹风**，加速盆土干燥，避免闷根。\n- 叶片出现\"果冻状/半透明发软\"通常是**缺水信号**，需及时补水。\n\n### 3. 🏺 配土\n十二卷根系较浅但部分品种根系粗壮，配土需要**疏松透气、排水良好**：\n\n| 配土方案 | 适用阶段 |\n|---------|---------|\n| **赤玉土+鹿沼土（7:3）+ 30%泥炭土** | 适合玉露等软叶类 |\n| **50%泥炭土 + 50%珍珠岩+粗砂** | 通用方案 |\n| **5-6成颗粒土 + 2-3成赤玉土 + 1成泥炭** | 成株养护 |\n| **赤玉土比例拉高 + 泥炭土增多** | 幼苗期/发根阶段 |\n\n> 💡 花盆建议选用**透气性好的陶盆**，盆不宜太大（浅盆为佳），底部必须有排水孔。\n\n### 4. 🌡️ 温度\n- **最适生长温度**：15~25°C\n- **冬季安全温度**：大部分品种需保持 **5°C以上**（玉露、琉璃殿建议7°C以上）\n- **夏季注意**：超过35°C进入休眠或半休眠状态，需遮阴、控水、加强通风\n- 十二卷**不耐寒霜**，冬季必须室内或温室越冬\n\n### 5. 🌬️ 通风\n- **通风是最被低估但极其重要的环节**！\n- 封闭、闷热、潮湿的环境是病害的最大诱因。\n- 室内养护建议配备小风扇，但注意风向不要固定朝一个方向长期吹（会导致一侧过于干燥）。\n\n### 6. 💊 施肥\n- 十二卷生长缓慢，**薄肥即可**，生长期（春秋）可每月施一次稀薄液肥。\n- 注意：施肥会加速生长但**可能影响显色**（叶色变绿），追求状态色的玩家可酌情减少施肥。\n- 夏季休眠期和冬季**不要施肥**。\n\n---\n\n## 三、🛡️ 病虫害防治\n\n十二卷属整体比较强健，病虫害相对较少，但夏季高温闷热、通风不良时容易出问题。\n\n### 🦠 常见病害\n\n| 病害 | 症状 | 防治方法 |\n|------|--\n\n… [1361 chars truncated]"
+    },
+    {
+      "type": "user",
+      "content": "能不能先跟我说说十二卷属主要有哪些品种群呀？每个品种群属于什么叶系，主要分布在哪些省区，有什么典型的识别特征？还有每个品种群下面都有哪些具体的品种呀？"
+    },
+    {
+      "type": "assistant",
+      "thinking": "The user is asking for a more detailed and systematic breakdown of Haworthia (十二卷属) species groups/cultivar groups, including:\n1. What are the main species groups (品种群)?\n2. Which leaf system (软叶/硬叶) does each belong to?\n3. What are their distribution areas (provinces/regions)?\n4. What are the typical identification features?\n5. What specific species/varieties fall under each group?\n\nThis is a fairly specialized botanical question. Let me search for more detailed taxonomic and horticultural information about Haworthia classification.\n\nNote: The user asked about \"省区\" (provinces/regions) - since Haworthia is native to South Africa, not China, this likely refers to provinces of South Africa, or perhaps the user is confused. Let me search and clarify.",
+      "content": "好的！这个问题涉及十二卷属的系统分类，让我帮您深入搜索一下，十二卷属的品种群划分、叶系归属、分布区域和识别特征等信息。",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_012Jy4JKmNBLwPtx2yw9kKfo",
+          "name": "search",
+          "args": {
+            "query": "十二卷属 品种群分类 软叶 硬叶 玉露 寿 万象 玉扇",
+            "topn": 10
+          },
+          "result": "A Google search for '十二卷属 品种群分类 软叶 硬叶 玉露 寿 万象 玉扇' found 10 results:\n\n## Web Results\n\n0. [养肉穷三代，十二卷毁一生| 果壳科技有意思](https://m.guokr.com/article/448117/)\nDate published: Jan 11, 2017\n软叶系十二卷的叶片质地柔软，肥厚多汁，叶片顶端凸起呈半球形的种类，我们称之为“玉露”；有些种类叶片顶端呈截形，按照叶片的排布可分为“寿”“万象”和“玉扇”这 ...\n\n1. [阿福花科十二之卷(Haworthia)簡介-玉露篇](https://vocus.cc/article/63bd841bfd8978000139e679)\nDate published: Jan 10, 2023\n十二之卷屬的植物，產地主要來自南非，大致上是呈現短矮蓮座狀(rosette)的植物，依葉片的軟硬程度可初步分類為「軟葉系」和「硬葉系」，Kent主要的植物都是 ...\n\n2. [十二卷多肉植物中的软叶品种，玉露、寿、玉扇、万象 - 凤凰网](https://ishare.ifeng.com/c/s/7w0xsi56B3Y)\n十二卷多肉植物中的软叶品种，玉露、寿、玉扇、万象 · 一、 玉露. 玉露现在价钱也是越来越亲民了，比如现在的姬玉露性价比非常的好，窗面很大而且很是圆润，在光线比较弱的情况 ...\n\n3. [這種十二卷（玉露？）的品種辨識和養護小撇步？細節都在留言區。](https://www.reddit.com/r/succulents/comments/6jsslf/id_and_care_tips_for_this_haworthia_cooperi/?tl=zh-hant)\nDate published: Jun 27, 2017\n我把它放在朝東南的明亮窗戶邊，我想知道這對十二卷來說，是不是光照太強了？自從我買了它之後，它的顏色就變淺了。我應該多久澆一次水？我現在大概每1.5 個 ...\n\n4. [多肉十二卷系列，硬叶刚毅、软叶柔美，多肉新手不要错过！ - 搜狐](https://www.sohu.com/a/415755772_650755)\nDate published: Aug 31, 2020\n十二卷类多肉植物是时下比较热门的品种，又分为硬叶和软叶两大系列。硬叶系大多叶片坚硬、带有白色疣状凸起或斑纹，气质刚毅，比较符合男性花友们的气质，比如 ...\n\n5. [呕心总结！堪比九阴真经的十二卷养护攻略](https://zhuanlan.zhihu.com/p/81389326)\nDate published: Sep 6, 2019\n玉扇、万象、康平、小型硬叶类需要的光照强度在12000LX；寿类、青蟹类需要的光照强度在8000~10000LX；玉露在6000LX左右。 LX是一个英文缩写，指照度的国际 ...\n\n6. [十二卷属原产地美图欣赏 - 23h8 爱生活吧！](https://www.23h8.com/3988.html)\nHaworthia十二卷属又被称为瓦苇属，是一种小型的多肉植物，原产于南非，生长在灌木丛、杂草丛或者树荫下。 该属品种较多，又可细分为玉露、寿、玉扇、万象和硬叶等 ...\n\n7. [十二卷属一些玉露、寿、万象品种 - 多肉联萌](https://www.drlmeng.com/wwyxpz.html)\nDate published: Jan 22, 2020\n十二卷有组培（植物组织无菌培养，相当于克隆）非组（叶插，底座苗，侧芽）实生（籽播）同一品种组培比较便宜，非组和实生相当贵。十二卷的锦也可分为阴阳锦，糊斑锦， ...\n\n8. [多肉十二卷的养殖方法及注意事项，花友必看！ - 惠农网](https://www.cnhnb.com/xt/article-57872.html)\nDate published: Sep 1, 2021\n十二卷从叶子上划分，可分为硬叶和软叶两种。常见的软叶品种有玉露、寿、玉扇和万象等，目前市面上的软叶多肉要比硬叶多肉更受欢迎。下面惠农网小编就 ...\n\n9. [十二卷属](https://cn.haworthia.com/)\n2010年代，种系发生学的研究进一步把之前的十二卷属分为三个属：十二卷属（Haworthia，42种）、小型硬叶十二卷属（Haworthiopsis，18种）与大型硬叶十二卷属（Tulisa，4种）。 玉扇（H."
+        },
+        {
+          "id": "toolu_vrtx_01519mJrFHyiXDKh8H1qFRgw",
+          "name": "search",
+          "args": {
+            "query": "Haworthia species groups classification taxonomy subgenus",
+            "topn": 10
+          },
+          "result": "A Google search for 'Haworthia species groups classification taxonomy subgenus' found 9 results:\n\n## Web Results\n\n0. [Haworthia - Wikipedia](https://en.wikipedia.org/wiki/Haworthia)\nHaworthia ; Family: Asphodelaceae ; Subfamily: Asphodeloideae ; Tribe: Aloeae ; Genus: Haworthia Duval.\n\n1. [Haworthia info - HaworthiaLand](https://www.haworthialand.com/haworthia/)\nsubgenus Haworthia (arachnoidea, cooperi, mirabilis etc.) stay under genus Haworthia, · species of subgenus Hexangularis (limifolia, koelmaniorum, coarctata, ...\n\n2. [Taxonomy and Fieldwork - Haworthia Updates](https://haworthiaupdates.org/2021/05/31/taxonomy-and-fieldwork/)\nDate published: May 31, 2021\nWhat species names apply on Haworthia! It is actually a very democratic process based on 4 tenets of science. Universal truth, communality – no secrets, no ...\n\n3. [Haworthia: Best Varieties, Care and Grow Guide - Gardenia.net](https://www.gardenia.net/genus/haworthia-best-varieties-care-grow-guide)\nHaworthia belongs to the Asphodelaceae family along with Aloe, Eremurus (Foxtail Lily), and Hemerocallis (Daylily). Notable Haworthia varieties include ...\n\n4. [Haworthias – Super Succulents for Small Spaces](https://hort.extension.wisc.edu/articles/haworthias-super-succulents-for-small-spaces/)\nHaworthias are small and deservedly popular succulents from southern Africa. They are generally of easy culture, of small and convenient size, more tolerant ...\n\n5. [20 Haworthia Varieties You Should Grow - Epic Gardening](https://www.epicgardening.com/haworthia-succulent-types/)\nSpecies names and groupings are frequently debated and changed (though they all remain in the Asphodelaceae family). While many Haworthia varieties look very ...\n\n6. [What is and what isn't a Haworthia? - Artisan Plants](https://artisanplants.com/blogs/news/what-it-means-to-be-haworthia)\nFrom a molecular point of view, Haworthia can be divided into two distinct groups that agree closely with the current subgeneric classification: a monophyletic ...\n\n7. [Haworthia genus | PlantZAfrica - SANBI](https://pza.sanbi.org/haworthia-genus)\nThe 2 other subgenera are now treated as the genera Haworthiopsis (=Haworthia subgenus Hexangulares) and Tulista (=Haworthia subgenus Robustipedunculares). The ...\n\n8. [Spider-nest Haworthia species in nature and cultivation.](https://www.exoticaesoterica.com/magazine/pint-size-porcupines)\nHaworthias (including t\n\n… [140 chars truncated]"
+        },
+        {
+          "id": "toolu_vrtx_01F3Ygus2JZ5DYnBqT7PPrAw",
+          "name": "search",
+          "args": {
+            "query": "十二卷属 瓦苇属 分类 亚属 种群 详细",
+            "topn": 10
+          },
+          "result": "A Google search for '十二卷属 瓦苇属 分类 亚属 种群 详细' found 10 results:\n\n## Web Results\n\n0. [邦特博克国家公园的瓦苇 - 23h8 爱生活吧！](https://www.23h8.com/11910.html)\n邦特博克国家公园生长有六种原生瓦苇，正好三个亚属中均有分布。瓦苇属内的三个亚属比较倾向于俗常分类，因为相比较其它近缘属内的亚属们来说，亲缘关系并不是很近。\n\n1. [十二卷属- 维基百科，自由的百科全书](https://zh.wikipedia.org/zh-cn/%E5%8D%81%E4%BA%8C%E5%8D%B7%E5%B1%9E)\n十二卷属（学名：Haworthia），又称瓦苇属，是阿福花科多肉植物的一个属，原产于非洲南部，主要分布在南非共和国。十二卷属植物同芦荟一样同属阿福花亚科，外观通常类似微型 ...\n\n2. [阿福花科十二卷属的命名及简单介绍 - 知乎专栏](https://zhuanlan.zhihu.com/p/237352919)\nDate published: Sep 12, 2020\n十二卷属为多年生草本植物，原产地大多在南非，日本培育了很多珍贵的园艺名品。园艺栽培上归为高度叶多肉植物一类。本属约分为20个系150种以上。园艺变种和 ...\n\n3. [瓦苇属/十二卷属 - 多肉联萌](https://www.drlmeng.com/type/liliaceae/haworthia)\n瓦苇属/十二卷属（haworthia）。共同特征是植株矮小，单生或丛生，叶片呈莲座状排列或两列叠生或螺旋形排列成圆筒状，按其叶质的不同可分为软叶系、硬叶系两类。 华宵殿十二 ...\n\n4. [多肉植物十二卷属（Haworthia）养护指南– 是多肉植物中极具人气的 ...](https://www.gardeningeye.com/25895/)\nDate published: Mar 31, 2025\n十二卷属是多肉植物中极具人气的类群，以其精巧的造型和独特的纹理著称——螺旋纹样、几何构造如微型雕塑。学名: Haworthia，为纪念英国植物学家Adrian Hardy ...\n\n5. [十二卷屬介紹(Haworthia spp.) 百合科(Liliaceae) －阿福花亞科 ...](https://zh-cn.facebook.com/nikutosaboten/posts/1721252901492798/)\nDate published: Apr 1, 2016\n十二卷屬介紹(Haworthia spp.) 百合科(Liliaceae) －阿福花亞科(Asphodeloideae) 十二卷屬(瓦葦屬)(Haworthia) - Haworthia 屬之多肉植物為單子葉植物， ...\n\n6. [十二卷属_百度百科](https://baike.baidu.com/item/%E5%8D%81%E4%BA%8C%E5%8D%B7%E5%B1%9E/10841318)\n十二卷属（拉丁学名：Haworthiopsis），又叫瓦苇属、蛇尾兰属，是芦荟科下的一属植物，该属在我国曾被叫做瓦苇属 ... 十二卷按叶片软硬可分为软叶系亚属、硬叶系亚属和 ...\n\n7. [十二之卷屬– 分類沙丘](https://taxonomicdune.com/tag/%E5%8D%81%E4%BA%8C%E4%B9%8B%E5%8D%B7%E5%B1%AC/)\n鷹爪草屬又名十二之卷屬、瓦葦屬(和蕨類水龍骨科Polypodiaceae的Lepisorus同名) ... 因此，有研究者將上述的三個亞屬提升為屬，即Haworthia (=subg. Haworthia) ...\n\n8. [景天科Crassulaceae/瓦苇属十二卷属Haworthia 图鉴 - 仙人掌园](http://www.xrzy.com/forum.php?gid=297)\n瓦苇，十二卷属Haworthia: 主题: 422, 帖数: 934 ; 番杏科Aizoaceae: 主题: 526, 帖数: 783 ; 景天科Crassulaceae: 主题: 298, 帖数: 436 ...\n\n9. [养肉穷三代，十二卷毁一生| 果壳科技有意思](https://m.guokr.com/article/448117/)\nDate published: Jan 11, 2017\n十二卷，肉粉爱称“十二”，广义来说，是阿福花科（注意，并非百合科），十二卷属（Haworthia）多肉植物的统称，可划分成3个组，传统说法是3个亚属Haworthia、 ..."
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_019QdAHqgAjmkYfafykJ9pc9",
+          "name": "visit",
+          "args": {
+            "url": [
+              "https://m.guokr.com/article/448117/",
+              "https://zh.wikipedia.org/zh-cn/%E5%8D%81%E4%BA%8C%E5%8D%B7%E5%B1%9E",
+              "https://cn.haworthia.com/",
+              "https://zhuanlan.zhihu.com/p/237352919"
+            ],
+            "goal": "十二卷属的分类体系、亚属划分、品种群（玉露、寿、万象、玉扇、硬叶等）的详细分类、分布地区、识别特征、以及每个品种群下的具体品种名称"
+          },
+          "result": "The useful information in https://m.guokr.com/article/448117/ for user goal 十二卷属的分类体系、亚属划分、品种群（玉露、寿、万象、玉扇、硬叶等）的详细分类、分布地区、识别特征、以及每个品种群下的具体品种名称 as follows:\n\nEvidence in page:\n十二卷，肉粉爱称“十二”，广义来说，是阿福花科（注意，并非百合科），十二卷属（Haworthia）多肉植物的统称，可划分成3个组，传统说法是3个亚属Haworthia、Haworthiopsis和Tulista，目前大约有150来个原始种，还有数不清的变种和品种（可见这坑有多深）。或许你还听过有人管它们叫“瓦苇”，这实际是属名Haworthia的音译，此名流行多年，但易与蕨类植物中的瓦韦（Lepisorus thunbergianus）混淆，所以现今除港台地区和日本外，大陆用十二卷属这个说法比较多。小知识 十二卷属（Haworthia）是为纪念英国植物学家Adrian Hardn Haworth而得名。和芦荟属（Aloe）同属阿福花科。狭义来说，十二卷指的是H. fasciata及其变种和品种，也就是我们常见的条纹十二卷，特征是肉质叶片呈三角状披针形状，叶背上环状镶嵌着突起的白色斑带（圈内术语叫“横缟[gǎo]”），因为叶尖锐利，纹理形象，所以它们在英语里被称为斑马仙人掌（Zebra Cactus）。#前方密恐预警# 条纹十二卷，图片：小草老师。和景天科多肉植物一样，十二卷形态多变，颜色丰富，但大体来说，它们植株矮小，几乎无茎，叶片多数呈莲座状排列，少为两列生长或螺旋形排列。十二卷种类极其之多，按照不同标准，分类也不尽相同。为了更好地辨识，我按其叶片质地不同，分为软叶系、硬叶系两大类。 萌萌哒的玉露，是属于软叶还是硬叶呢？图片：succulents.jp 软叶十二卷 软叶系十二卷的叶片质地柔软，肥厚多汁，叶片顶端凸起呈半球形的种类，我们称之为“玉露”；有些种类叶片顶端呈截形，按照叶片的排布可分为“寿”“万象”和“玉扇”这三大类；还有些种类叶片先端纵向平扁，呈三角剑形，没有明显的截面和凸起，如“樱水晶”“小人之座”等。 樱水晶。图片：宁静海的菊石君 软叶十二卷的叶片顶端有着透明或者半透明的部位，我们称之为“窗”，窗面上有各式各样的纹理和突起，这是鉴别品种的重要依据。在原产地干旱的沙砾环境中，软叶十二卷的植株几乎都埋在沙砾里，仅露出“窗”来接收阳光进行光合作用，同时防止植株被阳光灼伤。为了适应环境，它们的窗面有着和周遭环境相似的颜色，起到保护的作用，以逃避天敌的攫食。 H. maraisii，莫瑞沙，一种软叶十二卷，不仔细看很难发觉其存在。图片：The Cactus Trip Diaries 软叶十二卷的品类主要有： 1. 玉露 这几乎是肉粉们最喜欢的软叶品类了，窗面凸起呈水滴状，在光线照射下如露珠般莹润通透，手感如宝玉般温润，“玉露”这名真是恰到好处。玉露以窗面圆润饱满，斑锦罕见者为佳品。常见的姬玉露、帝玉露、草玉露等价格亲民，养护简易，深受肉粉欢迎；价格不菲的冰灯玉露或一些玉露锦则是土豪们的最爱。（为啥我的手不由自主地想捏爆它们呢？） 逆光+低机位，有条件遮上黑幕布，才能拍出玉露窗面惊为天人的美。图为紫肌玉露。图片：哈乃立 2. 寿 叶片上半部往外翻，窗面呈微微凸起的三角形截面，这是“寿”给人的最大印象。窗面上经常可见各种脉纹和疣突，脉纹的样式、疣[yóu]突的大小、窗的通透度和斑锦的排布，造就了“寿”品种无与伦比的丰富度。常见的品种有康平寿、芷寿、青鸟寿；高端的品种有白帝城、冰砂糖、阿寒湖、史扑鹰爪、青蟹等。一颗品种好的寿可跻身万元俱乐部，价格让普通肉粉望而却步，却引得高端玩家趋之若鹜。 寿。图片：小草老师 韩国大神zusung家的寿，夜森林Haworthia 'Night Forest' 美得让人窒息。图片来源见水印 3. 玉扇 这一种类又叫“截形十二卷”，肉质叶排成两列对生，侧面看像一把折扇，英语则叫马的牙齿（Horse's teeth）。叶片顶部为略呈弧形的窗面，其上也有各种脉纹和疣点，或平滑或粗糙。一颗价值高的玉扇通常叶片排布规整，窗面脉纹美观。绿玉扇H. truncata在市面上最常见，价格也非常亲民；像写乐、鬼岩城、青鸾、玄武等则是玉扇中的贵族，小老百姓买个侧芽玩玩也要因为价格纠结一番。 玉扇锦：大海原。图片：miyatake30 / flickr 4. 万象 这又叫毛汉十二卷，是玉扇的变种。万象肉质的叶片近似圆柱状，莲座状排列生长，窗面平截，很像是大象的脚底板，它的观赏点集中在窗面的纹理和叶片的斑锦变异上。在软叶里面，万象算是生长最为龟速的一类了，每年只长个一两片叶子，每片叶子都弥足珍贵。不管什么品种，万象的身价一直居高不下，像雪国、稻妻、天照、欧若拉、多浪哥、紫镜等品系的万象，都是名副其实的土豪十二卷；若是出了锦，那更是身价剧增，可遇不可求。 万象“火焰”H. maughanii 'Fire'，太美了！图片：Pinterest 硬叶十二卷 相对软叶十二卷的高涨人气来说，硬叶十二卷因为品类较少、外形单一，稍显冷门了。它们叶片如披了层铠甲一样坚硬，强厚的角质层和蜡质可最大限度减少水分散失。一般来说，硬叶十二卷叶片顶部并无窗面的结构。 硬叶十二卷拼盆。今天的主角条纹十二卷，也是硬叶十二卷的一种哦。图片：进击的多肉 见过十二卷开花么？花也有条纹，是不是萌萌哒？图片：Andrew Pizzinato / Flickr 硬叶十二卷观赏点更多是集中在叶片的排布和叶表的纹理疣突上。叶片排布比较猎奇的，如尼古拉H. nigra，日本称为“黑鲛”，它们盔甲一样的叶片交互叠生\n\n… [6924 chars truncated]"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_017ztfAH56Q89i3q5CPsEyr8",
+          "name": "search",
+          "args": {
+            "query": "十二卷属 玉露品种 分类 cooperi 帝玉露 姬玉露 冰灯玉露 草玉露",
+            "topn": 8
+          },
+          "result": "A Google search for '十二卷属 玉露品种 分类 cooperi 帝玉露 姬玉露 冰灯玉露 草玉露' found 8 results:\n\n## Web Results\n\n0. [8 大經典玉露介紹，小孩子才做選擇，我全都要！](https://www.natertek.com/blogs/succulent-type-intro/succulent-8-cooperi-introduction?srsltid=AfmBOopYxm0iimN-ckg6s7BOHOH4nwxLWJgzqetoh0WIdlEJhEhhPrtT)\nDate published: Jun 28, 2022\n多肉植物中的玉露有著透亮、水嫩猶如露水般的葉片質感，因而得名。學名為「haworthia cooperi」，為阿福花亞科十二之卷屬的一種植物。 玉露一直是多肉 ...\n\n1. [大叔带你一起来养多肉肉之玉露多肉百科详细介绍！ - 知乎](https://www.zhihu.com/column/p/21326018)\nDate published: Jun 8, 2016\n二名法：Haworthia cooperi. 界：植物界. 门：被子植物门. 纲单子叶植物纲. 目：龙舌兰目. 科：百合科. 属：十二卷属. 种：玉露. 分布区域：全球. 原产地：南非.\n\n2. [這種十二卷（玉露？）的品種辨識和養護小撇步？細節都在留言區。](https://www.reddit.com/r/succulents/comments/6jsslf/id_and_care_tips_for_this_haworthia_cooperi/?tl=zh-hant)\nDate published: Jun 27, 2017\n很多比較大的cooperi 只要保持涼爽，就能承受很多光照。Var. leightonii 在野外是全日照生長的；我的至少要透過窗戶接受半天的陽光才能變成漂亮的紅色（在 ...\n\n3. [大型玉露品种大全图解｜姬玉露与冰灯玉露的形态差异辨识要点 - 淘江湖](https://jianghu.taobao.com/detail/47750_63760123?userIdStr=Om9hXFHuMChevk*evmkbMm*HPCPIvmxbPkkSMCgGvHcT)\nDate published: Jan 25, 2026\n常见大型品种包括姬玉露（Haworthia cooperi var. truncata）、冰灯玉露（H. cooperi 'Bingdeng'）等，二者在窗面透明度、叶缘软刺分布及株型舒展度上存在可 ...\n\n4. [玉露系列一晒就挂？分不清的多肉十二卷属常见品种 - 搜狐](https://www.sohu.com/a/136125411_362839)\nDate published: Apr 24, 2017\n玉露属于百合科十二卷属多肉，150多种十二卷属多肉植物，根据植株和叶的形态被分为两类：硬叶类和软叶类。 硬叶类叶质比较硬，大多数品种页面上有白色斑点，叶 ...\n\n5. [阿福花科十二之卷(Haworthia)簡介-玉露篇](https://vocus.cc/article/63bd841bfd8978000139e679)\nDate published: Jan 10, 2023\n玉露(Haworthia cooperi)為阿福花科十二卷属多肉植物品種, 形體小巧玲瓏 ... 壽系(H.retusa)是只有葉片上方才有窗的品種，是十二之卷屬最為豐富 ...\n\n6. [多肉玉露十二个品种 - 百度经验](https://jingyan.baidu.com/article/908080228d6b90bc90c80f2c.html)\nDate published: Jan 20, 2020\n多肉玉露的十二个品种分为姬玉露、草玉露、圆头玉露、蝉玉露、宫灯玉露、绿玉露、大窗玉露、玉露寿、冰灯玉露、紫肌玉露、帝王玉露和赤线玉露。玉露为 ...\n\n7. [养肉穷三代，十二卷毁一生| 果壳科技有意思](https://m.guokr.com/article/448117/)\nDate published: Jan 11, 2017\n玉露以窗面圆润饱满，斑锦罕见者为佳品。常见的姬玉露、帝玉露、草玉露等价格亲民，养护简易，深受肉粉欢迎；价格不菲的冰灯玉露或一些 ..."
+        },
+        {
+          "id": "toolu_vrtx_01BTCEiT9jjzL8FBc2StMUV3",
+          "name": "search",
+          "args": {
+            "query": "十二卷属 寿 品种分类 康平寿 克里克特寿 青蟹 白帝城",
+            "topn": 8
+          },
+          "result": "A Google search for '十二卷属 寿 品种分类 康平寿 克里克特寿 青蟹 白帝城' found 8 results:\n\n## Web Results\n\n0. [写给新朋友的十二卷不完全介绍](https://zhuanlan.zhihu.com/p/370830447)\nDate published: May 9, 2021\n先从寿开始慢慢聊吧，在寿里面包含的品种非常多，每个系列都是从原生单种，渐渐开发而形成的。目前开发度比较高的系列如下。1：克里克特2：白银3：青蟹 ...\n\n1. [十二卷寿类详细划分- 日记- 豆瓣](https://m.douban.com/note/604739171/)\nDate published: Feb 3, 2017\n十二卷寿类详细划分 · 1、Haworthia bayeri 可里克特寿该种有很多的变化，如窗口纹路就分为无纹、绳纹和网纹。 · 2、Haworthia emelyae 这个种又分为4个变种 ...\n\n2. [寿类十二卷图鉴·软叶篇 - 知乎专栏](https://zhuanlan.zhihu.com/p/63158094)\n日本园艺界仍在用H. correcta（克里克特）来指代贝叶寿，但这是个错误的用法，H. correcta是白银寿（H. emelyae）的旧名，早已弃之不用。 有趣的是，如果你把一滴水滴在贝叶寿 ...\n\n3. [【转载】 今天闲来说说\"寿\"这个大类， 以下将会涉及到的内容有 ...](https://www.facebook.com/100070596935018/posts/%E8%BD%AC%E8%BD%BD%E4%BB%8A%E5%A4%A9%E9%97%B2%E6%9D%A5%E8%AF%B4%E8%AF%B4%E5%AF%BF%E8%BF%99%E4%B8%AA%E5%A4%A7%E7%B1%BB%E4%BB%A5%E4%B8%8B%E5%B0%86%E4%BC%9A%E6%B6%89%E5%8F%8A%E5%88%B0%E7%9A%84%E5%86%85%E5%AE%B9%E6%9C%89%E4%B8%BB%E6%B5%81%E7%9A%84%E5%9F%BA%E7%A1%80%E5%90%8D%E7%A7%B0%E5%88%86%E7%B1%BB%E5%93%81%E7%A7%8D%E7%89%B9%E5%BE%81%E4%BB%A5%E5%8F%8A%E4%B8%80%E4%BA%9B%E5%9B%BE%E4%BE%8B%E5%A6%82%E6%9E%9C%E4%BD%A0%E6%98%AF%E8%80%81%E7%8E%A9%E5%AE%B6%E6%AC%A2%E8%BF%8E%E6%9F%A5%E6%BC%8F%E8%A1%A5%E7%BC%BA%E6%9C%AC%E5%B8%96%E6%97%A8%E5%9C%A8%E5%8C%BA%E5%88%AB%E9%82%A3%E4%BA%9B%E9%9A%8F%E4%BE%BF%E6%8F%92%E4%B8%AA%E7%89%8C%E5%AD%90%E5%86%99%E4%B8%AA%E5%90%8D%E5%AD%97%E7%9A%84%E5%93%81%E7%B1%BB%E9%81%BF%E5%85%8D%E6%96%B0/835876739936073/)\nDate published: May 22, 2018\n... 的一些品种名，排名不分先后） 一、贝叶Haworthia. Bayeri（又名克里克特, Haworthia. Correcta） 二、康平Haworthia. Comptoniana 三、青蟹Haworthia.\n\n4. [十二卷屬- 維基百科，自由的百科全書](https://zh.wikipedia.org/zh-tw/%E5%8D%81%E4%BA%8C%E5%8D%B7%E5%B1%9E)\n十二卷屬植物同蘆薈一樣同屬阿福花亞科，外觀通常類似微型蘆薈，特點在於花與之不同，植株型態不如蘆薈高大。目前園藝栽培上廣為花園露地栽培或盆栽應用。其屬名是為紀念英國 ...\n\n5. [【扩展阅读】浅谈青蟹类原始种及其命名体系](https://www.23h8.com/10706.html)\n文章来源于微信公众号：Eutopia，作者：杨区区青蟹寿拉丁文名：Haworthiamagnifica var.splendens.简称H.splendens.这个品种学名以前是放在Haworthia magnifica.\n\n6. [养肉穷三代，十二卷毁一生| 果壳科技有意思](https://m.guokr.com/article/448117/)\nDate published: Jan 11, 2017\n常见的品种有康平寿、芷寿、青鸟寿；高端的品种有白帝城、冰砂糖、阿寒湖、史扑鹰爪、青蟹等。一颗品种好的寿可跻身万元俱乐部，价格让普通肉粉望而却步，却 ...\n\n7. [寿H.emelyae - 多肉联萌](https://www.drlmeng.com/shou.html)\nDate published: Aug 21, 2013\n如康平寿、寿宝殿、克里克大、白银寿、青蟹寿等，而有部分变异种的叶片，会出现黄斑，如寿锦、斑锦等，较其它品种更稀有美丽。这么多的品种，其价格也由几十块 ..."
+        },
+        {
+          "id": "toolu_vrtx_01LNDrwyoQYXZesEvGDqN8pu",
+          "name": "search",
+          "args": {
+            "query": "十二卷属 硬叶系 品种 Haworthiopsis Tulista 条纹十二卷 琉璃殿 分类",
+            "topn": 8
+          },
+          "result": "A Google search for '十二卷属 硬叶系 品种 Haworthiopsis Tulista 条纹十二卷 琉璃殿 分类' found 8 results:\n\n## Web Results\n\n0. [常见十二卷属硬叶类介绍 - 知乎专栏](https://zhuanlan.zhihu.com/p/141885440)\nDate published: May 18, 2020\n十二卷属大致上分为软叶系和硬叶系两大类，硬叶系的特征与其说是叶子坚硬，不如说是花茎坚硬更准确。硬叶系虽然非常多样，但多数没有窗体，因此人气并不是 ...\n\n1. [养肉穷三代，十二卷毁一生| 果壳科技有意思](https://m.guokr.com/article/448117/)\nDate published: Jan 11, 2017\n为了更好地辨识，我按其叶片质地不同，分为软叶系、硬叶系两大类。 ... 普通的如条纹十二卷、琉璃殿、象牙塔、金城等；高端的如天使之泪、恐龙 ...\n\n2. [叶子长满白斑的条纹十二卷，很难被养死的多肉，很适合新手园丁 - 搜狐](https://www.sohu.com/a/486980081_419477)\nDate published: Sep 1, 2021\n条纹十二卷是阿福花科硬叶十二卷里的一个品种，它是原产于南非地区的一种多肉植物，叶子特别硬，是特别耐养的一种多肉植物，即便是没有养过花的园艺新手， ...\n\n3. [外型奇特的多肉植物(1)：十二之卷 - 有肉SUCCULAND](https://succuland.com.tw/brands-project/succulent-haworthia-fasciata/)\n十二之卷Succulent Haworthia fasciata · 百合科十二之卷屬 · 像糖霜的白色疣狀突起點綴在深綠色的葉片上 · 原產地：南非亞熱帶地區 · 春秋季生，適宜生長溫度於：15-28 度C ...\n\n4. [十二卷属简介和分类 - 多肉联萌](https://www.drlmeng.com/3-haworthia.html)\nDate published: Jan 11, 2013\n在众多的十二卷品种中，既有适合普通家庭栽培的条纹十二卷、水晶掌等,用以点缀几案、 书桌、电脑桌、窗台等处，效果独特；也有适合高级爱好者收集栽培的玉扇 ...\n\n5. [这四个都是条纹十二卷吗？ 谢谢！ : r/succulents - Reddit](https://www.reddit.com/r/succulents/comments/1df0ufu/are_all_four_of_these_haworthiopsis_fasciata/?tl=zh-hans)\nDate published: Jun 13, 2024\n不。 Haworthiopsis limifolia var striata Haworthiopsis attenuata (variegated) 最后一个是Tulista pumila。 第三个可能是一个xGasteraloe Royal ...\n\n6. [十二之卷- 植物介紹 - 台北植物園](https://tpbg.tfri.gov.tw/mobile/plant.php?rid=444)\n生活型：多肉植物 · 樹幹及枝條的描述：植株蓮座狀，植株高約10-15cm。 · 葉的描述：葉肉質，狹三角形，中心側平滑，另一側則佈滿凸起白色斑紋。 · 花序及花被的描述：花小，白綠色。\n\n7. [十二卷属 - 抖音百科](https://m.baike.com/wikiid/8923934005996679567)\n全属约150余种，都是多肉植物，很多种类习性强健，栽培要求不高而且耐半阴，甚至冬天对温度要求都不高，因而家庭栽培很普遍，随处可见，观赏主要是茎叶，色彩斑斓，十分好看。 物种 ..."
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_019vZ1nBHAytQUWNYM1FRdHv",
+          "name": "visit",
+          "args": {
+            "url": [
+              "https://zhuanlan.zhihu.com/p/141885440",
+              "https://zhuanlan.zhihu.com/p/370830447",
+              "https://zhuanlan.zhihu.com/p/63158094",
+              "https://www.natertek.com/blogs/succulent-type-intro/succulent-8-cooperi-introduction?srsltid=AfmBOopYxm0iimN-ckg6s7BOHOH4nwxLWJgzqetoh0WIdlEJhEhhPrtT"
+            ],
+            "goal": "十二卷属品种群的详细分类、各品种群下的具体品种、识别特征、分布地区"
+          },
+          "result": "The useful information in https://zhuanlan.zhihu.com/p/141885440 for user goal 十二卷属品种群的详细分类、各品种群下的具体品种、识别特征、分布地区 as follows:\n\nEvidence in page:\n十二卷属大致上分为软叶系和硬叶系两大类，硬叶系的特征与其说是叶子坚硬，不如说是花茎坚硬更准确。硬叶系虽然非常多样，但多数没有窗体，因此人气并不是很高。但十二卷等品种因为非常健壮，已经很普及了，像条纹十二卷等可以说是花店里最容易找到的十二卷属植物，因此也成为了该属的代表植物。\n\n硬叶系一般比较健壮，适合在强光下培养，其常见的种类大致可以分为以下7大种系。\n\n1、【Albicantes】系仅瑞鹤(H.marginata)1种，植株较大型。瑞鹤被称为是十二卷属里的“牡丹”，叶片肥厚而坚硬，呈狭长的三角形形状，叶子呈放射状生长，两侧和背部有透明的硬棱，瑞鹤的花色特别多，有青皮瑞鹤、白折瑞鹤、星点瑞鹤等多种花色。它们的体积稍微比一般的多肉小可爱要大一点，整个植株能达到15厘米左右，\n\n青皮瑞鹤\n\n2、【Coarctatae】系约13种，叶螺旋状生长成塔形，叶尖笔直向上，叶面有白色斑点，而叶背斑点少，植株易生子株。常见品种有青瞳(H.herrei)，叶面布满细小斑点，叶暗绿色；鹰爪(H.reinwardtii var. reinwardtii)等。\n\n青瞳\n\n鹰爪\n\n3、【Limifolise】系仅1种即琉璃殿(H. limifolise)，叶表面有细小硬疣组成的凸起横线，间距均匀，在阳光反射下象琉璃瓦一样，变种有2种，一种是大型琉璃殿(var.schuldtiana)，叶上的横疣隆起较大，另一种是子吹琉璃殿(var.ubomboensis)。\n\n琉璃殿\n\n琉璃殿之光\n\n4、【Margaritiferae】系约10种，螺旋状排列的叶有结节的白斑，叶背白斑连成线状。常见品种有条纹十二卷(H.fasciata)，点纹十二卷(又名龙之爪, H. margaritiferae)，区别在于白点的大小和多少；冬之星座(H.papillosa)，叶上白点成圆圈状，较大。\n\n点纹十二卷\n\n冬之星座\n\n5、【Scabrae】系约3种，叶上白色斑点成纵状排列，叶面有纵状条纹。常见种风车(H.starkiana var. lateganiae)，又名八大龙王，三角形剑状叶浅绿色，较宽厚，页面光滑，无缟纹。\n\n6、【Tessellatae】系约4种，叶表面透明状，有网状纹路，叶缘有坚硬小齿，叶缘向叶面内卷。常见品种龙鳞(又叫“蛇皮掌”，H. tessellatae)，叶上纹理变化丰富，该种变种约有14种，变型品种(园艺栽培品种)十分丰富。\n\n7、【Trifariae】系，常见种有龙城(H.viscosa)。坚硬的三角形叶密集互生，植株呈三角柱状。深绿色叶表粗糙，具细小布纹样疣点。\n\nSummary:\n十二卷属硬叶系分为7个主要品种群：【Albicantes】系仅瑞鹤(H.marginata)，植株大型，叶片狭长三角形，放射状生长，具透明硬棱，花色多样；【Coarctatae】系约13种，叶螺旋塔形，叶面有白色斑点，叶背斑点少，常见品种为青瞳(H.herrei)和鹰爪(H.reinwardtii var. reinwardtii)；【Limifolise】系仅琉璃殿(H. limifolise)，叶面有均匀排列的细小硬疣横线，形似琉璃瓦，有大型琉璃殿(var.schuldtiana)和子吹琉璃殿(var.ubomboensis)两个变种；【Margaritiferae】系约10种，叶螺旋排列，具结节白斑，叶背白斑连成线，常见品种包括条纹十二卷(H.fasciata)、点纹十二卷(又名龙之爪, H. margaritiferae)和冬之星座(H.papillosa)；【Scabrae】系约3种，叶上白色斑点纵状排列，具纵纹，常见种为风车(H.starkiana var. lateganiae)，又称八大龙王；【Tessellatae】系约4种，叶面透明具网状纹，叶缘有硬齿且内卷，常见品种为龙鳞(又名蛇皮掌, H. tessellatae)，变种达14种，园艺品种丰富；【Trifariae】系常见种为龙城(H.viscosa)，叶片坚硬三角形，密集互生，植株呈三角柱状，叶面深绿粗糙，具细小疣点。上述品种群均分布于非洲南部地区，多适应强光环境，植株健壮，是十二卷属中较具代表性的硬叶类群。\n\n=======\nThe useful information in https://zhuanlan.zhihu.com/p/370830447 for user goal 十二卷属品种群的详细分类、各品种群下的具体品种、识别特征、分布地区 as follows:\n\nSummary:\n```json\n{\n  \"evidence\": \"瓦苇 = 十二卷 （你喜欢怎么称呼，随你啦）也就是Haworthia属植物，随着分类不断的变化，从Haworthia属中又分出Haworthiopsis属以及Tulista属。也就是把小型硬叶类和大型硬叶类分了出去，不过在园艺圈，这个变动响应度目前也并不是很高。还是都在称呼十二卷类植物。\\n\\n---------------------------------\\n\\n瓦苇是一种融合性非常强的植物。并且变化非常多。\\n\\n很多种之间都能杂交，育纯选育也会得到更优秀特征的个体。培育一颗属于自己的植物是非常有意思的事情。当然，有些人的目的是为了分享。有些人则是为了赚取一大笔可观的收入。这是一件名利双收的事情，既可以命名一颗自己培育的植物，通过后续的无性繁殖，又能\n\n… [14895 chars truncated]"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01HbQZnKxjeL869AgLfpHoyv",
+          "name": "search",
+          "args": {
+            "query": "十二卷属 万象品种 玉扇品种 具体名称 分类 雪国 天照 写乐 鬼岩城",
+            "topn": 8
+          },
+          "result": "A Google search for '十二卷属 万象品种 玉扇品种 具体名称 分类 雪国 天照 写乐 鬼岩城' found 8 results:\n\n## Web Results\n\n0. [【多肉图鉴】百合科十二卷属之玉扇 - 知乎专栏](https://zhuanlan.zhihu.com/p/42658415)\nDate published: Aug 22, 2018\n广重玉扇. 公认的铭品玉扇四大金刚之一. 3.猛犸玉扇. 霸气. 4.写乐玉扇. 大铭品，是众多名扇的亲本。 5.荒矶玉扇. 铭品玉扇四大金刚之一. 5.歌磨玉扇. 铭品 ...\n\n1. [十二卷属一些玉露、寿、万象品种 - 多肉联萌](https://www.drlmeng.com/wwyxpz.html)\n十二卷中的一些品种. 广重玉扇. 十二卷中的一些品种. 实生玉扇. 十二卷中的一些品种. 写乐玉扇.\n\n2. [玉露系列一晒就挂？分不清的多肉十二卷属常见品种 - 搜狐](https://www.sohu.com/a/136125411_362839)\nDate published: Apr 24, 2017\n十二卷属对光照的要求不像景天科那么多，宜散射光养护。光照充足时，它们的叶片颜色会变成紫黑色或者红紫色，适当遮荫，就又会恢复成绿色。\n\n3. [养肉穷三代，十二卷毁一生| 果壳科技有意思](https://m.guokr.com/article/448117/)\nDate published: Jan 11, 2017\n这又叫毛汉十二卷，是玉扇的变种。万象肉质的叶片近似圆柱状，莲座 ... 不管什么品种，万象的身价一直居高不下，像雪国、稻妻、天照、欧若拉、多 ...\n\n4. [十二卷属多肉植物万象栽培技术研究 - 汉斯出版社](https://www.hanspub.org/journal/paperinformation?paperid=60318)\n万象，为十二卷属多肉植物中生长较为缓慢的一个种类。经过多次对比试验，摸索出其生长需要的较为合理配比的种植基质，此外，需提供温和干燥及阳光充足的环境，掌握“生长季 ...\n\n5. [十二卷属原产地美图欣赏 - 23h8 爱生活吧！](https://www.23h8.com/3988.html)\nHaworthia十二卷属又被称为瓦苇属，是一种小型的多肉植物，原产于南非，生长在灌木丛、杂草丛或者树荫下。 该属品种较多，又可细分为玉露、寿、玉扇、万象和硬叶等，体形差异较 ...\n\n6. [綠玉扇- 維基百科，自由的百科全書](https://zh.wikipedia.org/zh-tw/%E7%BB%BF%E7%8E%89%E6%89%87)\n綠玉扇（學名：Haworthia truncata），又稱玉扇，是阿福花亞科十二卷屬的多肉植物物種，原生於南非共和國西開普省的小卡魯（英語：Karoo），在當地被稱為「馬齒」（horse's teeth） ...\n\n7. [[多肉植物] 百合科多肉種類介紹Haworthia | 狂買園藝](https://www.natertek.com/blogs/succulent-type-intro/haworthia-introduction?srsltid=AfmBOoodY_R2gs9-pSHW_UE_9gr6ex5BhaticENh-WmeD-uQUDJl44ad)\nDate published: Jun 26, 2021\n百合科中，玩家把玩的品種其實非常非常多元，但其中以壽與玉露來的最多，其他還有玉扇、萬象 ... 十二之卷屬Haworthia 來稱呼這些植物。大家在聊天溝通上還是 ..."
+        },
+        {
+          "id": "toolu_vrtx_01Bg7WCkaTofSCt135KpcMWK",
+          "name": "search",
+          "args": {
+            "query": "Haworthia distribution South Africa provinces Western Cape Eastern Cape",
+            "topn": 8
+          },
+          "result": "A Google search for 'Haworthia distribution South Africa provinces Western Cape Eastern Cape' found 8 results:\n\n## Web Results\n\n0. [Distribution - The Genus Haworthia](https://www.haworthia.com/distribution/)\nDate published: Aug 23, 2018\nHaworthias (the species of the genera Haworthia, Haworthiopsis, and Tulista) are near-endemic to South Africa, with a few species have presences in neighboring ...\n\n1. [Where to find them](https://haworthia-gasteria.blogspot.com/2008/01/where-to-find-them.html)\nIf we look at South African provinces, most Haworthias and Gasterias are growing in Western Cape and in Eastern Cape. For distribution map of each species ...\n\n2. [Haworthia genus | PlantZAfrica - SANBI](https://pza.sanbi.org/haworthia-genus)\nThis species occurs in the Western and Eastern Cape, South Africa, from Merweville in the west to Bosberg and Port Elizabeth in the east. It usually grows in ...\n\n3. [Rare Haworthia Truncata Plant in the Little Karoo Region of South ...](https://www.facebook.com/groups/2922785097948853/posts/4342434699317212/)\nDate published: Apr 9, 2025\nIt is endemic to the Little Karoo region of the Western Cape province of South Africa. The desert-like conditions mean most of the plant is ...\n\n4. [The genus Haworthia - Succulentes](https://succulentes.net/en/alooids/haworthia/)\nHaworthiopsis limifolia has a notably eastern distribution (KwaZulu-Natal, Mpumalanga, Eswatini). Tulista: restricted to the Western Cape Province of South ...\n\n5. [Haworthia is a large genus of succulent plants endemic to Southern ...](https://www.facebook.com/jacquiline.cabahug/posts/haworthia-is-a-large-genus-of-succulent-plants-endemic-to-southern-africa-planti/9479796808759731/)\nDate published: Jun 13, 2023\nDistribution and habitat The natural range of this species is in the Eastern Cape Province, South Africa. Here it occurs ...\n\n6. [Update 1 Archives - Haworthia UpdatesHaworthia Updates](https://haworthiaupdates.org/category/update-01/)\nDate published: Jan 1, 2010\nIn the Western, Eastern and Northern Cape Provinces of the Republic of South Africa, all species of the genus Haworthia are classified as ...\n\n7. [[PDF] The genus Haworthia Duval, which consists of ± 85 species and 200 ...](https://repository.up.ac.za/bitstreams/8305677b-7925-4491-926f-750160c13087/download)\n1999). It occurs predominantly in the West- ern and Eastern Cape Provinces, with outliers extend\n\n… [53 chars truncated]"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01HsKsfWDe7TEVqpJVET6ybF",
+          "name": "visit",
+          "args": {
+            "url": [
+              "https://www.haworthia.com/distribution/",
+              "https://succulentes.net/en/alooids/haworthia/"
+            ],
+            "goal": "Haworthia十二卷属各品种群在南非的分布区域（哪些省份），以及Haworthia、Haworthiopsis、Tulista三个属的分布差异"
+          },
+          "result": "The useful information in https://www.haworthia.com/distribution/ for user goal Haworthia十二卷属各品种群在南非的分布区域（哪些省份），以及Haworthia、Haworthiopsis、Tulista三个属的分布差异 as follows:\n\nEvidence in page:\nHaworthias (the species of the genera Haworthia, Haworthiopsis, and Tulista) are near-endemic to South Africa, with a few species have presences in neighboring Namibia, Swaziland, Mozambique and Lesotho. The species grow in both a variety of habitats and at a wide range of altitudes, ranging from ~30 m (H. fasciata) near the coast to ~2,000 m (H. limifolia) at inland localities where frosts can be very heavy. New populations are being found constantly, extending the recognized distribution of many species.\n\nThe rainfall patterns experienced by Haworthias vary from the Mediterranean (rain in winter, dry summer) in the Western Cape to humid-temperature (year-round rainfall) in the Eastern Cape. The most eastern and the northern species experience a summer-only rainfall pattern. The average yearly precipitations vary from 100 mm (H. tesellata) to 700 mm (H. limifolia). Haworthias are not desert plants and none exist in the driest regions of South Africa. The ones in the driest area（e.g. H. arachnoidea) only grow in the most favorable locations, such as at the base of large rocks or in rock crevices, where the run-off from condensation, fog and heavy mist supplies additional and not normally recorded precipitation.\n\nSome Haworthia species (e.g. H. tesellata) have a widespread distribution and may occur in large populations, whereas other species (e.g. H. springbokvlakensis) are only known from a few individuals in a very restricted area. The favorable terrains of each species vary from flat ground to slopes, rocky outcrops or sheer cliff faces, and some species like H. viscosa occupy numerous habitat types. Where two related species meet, there are sometimes natural hybrids with a huge variety of characters within the mixed populations.\n\nSummary:\nHaworthia, Haworthiopsis, and Tulista species are primarily near-endemic to South Africa, with limited occurrences in neighboring countries including Namibia, Swaziland, Mozambique, and Lesotho. They are distributed across diverse habitats and altitudes—from coastal areas near 30 m (e.g., H. fasciata) to inland high elevations up to 2,000 m (e.g., H. limifolia)—and are found in regions with varying rainfall patterns: Mediterranean (winter\n\n… [2487 chars truncated]"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "content": "资料已经非常充分了，现在来为您做一份系统全面的整理。\n\n---\n\n# 🌿 十二卷属（*Haworthia*）品种群分类全解析\n\n## 一、分类体系总览\n\n十二卷属原来是一个大属，2010年代分子系统学研究将其拆分为**三个属**：\n\n| 属名 | 中文俗称 | 物种数 | 叶系归属 | 分布核心区域 |\n|------|---------|--------|---------|------------|\n| ***Haworthia*** | 十二卷属（狭义） | 约42种 | **软叶系** | 南非🇿🇦 西开普省、东开普省、北开普省（少数延伸至自由邦省） |\n| ***Haworthiopsis*** | 小型硬叶十二卷属 | 约18种 | **硬叶系** | 分布较广，南非全境，延伸至莫桑比克🇲🇿、斯威士兰🇸🇿、可能到纳米比亚🇳🇦 |\n| ***Tulista*** | 大型硬叶十二卷属 | 约4种 | **硬叶系** | 仅限南非🇿🇦 **西开普省** |\n\n> 💡 虽然学术上已经拆分，但在园艺圈中，大家仍习惯将这三个属统称为\"十二卷\"。\n\n### 原产地分布详情\n- 十二卷类植物几乎**全部原产于南非**，少数延伸至邻国。\n- 海拔跨度从沿海约30m（如条纹十二卷 *H. fasciata*）到内陆约2000m（如琉璃殿 *H. limifolia*）。\n- **西开普省**是多样性中心：拥有约97个分类群（84个特有种）。\n- **东开普省**紧随其后：约42个分类群（33个特有种）。\n- 它们**不是沙漠植物**，多生长于灌木下、岩石缝隙等半阴处，依靠雾气和露水补充水分。\n\n---\n\n## 二、软叶系品种群详解（*Haworthia* 属）\n\n软叶系是十二卷最受欢迎的类群。叶片质地柔软、肥厚多汁，叶顶多具有**透明或半透明的\"窗\"结构**，是鉴别品种的核心特征。在原产地，植株几乎埋在砂砾中，仅露出\"窗\"接收阳光。\n\n---\n\n### 🔮 1. 玉露品种群\n\n| 项目 | 内容 |\n|------|------|\n| **代表种** | *Haworthia cooperi*（圆头玉露） |\n| **叶系** | 软叶系 |\n| **识别特征** | 窗面**凸起呈水滴状/半球形**，在光线下如露珠般莹润通透，手感温润如玉 |\n| **鉴赏要点** | 窗面圆润饱满、通透度高者为佳；斑锦（出锦）品种更珍贵 |\n| **原产地** | 南非（主要在西开普省和东开普省） |\n\n**常见品种：**\n\n| 品种名 | 特征概述 |\n|--------|---------|\n| **姬玉露** | 小型种，叶片迷你圆润，群生后如珠宝盒 |\n| **帝玉露** | 窗面极通透，历史悠久的经典品种 |\n| **草玉露** | 价格亲民，养护简易，入门首选 |\n| **冰灯玉露** | 窗面巨大通透，曾经价格极高，属高端品种 |\n| **黑肌玉露** | 经典水滴形叶片，光照充足时肌色黝黑，\"龙爪玉露\"为其巨大化品种 |\n| **OB-1玉露** | 最圆润的叶型和大窗，曾为顶级品种，因组培技术普及已变亲民 |\n| **水晶玉露** | 叶型俐落，质感如水晶，反光性强 |\n| **大型蓝镜玉露** | 大盾叶型，在夕阳下呈现淡蓝色光泽 |\n| **赤线玉露（巨大赤线）** | 毛边系代表，叶缘有排刺，窗面极透亮 |\n| **紫肌玉露** | 光照下叶片呈紫色调，色彩独特 |\n| **樱水晶** | 苹果绿底色搭配明显叶脉纹路，知名度极高 |\n| **钻石玉露**（*gordonianas*） | 原生玉露代表，收藏级 |\n| **霓虹灯玉露** | 园艺玉露名品 |\n\n---\n\n### 🏛️ 2. 寿品种群\n\n| 项目 | 内容 |\n|------|------|\n| **代表种** | *Haworthia retusa*（寿/正寿） |\n| **叶系** | 软叶系 |\n| **识别特征** | 叶片上半部外翻，窗面呈**微凸的三角形截面**，窗面常有各种脉纹和疣突 |\n| **鉴赏要点** | 脉纹样式、疣突大小、窗面通透度和斑锦排布，共同决定品种价值 |\n| **原产地** | 南非（西开普省、东开普省），常藏于石缝或砾石堆中 |\n\n\"寿\"是十二卷中**品种最丰富**的一大类，按原生物种可细分为多个系列：\n\n#### 主要原生种系列及园艺方向\n\n| 系列名 | 学名 | 核心特征 | 代表铭品/品种 |\n|--------|------|---------|-------------|\n| **贝叶寿（克里克特）** | *H. bayeri* | 叶面粗糙，窗面有竖纹/网纹，生长缓慢，追求\"云窗\"和\"电路板\"纹路 | JP系列、朱皮特（JUPITER）、JADEA、HAYASHII、latea |\n| **白银寿** | *H. emelyae* var. *emelyae* | 窗面粗糙呈气泡状，窗纹灰色，常有白色斑点；按日本分类分黑/红/白/青/绿/黄六色 | 潘多拉系、黄乳系、舞姬系、蛹子、埃及艳后、白酒杯 |\n| **康平寿** | *H. emelyae* var. *comptoniana* | 大型种（直径可达12cm），窗面光滑，窗纹复杂呈网状 | 阿房宫、月影、花影、水晶康系列、特网、老川黑、白鲸 |\n| **美吉寿（wimii）** | *H. emelyae* var. *major* | 小型种，叶缘有刺毛，窗面有透明肉质刺，分透窗类和白色窗面类 | 砂糖系、毛蟹类 |\n| **青蟹寿** | *H. mirabilis* var. *splendens* | 叶片宽、色深，窗面气\n\n… [4285 chars truncated]"
+    },
+    {
+      "type": "user",
+      "content": "那这些具体品种的话，分别要怎么鉴别呀？每个品种适合用什么花器，容易得什么病虫害呢？"
+    },
+    {
+      "type": "assistant",
+      "thinking": "The user is asking about three aspects for the specific Haworthia varieties:\n1. How to identify/distinguish each variety\n2. What type of containers/pots are suitable for each\n3. What diseases and pests are common for each\n\nThis is a very broad question since we covered many varieties. Let me search for more specific information on these topics.",
+      "content": "这个问题非常细致！涉及的品种很多，让我分别搜索鉴别方法、花器选择和各品种群的病虫害易感性。",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01CHjs35iS8dqQWcnLTKhRJF",
+          "name": "search",
+          "args": {
+            "query": "十二卷属 玉露 寿 万象 玉扇 品种鉴别方法 区分技巧 窗面 叶型",
+            "topn": 10
+          },
+          "result": "A Google search for '十二卷属 玉露 寿 万象 玉扇 品种鉴别方法 区分技巧 窗面 叶型' found 10 results:\n\n## Web Results\n\n0. [這種十二卷（玉露？）的品種辨識和養護小撇步？細節都在留言區。](https://www.reddit.com/r/succulents/comments/6jsslf/id_and_care_tips_for_this_haworthia_cooperi/?tl=zh-hant)\nDate published: Jun 27, 2017\n我把它放在朝東南的明亮窗戶邊，我想知道這對十二卷來說，是不是光照太強了？自從我買了它之後，它的顏色就變淺了。我應該多久澆一次水？我現在大概每1.5 個 ...\n\n1. [呕心总结！堪比九阴真经的十二卷养护攻略](https://zhuanlan.zhihu.com/p/81389326)\nDate published: Sep 6, 2019\n玉扇、万象、康平、小型硬叶类需要的光照强度在12000LX；寿类、青蟹类需要的光照强度在8000~10000LX；玉露在6000LX左右。 LX是一个英文缩写，指照度的国际 ...\n\n2. [十二卷多肉植物中的软叶品种，玉露、寿、玉扇、万象 - 凤凰网](https://ishare.ifeng.com/c/s/7w0xsi56B3Y)\n... 品种也可以尝试. 三、 玉扇. 这是一个相对贵的品种，像好一点的品种可以卖到几万块，价值主要在于植物的大小高度，还有窗面的长度宽度，还有纹路. 四、 万象. 万象则比玉扇 ...\n\n3. [养肉穷三代，十二卷毁一生| 果壳科技有意思](https://m.guokr.com/article/448117/)\nDate published: Jan 11, 2017\n软叶十二卷的叶片顶端有着透明或者半透明的部位，我们称之为“窗”，窗面上有各式各样的纹理和突起，这是鉴别品种的重要依据。在原产地干旱的沙砾环境中，软叶十 ...\n\n4. [玉露系列一晒就挂？分不清的多肉十二卷属常见品种 - 搜狐](https://www.sohu.com/a/136125411_362839)\nDate published: Apr 24, 2017\n硬叶类叶质比较硬，大多数品种页面上有白色斑点，叶形有的像三角形，有的成条状剑形。如，象牙之塔、龙鳞、东之星座等。 软叶类则叶质较软，叶片也是 ...\n\n5. [十二卷屬介紹(Haworthia spp.) 百合科(Liliaceae) －阿福花亞科 ...](https://zh-cn.facebook.com/nikutosaboten/posts/1721252901492798/)\nDate published: Apr 1, 2016\n- 軟葉系的Haworthia屬交種很多，大致分為幾種類型： 寶草系列、玉露系列、壽系列、玉扇系列、萬象系列... ... - 依照窗面上的花紋、葉片的紋路、型態 ...\n\n6. [十二卷属一些玉露、寿、万象品种 - 多肉联萌](https://www.drlmeng.com/wwyxpz.html)\nDate published: Jan 22, 2020\n十二卷有组培（植物组织无菌培养，相当于克隆）非组（叶插，底座苗，侧芽）实生（籽播）同一品种组培比较便宜，非组和实生相当贵。十二卷的锦也可分为阴阳锦，糊斑锦， ...\n\n7. [阿福花科十二之卷(Haworthia)簡介-玉扇、萬象篇](https://vocus.cc/article/63c17e3cfd89780001283648)\nDate published: Jan 13, 2023\n玉扇(H.truncata)和萬象(H.maughanii)型態和玉露及壽完全不一樣。玉扇就像一把扇子，萬象則是螺旋狀向上生長，呈現五角形，截面呈現圓形，像大象的腳。\n\n8. [玉露系列一晒就挂？傻傻分不清楚的多肉植物十二卷属常见品种](https://wapbaike.baidu.com/tashuo/browse/content?id=98b0818a981f83e2d5d5e259)\nDate published: Apr 28, 2017\n“十二卷属多肉怕强光暴晒，光照过强，叶片会变紫褐色，容易形成晒斑，窗面也会变浑浊。若过于荫蔽，会株形松散，叶片瘦长，“窗”的透明度差。\n\n9. [[多肉植物] 百合科多肉種類介紹Haworthia | 狂買園藝](https://www.natertek.com/blogs/succulent-type-intro/haworthia-introduction?srsltid=AfmBOor3lCeIMIy0X1MNRnUuop_Un5GxpNcPIXLAzVphBtF_AtsuvKfU)\nDate published: Jun 26, 2021\n玉扇的窗紋則是最吸引人的，株型更是像一個扇子一樣，非常典雅，玉扇的觀賞特點則分為，窗紋、厚度、窗型。玉扇從中間長出新葉向外擠壓，所以環境穩定度與玩家 ..."
+        },
+        {
+          "id": "toolu_vrtx_01RGCbnDuQxVn9xP9Di1zimu",
+          "name": "search",
+          "args": {
+            "query": "十二卷属多肉 花盆选择 陶盆 紫砂盆 塑料盆 花器搭配",
+            "topn": 10
+          },
+          "result": "A Google search for '十二卷属多肉 花盆选择 陶盆 紫砂盆 塑料盆 花器搭配' found 10 results:\n\n## Web Results\n\n0. [多肉植物花盆到底该怎么选？！大神给你来点干货](https://zhuanlan.zhihu.com/p/392347726)\nDate published: Jul 23, 2021\n正因此对于刚入门的多肉爱好者来说，陶盆的选择无疑是最佳的（因为新手总是管不住自己爱浇水的手）。事件总有两面性，它极强的排水性对于已经熟练掌握浇水习惯 ...\n\n1. [養多肉植物如何選擇花盆？ - YouTube](https://www.youtube.com/watch?v=sFk19YaxEmc)\nDate published: May 17, 2024\nShare your videos with friends, family, and the world.\n\n2. [紫砂盆、红陶盆、塑料盆......养多肉究竟该选哪种盆？ - 新浪新闻](https://news.sina.cn/2019-07-15/detail-ihytcerm3857543.d.html?vt=4)\nDate published: Jul 15, 2019\n夏天，如果给多肉植物换盆，应该选择什么样的花盆呢？南京市绿化园林局专家向市民介绍了换盆小技巧。 花盆的材质没有限制，像陶、瓷、铁 ...\n\n3. [多肉植物与花盆选择](https://www.drlmeng.com/2-huapenxuanze.html)\nDate published: May 27, 2013\n关于花盆器皿的材质花盆通常有瓦盆、瓷盆、紫砂盆、塑料盆、木盆等等，其实坚强的肉肉几乎适合任何一种材质的花盆，不过想要认真养好肉肉，则需要针对不同 ...\n\n4. [再美的多肉也養不好。注意！這幾種花盆別再用了 - 每日頭條](https://kknews.cc/home/y3kq98a.html)\nDate published: Sep 14, 2019\n比如說高樁盆，適合莖幹粗壯且較長的老樁或者懸崖樁，而萬象盆則比較適合像十二卷屬的品種，保水性好。 ... 多肉花盆常見的材質有：塑料，樹脂，粗陶 ...\n\n5. [不是所有的花盆都适合多肉植物，选对了，多肉生长状态变好！ - 网易](https://www.163.com/dy/article/HRTBCTHJ05560B9F.html)\nDate published: Jan 25, 2023\n从透气给水方面来说：陶器透气性好，是刚刚养多肉的朋友的首选。瓷器透气性差，要适当减少浇水频率。以大小差不多的陶盆和瓷盆为例，基本浇水频率是生长期陶盆 ...\n\n6. [十大个性化植物花盆推荐：让您的植物更具特色](https://globalreachceramic.com/cn/blog_details/%E5%AE%9A%E5%88%B6%E8%8A%B1%E7%9B%86)\nDate published: Sep 18, 2025\n但定制花盆的意义远不止于款式。陶瓷或赤陶等材质比塑料更能调节土壤湿度，选择合适的尺寸和排水性，能让植物的根系更健康， ...\n\n7. [各種花盆的種類及選擇?](https://kmweb.moa.gov.tw/knowledge_view.php?id=3621)\n陶盆可使溼度及空氣通過，對排水透氣有益。 且較典雅協調性高，但易碎搬運困難。 塑膠盆輕，運送方便。 但對溼度及空氣不能通 ...\n\n8. [玉露十二卷多肉花盆透气粗陶多肉植物小紫砂陶瓷小老桩高花盆套装](https://my.world.taobao.com/item/TmtjY1JsRjlzeGxXOWxmZ3JoRzhxdz09.htm)\n玉露十二卷多肉花盆透气粗陶多肉植物小紫砂陶瓷小老桩高花盆套装，品牌：无品牌，风格：简约，货号：a01pCd7G，材质：其他，尺寸：标准，适用对象：花卉/绿植，适用空间：大堂， ...\n\n9. [[*多肉花盆*]多肉盆的材質&器型&搭配什麼樣的多肉會好看。 - YouTube](https://www.youtube.com/watch?v=Qagx6wqGoG0)\nDate published: Jan 7, 2022\n多肉盆# 搭配多肉# 器型# Succulent pot # 空氣盆# 白泥盆# 黑泥盆# 紅陶盆# 麥飯石盆# 冶陶盆# 高溫釉盆# 塑料盆# 瓷盆# 手工盆# 韓盆# 不同地區和 ..."
+        },
+        {
+          "id": "toolu_vrtx_01SX8WonnMePArX6awaa3zFn",
+          "name": "search",
+          "args": {
+            "query": "十二卷属 各品种 病虫害 玉露烂根 万象黑腐 玉扇 介壳虫 根粉蚧",
+            "topn": 10
+          },
+          "result": "A Google search for '十二卷属 各品种 病虫害 玉露烂根 万象黑腐 玉扇 介壳虫 根粉蚧' found 10 results:\n\n## Web Results\n\n0. [多肉栽植技术，太全面了！一学就会！（建议收藏）](https://zhuanlan.zhihu.com/p/494724716)\n1、十二卷属：常见有条纹十二卷，宝草，玉露，寿，金城，龙鳞，玉扇，万象 ... 根粉蚧也是介壳虫的一种，专门危害植株根部。一般不易发现，植株受害后水灵光亮的 ...\n\n1. [多肉植物](https://sharefoundation.org/detail/gasp32698674?id=2714932)\n芦荟属（Aloe）：库拉索芦荟、不夜城芦荟、翠花掌、鬼切芦荟、琉璃姬孔雀、雪花芦荟等. 十二卷属/瓦苇属（Haworthia）：玉露、寿、玉扇、万象、龙鳞、条纹十二卷、 瑞鹤等.\n\n2. [[PDF] 十二卷属多肉植物万象栽培技术研究](https://pdf.hanspub.org/br20230100000_20877346.pdf)\nDate published: Jan 9, 2023\n摘要. 万象，为十二卷属多肉植物中生长较为缓慢的一个种类。经过多次对比试验，摸索出其生长需要的较为. 合理配比的种植基质，此外，需提供温和干燥及阳光 ...\n\n3. [十二卷植物的生长习性全解析:从新手到高手,打造健康美观的多肉王国 ...](https://khaki.valmax.org/)\n高温高湿是导致十二卷烂根、黑腐的主要原因。 光照: 必须进行强力遮阳。夏季中午的直射阳光对十二卷是致命的。遮阳网的遮光率建议在50%-70%。将其放置在通风良好、散射 ...\n\n4. [养肉穷三代，十二卷毁一生| 果壳科技有意思](https://m.guokr.com/article/448117/)\nDate published: Jan 11, 2017\n这又叫毛汉十二卷，是玉扇的变种。万象肉质的叶片近似圆柱状，莲座状排列 ... 要养好玉露，种植用土（植料）要疏松透气，长期积滞水分会导致烂根，可以适当提高颗粒 ...\n\n5. [多肉十二卷的养殖方法及注意事项，花友必看！ - 惠农网](https://www.cnhnb.com/xt/article-57872.html)\nDate published: Sep 1, 2021\n十二卷从叶子上划分，可分为硬叶和软叶两种。常见的软叶品种有玉露、寿、玉扇和万象等，目前市面上的软叶多肉要比硬叶多肉更受 ...\n\n6. [十二卷属](https://cn.haworthia.com/)\n十二卷（Haworthia）是在非洲南部生长的一属多肉植物，以英国植物学家阿德里安·哈沃斯（Adrian Haworth）命名。十二卷体型较小，多数有着低矮的花朵状多肉叶片。\n\n7. [多肉植物Haworthia的病蟲害管理](https://vocus.cc/article/65b7ba57fd897800019676c6)\nDate published: Feb 19, 2024\n腐生性蠅類，通常對健康的成株十二之卷無害，但是，當十二之卷爛根爛葉的時候，會吸引黑翅蕈蚋在植物傷口產卵，孵化的幼蟲會以爛掉的組織為食物，植物很快會被啃 ...\n\n8. [十二卷的养护管理以及盆景制作方法- 好花网](https://www.haohua.com/huayu/50116.html)\nDate published: Mar 4, 2019\n十二卷是近年较为流行的小型多肉植物，其品种繁多，形态各异，株形小巧玲珑，清秀典雅，非常适合个人栽培观赏。在众多的十二卷品种中，既有适合普通家庭栽培 ...\n\n9. [九种不易黑腐的十二卷属多肉，便宜好看又好养，选它们准没错- 知乎](https://zhuanlan.zhihu.com/p/433245839)\nDate published: Nov 14, 2021\n在天气凉爽的季节，要注意经常给玉露浇水（盆土微干浇水）；温度过高时要注意控水和遮阴，冬天则要多给阳光，保持温暖，最低温维持在7度以上。 第二种，条纹十二卷 ..."
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01T2oXvZ4TBZYABS2QcQwLQZ",
+          "name": "visit",
+          "args": {
+            "url": [
+              "https://vocus.cc/article/65b7ba57fd897800019676c6",
+              "https://pdf.hanspub.org/br20230100000_20877346.pdf",
+              "https://khaki.valmax.org/"
+            ],
+            "goal": "十二卷属各品种群（玉露、寿、万象、玉扇、硬叶）的具体病虫害类型、症状描述和防治方法"
+          },
+          "result": "The useful information in https://vocus.cc/article/65b7ba57fd897800019676c6 for user goal 十二卷属各品种群（玉露、寿、万象、玉扇、硬叶）的具体病虫害类型、症状描述和防治方法 as follows:\n\nEvidence in page:\n介殼蟲\n\n外觀像有白色毛絮的小蟲，通常分成粉介殼蟲、盾介殼蟲和根介殼蟲，會從植物的根莖葉吸取汁液，讓植物慢慢衰弱死亡。介殼蟲通常很狡猾的，藏在葉背、葉腋或節間等不容易發現的地方，有時發現的時候通常已經繁殖到非常多的數量！\n\n當發現病株時，先進行隔離，搭配施用殺蟲劑農藥(益達胺、賽速安)或用肥皂水、葵無露進行防治，並且徹底清除盆栽周邊的螞蟻(因為螞蟻和介殼蟲是互利共生)，應可逐漸改善，如果蟲體數量少，也可以進行物理型防治，用軟毛刷或鑷子移除蟲體。\n\n黑翅蕈蚋\n\n腐生性蠅類，通常對健康的成株十二之卷無害，但是，當十二之卷爛根爛葉的時候，會吸引黑翅蕈蚋在植物傷口產卵，孵化的幼蟲會以爛掉的組織為食物，植物很快會被啃光。\n\n對剛播種的幼苗危害很大，會鑽入幼苗的根莖啃食。可用殺蟲劑防治、介質減少有機質比例(不確定是否完全腐熟，會吸引成蟲)、避免使用有機肥及栽培介質消毒等方法防治。受傷的植物挖除腐爛的組織，可用1%過氧化氫水溶液(雙氧水)消毒後，乾燥重新發根。\n\n爛根及爛葉\n\n十二之卷的根是「蘿蔔根」，一般來說，粗肥的根表示植物蓄積很多養分在根部，細白的根表示植物吸水吸養分的能力很強，十二之卷在生長期會長大量的細根蓄積養分，在休眠期消耗粗肥根的養分，以利下一次生長季再長出新根新葉。\n\n這樣的「蘿蔔根」或是「肉質根」其實是有壽命，會新陳代謝，正常老化的根會乾枯木質化，然後空洞化，變得像一層老皮。反之「爛根」，是因為澆水過多，管理不當，這時植物狀態如果不穩定，有傷口，細菌容易侵入感染，造成組織腐敗，這時候就會有腐臭味，植物也會因為根部爛掉無法抓住土壤而鬆動，可以輕易拉起。\n\n因為十二之卷葉子緊密排列，有時候爛根會連帶造成爛葉。正常的葉子老化是乾燥的，像皮屑，爛掉的葉子會呈現褐綠色、軟爛且有腐臭味，有時候還可以看到扭動的蛆(蕈蚋的幼蟲)。另一個導致爛葉的原因是夏天澆水時水積在植物中心爛掉，這個細節在養護知識分享part1有提到。\n\n爛根的處理原則是挖除所有腐爛的組織、消毒、乾燥，再重新發根，挖除的工具(如切牙刀)也要充分消毒避免感染其他植株。\n\n生長點爛掉的玉露\n\n傷口處理及發根\n\n以上原因造成植物傷口及爛根時，Kent是先配1%過氧化氫水溶液(或1%次氯酸鈉水溶液，漂白水)消毒胴切刀(側芽刀)，然後用去除傷口周邊的葉、根，用胴切刀把爛掉的組織挖除，然後把植物放在陰暗通風處風乾1至3天，等切口完全乾燥後，再進行發根的程序。\n\n發根的植物入盆時，要使用乾燥的介質(傷口碰水會繼續爛，又要再重來上述步驟)，發根用介質可以赤玉土(超級萬用)搭配一些疏水顆粒土。澆水時沿著盆器四周(避免往植物中心澆水)，讓盆器內的水氣誘導植物發根，等長出新根後，葉子會因根部吸水產生膨壓，恢復飽滿透亮的狀態。\n\nKent在臉書社團上團購買的胴切刀\n\n上面那棵植物處理好傷口，反而長出更多側芽\n\nSummary:\n十二卷屬（包括玉露、壽、萬象、玉扇、硬葉等品種）常見病蟲害主要包括介殼蟲與黑翅蕈蚋。介殼蟲外觀似白色毛絮，藏於葉背、葉腋或節間，吸食植株汁液導致衰弱，防治方法包括隔離病株、使用殺蟲劑（如益達胺、賽速安）或肥皂水、葵無露，清除螞蟻並進行物理清除。黑翅蕈蚋為腐生性蠅類，主要危害爛根爛葉的植株，其幼蟲啃食腐爛組織，對幼苗危害尤大，防治需減少介質有機質、避免使用有機肥、消毒栽培介質，並清除腐爛組織後以1%過氧化氫水溶液消毒，風乾後重新發根。爛根與爛葉多因澆水過多、管理不當所致，表現為根部腐臭、鬆動，葉片褐綠軟爛且有臭味，偶見蛆蟲。處理時應挖除腐爛組織，徹底消毒工具與傷口，風乾切口1至3天後，以乾燥赤玉土搭配疏水顆粒土重新發根，並沿盆邊澆水避免傷口接觸水分，待新根長出後植株可恢復飽滿狀態。\n\n=======\nThe useful information in https://pdf.hanspub.org/br20230100000_20877346.pdf for user goal 十二卷属各品种群（玉露、寿、万象、玉扇、硬叶）的具体病虫害类型、症状描述和防治方法 as follows:\n\nEvidence in page:\nThe provided webpage content focuses specifically on the cultivation technique of *Haworthia maughanii*, a species within the genus *Haworthia* (commonly referred to as 'twelve-plant' or 'shishu' in Chinese). It mentions that 'it is also necessary to control effectively the insect pests such as scale insects and root rot, which are easy to occur in summer.' However, the document does not provide any information about other *Haworthia* varieties such as 'Yulu' (玉露), 'Shou' (寿), 'Wanxiang' (万象), 'Yushan' (玉扇), or \n\n… [2512 chars truncated]"
+        },
+        {
+          "id": "toolu_vrtx_015sT1YQFJ11Rg2My1xQUaR6",
+          "name": "visit",
+          "args": {
+            "url": [
+              "https://www.drlmeng.com/2-huapenxuanze.html",
+              "https://vocus.cc/article/63c17e3cfd89780001283648"
+            ],
+            "goal": "十二卷属不同品种群（玉露、寿、万象、玉扇、硬叶）适合的花盆材质、大小、深浅选择，以及品种鉴别特征"
+          },
+          "result": "The useful information in https://www.drlmeng.com/2-huapenxuanze.html for user goal 十二卷属不同品种群（玉露、寿、万象、玉扇、硬叶）适合的花盆材质、大小、深浅选择，以及品种鉴别特征 as follows:\n\nEvidence in page:\n多肉类植物品种繁多，全世界多肉植物的种类多达上万种，再加上园艺技术的进步和普及，各种层出不穷的各种园艺品种更是让你眼花缭乱。不同品种，不同的长相，甚至连根系都有所差别，譬如十二卷类的主根粗壮，更适合深盆，当你从入门级过度到喜爱级，想知道更多类似于\"什么样的肉肉应该种在什么样的盆里\"\"什么样的办公环境适合哪种肉肉\"就需要储备更多相关知识了。\n\n关于种植花盆的大小\n\n不同的多肉需要用不同的方式来养，也需要搭配不同材质的花盆。但总的来说，大部分多肉一般形态较小，再加上多肉本身（十二卷例外）就不喜欢太深的容器，所以可以选择和多肉体型相近的花盆，尤其现在迷你封盛行，精致小巧的花花盆配合上萌态可掬的多肉，简直就是天作之合。关于多肉植物的花盆搭配还可以参看这篇文章，给多肉植物一个别致的家：https://www.drlmeng.com/3-pots.html\n\n小花盆除了有美的优势外，还有质的优势，多肉植物的根系一般不是十分发达，土壤过多，水分一时挥发蒸腾不了，容易导致腐烂。所以可以本着\"宁小勿大，宁浅勿深\"的原则选盆。此外，就仙人球和一些球茎类多肉来说，选盆可以选择球径和盆径基本相当，或者盆径略大于球径一两公分，小球最好多株混栽。栽培土壤的深度最多是球径的两倍，就是说球径如果是5厘米，土壤深度有10厘米就行了，对于大球而言则可以更浅一些。越是大球，所消耗的水分和养分越少，盆土过多不但没用，而且容易导致腐烂。如果花盆过深就要注意在底部多加非土壤填充物。\n\n关于花盆的透气\n\n目前市面上有令人眼花缭乱的，各式各样漂亮、别致、有设计感的瓷质花器可供大家选择，从外形、色彩、品种多样性上来讲，瓷器的确要优于陶器。艺术瓷器放在家居环境中也比陶器要更加彰显出品质感和现代感，各种釉色、图案也是一种视觉享受。但是由于瓷器的物理结构上的弱点，因此建议大家在选择瓷器作为多肉植物的容器花器时，一定要选择底部有开孔的，或者用电钻打一个眼。这个话题已经老生常谈了，花盆为什么要透水透气？为什么要保持土壤的通透性？大家不要单纯以为植物只有地上部分需要呼吸和空气交换，地下部分也同样需要。植物的根系不是结结实实地埋在水泥地里，而是在一个充满固态、液态、气态的环境中生长的，地上地下是两面开弓、同时生长，你可以把地下部分想象成植物的倒影，一棵植物地上有多么枝繁叶茂，完全取决于地下有多么根深蒂固。为什么经常在大雨过后要给户外植物松土，因为雨水的冲刷造成土壤板结，容易造成根部窒息。又为什么说蚯蚓是益虫呢？因为蚯蚓经常在地下钻洞，能使得土壤疏松，改良土壤。这些在小时候课本上都学过。\n\n所以容器是否透气，是给肉肉们选择花盆时最重要的一个标准。普通的素陶花盆就是透气性最好的、肉肉最喜欢的\"家\",市面上有很多彩陶的花盆，样子可爱，但是透气性较差，但是中和一下素陶花盆太透气的特点，反而成了不错的选择，只是如果想要买彩陶花盆的人，一定要选择底部有排水孔的。如果实在对那些美丽的无孔花器着迷的话，可以在无孔容器底部先放一层排水良好的轻石甚至是煤渣、泡沫等，每次浇透倾倒出多余的水就可以了。\n\n关于花盆器皿的材质\n\n花盆通常有瓦盆、瓷盆、紫砂盆、塑料盆、木盆等等，其实坚强的肉肉几乎适合任何一种材质的花盆，不过想要认真养好肉肉，则需要针对不同材质的花盆，做好一些准备工作。\n\n瓦盆：又称泥盆、素烧盆。瓦盆最大的优点是透气且便宜，其盆壁有细微的孔隙，有利于土壤中养分的分解和排湿透气，使花卉根系能获得正常生长。其不足之处是质地粗糙、松脆易碎，美观度较差。选购时注意：盆面有光泽，敲起来声音清脆的质量好；声音沉闷、色泽暗淡的，就是火候不到，使用不长时间会发生酥裂而报废。但正因为它太透气，有人说不适合多肉植物种植，原因是盆边沿的土壤十分容易干，特别是在烈日暴晒之下，盆边沿的根系容易受伤害（盆边沿的须根最多）。现在有些素烧盆工艺精进了不少，不仅外观漂亮了不少，在透气上也有了点改进，变得不那么透气，更适合种植一些小植物。\n\n红陶盆：透气性和瓦盆差不多。他们共同的缺点就是，一旦盆小，太透气了，就变得保水能力不强，很容易就干透了。\n\n瓷盆：虽然漂亮，但不太透气盆，因此要注意解决透气问题，盆中心位置可以空出来的（例如多个植株混栽），最好使用直通式透气管。但直通式透气管制作过程较麻烦，且一般适用于大型瓷盆，我们在办公桌上堆放的多为中小型瓷盆。中小瓷盆的透气系统制作方式则简单很多，中瓷盆用一个饮料瓶剪掉上半部，只用下半部，周身打孔，倒扣在漏水孔上就行了，注意在饮料瓶底面的低洼处打孔，否则会积水。小型瓷盆用一个稍大些的塑料瓶盖周身打孔，扣在漏水孔上，这叫做透气罩，记得都要在口沿处剪上缺口。相对漏水孔的透气面积而言，加装透气管的办法可以有效增加透气面积几十倍，对栽培多肉植物以及其它怕水渍的花卉品种是一个十分重要的措施，不要小看这个步骤。\n\n紫砂盆：漂亮，透气性介于瓦盆和瓷盆之间。选购紫砂盆除了美观和价格外，需要特别注意盆壁的薄厚，越是薄壁的紫砂盆透气性越强，盆壁老厚那种的透气性和瓷盆差不多。大的紫砂盆也应该采取和瓷盆一样的透气措施，对植株生长比较有利。中小盆则采取扣透气罩的办法比较好。\n\n塑料盆：透气性不好，解决办法除了采取透气管的方法之外，还可以在盆体中下部用针扎眼，如果为了美观，可以先在纸上画一个简笔画图案，然后贴在花盆上，照着图案线条密集扎眼，既好看又透气。盆上部不要扎眼，容易漏水。\n\n木盆\n\n… [1637 chars truncated]"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01Nquqca6FLkjQxoJSqWZDYi",
+          "name": "search",
+          "args": {
+            "query": "十二卷 万象盆 深盆 玉露花盆 寿花盆选择 根系特点 萝卜根",
+            "topn": 8
+          },
+          "result": "A Google search for '十二卷 万象盆 深盆 玉露花盆 寿花盆选择 根系特点 萝卜根' found 8 results:\n\n## Web Results\n\n0. [多肉小心事，十二卷之我见 - 知乎专栏](https://zhuanlan.zhihu.com/p/37919519)\nDate published: Jun 10, 2018\n因为十二卷属软叶的根系多是萝卜根，根系发达但是根少，对透气程度要求较高。所以在盆器的选择上应该选择较高透气性较好盆器。比较常用的是用万象盆，因为 ...\n\n1. [多肉界的能量柱：十二卷属萝卜根的养护秘诀 - YouTube](https://www.youtube.com/watch?v=vwkG7q0Fazk)\nDate published: Jun 11, 2024\nShare your videos with friends, family, and the world.\n\n2. [景天、十二卷、番杏、仙人球……小花园大梦想！ - 搜狐](https://www.sohu.com/a/292268295_178297)\nDate published: Jan 29, 2019\n它的根系就像小萝卜一样的，一般玩球球的都叫萝卜根。平时管理都是坚持干透浇透的。冬季低温时期需要控水促进它的休眠。只有维持了正常的冬季休眠才能 ...\n\n3. [十二卷属多肉植物万象栽培技术研究 - 汉斯出版社](https://www.hanspub.org/journal/paperinformation?paperid=60318)\n万象，为十二卷属多肉植物中生长较为缓慢的一个种类。经过多次对比试验，摸索出其生长需要的较为合理配比的种植基质，此外，需提供温和干燥及阳光充足的环境，掌握“生长季 ...\n\n4. [新手必看：30天养出晶莹玉露和木质化金枝玉叶的保姆级攻略](https://post.smzdm.com/p/anvz6vp7)\n无论哪类，盆底务必垫陶粒或火山石作排水层。玉露选深红陶万象盆，金枝玉叶选浅口粗陶盆。新购苗或换盆时，轻抖宿土、剪除枯烂根，晾根1-3天至伤口干燥再上盆，上盆后 ...\n\n5. [圆润丰满的十二卷你知道怎么养吗？ - 网易](https://www.163.com/dy/article/DKIN0O140512PDTO.html)\nDate published: Jun 18, 2018\n十二卷的根系十分强大，都是像萝卜一样的粗根，不像景天的须根那样脆弱，这也是我选择纯颗粒的原因。 铺面铺面其实主要看美观了，可以用赤玉，或者硅 ...\n\n6. [十二卷多肉植物的花盆选择（上集）](https://www.bilibili.com/video/BV1zvNqeGEbq/)\n十二卷多肉植物的花盆选择（上集）. 小杨肉卷小课堂. 相关推荐. 查看更多. 十二 ... 十二卷多肉植物根的结构与功能（上）. 2786 1. 02:22. App. 十二卷多肉植物根的结构与 ...\n\n7. [我的十二卷為什麼會這樣: r/succulents - Reddit](https://www.reddit.com/r/succulents/comments/1583s7o/why_is_my_haworthia_like_this/?tl=zh-hant)\nDate published: Jul 24, 2023\n根球應該佔用可用空間的1/2-2/3，任何更大的空間都更容易受到澆水過多的影響。花盆必須有排水孔。"
+        },
+        {
+          "id": "toolu_vrtx_01UbMxGMvwWGVK5zEBKRoeKk",
+          "name": "search",
+          "args": {
+            "query": "十二卷属 硬叶 软叶 品种鉴别 区分 条纹十二卷 琉璃殿 龙鳞 识别方法",
+            "topn": 8
+          },
+          "result": "A Google search for '十二卷属 硬叶 软叶 品种鉴别 区分 条纹十二卷 琉璃殿 龙鳞 识别方法' found 8 results:\n\n## Web Results\n\n0. [常见十二卷属硬叶类介绍 - 知乎专栏](https://zhuanlan.zhihu.com/p/141885440)\nDate published: May 18, 2020\n十二卷属大致上分为软叶系和硬叶系两大类，硬叶系的特征与其说是叶子坚硬，不如说是花茎坚硬更准确。硬叶系虽然非常多样，但多数没有窗体，因此人气并不是 ...\n\n1. [怎样识别十二卷类多肉植物?怎样养护它们? - 湖南省林业局](http://lyj.hunan.gov.cn/tslm_71206/lykp/syjs/201512/t20151227_2594380.html)\nDate published: Jun 29, 2012\n十二卷为小型多肉植物，天地上茎，叶片披针形，厚革质．截面呈v字形，表面粗糙并布有突起的小白点。所有的叶片都轮生在很短的叶铂上，株高多在15厘米左右。\n\n2. [這種十二卷（玉露？）的品種辨識和養護小撇步？細節都在留言區。](https://www.reddit.com/r/succulents/comments/6jsslf/id_and_care_tips_for_this_haworthia_cooperi/?tl=zh-hant)\nDate published: Jun 27, 2017\n我把它放在朝東南的明亮窗戶邊，我想知道這對十二卷來說，是不是光照太強了？自從我買了它之後，它的顏色就變淺了。我應該多久澆一次水？我現在大概每1.5 個 ...\n\n3. [［十二卷属］硬叶龙鳞品种介绍及换盆](https://www.bilibili.com/video/BV1j5411t7Kj/)\nbilibili官网. 下载App. 打开App，流畅又高清. ［十二卷属］硬叶龙鳞品种介绍及换盆. 模凌兩可. 相关推荐. 查看更多. 多肉造型种植方法，简单又漂亮.\n\n4. [十二卷属简介和分类 - 多肉联萌](https://www.drlmeng.com/3-haworthia.html)\nDate published: Jan 11, 2013\n软叶系：叶质较软，叶片短而肥，通常顶端较肥厚或呈截形，有透明或半透明的\"窗\" ,并有明显的脉纹.光线可透过\"窗\"进入植株体内进行光合作用。 如毛汉十二卷、绿 ...\n\n5. [养肉穷三代，十二卷毁一生| 果壳科技有意思](https://m.guokr.com/article/448117/)\nDate published: Jan 11, 2017\n叶片纹理和疣突，也是硬叶的一大欣赏点。普通的如条纹十二卷、琉璃殿、象牙塔、金城等；高端的如天使之泪、恐龙、冬之星座等，都是硬叶系的代表。最 ...\n\n6. [如何識別十二卷屬(Haworthia) - PictureThis](https://www.picturethisai.com/zh-tw/identify/Haworthia.html)\n十二卷屬是小型多年生多肉植物，其獨特的葉片特徵使其在阿福花科中獨樹一幟。這些植物的葉片呈現蓮座形或基生排列，特別因其半透明的表皮窗口而引人注目。\n\n7. [多肉十二卷系列，硬叶刚毅、软叶柔美，多肉新手不要错过！ - 搜狐](https://www.sohu.com/a/415755772_650755)\nDate published: Aug 31, 2020\n十二卷类多肉植物是时下比较热门的品种，又分为硬叶和软叶两大系列。 ... 琉璃殿、九轮塔、条纹十二卷等。 软叶系则叶片透明度高，带有晶莹剔透的 ..."
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01NtZBmg6K2W4SpReptpBAGw",
+          "name": "visit",
+          "args": {
+            "url": [
+              "https://zhuanlan.zhihu.com/p/37919519",
+              "https://www.drlmeng.com/3-haworthia.html"
+            ],
+            "goal": "十二卷属不同品种群适合的花盆类型（万象盆、深盆等）、根系特点，以及软叶硬叶鉴别方法的详细信息"
+          },
+          "result": "The useful information in https://zhuanlan.zhihu.com/p/37919519 for user goal 十二卷属不同品种群适合的花盆类型（万象盆、深盆等）、根系特点，以及软叶硬叶鉴别方法的详细信息 as follows:\n\nEvidence in page:\n因为十二卷属软叶的根系多是萝卜根，根系发达但是根少，对透气程度要求较高。所以在盆器的选择上应该选择较高透气性较好盆器。比较常用的是用万象盆，因为整洁方便打理，大家可以根据实际情况植株大小，植株品类来选择。\n\nSummary:\n十二卷属软叶品种的根系为发达但数量较少的萝卜根，对透气性要求较高。因此推荐使用透气性良好的盆器，其中万象盆因其整洁易打理而被广泛使用，可根据植株大小和品类灵活选择。文中未提及深盆或其他盆型的适用性，也未提供软叶与硬叶的鉴别方法。\n\n=======\nThe useful information in https://www.drlmeng.com/3-haworthia.html for user goal 十二卷属不同品种群适合的花盆类型（万象盆、深盆等）、根系特点，以及软叶硬叶鉴别方法的详细信息 as follows:\n\nEvidence in page:\n十二卷属（Haworthia）为百合科十二卷属多肉植物的总称，是一类小型多肉植物，园艺栽培上归为高度叶多肉植物一类，该属在我国曾被叫做瓦苇属。十二卷属是近年较为流行的植物,其品种繁多,形态各异,株形大多小巧玲珑，清秀典雅,非常适合个人栽培观赏。在众多的十二卷品种中，既有适合普通家庭栽培的条纹十二卷、水晶掌等,用以点缀几案、书桌、电脑桌、窗台等处，效果独特；也有适合高级爱好者收集栽培的玉扇、万象等品种。十二卷属植物的共同特征是植株矮小,单生或丛生,叶片大多数呈莲座状排列,少有两列叠生或螺旋形排列成圆筒状。总状花序,小花白绿色。\n\n　　十二卷按叶片软硬可分为软叶系亚属、硬叶系亚属和大型硬叶系亚属3类。\n\n　　软叶系：叶质较软，叶片短而肥，通常顶端较肥厚或呈截形，有透明或半透明的 \"窗\" ,并有明显的脉纹。光线可透过 \"窗\"进入植株体内进行光合作用。 如毛汉十二卷、绿玉扇、青蟹、静鼓、白银寿、京之华锦，冰灯玉露等。\n\n　　硬叶系：其叶质较硬，叶片剑形或三角形，大多数品种叶面上有白色疣突，具有反射强烈阳光的生理作用。如青瞳、十二之缟、象牙之塔、雄姿城、龙城、东之星座、龙鳞等。其中，大型硬叶系亚属的天使之泪、环纹冬之星座锦、瑞鹤锦目前国内存量不多，因此价格不菲。\n\n　　综合还可分为塔型（如九轮塔）、殿型（如琉璃殿）、条纹型（如条纹十二卷锦）、截型（如玉扇）、珠型（如玉露）等。\n\nSummary:\n十二卷属植物根据叶片软硬分为软叶系、硬叶系和大型硬叶系亚属。软叶系叶质较软，叶片短而肥，顶端常肥厚或呈截形，具有透明或半透明的‘窗’及明显脉纹，利于光线穿透进行光合作用，代表性品种包括毛汉十二卷、绿玉扇、冰灯玉露等；硬叶系叶质较硬，叶片多为剑形或三角形，表面常具白色疣突以反射强光，如青瞳、象牙之塔、龙鳞等，其中大型硬叶系品种如天使之泪、环纹冬之星座锦、瑞鹤锦因存量稀少而价格较高。该属植物多为莲座状排列，株形小巧，适合家庭或爱好者栽培。然而，网页内容未提及不同品种群对应的花盆类型（如万象盆、深盆）或根系特点，也未提供软叶与硬叶的具体鉴别方法细节，仅从叶片质地、形态和结构特征进行区分。\n"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_011uWJBzqTQr7J4SHKbDv4oS",
+          "name": "search",
+          "args": {
+            "query": "十二卷 万象盆是什么 万象盆特点 深盆 控根盆 十二卷花盆推荐",
+            "topn": 8
+          },
+          "result": "A Google search for '十二卷 万象盆是什么 万象盆特点 深盆 控根盆 十二卷花盆推荐' found 8 results:\n\n## Web Results\n\n0. [用对万象盆，多肉养成桌面小森林   - 种草笔记- 淘江湖](https://jianghu.taobao.com/detail/47425_53237931)\nDate published: Nov 10, 2025\n你知道吗？很多多肉养不活，其实是“住得不舒服” 根系需要透气，土壤需要控水，而普通花盆容易积水、闷根、变形，时间一长，植物状态越来越差。\n\n1. [十二卷浇水心得篇 - 知乎专栏](https://zhuanlan.zhihu.com/p/45426599)\nDate published: Sep 26, 2018\n深的塑料盆，盆中下部水分散发时间更是长，所以最好是选择黑色的，因为这样的颜色，受辐射升温快，协助水分增发，而小盆，方盆，个人认为都是对新手很好的选择， ...\n\n2. [万象盆是什么意思万象盆的优缺点 - 百度经验](https://jingyan.baidu.com/article/afd8f4de2d568475e286e9ed.html)\nDate published: May 16, 2020\n从种植品种的角度来看，万象盆比较适合根比较深的多肉、寿和玉扇。特别是多肉中最受欢迎的十二卷属，是万象盆种植的不二选择。\n\n3. [景天、十二卷、番杏、仙人球……小花园大梦想！ - 搜狐](https://www.sohu.com/a/292268295_178297)\nDate published: Jan 29, 2019\n好像它叫霜之朝，给它配了小巧的花盆后却也美美的。 展开剩余97 ... 因为水是从盆底吸到盆土里的，从底部慢慢上升的过程中也排除了空气，土壤 ...\n\n4. [圆润丰满的十二卷你知道怎么养吗？ - 网易](https://www.163.com/dy/article/DKIN0O140512PDTO.html)\nDate published: Jun 18, 2018\n... 二，它们都有一个共同的特点，就是盆很深。 这是为了给十二强大的根系留下生长的空间，十二的根系到底有多强大……反正挖出来可以当人参切开卖……有些朋友的十二 ...\n\n5. [[PDF] 十二卷属多肉植物万象栽培技术研究](https://pdf.hanspub.org/br20230100000_20877346.pdf)\nDate published: Jan 9, 2023\n摘要. 万象，为十二卷属多肉植物中生长较为缓慢的一个种类。经过多次对比试验，摸索出其生长需要的较为. 合理配比的种植基质，此外，需提供温和干燥及阳光 ...\n\n6. [十二卷图片及养殖方法 - 农苗网](https://www.nongmiao.com/baike/shierjuan.html)\n十二卷是近年较为流行的小型多肉植物，其品种繁多，形态各异，株形小巧玲珑，清秀典雅，非常适合个人栽培观赏。在众多的十二卷品种中，既有适合普通家庭栽培的条纹十二卷、 ...\n\n7. [万象盆和一般的盆有啥区别 - 抖音](https://www.douyin.com/search/%E4%B8%87%E8%B1%A1%E7%9B%86%E5%92%8C%E4%B8%80%E8%88%AC%E7%9A%84%E7%9B%86%E6%9C%89%E5%95%A5%E5%8C%BA%E5%88%AB)\nDate published: Jan 16, 2026\n00:02 方形的万象盆区别于传统的圆形花盆方形设计，线条简约利落，盆身通长较高且直筒，适合新手控水的需求，更有利于控养的植物。限制过度扩展利于根系向 ..."
+        },
+        {
+          "id": "toolu_vrtx_01P2CHm8hZmMtQAk5ZwgkaM5",
+          "name": "search",
+          "args": {
+            "query": "十二卷属 玉露 寿 万象 玉扇 易得病虫害 区别 哪个品种容易烂根黑腐",
+            "topn": 8
+          },
+          "result": "A Google search for '十二卷属 玉露 寿 万象 玉扇 易得病虫害 区别 哪个品种容易烂根黑腐' found 8 results:\n\n## Web Results\n\n0. [九种不易黑腐的十二卷属多肉，便宜好看又好养，选它们准没错- 知乎](https://zhuanlan.zhihu.com/p/433245839)\nDate published: Nov 14, 2021\n玉扇的品种也是挺多的，有一些叶子呈黄色或粉色，看起来会更加迷人。 玉扇会比较喜欢凉爽干燥的环境，养护的位置要有较多的散射光，它非常害怕过度 ...\n\n1. [养肉穷三代，十二卷毁一生| 果壳科技有意思](https://m.guokr.com/article/448117/)\nDate published: Jan 11, 2017\n软叶十二卷的叶片顶端有着透明或者半透明的部位，我们称之为“窗”，窗面上有各式各样的纹理和突起，这是鉴别品种的重要依据。在原产地干旱的沙砾环境中，软叶十 ...\n\n2. [這種十二卷（玉露？）的品種辨識和養護小撇步？細節都在留言區。](https://www.reddit.com/r/succulents/comments/6jsslf/id_and_care_tips_for_this_haworthia_cooperi/?tl=zh-hant)\nDate published: Jun 27, 2017\n肯定是cooperi，可能是var. dielsiana 或var. pilifera，但你得養上一段時間才能分辨出來。\n\n3. [[PDF] 十二卷属多肉植物万象栽培技术研究](https://pdf.hanspub.org/br20230100000_20877346.pdf)\nDate published: Jan 9, 2023\n摘要. 万象，为十二卷属多肉植物中生长较为缓慢的一个种类。经过多次对比试验，摸索出其生长需要的较为. 合理配比的种植基质，此外，需提供温和干燥及阳光 ...\n\n4. [玉露系列一晒就挂？傻傻分不清楚的多肉植物十二卷属常见品种](https://wapbaike.baidu.com/tashuo/browse/content?id=98b0818a981f83e2d5d5e259)\nDate published: Apr 28, 2017\n“十二卷属多肉怕强光暴晒，光照过强，叶片会变紫褐色，容易形成晒斑，窗面也会变浑浊。若过于荫蔽，会株形松散，叶片瘦长，“窗”的透明度差。\n\n5. [十二卷属一些玉露、寿、万象品种 - 多肉联萌](https://www.drlmeng.com/wwyxpz.html)\nDate published: Jan 22, 2020\n十二卷有组培（植物组织无菌培养，相当于克隆）非组（叶插，底座苗，侧芽）实生（籽播）同一品种组培比较便宜，非组和实生相当贵。十二卷的锦也可分为阴阳锦，糊斑锦， ...\n\n6. [十二卷属 - 抖音百科](https://m.baike.com/wikiid/8923934005996679567)\n十二卷(Haworthia Dural)隶属百合科芦荟族，属名是为纪念19世纪初英国植物学家Adrian Hardn Haworth而得名，该属按植株和叶的形态，分为硬叶类和软叶类二类。 十二卷属. 硬叶 ...\n\n7. [多肉十二卷的养殖方法及注意事项，花友必看！ - 惠农网](https://www.cnhnb.com/xt/article-57872.html)\nDate published: Sep 1, 2021\n十二卷从叶子上划分，可分为硬叶和软叶两种。常见的软叶品种有玉露、寿、玉扇和万象等，目前市面上的软叶多肉要比硬叶多肉更受 ..."
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01Vj1HzVkAsTfAF4UAFSVY1c",
+          "name": "visit",
+          "args": {
+            "url": [
+              "https://jingyan.baidu.com/article/afd8f4de2d568475e286e9ed.html"
+            ],
+            "goal": "万象盆是什么、万象盆的优缺点、适合种什么品种的十二卷"
+          },
+          "result": "The useful information in https://jingyan.baidu.com/article/afd8f4de2d568475e286e9ed.html for user goal 万象盆是什么、万象盆的优缺点、适合种什么品种的十二卷 as follows:\n\nEvidence in page:\n万象盆是花盆的一种，它的特点是排水性能好，盆体又深又透气。\n\n从种植品种的角度来看，万象盆比较适合根比较深的多肉、寿和玉扇。特别是多肉中最受欢迎的十二卷属，是万象盆种植的不二选择。\n\n万象盆的缺点也很明显，它不适用于浅根植物，用了会造成烂根。并且万象盆对土壤也有要求，不要用纯泥炭土，要有颗粒土。\n\nSummary:\n万象盆是一种排水性好、盆体深且透气的花盆，适合种植根系较深的植物。尤其适用于多肉植物中的十二卷属，是其种植的优选花盆。但万象盆不适用于浅根植物，否则易导致烂根；同时对土壤有要求，不宜使用纯泥炭土，需搭配颗粒土使用。\n"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "content": "现在我已经收集了非常充分的资料，下面为您做一份详尽的系统整理。\n\n---\n\n# 🔍 十二卷属各品种群鉴别、花器选择与病虫害防治指南\n\n---\n\n## 一、各品种群鉴别方法\n\n十二卷属品种极其繁多，鉴别的**核心密码**藏在以下几个关键特征中：\n\n### 🔑 鉴别总原则\n\n| 观察部位 | 鉴别作用 |\n|---------|---------|\n| **\"窗\"的形态** | 区分玉露/寿/玉扇/万象的最关键特征 |\n| **窗面纹路与疣突** | 区分同一品种群下的具体品种（如康平寿 vs. 白银寿） |\n| **叶片质地** | 区分软叶系 vs. 硬叶系 |\n| **叶表斑纹/疣点形态** | 区分硬叶系各品种（如条纹 vs. 点状 vs. 网状） |\n| **叶片排列方式** | 莲座状 / 两列对生 / 螺旋塔状 |\n| **植株肌色** | 黑肌/紫肌/绿肌等，鉴别同种不同产地型 |\n\n---\n\n### 🔮 1. 玉露的鉴别\n\n> **总体特征：** 窗面**凸起呈水滴状/半球形**，晶莹通透如露珠\n\n| 品种 | 鉴别要点 |\n|------|---------|\n| **姬玉露** | 迷你型，叶片小而圆，群生紧凑 |\n| **帝玉露** | 窗面极通透，叶片可能偏长，但紧密排列时可短胖 |\n| **草玉露** | 叶形较普通，窗面透明度中等，价格最亲民 |\n| **冰灯玉露** | 窗面巨大、极通透、饱满如冰灯，叶片较圆润 |\n| **黑肌玉露** | 经典水滴形尖叶，光照充足时肌色黝黑，龙爪玉露为其巨大化型 |\n| **OB-1** | 叶型**最圆润**，大窗，整株如圆珠，紫肌型在光照不足时斑锦会暂时消失 |\n| **水晶玉露** | 叶型有俐落倒钩感，表面水晶质感、反光性强 |\n| **赤线玉露** | 叶缘有明显排刺（**毛边系**代表），窗面极透亮 |\n| **紫肌玉露** | 光照下叶片呈**紫色调**，肌色独特 |\n| **樱水晶** | 苹果绿底色 + **明显的叶脉纹路**，辨识度极高 |\n| **大型蓝镜** | 大盾叶型，夕阳下呈现独特**淡蓝色光泽** |\n\n**玉露鉴别核心：** 看**窗面形状**（圆/尖/扁盾形）、**透明度**（极透/中透/磨砂）、**叶缘**（光滑/有毛刺）、**肌色**（绿/黑/紫）。\n\n---\n\n### 🏛️ 2. 寿的鉴别\n\n> **总体特征：** 叶片上部外翻，窗面呈**微凸的三角形截面**，窗面有各式脉纹和疣突\n\n| 系列 | 鉴别要点 |\n|------|---------|\n| **贝叶寿（克里克特）** | 叶面**粗糙**，窗面有竖纹或网纹，常见\"云窗\"和\"电路板\"纹路。滴水在窗上会蔓延浸润整个窗面（原始种才有此现象） |\n| **白银寿** | 窗面**粗糙呈气泡状**，窗纹灰色，常有白色斑点。个体差异极大（从全白密点到完全光面都有） |\n| **康平寿** | **大型**（直径可达12cm），窗面**光滑**，窗纹复杂纵横交错呈网状，与白银寿的核心区别就在于窗面是否光滑 |\n| **美吉寿（wimii）** | **小型**，叶缘有**刺毛**，窗面有透明**肉质刺**。与磨面寿区别：磨面寿的窗面是钝角疣，wimii是尖刺 |\n| **青蟹寿** | 叶宽色深，窗面气泡状呈**白色/粉色**，边缘有时呈红色 |\n| **磨面寿** | 窗面有密集突起呈**磨砂质感**（但也有光面型），叶片较圆 |\n| **史扑寿（紫肌）** | 小型种，最大特征是特殊**紫色肌色**，季节变化时叶色呈深紫 |\n| **摩迪卡寿** | 叶尖较**钝**，与正寿形态相似但叶更宽扁，部分窗面有云纹或白点 |\n| **芭堤雅寿** | 叶片较长，顶端**明显向下翻卷**，整株侧面呈半圆形，窗面干净光滑 |\n| **正寿（retusa）** | 经典三角截面窗面，叶片向外翻转 |\n\n**寿类鉴别核心：** 看**窗面质感**（光滑/气泡/磨砂）、**窗面纹路**（网纹/竖纹/白点/无纹）、**叶缘**（有无刺毛）、**叶型大小**和**肌色**。\n\n---\n\n### 📐 3. 玉扇的鉴别\n\n> **总体特征：** 叶片排成**两列对生**如折扇，窗面平截呈弧形\n\n| 品种 | 鉴别要点 |\n|------|---------|\n| **绿玉扇** | 原始种，窗面纹路简单，叶片绿色 |\n| **写乐** | 窗面纹路精美复杂，是众多名扇的亲本，辨识需看特定纹路传承 |\n| **广重** | 四大金刚之一，窗面纹路和叶型有特定标准 |\n| **玄武** | 窗面有白色纹路 + 绿色/黑色线条及岛状花纹，季节不同色彩变化明显 |\n| **刺玉扇（minor）** | 特殊原生种群，叶缘有刺 |\n\n**玉扇鉴别核心：** 看**窗面纹路**（线条、岛纹、颜色）、**叶片排列整齐度**、**叶片厚度和宽度**。养到很矮很饱满才能体现品种特征。\n\n---\n\n### 🐘 4. 万象的鉴别\n\n> **总体特征：** 叶片**近似圆柱状**，螺旋状向上生长呈**五角形**，截面为圆形如大象脚底板\n\n| 品种方向 | 鉴别要点 |\n|---------|---------|\n| **美纹类** | 窗面有复杂的花纹（线纹、岛纹等），如\"螃蟹星雲\"纹 |\n| **无纹类** | 窗面干净清透，无明显花纹 |\n| **锦化类** | 叶片有黄/白/红色斑锦，极为珍贵 |\n\n**万象鉴别核心：** 看**窗面纹理**（美纹/无纹）、**叶片排列方向**（典型五角形排列）、**锦斑类型与分布**。注意万象生长极慢，需养多年才能完全展现品种特征。\n\n---\n\n### 🪨 5\n\n… [5595 chars truncated]"
+    },
+    {
+      "type": "user",
+      "content": "那对应这些病虫害，都有哪些具体的防治方法呀？每种方法是啥类型的，什么时候用，有什么有效成分或者操作要点吗？"
+    },
+    {
+      "type": "assistant",
+      "thinking": "The user is asking for detailed pest and disease control methods for Haworthia (十二卷属) succulents, specifically:\n1. What specific control methods exist for each disease/pest\n2. What type each method is (chemical, biological, physical, etc.)\n3. When to use each method\n4. What active ingredients or operational key points each method has\n\nLet me search for more detailed and specific information on this topic.",
+      "content": "好的！这个问题需要非常细致的药物成分、使用时机和操作要点信息，让我深入搜索一下。",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01NXBgVKYyngnAcJ6FYJMZhX",
+          "name": "search",
+          "args": {
+            "query": "多肉植物 多菌灵 百菌清 甲基托布津 杀菌剂 有效成分 使用方法 浓度 频率",
+            "topn": 10
+          },
+          "result": "A Google search for '多肉植物 多菌灵 百菌清 甲基托布津 杀菌剂 有效成分 使用方法 浓度 频率' found 10 results:\n\n## Web Results\n\n0. [三种常用杀菌剂百菌清、多菌灵和甲基托布津该如何科学使用？ - 知乎](https://zhuanlan.zhihu.com/p/546217198)\nDate published: Jul 28, 2022\n多菌灵为内吸性杀菌剂，对热稳定，对酸、碱不稳定，兼有保护和治疗作用，内吸传导主要是向顶型，对人、畜、鱼、蜜蜂，低毒，在土壤中易分解失效。 内吸剂，就是该 ...\n\n1. [植物病虫害防治大全，养花常遇到的病菌和害虫，附详细用药方法](https://h5.ifeng.com/c/vivoArticle/v002LLvx9g7vw--6rRbMTZZo9KLpM3QUNG5vWus8DWWAq6Mo__?isNews=1&showComments=0)\nDate published: Aug 3, 2025\n杀虫剂和杀菌药是可以混合在一起兑水喷的，并不需要先喷杀虫剂，再喷杀菌药。但是要注意，酸性的药剂不能和碱性的药剂混合使用，大家只需要记住，碱性的药剂是 ...\n\n2. [如何正确使用多肉植物杀菌剂 - YouTube](https://www.youtube.com/watch?v=pPgMBmCnJpg)\nDate published: Apr 28, 2024\n如何正确使用多肉植物杀菌剂. 185 views · 1 year ago ...more. Eslite Nature Academy. 33K. Subscribe. 0. Share. Save. Report. Comments.\n\n3. [多肉常用杀菌剂百菌清和多菌灵的区别 - ChemicalBook](https://www.chemicalbook.com/NewsInfo_2030.htm)\nDate published: Sep 20, 2018\n多菌灵为内吸性杀菌剂，对热稳定，对酸、碱不稳定，兼有保护和治疗作用，内吸传导主要是向顶型，对人、畜、鱼、蜜蜂低毒，在土壤中易分解失效。所谓内吸剂，就是 ...\n\n4. [多肉植物常用杀菌药剂使用误区](https://www.drlmeng.com/shajunwuqu.html)\nDate published: May 11, 2015\n其实，甲基硫菌灵/甲基托布津/苯菌灵与多菌灵有交互抗性，不宜作为与多菌灵轮换使用的药剂。（所谓的交互抗性指的是甲基硫菌灵/甲基托布津/苯菌灵，会在多肉 ...\n\n5. [资深养多肉的好友教你，如何正确使用多肉杀菌剂，别再乱用了 - 网易](https://www.163.com/dy/article/EBC6J4NN05404G80.html)\nDate published: Mar 28, 2019\n百菌清是保护性杀菌剂，没有内吸传导作用，但喷到植物体上之后，能在体表上有良好的黏着性，不易被雨水冲刷掉，因此药效期较长。百菌清属于低毒杀菌剂，对少数人 ...\n\n6. [多肉植物的家庭栽培（超全面超赞）下 - 360Doc](http://www.360doc.com/content/16/1017/07/29833072_599010737.shtml)\nDate published: Oct 17, 2016\n施用比例控制在1:2000左右，也就是1克肥料配2公斤水。这里要再次说明，有些大仙会认为1:1000的比例比较合适，但那是在大棚和温室栽培环境下，植物生长旺盛才 ...\n\n7. [多肉植物如何防虫用药，看完这一篇就够了？](https://zhuanlan.zhihu.com/p/579385640)\nDate published: Nov 1, 2022\n百菌清也是很常见的一种广谱杀菌剂，为保护型，没有内吸作用。化学性质稳定，无腐蚀作用，对人畜低毒，对鱼毒性大，可防治多种病害。一般对多菌 ...\n\n8. [食用菌生产用药质量安全状况调查 - 农业农村部农产品质量安全中心](http://www.aqsc.org/trpgl/gzdt/202011/t20201111_364656.htm)\n杀菌剂隐性添加成分检出率为31.6%，检出成分为盐酸吗啉胍、咪鲜胺、多菌灵、甲基硫菌灵4种，含量范围为0.55-30.89%。除草剂未有隐性添加成分检出。二是营养剂。28份 ...\n\n9. [植物病虫害防治大全，养花常遇到的病菌和害虫，附详细用药方法 - 新浪](https://k.sina.cn/article_2410310111_8faa69df00100zbpw.html)\nDate published: Nov 13, 2022\n杀虫剂和杀菌药是可以混合在一起兑水喷的，并不需要先喷杀虫剂，再喷杀菌药。但是要注意，酸性的药剂不能和碱性的药剂混合使用，大家只需要记住，碱性的药剂是 ..."
+        },
+        {
+          "id": "toolu_vrtx_01JKG4NbwijP2EHmBQE5ENy2",
+          "name": "search",
+          "args": {
+            "query": "多肉 介壳虫 根粉蚧 吡虫啉 蚧必治 杀虫剂 有效成分 使用浓度 操作方法",
+            "topn": 10
+          },
+          "result": "A Google search for '多肉 介壳虫 根粉蚧 吡虫啉 蚧必治 杀虫剂 有效成分 使用浓度 操作方法' found 10 results:\n\n## Web Results\n\n0. [吡虫啉如何使用？一篇文章讲清楚！](https://www.enongzi.com/news/details?id=f02c2e5b-743c-4a9b-bfc4-110b18124070)\nDate published: Jan 4, 2024\n一、吡虫啉特点. 1.吡虫啉是一种高效、内吸性、广谱型杀虫剂，具有胃毒、触杀和拒食作用，对有机磷类、氨基甲酸酯类、拟除虫菊酯类等杀虫剂产生抗药性的害虫 ...\n\n1. [刚发现了根粉蚧！我订了吡虫啉杀虫剂喷雾。我需要把它们都挖出来 ...](https://www.reddit.com/r/succulents/comments/10sz457/just_discovered_root_mealybugs_i_ordered/?tl=zh-hans)\nDate published: Feb 3, 2023\n不幸的是，你把杀虫剂订购给了无害的真菌。不过，那些真菌确实喜欢潮湿的地方，所以你可能需要检查一下你的排水系统。\n\n2. [密密麻麻让人头疼，不花一分钱，教你杀灭蚧壳虫 - 知乎专栏](https://zhuanlan.zhihu.com/p/379428135)\nDate published: Jun 10, 2021\n又管用，但是单单的用吡虫啉效果也不好，你要给他加一勺米醋米醋加在里面，可以帮助软化他们的壳，直接让药物渗透进去，剩下的药物灌根浇在土壤里，杀一些虫卵， ...\n\n3. [有蚧壳虫又不想喷药咋办？教你一个“土配方”，一次解决无后患](https://www.youtube.com/watch?v=I3w9Rnd3yrU)\nDate published: May 6, 2021\nShare your videos with friends, family, and the world.\n\n4. [【真实の多肉】期06 虫害防治](https://www.bilibili.com/read/cv961097/)\n... 杀虫喷剂、 蚧必治即可；. 2. 如果已经有了，看是否叶片上有绿色分泌物，如果有，那么虫子就在附近了，找出来，杀死；. 3. 如果毛虫大了，则药物基本无效，只能靠 ...\n\n5. [植物病虫害防治大全，养花常遇到的病菌和害虫，附详细用药方法](https://h5.ifeng.com/c/vivoArticle/v002LLvx9g7vw--6rRbMTZZo9KLpM3QUNG5vWus8DWWAq6Mo__?isNews=1&showComments=0)\nDate published: Aug 3, 2025\n当然也可以直接喷洒杀虫剂，包括常见的吡虫啉、啶虫脒、阿维菌素、联苯菊酯和氟氯氰菊酯都是低毒的杀虫剂，可以清除常见的蚜虫、蓟马、小黑飞和白粉虱等。\n\n6. [多肉介壳虫防治指南](https://b2bwiki.baidu.com/article/d2ujsihftjsqp354m53g)\nDate published: Mar 3, 2026\n酒精棉签法：75%酒精直接擦拭虫体，适合少量虫害. 有机杀虫剂：印楝素或苦参碱，对幼虫效果较好. 化学药剂：吡虫啉或噻虫嗪，注意按说明稀释使用. 自制 ...\n\n7. [多肉植物常用杀虫剂和使用方法](https://www.drlmeng.com/shachongji.html)\nDate published: Oct 13, 2015\n主要剂型：18% 、25%、30%水剂，45%可溶性粉剂，3.6%大颗粒剂等。 用法用量：喷施，灌根，以25%水剂为准，对水600-800倍。 防治对象：不用太在意防治对象，对虱、 ...\n\n8. [多肉长蚧壳虫了怎么办？别慌，1勺它就轻松搞定！ - YouTube](https://www.youtube.com/watch?v=RkoabgkucuI)\nDate published: Jul 21, 2020\nShare your videos with friends, family, and the world.\n\n9. [春天万物复苏，你的多肉杀虫杀菌了吗？ - 新浪](https://k.sina.cn/article_6397847139_17d576663001005jtv.html?from=)\nDate published: Mar 15, 2018\n使用：用80%可湿性粉剂400-600倍液．发病初期喷洒，连喷3－5次。 个人使用心得：第一次使用可以使用400倍药浓度 ..."
+        },
+        {
+          "id": "toolu_vrtx_015upnNFLZ3JPQsh7rVq3VW2",
+          "name": "search",
+          "args": {
+            "query": "十二卷属 多肉 烂根 黑腐 物理防治 砍头 修根 消毒 操作步骤 详细",
+            "topn": 10
+          },
+          "result": "A Google search for '十二卷属 多肉 烂根 黑腐 物理防治 砍头 修根 消毒 操作步骤 详细' found 10 results:\n\n## Web Results\n\n0. [［多肉养护］给十二卷属多肉修根的操作及注意事项](https://www.youtube.com/watch?v=XYUns5diWS8)\nDate published: 2025\n［多肉养护］给十二卷属多肉修根的操作及注意事项VLOG生活日志,多肉植物,教程,Haworthia,多肉,玉露. ［多肉养护］给十二卷属多肉修根的操作及注意事项.\n\n1. [你可以幫我救救我的條紋十二卷，讓它免於爛根嗎？](https://www.reddit.com/r/succulents/comments/gczopg/can_you_help_me_save_my_haworthia_fasciata_from/?tl=zh-hant)\nDate published: 2021\n高顆粒度對十二卷來說不是「必要條件」，但它大大降低了未來根腐病的機會。你也可以用一般的盆栽土種它們，只要你確切知道什麼時候澆水、澆多少。但是 ...\n\n2. [先烂根后黑腐的多肉植物基本就没救了！](https://www.youtube.com/watch?v=KcdXoueShto)\nDate published: 2025\n9:21. Go to channel Amber 『A&Y多肉生活』 · 【新手必看】EP.5 多肉買來一定要修根換盆嗎｜多肉植物顯色的原理｜A&Y｜How to make succulents colorful.\n\n3. [帮帮新手- 十二卷coarctata烂根！怎么救它？ : r/succulents](https://www.reddit.com/r/succulents/comments/6dmv05/help_a_newbie_haworthia_coarctata_root_rot_how_to/?tl=zh-hans)\nDate published: 2018\n剥掉那些软趴趴的叶子，把茎剪掉，直到你看到健康的组织（白色的而不是棕色的），给切口消毒，让剩下的部分干燥/结痂一个星期，然后重新种植。\n\n4. [多肉小心事，十二卷之我见](https://zhuanlan.zhihu.com/p/37919519)\nDate published: Jun 10, 2018\n因为十二卷属软叶的根系多是萝卜根，根系发达但是根少，对透气程度要求较高。所以在盆器的选择上应该选择较高透气性较好盆器。比较常用的是用万象盆，因为 ...\n\n5. [請問如何救治爛根的多肉植物？ - 農業知識入口網](https://kmweb.moa.gov.tw/knowledge_view.php?id=15801)\n1.將肉肉拔出來根部洗淨，將發霉的部分全部剪掉 · 2.將創口和霉變的地方用多菌靈抹下，然後晾乾，約三天將處理好的肉肉重新髮根，可以晾在瓶口，下面放水但不要接觸根部以促進髮 ...\n\n6. [多肉烂根了千万别丢，用上简单一招，快速爆长新芽](https://www.youtube.com/watch?v=R2X4rJ6R-0Q)\nDate published: 2022\nGo to channel 劉家花園&清田弄喫茶堂 · 劉家花園—多肉植物養護｜多肉植物生病該怎麼處理？｜黑莖、黑腐了該怎麼辦？ 劉家花園&清田弄喫茶堂•13K views · 1:02 ...\n\n7. [十二卷多肉植物怎么修根](https://www.drlmeng.com/2-xiugen.html)\nDate published: Jan 5, 2013\n大部分十二卷属的多肉植物都生长缓慢，换盆或移植时不必修根，但一些成年老株就应该修一修整理一下了，其实也不是修根而是修茎，许多十二卷属成年株在生长 ...\n\n8. [室內玩多肉(19)多肉為什麼爛根黑腐?如何處理](https://www.youtube.com/watch?v=hin55cjaatA)\nDate published: 2022\n田中先生多肉植物｜EP5｜多肉植物的澆水方式（正常根系） · #多肉植物#多肉化水#多肉烂根#会养多肉的小文多肉烂根了 · Repotting a root bound flowering bonsai ...\n\n9. [多肉界的能量柱：十二卷属萝卜根的养护秘诀](https://www.youtube.com/watch?v=vwkG7q0Fazk)\nDate published: 2025\n多肉界的能量柱：十二卷属萝卜根的养护秘诀. 120 views · 1 year ago ... Go to channel 花花世界 · 度夏難的多肉品種，多肉度夏動不動就死不是因為 ..."
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01B6edNXQfw6EPAov6pyQsAx",
+          "name": "visit",
+          "args": {
+            "url": [
+              "https://zhuanlan.zhihu.com/p/546217198",
+              "https://www.drlmeng.com/shachongji.html",
+              "https://www.drlmeng.com/shajunwuqu.html"
+            ],
+            "goal": "多肉植物常用杀菌剂（多菌灵、百菌清、甲基托布津、代森锰锌等）和杀虫剂（吡虫啉、蚧必治、呋虫胺等）的有效成分、使用浓度、使用方法、注意事项、交互抗性等详细信息"
+          },
+          "result": "The useful information in https://zhuanlan.zhihu.com/p/546217198 for user goal 多肉植物常用杀菌剂（多菌灵、百菌清、甲基托布津、代森锰锌等）和杀虫剂（吡虫啉、蚧必治、呋虫胺等）的有效成分、使用浓度、使用方法、注意事项、交互抗性等详细信息 as follows:\n\nEvidence in page:\n百菌清、多菌灵和甲基托布津作为常用的三种杀菌剂，在多种作物上被广泛应用。在生产应用中，不少种植户容易混淆这三种杀菌剂的使用技巧、差别、注意事项等。为此，小编整合百菌清、多菌灵和甲基托布津的产品特性和相关使用技巧，仅供各位业内人士参考。\n\n01百菌清和多菌灵的区别\n\n百菌清为广谱保护性杀菌剂，化学性质稳定，无腐蚀作用，对人畜低毒，对鱼类毒性大，主要防治多种真菌性病害，但对土传腐霉属菌所引起的病害效果不好，对多菌灵产生抗药性的病害，改用百菌清防治能收到良好的效果。\n\n多菌灵为内吸性杀菌剂，对热稳定，对酸、碱不稳定，兼有保护和治疗作用，内吸传导主要是向顶型，对人、畜、鱼、蜜蜂，低毒，在土壤中易分解失效。\n\n内吸剂，就是该药剂能被作物吸收到体内而不失效，能对植物体内的病原菌发生作用，这种药剂也称化学治疗剂，一般用于发病的植物，但大多数内吸剂也兼有触杀的作用。多菌灵就属此类。\n\n触杀剂，就是杀菌剂沉积在植物表面上与病原菌发生接触时杀灭或抑制病菌，这种药剂或者不能被植物吸收或者被植物吸收后立即分解失效，对植物体内的病菌不发生作用。百菌清就属此类。\n\n甲基托布津是一种广谱性内吸低毒杀菌剂，它最初是由日本曹达株式会社研制开发出来的。它对多种植物病害有预防和治病作用，其内吸性比多菌灵强。甲基托布津按其化学结构属取代苯类杀菌剂。\n\n甲基托布津被植物吸收后即转化为多菌灵，它主要干扰病菌菌丝形成，影响病菌细胞分裂，使细胞壁中毒，孢子萌发长出的芽管畸形，从而杀死病菌。残效期5-7天。主要用于叶面喷雾，也可用于土壤处理，可与恶霉灵混用防治根部及土壤病害，效果显著。\n\n02多菌灵怎么用？\n\n市场销售的多菌灵，多为50%的可湿性粉剂和40%的胶悬剂。不论哪一种剂型都应选用优质产品，还要注意产品的有效期，生产日期为一年以内的最好，超过这个期限的应酌情增加用量，完全失效的杜绝使用。\n\n多菌灵对毛霉、根霉的防治效果较差，在使用多菌灵时应适当提高培养料的pH值，以抑制毛霉、根霉的生长。由于多菌灵耐高湿，使用时最好将培养料进行发酵、高温灭菌处理，以杀灭霉菌。银耳、木耳、猴头菇对多菌灵特别敏感，要避免使用。\n\n用多菌灵拌料，应严格控制药液的浓度，一般用含量为50%的粉剂，以占料干重的 0.1%即可杀死和抑制杂菌生长；若加大用量，不但成本增加，还会影响菌丝生长，导致污染。拌料时，要先把药剂溶入足量水中搅拌均匀，拌入料后还要拌匀，以免发生点片污染。多菌灵在碱性环境中容易分解失效，因此拌料时不能同时使用石灰，更不能把多菌灵、石灰混合液久置。另外，多菌灵易使杂菌产生抗药性，所以应避免长期使用，可交替使用其他杀菌剂。\n\n03百菌清药效期有多长？\n\n百菌清是一种非内吸性广谱杀菌剂，对多种作物真菌病害具有预防作用。能与真菌细胞中的3-磷酸甘油醛脱氢酶发生作用，与该酶体中含有板胱氨酸的蛋白质结合，破坏酶的活力，使真菌细胞的代谢受到破坏而丧失生命力。\n\n百菌清的主要作用是防止植物受到真菌的侵害。在植物已受到病菌侵害，病菌进入植物体内后，杀菌作用很小。百菌清没有内吸传导作用，不会从喷药部位及植物的根系被吸收。百菌清在植物表面有良好的黏着性，不易受雨水等冲刷，因此具有较长的药效期，在常规用量下，一般药效期约7-10天。\n\n百菌清人体暂定每日允许摄大量(TADI)为0.005 毫克/千克(FAO/WHO)。使用百菌清应遵守中国控制农产品中农药残留的合理使用准则(国家标准GB8321.2-87)。\n\n百菌清对人的皮肤和眼睛有刺激作用，少数人有过敏反应。一般可引起轻度接触性皮炎，如同被太阳轻度灼烧反应，不经治疗，大约2个星期之内，皮肤经脱皮而恢复。百菌清接触眼睛会立刻感到疼痛并发红。过敏反应表现为支气管刺激、皮疹、眼结膜和眼睑水肿、发炎，停止接触百菌清则症状就会消失。在使用过程中如有药液溅到皮肤上，用肥皂和水清洗以后涂上药，并脱去被药剂污染的衣服和鞋。\n\n百菌清对鱼类有毒，施药时须远离池塘、湖泊和溪流。清洗药具的药液不要污染水源。本品应防潮防晒，贮存在阴凉干燥处。严禁与食物、种子、饲料混放，以防误服、误用。使用后的废弃容器要妥善安全处理。\n\n04甲基托布津可与哪些产品混用？\n\n甲基托布津常见剂型为50%、70%可湿性粉剂，40%悬浮剂。防治对象包括褐斑病、白粉病、锈病、炭疽病、灰霉病、黑斑病等多种真菌病害。每次用50%甲基托布津可湿性粉剂700-1000 倍液，或70%甲基托布津可湿性粉剂800-1200倍液。\n\n甲基托布津可与多种杀菌剂、杀螨剂、杀虫剂混用，但要现混现用。不能与铜制剂、碱性药剂混用。\n\n甲基托布津长期单一连续使用，病菌会产生抗药性，降低防治效果，应与其他药剂轮换使用。但多菌灵、苯菌灵和甲基托布津不得轮换使用，因为它们之间有交互抗性。\n\n甲基托布津药剂对皮肤、眼睛有刺激作用，应避免与药液直接接触。使用过程中，若药液溅入眼中，应立即用清水或2%苏打水冲洗。\n\nSummary:\n多菌灵为内吸性杀菌剂，具有保护和治疗作用，内吸传导为向顶型，适用于发病植株，但对毛霉、根霉防治效果差，且对银耳、木耳、猴头菇敏感，使用时应控制浓度（50%粉剂占料干重0.1%），避免与碱性物质（如石灰）混用，防止分解失效；长期使用易产生抗药性，建议轮换使用其他药剂。百菌清为非内吸性广谱保护性杀菌剂，药效期长（7-10天），通\n\n… [7493 chars truncated]"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01EuJ1HjPGxRhfQPqh7mpVgP",
+          "name": "search",
+          "args": {
+            "query": "多肉植物 生物防治 物理防治 酒精棉签 肥皂水 印楝素 苦参碱 介壳虫 操作方法",
+            "topn": 8
+          },
+          "result": "A Google search for '多肉植物 生物防治 物理防治 酒精棉签 肥皂水 印楝素 苦参碱 介壳虫 操作方法' found 8 results:\n\n## Web Results\n\n0. [有什么简单有效的办法能彻底消灭介壳虫，还能救活我的植物？ - Reddit](https://www.reddit.com/r/plantclinic/comments/msmb0t/any_foolproof_method_of_getting_rid_of_mealy_bugs/?tl=zh-hans)\nDate published: Apr 17, 2021\n记得用水稀释一下（网上能搜到使用方法）, 然后每天早上开始喷。可能需要点时间才能看出效果，但我喜欢用苦楝油，因为它对除了害虫以外的一切都是无毒的。\n\n1. [多肉花盆裡100只介殼蟲，4種便宜液體，無毒無害殺死它 - YouTube](https://www.youtube.com/watch?v=cwjubo-qtro)\nDate published: May 15, 2024\n园艺#家庭养花#多肉推薦訂閱：https://bit.ly/3yAJ5dq 夏季養護虎尾蘭：https://youtu.be/-4THVsqzqrk 00:00 殺死介殼蟲00:49 發現了蚧殼蟲也不用太 ...\n\n2. [介殼蟲怎麼消滅？蚜蟲怎麼處理？多肉、龜背芋蟲害完整防治指南](https://www.onepercent.com.tw/en/blogs/journal/plant-pest-control-guide?srsltid=AfmBOopvX1GYmD0yWSvzPbbxPL0w-5w5ZiE5y23Wne9ASkMp5tPIzkCe)\n立刻隔離受害植物，避免傳染給旁邊的盆栽 · 棉花棒沾酒精擦除可見蟲體——這步是物理清除，必做，重點在葉背、莖部交接處 · 噴灑甲殼素驅蟲噴霧，滲透殘餘蟲體外殼，同時抑制蟲卵 ...\n\n3. [DIY自製有機殺蟲劑，不花一分錢，10天澆一勺，多肉植物 ... - YouTube](https://www.youtube.com/watch?v=122TMaI87-o)\nDate published: Apr 14, 2023\n多肉植物#多肉#花花世界自製殺蟲劑，簡單高效無公害，介殼蟲全殺光，多肉乾乾淨淨。 https://youtu.be/122TMaI87-o 00:00 多肉殺蟲劑自製方法01:46 1 ...\n\n4. [多肉除虫杀菌指南](https://b2bwiki.baidu.com/article/d2t86khftjsqd47hj460)\nDate published: Mar 3, 2026\n本文针对多肉植物常见的病虫害问题，提供安全有效的杀虫杀菌方案，包括物理防治、生物制剂和化学药剂的合理使用技巧，帮助多肉爱好者轻松应对养护难题。\n\n5. [介殼蟲去除方法？ - 農業知識入口網](https://kmweb.moa.gov.tw/knowledge_view.php?id=3089)\n介殼蟲去除方法？將75CC的酒精加入25CC的水後混合，酒精可溶解介殼蟲表面的臘質，以豬毛刷沾這混合液用點力刷洗植物莖幹各角落後，以水柱沖洗植物全身。 2. (13 人評價).\n\n6. [張山蔚老師教學影片  《非農藥病蟲害防治法–農皂複方》](https://info.organic.org.tw/33853/)\nDate published: Oct 17, 2022\n液態南僑水晶肥皂稀釋200倍，取50ml。 · 碳酸氫鉀稀釋500倍 · 石灰硫磺合劑(以潔通牌硫磺精取代)稀釋400倍，取25ml。 · 水硼稀釋2000倍，取5克。\n\n7. [別讓網路偏方害死你的植物  ！ 想查個介殼蟲防治法，卻被廣告淹沒嗎 ...](https://www.instagram.com/reel/DTsJfWIje_G/)\nDate published: Jan 19, 2026\n啤酒噴灑葉面如果家里沒有酒精的情況下，手我們也可以用啤酒來防治蛻殼蟲， 因爲啤酒中也含有酒精成分， 噴灑花卉葉面后， 還能為植株補充養分。 使用時先把 ..."
+        },
+        {
+          "id": "toolu_vrtx_01S1YWWQkxbErcVHP3joqsG9",
+          "name": "search",
+          "args": {
+            "query": "十二卷 多肉 代森锰锌 恶霉灵 呋虫胺 小白药 杀菌杀虫 有效成分 使用方法",
+            "topn": 8
+          },
+          "result": "A Google search for '十二卷 多肉 代森锰锌 恶霉灵 呋虫胺 小白药 杀菌杀虫 有效成分 使用方法' found 8 results:\n\n## Web Results\n\n0. [观赏植物病虫害详细用药指南，教你7种基本的药剂使用技巧](https://zhuanlan.zhihu.com/p/366469706)\nDate published: Apr 20, 2021\n清除害虫最常用到的就是各种小白药，包括呋虫胺或吡虫啉，大家注意看有效成分就可以了。而杀菌类的就可以用到恶霉灵，也是直接撒在盆土上面，适当掩埋土壤就 ...\n\n1. [常见多肉植物杀菌剂使用方法和注意事项](https://www.drlmeng.com/shajunyao.html)\nDate published: Oct 10, 2015\n（1）喷施，稀释1200-1500倍液，根据病情发展情况决定喷药次数以及药量，隔7～10天喷一次，2-3次即可。 （2）灌根，稀释600-800液。 （3）浸种，稀释1000倍。 注意事项：\n\n2. [多菌靈代森錳鋅，花卉多肉的守護神？  深度解析與使用指南](https://world.taobao.com/lang/zh-tw/goods/2012659.htm)\nDate published: Mar 11, 2025\n本文詳細介紹國光英納多錳鋅多菌靈代森錳鋅殺菌劑，針對花卉多肉的白粉病、葉斑病、炭疽病等常見病害，從品牌背景、產品成分、使用方法及效果等方面進行 ...\n\n3. [观赏植物病虫害详细用药指南，教你7种基本的药剂使用技巧 - 新浪](https://k.sina.cn/article_2410310111_8faa69df00100qwq4.html?from=home)\nDate published: Apr 20, 2021\n清除害虫最常用到的就是各种小白药，包括呋虫胺或吡虫啉，大家注意看有效成分就可以了。而杀菌类的就可以用到恶霉灵，也是直接撒在盆土上面，适当掩埋土壤就 ...\n\n4. [振兴乡村服务三农——农药配方大全-消费指南-《羅氏傳媒》網](http://www.zhlscm.com/news/?48_5563.html)\nDate published: Aug 21, 2023\n使用方法：该配方预防、治疗均可。使用时每15千克水，加20%叶枯唑30克、33.5%喹啉铜20克、20%春雷霉素20克，再加助剂有机硅，叶面喷施，预防3-4天/次，治疗2-3天 ...\n\n5. [恶霉灵的正确使用方法 - 惠农网](https://www.cnhnb.com/xt/article-120349.html)\nDate published: May 29, 2023\n恶霉灵又称土菌消、立枯灵等，是一种高效低毒的杀菌剂，对于多种植物的真菌病害均有显著的防治效果，同时它还带有与芸苔素内酯一样的植物生长调节剂的 ...\n\n6. [多菌灵，植物白粉病克星？  花友必看深度测评-花卉药剂 - 淘宝好物网](https://goods.taobao.com/t/huahuiyaoji_3900/9d90792de1ee36d0c4ac6e4bb362e1d6.html)\nDate published: Mar 14, 2025\n使用多菌灵非常简单，只需按照以下步骤操作即可： 1. 稀释：将多菌灵按照说明书的比例稀释于水中，一般推荐的比例是1:500（即1克多 ...\n\n7. [lexlist.txt](https://www.cs.cmu.edu/afs/cs.cmu.edu/project/cmt-40/Nice/Transfer/Chinese/lexlist.txt)\n... 24日25日26日27日28日29日2日2月2月份30日31日3日3月3月份4日4月4月份5日5月5月份6日6月6月份7日7月7月份8日8月8月份9日9月9月份T恤一一一一万一万五千一万公尺一万四千二 ..."
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_013nXM7SsWSWFQSzD5RPcz7e",
+          "name": "visit",
+          "args": {
+            "url": [
+              "https://www.drlmeng.com/shajunyao.html",
+              "https://zhuanlan.zhihu.com/p/366469706"
+            ],
+            "goal": "多肉植物常用杀菌剂（代森锰锌、恶霉灵、百菌清等）和杀虫剂（呋虫胺、小白药等）的有效成分、使用浓度、使用方法、防治对象、注意事项"
+          },
+          "result": "The useful information in https://www.drlmeng.com/shajunyao.html for user goal 多肉植物常用杀菌剂（代森锰锌、恶霉灵、百菌清等）和杀虫剂（呋虫胺、小白药等）的有效成分、使用浓度、使用方法、防治对象、注意事项 as follows:\n\nSummary:\nThe webpage could not be accessed.\n\n=======\nThe useful information in https://zhuanlan.zhihu.com/p/366469706 for user goal 多肉植物常用杀菌剂（代森锰锌、恶霉灵、百菌清等）和杀虫剂（呋虫胺、小白药等）的有效成分、使用浓度、使用方法、防治对象、注意事项 as follows:\n\nEvidence in page:\n多肉植物常用杀菌剂（代森锰锌、恶霉灵、百菌清等）和杀虫剂（呋虫胺、小白药等）的有效成分、使用浓度、使用方法、防治对象、注意事项\n\n7、室内用药防护指南\n\n在室内养护的各种盆栽植物，包括常见的多肉植物、开花植物和各类观叶植物等，一般都不会直接喷杀虫剂或杀菌药。\n因为室内风不好，如果没办法将植物搬到通风好的地方喷洒各种药剂，那对人的身体都是不好的，所以一般会使用一些固体类的内吸性杀虫剂，就是一些颗粒杀菌药或杀虫剂撒在土壤里，后期正常浇水，药效慢慢被植物吸收，从而让植物产生毒性或抗菌性，从而将害虫毒死，去除病害。\n\n清除害虫最常用到的就是各种小白药，包括呋虫胺或吡虫啉，大家注意看有效成分就可以了。而杀菌类的就可以用到恶霉灵，也是直接撒在盆土上面，适当掩埋土壤就可以了。\n\n如果土壤里有各种地下害虫。就包括线虫、蚂蚁、小黑飞、蛴螬或蝼蛄等，可以用到土虫丹或呋虫胺。\n\n小贴士：\n无论是哪种杀虫剂或杀菌药，肯定都是有毒性的，一定要注意带上手套、口罩，在通风处喷洒，或喷洒药剂后洗手。小白药、小紫药这类药剂撒盆土上可适当掩埋，避免直接接触，在盆栽上使用还可以，地栽植物尽量不用。\n\nSummary:\n对于多肉植物，室内养护时推荐使用固体类内吸性药剂，避免直接喷洒。杀菌剂方面，可使用恶霉灵，直接撒于盆土并适当掩埋；代森锰锌和百菌清虽未在文中直接提及使用方法，但作为常见杀菌剂，可参考与甲基硫菌灵交替使用的原则，用于预防和治疗白粉病、炭疽病等真菌病害。杀虫剂方面，常用呋虫胺或吡虫啉制成的‘小白药’，通过撒入盆土、浇水后被植物吸收来发挥作用，适用于防治线虫、小黑飞、蚂蚁、蛴螬、蝼蛄等地下害虫。使用时需注意有效成分，避免与碱性药剂混用，并佩戴手套、口罩，在通风处操作，药剂掩埋后避免直接接触。长期使用单一药剂易产生抗药性，建议交替使用不同成分药剂。\n"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_011q2JrUmEA4Yn5rE8xK7Sgx",
+          "name": "search",
+          "args": {
+            "query": "多肉 代森锰锌 有效成分 使用浓度 方法 恶霉灵 灌根 浓度 杀菌剂 详细",
+            "topn": 8
+          },
+          "result": "A Google search for '多肉 代森锰锌 有效成分 使用浓度 方法 恶霉灵 灌根 浓度 杀菌剂 详细' found 8 results:\n\n## Web Results\n\n0. [代森锰锌用于多肉的方法](https://b2bwiki.baidu.com/article/d1je6tpftjskdn13p3sg)\nDate published: Mar 17, 2026\n二、具体使用方法及注意事项 · 1. 稀释比例：. - 通用浓度：1克代森锰锌兑1升水（1:1000），严重感染时可提高至1:1500。 *数据来源：中国农业出版社《园艺植物 ...\n\n1. [养花使用什么杀菌剂？园艺师教你，使用代森锰锌 - YouTube](https://www.youtube.com/watch?v=tT-S1tU6FnE)\nDate published: May 5, 2022\n园艺师教你，使用代森锰锌，它有保护性效果. 1.8K views · 3 years ... 室內盆栽的救星！加入「這個碎塊」告別盆土臭味、爛根和細菌. Keyura花植 ...\n\n2. [怎么使用代森锰锌？ - ChemicalBook](https://www.chemicalbook.com/NewsInfo_61804.htm)\nDate published: Mar 28, 2024\n代森锰锌的使用方法 · 1、防治果树叶斑病、锈病、黑星病、霜霉病等病害. 可于发病初期开始喷洒800倍80%代森锰锌可湿性粉剂+1000倍天达2116，每10-15天1次， ...\n\n3. [观赏植物病虫害详细用药指南，教你7种基本的药剂使用技巧](https://zhuanlan.zhihu.com/p/366469706)\nDate published: Apr 20, 2021\n如果想要增强它的杀菌效果，可以将甲基硫菌灵和代森锰锌、百菌清、嘧菌酯恶霉灵、戊唑醇、三唑酮等杀菌药混合使用。但是不要和多菌灵、苯菌灵交替用或混用， ...\n\n4. [代森锰锌的使用方法和注意事项 - 惠农网](https://www.cnhnb.com/xt/article-121118.html)\nDate published: Jul 19, 2023\n1、单剂使用：一般在作物病害发病前或发病初期，单独使用全络合态代森锰锌，即可达到很好的预防保护作用，一般每亩每次用80%全络合态代森锰锌可湿性粉剂50～70 ...\n\n5. [关于老牌杀菌剂代森锰锌，你知道多少？ - 农药新闻网](http://www.pesticidenews.cn/zgny/fangzh/content/0a705462-9409-4b2f-acc1-01aa0eea5665.html)\nDate published: Apr 12, 2023\n多菌灵和代森锰锌的复配制剂主要用于防治苹果树斑点落叶病和梨树黑星病，在斑点落叶病发病初期使用效果更佳，喷雾要均匀，可连续用药1～3次；而防治梨树黑星病 ...\n\n6. [最新最全多肉植物杀菌杀虫全攻略！ - 搜狐](https://www.sohu.com/a/195907357_178297)\nDate published: Oct 1, 2017\n... 灵为高效低毒内吸性杀菌剂，有内吸治疗和保护作用。 多菌灵真品，采用 ... 有效抑制病菌萌发和侵入，从而达到防病目的。 可与杀虫剂，杀螨剂和 ...\n\n7. [蔬菜上常用杀菌剂混剂 - 植保（中国）协会](http://www.croplifechina.com/ui/content.aspx?c3ViY29sdW1uaWQ9OTMmbmV3aWQ9MTI0)\n满适金. 3.5%、6.25%精甲霜灵+. 咯菌腈悬浮剂. 蔬菜苗期立枯病、猝倒病、黑痣病 ; 杀毒矾. 64%噁霜灵+代森锰锌可湿性粉剂. 黄瓜霜霉病、番茄晚疫病 ; 克露. 72%霜脲氰+代森锰 ..."
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "content": "现在资料已经非常充分了，让我为您系统整理所有防治方法的完整信息。",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01LwGuXYTpN5F7birAhWgbRM",
+          "name": "python",
+          "args": {
+            "code": "\n# Just using this to help organize my thoughts - no actual computation needed\nprint(\"资料整理完成，准备输出最终回答\")\n"
+          },
+          "result": "stdout:\n资料整理完成，准备输出最终回答"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "content": "---\n\n# 🛡️ 十二卷属病虫害防治方法完全手册\n\n下面我将所有防治方法按照**物理防治、生物防治、化学防治（杀菌 / 杀虫）、农业防治（日常管理预防）**四大类进行系统梳理，并标注每种方法的适用对象、使用时机、有效成分及操作要点。\n\n---\n\n## 一、物理防治\n\n> 🏷️ **方法类型：** 不使用任何药剂，通过人工操作直接清除病害或虫体\n> ✅ **优点：** 安全无毒，室内可放心使用\n> ⚠️ **局限：** 仅适合虫量少或病害初期，严重时需配合化学防治\n\n### 1️⃣ 酒精棉签擦除法（针对介壳虫）\n\n| 项目 | 详情 |\n|------|------|\n| **适用病虫害** | 粉介壳虫、盾介壳虫 |\n| **适用时机** | 发现少量虫体时第一时间使用 |\n| **操作要点** | 用棉签蘸取**75%医用酒精**，逐一擦拭叶背、叶腋、节间等隐蔽部位的虫体。酒精能**溶解介壳虫表面的蜡质层**，使虫体脱水死亡 |\n| **操作频率** | 每2-3天检查一次，连续操作2-3周确保虫卵也被清除 |\n| **注意事项** | 擦拭力度轻柔，避免损伤叶片；玉露等窗面品种尤其要避免擦伤窗面 |\n\n### 2️⃣ 砍头/切除法（针对黑腐病、叶腐病）\n\n| 项目 | 详情 |\n|------|------|\n| **适用病虫害** | 黑腐病、叶腐/化水、严重根腐 |\n| **适用时机** | 发现茎/叶基部发黑变软时**立即操作**，越早越好 |\n| **操作步骤** | ① 用消毒后的锋利刀片（胴切刀）将黑腐部分**彻底切除**，直到切面完全干净、无黑点为止；② 用**1%过氧化氢水溶液**或**1%次氯酸钠溶液（稀释漂白水）**消毒切口和工具；③ 将植株放在**阴暗通风处晾干切口1-3天**（严重的晾3-7天），直至伤口完全干燥结痂；④ 用**干燥的赤玉土+疏水颗粒土**重新上盆发根 |\n| **发根期浇水** | 沿盆壁少量给水，利用盆内水气**诱导生根**，绝不能浇到切口和叶心 |\n| **注意事项** | 🔪 每切一株后必须用酒精或双氧水**重新消毒工具**，防止交叉感染！万象/玉扇因生长极慢，砍头后恢复周期很长（数月至一年），需格外及时处理 |\n\n### 3️⃣ 修根清洗法（针对根腐病、根粉蚧）\n\n| 项目 | 详情 |\n|------|------|\n| **适用病虫害** | 根腐病、根粉蚧 |\n| **适用时机** | 植株叶片发软萎缩、浇水无效时脱盆检查 |\n| **操作步骤** | ① 脱盆，抖落所有旧土；② 用清水**彻底冲洗根系**；③ 剪除所有发黑腐烂的根（留下白色/淡黄色健康根）；④ 若有根粉蚧白色粉状物，需将根系浸泡在杀虫剂溶液中（见化学防治部分）；⑤ 消毒切口后晾干，换新土新盆上盆 |\n| **注意事项** | 十二卷的根为\"萝卜根\"，**正常老化的根**会干枯木质化（像老皮），这是正常现象，不要误判为烂根；真正的烂根有**腐臭味**，发黑发软 |\n\n### 4️⃣ 镊子/软毛刷物理清虫法\n\n| 项目 | 详情 |\n|------|------|\n| **适用病虫害** | 介壳虫（数量少时）、土中可见的大型害虫（毛虫等） |\n| **操作要点** | 用软毛刷或尖头镊子直接清除可见虫体 |\n\n---\n\n## 二、生物防治\n\n> 🏷️ **方法类型：** 使用天然生物源制剂或天然物质\n> ✅ **优点：** 低毒环保，适合室内使用\n> ⚠️ **局限：** 见效较慢，严重虫害时效果不够\n\n### 1️⃣ 护花神（生物发酵制品）\n\n| 项目 | 详情 |\n|------|------|\n| **有效成分** | 生物发酵产物（含多种微生物代谢刺激素），具体化学成分未公开 |\n| **防治对象** | 蚜虫、红蜘蛛、介壳虫、叶螨、小菜蛾等虫害；兼防白粉病、根腐病、枯萎病 |\n| **使用方法** | 喷施：加**200倍水**稀释后喷于叶面正反面；灌根：同浓度沿盆壁浇入 |\n| **使用时机** | 日常预防 + 虫害初期 |\n| **优点** | 安全无公害、无异味，可杀虫防病促生，经常使用可使叶绿花艳 |\n| **注意事项** | 避光阴凉保存，药液稀释后**一次用完**，不可存放 |\n\n### 2️⃣ 印楝素 / 苦楝油（植物源杀虫剂）\n\n| 项目 | 详情 |\n|------|------|\n| **有效成分** | **印楝素（Azadirachtin）**，提取自印楝树种子 |\n| **防治对象** | 介壳虫幼虫、蚜虫、螨虫等 |\n| **使用方法** | 按说明稀释后喷施叶面，重点喷施虫害部位 |\n| **使用时机** | 虫害初期、幼虫阶段效果最好 |\n| **优点** | 天然植物源，对人和环境安全，对害虫以外的生物无毒 |\n| **注意事项** | 对介壳虫**成虫（有硬壳期）**效果有限，主要杀幼虫 |\n\n### 3️⃣ 苦参碱（植物源杀虫剂）\n\n| 项目 | 详情 |\n|------|------|\n| **有效成分** | **苦参碱（Matrine）**，提取自苦参等豆科植物 |\n| **防治对象** | 蚜虫、介壳虫幼虫、螨虫 |\n| **使用方法** | 按产品说明稀释喷施 |\n| **适用时机** | 虫害早期 |\n\n### 4️⃣ 肥皂水 / 农皂复方（表面活性剂杀虫）\n\n| 项目 | 详情 |\n|------|------|\n| **有效成分** | 脂肪酸钠/钾（皂液的主要成分） |\n| **防治对象** | 介壳虫、蚜虫 |\n| **作用原理** | 皂液可**破坏虫体蜡质层**，使害虫脱水死亡 |\n| **使用方法** | 中\n\n… [7514 chars truncated]"
+    },
+    {
+      "type": "user",
+      "content": "对了，我比较喜欢叶质软的品种，你帮我单独筛一下叶质较软的品种群里，权威机构认定的代表品种都有哪些？每个代表品种的学名、适合的生长干湿条件、原产地、光照条件还有鉴别维度都分别说说呗。"
+    },
+    {
+      "type": "assistant",
+      "thinking": "The user is asking specifically about soft-leaf Haworthia species groups, and wants to know about representative species that are recognized by authoritative institutions. They want:\n1. Scientific names\n2. Suitable dry/wet growing conditions\n3. Native habitat/origin\n4. Light conditions\n5. Identification dimensions/features\n\nLet me search for authoritative taxonomic information about soft-leaf Haworthia species.",
+      "content": "好的！这个问题需要从权威分类学文献中查找软叶系十二卷的代表种信息，让我深入搜索。",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01XAAe4o2V5wU77kHnAZCwe5",
+          "name": "search",
+          "args": {
+            "query": "Haworthia soft leaf species official taxonomy Bayer revision accepted species list",
+            "topn": 10
+          },
+          "result": "A Google search for 'Haworthia soft leaf species official taxonomy Bayer revision accepted species list' found 10 results:\n\n## Web Results\n\n0. [Bayer species list](https://haworthia-gasteria.blogspot.com/2008/02/bayer-species-list.html)\nSee list of species accepted by Bruce Bayer (spring 2007). In his latest ... Haworthia species · Astroloba species · Gasteria species · Taxonomy · Cultivation\n\n1. [Bayer, M.B. & Manning, J.C. 2012. The Haworthia nomenclator](https://pza.sanbi.org/references/bayer-mb-manning-jc-2012-haworthia-nomenclator-list-accepted-species-some-guidelines)\nThis species has 7 described and currently accepted varieties: var. arachnoidea, var. aranea, var. calitzdorpensis, var. namaquensis, var. nigricans, var. ...\n\n2. [Classification - Haworthia Updates](https://haworthiaupdates.org/haworthia-classification/)\nBayer, M. B. & Manning, J. C. (2012b) The Haworthia nomenclator: A list of accepted species with some guidelines for infraspecific names. Redditch (GB): ...\n\n3. [[PDF] A rationalization of names in Haworthia](https://haworthia-updates.haworthia.org/wp-content/uploads/2019/09/A-rationalization-of-names-in-Haworthia-Bayer-Manning-2012.pdf)\nA rationalization of names in Haworthia: a list of species with new combinations and new synonyms. M.B. Bayer* and J.C. Manning**. *PO Box 960, Kuilsriver ...\n\n4. [Article: A Haworthia species concept update](http://www.haworthia.info/en/books/haworthia_species_concept.html)\nUsing this list: The list includes accepted Haworthia names used by Bayer, Esterhuizen, Hayashi, Scott and some of the original described names. It contains no ...\n\n5. [Haworthia info - HaworthiaLand](https://www.haworthialand.com/haworthia/)\nHaworthia is a genus of small succulents from southern Africa. Almost all of them grow in South Africa but one genus can also be found in Namibia.\n\n6. [Haworthia species identification and classification - Facebook](https://www.facebook.com/groups/166593809816298/posts/198592466616432/)\nDate published: Nov 9, 2023\nI believe your plants all three are mucronata var mucronata. Not var. habdomadis, because var habdomadis, have rounded leaf tips, similarly to ...\n\n7. [Haworthia species](https://haworthia-gasteria.blogspot.com/2008/02/haworthia-species.html)\nHaworthiopsis attenuata Haw. · Haworthiopsis attenuata var. radula (Jacq.) M.B.Bayer · Haworthia bruynsii M.B.Bayer · Haworthiopsis coarctata Haw\n\n… [555 chars truncated]"
+        },
+        {
+          "id": "toolu_vrtx_019feVGHwfnywVJGCUq4rLaS",
+          "name": "scholar_search",
+          "args": {
+            "query": "Haworthia subgenus Haworthia species revision taxonomy Bayer"
+          },
+          "result": "A Google Scholar search for 'Haworthia subgenus Haworthia species revision taxonomy Bayer' found 10 results:\n\n## Scholar Results\n\n0. [Haworthia ASPHODELACEAE](https://link.springer.com/content/pdf/10.1007/978-3-662-56486-8_56.pdf)\n… well-supported clades of Haworthia that conform to the traditionally accepted subgenera, with the exception of H. … We follow the classification concept of Bayer & Manning (2012a) and …\n\n1. [A synoptic review and new infrageneric classification for the genus Haworthiopsis (Xanthorrhoeaceae: Asphodeloideae)](https://repository.up.ac.za/items/5354644c-f3c6-467e-b847-3194723ad88d)\n… the species formerly classified under the subgenus Hexangulares of the genus Haworthia. This … Bruce Bayer has done for Haworthia (in the broad sense) in recent decades, and as GW …\n\n2. [The Genus Haworthia Duval: Past and Present](https://www.jstor.org/stable/42793061)\n… (US) 43: 147, 1971) Bayer published his ideas on the revision and division of the genus … species and their placing in the three subgenera is as published by Bayer in the New Haworthia …\n\n3. [Haworthia Updates](https://haworthiaupdates.org/author/mbbayer/page/5/)\n… When Bruce Bayer started his studies of the genus Haworthia … Bayer himself has said that his revision is still probably … it is rare for any two species of the subgenus Haworthia to be in …\n\n4. [A rationalization of names in Haworthia: a list of species with new combinations and new synonyms](https://haworthiaupdates.org/wp-content/uploads/2019/09/A-rationalization-of-names-in-Haworthia-Bayer-Manning-2012.pdf)\n… classification of the genus Haworthia is unnatural, the time is ripe to propose a list of species … split into component species and the species then into subspecies or varieties acording to …\n\n5. [Haworthia and nomenclatural confusion](https://www.jstor.org/stable/42792338)\n… are immediately disastrous where on page xiiofhis 'revision' the … The realities ofplant taxonomy are going to prove farmore … Hexangulares to 11 species, the subgenus Haworthia to 18 …\n\n6. [A molecular phylogeny and generic classification of Asphodelaceae subfamily Alooideae: a final resolution of the prickly issue of polyphyly in the alooids?](https://www.ingentaconnect.com/content/aspt/sb/2014/00000039/00000001/art00008)\n… Species of Haworthia are distributed among three clades corresponding to the current subgenera. Aloe sl (including Chort\n\n… [1145 chars truncated]"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_011XgDJXRLtfyM6TtfhnjiQP",
+          "name": "visit",
+          "args": {
+            "url": [
+              "https://haworthia-gasteria.blogspot.com/2008/02/bayer-species-list.html",
+              "https://succulentes.net/en/alooids/haworthia/",
+              "https://haworthiaupdates.org/haworthia-classification/"
+            ],
+            "goal": "Haworthia subgenus Haworthia (soft-leaf) complete list of accepted species with their names, varieties, distribution in South Africa, habitat conditions"
+          },
+          "result": "The useful information in https://haworthia-gasteria.blogspot.com/2008/02/bayer-species-list.html for user goal Haworthia subgenus Haworthia (soft-leaf) complete list of accepted species with their names, varieties, distribution in South Africa, habitat conditions as follows:\n\nEvidence in page:\nAll you wanted to know about Haworthias, Gasterias and Astrolobas: Bayer species list\n\nBruce Bayer at his greenhouse\n\nPhoto by David Martin\n\nSee list of species accepted by Bruce Bayer (spring 2007). In his latest publication Essays on Haworthia - Volume 3 he published his new \"super species taxonomy\" - as soon as I will be sure, what are the new species, I will publish his list here.\n\nHaworthia (Aloaceae)\n\nangustifolia      var.      altissima\nangustifolia      var.      angustifolia\nangustifolia      var.      baylissii\nangustifolia      var.      paucifolia\narachnoidea       var.      arachnoidea\narachnoidea       var.      aranea\narachnoidea       var.      namaquensis\narachnoidea       var.      nigricans\narachnoidea       var.      scabrispina\narachnoidea       var.      setata\naristata                    \nattenuata         var.      radula\nbayeri                      \nblackburniae      var.      blackburniae\nblackburniae      var.      derustensis\nblackburniae      var.      graminifolia\nbolusii           var.      blackbeardiana\nbolusii           var.      bolusii\nbolusii           var.      pringlei\nbruynsii                    \nchlorocantha      var.      chlorocantha\nchlorocantha      var.      denticulifera\nchlorocantha      var.      subglauca\ncoarctata         var.      adelaidensis\ncoarctata         var.      coarctata\ncoarctata         var.      tenuis\ncooperi           var.      cooperi\ncooperi           var.      dielsiana\ncooperi           var.      doldii\ncooperi           var.      gordoniana\ncooperi           var.      gracilis\ncooperi           var.      isabellae\ncooperi           var.      leightonii\ncooperi           var.      picturata\ncooperi           var.      pilifera\ncooperi           var.      puberula\ncooperi           var.      truncata\ncooperi           var.      venusta\ncooperi           var.      viridis\ncymbiformis       var.      cymbiformis\ncymbiformis       var.      incurvula\ncymbiformis       var.      obtusa\ncymbiformis       var.      ramosa\ncymbiformis       var.      reddii\ncymbiformis       var.      setulifera\ncymbiform\n\n… [26592 chars truncated]"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_011b7M4doYrnKwTmCgenJZok",
+          "name": "visit",
+          "args": {
+            "url": [
+              "https://haworthiaupdates.org/haworthia-classification/"
+            ],
+            "goal": "For each soft-leaf Haworthia species in subgenus Haworthia, extract: species name, distribution (which province in South Africa), habitat/vegetation type, rainfall pattern (winter/summer/year-round). Focus on the key representative species: H. cooperi, H. retusa, H. truncata, H. maughanii, H. emelyae, H. mirabilis, H. cymbiformis, H. bayeri, H. mutica, H. pygmaea, H. springbokvlakensis, H. magnifica, H. marxii, H. herbacea, H. arachnoidea, H. floribunda, H. mucronata, H. decipiens, H. bolusii, H. blackburniae, H. monticola, H. lockwoodii, H. bruynsii, H. outeniquensis, H. maraisii, H. rossouwii, H. nortieri, H. pubescens"
+          },
+          "result": "The useful information in https://haworthiaupdates.org/haworthia-classification/ for user goal For each soft-leaf Haworthia species in subgenus Haworthia, extract: species name, distribution (which province in South Africa), habitat/vegetation type, rainfall pattern (winter/summer/year-round). Focus on the key representative species: H. cooperi, H. retusa, H. truncata, H. maughanii, H. emelyae, H. mirabilis, H. cymbiformis, H. bayeri, H. mutica, H. pygmaea, H. springbokvlakensis, H. magnifica, H. marxii, H. herbacea, H. arachnoidea, H. floribunda, H. mucronata, H. decipiens, H. bolusii, H. blackburniae, H. monticola, H. lockwoodii, H. bruynsii, H. outeniquensis, H. maraisii, H. rossouwii, H. nortieri, H. pubescens as follows:\n\nEvidence in page:\nThe provided webpage content contains detailed taxonomic and ecological information for numerous Haworthia species, including their distribution, habitat/vegetation type, and rainfall patterns. The information is organized under species and variety entries, with specific mentions of geographic locations (provinces in South Africa), vegetation types (e.g., Succulent Karoo, Fynbos, Nama Karoo), and rainfall patterns where specified. The user’s goal focuses on soft-leaf species within subgenus Haworthia (as defined in the text), and the following species are explicitly mentioned with relevant data: H. cooperi, H. retusa, H. truncata, H. maughanii, H. emelyae, H. mirabilis, H. cymbiformis, H. bayeri, H. mutica, H. pygmaea, H. springbokvlakensis, H. magnifica, H. marxii, H. herbacea, H. arachnoidea, H. floribunda, H. mucronata, H. decipiens, H. bolusii, H. blackburniae, H. monticola, H. lockwoodii, H. bruynsii, H. outeniquensis, H. maraisii, H. rossouwii, H. nortieri, H. pubescens. For each, the text provides distribution (province), habitat/vegetation, and rainfall pattern where available. The data is extracted directly from the species descriptions and distribution notes in the document.\n\nSummary:\nThe soft-leaf Haworthia species in subgenus Haworthia exhibit diverse distributions across South Africa, primarily in the Western Cape, Eastern Cape, Northern Cape, and parts of Mpumalanga and KwaZulu-Natal. Habitat types include Succulent Karoo, Fynbos, Nama Karoo, Albany Thicket, and various bushveld and thicket formations. Rainfall patterns vary: many species are adapted to winter rainfall (e.g., H. arachnoidea, H. herbacea,\n\n… [698 chars truncated]"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_016tadSCpFCfAfguHyAPvuPF",
+          "name": "search",
+          "args": {
+            "query": "Haworthia cooperi retusa truncata maughanii emelyae mirabilis cymbiformis bayeri habitat rainfall distribution South Africa SANBI POWO",
+            "topn": 10
+          },
+          "result": "A Google search for 'Haworthia cooperi retusa truncata maughanii emelyae mirabilis cymbiformis bayeri habitat rainfall distribution South Africa SANBI POWO' found 10 results:\n\n## Web Results\n\n0. [Haworthia cooperi var. truncata (H.Jacobsen) M.B.Bayer - POWO](https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1014741-1)\nThe native range of this variety is S. Cape Prov. It is a succulent perennial and grows primarily in the subtropical biome.\n\n1. [Species list: Haworthia - Red List of South African Plants](https://redlist.sanbi.org/genus.php?genus=2215)\nHaworthia cooperi Baker var. truncata (H.Jacobsen) M.B.Bayer Not Evaluated; Haworthia cooperi Baker var. venusta (C.L.Scott) M.B.Bayer Not Evaluated ...\n\n2. [Haworthia cymbiformis var. cymbiformis | Plants of the World Online](https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77171921-1)\nThe native range of this variety is SE. Cape Prov. It is a succulent perennial and grows primarily in the subtropical biome.\n\n3. [The genus Haworthia - Succulentes](https://succulentes.net/en/alooids/haworthia/)\nThe “true haworthias.” Endemic to South Africa (Western, Eastern and Northern Cape). These are the species that collectors prize — Haworthia truncata, Haworthia ...\n\n4. [Haworthia cooperi var. cooperi | Plants of the World Online](https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77170226-1)\nThe native range of this variety is S. Cape Prov. It is a succulent perennial and grows primarily in the subtropical biome.\n\n5. [Cymbiformis Cooperi - Haworthia Updates](https://haworthiaupdates.org/2022/12/06/cymbiformis-cooperi/)\nDate published: Dec 6, 2022\nBluish-green in colour, slightly translucent, with veins usually reddening and leaves developing purplish hues in exposed situations.\n\n6. [Haworthia cymbiformis (Haw.) Duval | Plants of the World Online](https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:536035-1)\nThe native range of this species is S. & SE. Cape Prov. It is a succulent perennial and grows primarily in the subtropical biome.\n\n7. [Haworthias – Super Succulents for Small Spaces](https://hort.extension.wisc.edu/articles/haworthias-super-succulents-for-small-spaces/)\nHaworthias are small and deservedly popular succulents from southern Africa. They are generally of easy culture, of small and convenient size, more tolerant ...\n\n8. [Haworthia genus | PlantZAfrica - SANBI](https://pza.\n\n… [484 chars truncated]"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01NgRJsncPdWyCSWGkxEUiUM",
+          "name": "visit",
+          "args": {
+            "url": [
+              "https://pza.sanbi.org/haworthia-genus",
+              "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:331203-2"
+            ],
+            "goal": "Haworthia soft-leaf species list accepted by SANBI/POWO, their distribution, habitat, growing conditions (light, moisture), identification features"
+          },
+          "result": "The useful information in https://pza.sanbi.org/haworthia-genus for user goal Haworthia soft-leaf species list accepted by SANBI/POWO, their distribution, habitat, growing conditions (light, moisture), identification features as follows:\n\nEvidence in page:\nHaworthia is a genus of dwarf, leaf succulent plants. Evidence from molecular research on generic level relationships among the alooids, has resulted in the genus Haworthia being split into 3 segregate genera, which roughly correspond to the previously recognized subgenera. The species remaining in Haworthia are those that were previously included in Haworthia subgenus Haworthia. The 2 other subgenera are now treated as the genera Haworthiopsis (=Haworthia subgenus Hexangulares) and Tulista (=Haworthia subgenus Robustipedunculares). The genus Haworthia was named for Adrian Hardy Haworth (1768–1833), who was an authority on succulent plants during the early nineteenth century.\n\nHaworthia species are characterised by their usually stemless small rosettes of succulent leaves that are generally not as hard and tough as those of Haworthiopsis and Tulista. Leaf fibres are absent. There is great variation among Haworthia species, and even within a species or population, in terms of their leaf shape, size, colour and texture. Some species often divide or proliferate to form small to large clusters of numerous tightly packed rosettes, whereas a number of the other species always remain solitary.\n\nPlants produce unbranched inflorescences that are carried erectly, similarly to those in Haworthiopsis. Buds are held erectly during development and are disposed at an upward angle during flowering.\n\nFlowers are bilabiate (with a very distinct upper and lower lip), with a strongly curved tube, recurved tips, and are generally white or greyish white to dull pinkish white or greenish white, sometimes yellowish in the tube, often with a green, brownish or pinkish central vein on the tepals (flower leaves). In most species the flower tube narrows gradually to the flower stalk (pedicel) to form a short basal tube (flower tube not narrowing abruptly towards the pedicel as in Tulista), but in some species the basal tube may have a distinct round swelling. The flower tube is triangular to rounded-triangular in cross section (not 6-sided as in Haworthiopsis and Tulista).\n\nHaworthia can mainly be divided into the summer-flowering an\n\n… [13832 chars truncated]"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "content": "资料已经非常完整了。根据 **SANBI（南非国家生物多样性研究所）** 的权威信息，十二卷属狭义（*Haworthia* sensu stricto）即为软叶系，共含 **38种、131个分类群**。下面我为您系统整理。",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_019iQXQvx2sKEM6bEntREzZh",
+          "name": "python",
+          "args": {
+            "code": "\n# Just confirming I have all the data organized\nspecies_count = {\n    \"cooperi\": 13, # varieties\n    \"cymbiformis\": 5,\n    \"mirabilis\": \"15+\",\n    \"emelyae\": 4,\n    \"pygmaea\": \"5-6\",\n    \"arachnoidea\": 7,\n    \"bolusii\": 3,\n    \"decipiens\": 5,\n    \"mucronata\": 5,\n    \"marumiana\": 6,\n    \"truncata\": 2, # var. truncata + var. maughanii\n    \"retusa\": \"multiple\",\n    \"mutica\": \"multiple\",\n    \"bayeri\": 1,\n    \"magnifica\": \"multiple\",\n    \"springbokvlakensis\": 1,\n    \"marxii\": 1,\n    \"herbacea\": 4,\n    \"floribunda\": 3,\n    \"blackburniae\": 3,\n    \"lockwoodii\": 1,\n    \"bruynsii\": 1,\n    \"monticola\": 2,\n    \"outeniquensis\": 1,\n    \"maraisii\": 3,\n    \"nortieri\": 3,\n    \"pubescens\": 2,\n}\nprint(f\"整理了 {len(species_count)} 个代表物种的信息\")\nprint(\"准备输出最终详细回答\")\n"
+          },
+          "result": "stdout:\n整理了 27 个代表物种的信息\n准备输出最终详细回答"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "content": "---\n\n# 🌿 十二卷属软叶系（*Haworthia* s.s.）权威代表品种详解\n\n## 📌 权威依据\n\n以下品种分类依据 **SANBI（南非国家生物多样性研究所）** 和 **POWO（Kew皇家植物园\"世界在线植物\"数据库）** 所接受的分类体系，遵循 **Bayer & Manning（2012）** 的物种修订方案。\n\n> 狭义十二卷属（*Haworthia* s.s.）= 原亚属 *Haworthia*（软叶系），共 **38种、约131个分类群（含变种）**，全部为**南非特有种**。\n\n---\n\n## 一、品种群总览\n\n软叶系可按**叶形与窗面特征**归入以下几个自然类群。我从每个类群中筛选最核心的权威代表种，逐一展开。\n\n| 类群 | 核心特征 | 代表种 |\n|------|---------|-------|\n| 🔮 **截形窗面类（retuse/truncate group）** | 叶顶平截或内凹，具大而显著的窗 | *H. truncata*、*H. retusa*、*H. emelyae*、*H. mutica*、*H. bayeri*、*H. magnifica*、*H. pygmaea*、*H. springbokvlakensis*、*H. marxii* |\n| 💧 **水滴窗面类（cooperi/cymbiformis group）** | 叶顶凸起如水滴/半球，高度通透 | *H. cooperi*、*H. cymbiformis*、*H. decipiens*、*H. bolusii* |\n| ⭐ **尖叶/蛛丝类（mirabilis/arachnoidea group）** | 叶尖渐尖或具刺毛，窗面不显著或仅有半透明区 | *H. mirabilis*、*H. arachnoidea*、*H. herbacea*、*H. mucronata*、*H. maraisii*、*H. floribunda*、*H. monticola* |\n| 🔸 **其他特殊种** | 形态独特的孤立种 | *H. lockwoodii*、*H. bruynsii*、*H. nortieri*、*H. pubescens*、*H. outeniquensis*、*H. blackburniae*、*H. marumiana* |\n\n---\n\n## 二、各代表种详解\n\n### 🔮 截形窗面类——\"十二卷皇冠上的宝石\"\n\n---\n\n#### 1. *Haworthia truncata* Schönl.（玉扇）\n\n| 维度 | 详情 |\n|------|------|\n| **学名** | *Haworthia truncata* Schönl. |\n| **包含变种** | var. *truncata*（玉扇）；var. *maughanii*（Poelln.）M.B.Bayer（万象） |\n| **原产地** | 南非🇿🇦 **西开普省**，小卡鲁（Little Karoo）地区 |\n| **植被类型** | 多肉卡鲁灌丛（Succulent Karoo） |\n| **降雨模式** | 冬雨型至全年型降雨 |\n| **干湿条件** | 耐旱性强；原生地年均降雨量偏低（200-400mm）；生长期（春秋）适度给水，夏冬严格控水 |\n| **光照条件** | 需光量在软叶类中**最高**（约12000 Lux）；可接受较强散射光或晨光；原生地半埋土中仅露窗面 |\n| **鉴别维度** | ✦ var. *truncata*（玉扇）：叶片排成**两列对生**（二列式），每片叶顶部平截如刀切，截面为透明窗面；✦ var. *maughanii*（万象）：叶片**圆柱状**、螺旋排列呈五角形，截面圆形，窗面平截如象脚底板 |\n| **变种数** | 2个权威接受变种 |\n| **花期** | 秋季 |\n\n---\n\n#### 2. *Haworthia retusa* (L.) Duval（寿/正寿）\n\n| 维度 | 详情 |\n|------|------|\n| **学名** | *Haworthia retusa* (L.) Duval |\n| **原产地** | 南非🇿🇦 **西开普省和东开普省** |\n| **植被类型** | 灌丛带、Albany Thicket |\n| **降雨模式** | 全年型降雨 |\n| **干湿条件** | 适中；生长期保持盆土微润，休眠期控水；耐旱但不喜极度干燥 |\n| **光照条件** | 散射光至柔和直射光（8000-10000 Lux），避免正午暴晒 |\n| **鉴别维度** | 叶片三角形，上半部外翻，窗面呈**微凸三角截面**；窗面通常有简单脉纹；叶缘有时呈红色边；是\"寿\"类的原型种 |\n| **花期** | 冬末至春季 |\n\n---\n\n#### 3. *Haworthia emelyae* Poelln.（白银寿/康平寿/美吉寿）\n\n| 维度 | 详情 |\n|------|------|\n| **学名** | *Haworthia emelyae* Poelln. |\n| **主要变种** | var. *emelyae*（白银寿）；var. *comptoniana*（康平寿）；var. *major*（美吉寿/wimii）；var. *multifolia*（多叶寿） |\n| **原产地** | 南非🇿🇦 **西开普省和东开普省** |\n| **植被类型** | 多肉卡鲁灌丛（Succulent Karoo）、凡波斯（Fynbos） |\n| **降雨模式** | 全年型至冬雨型 |\n| **干湿条件** | 中偏干；干透浇透，夏季严格控水\n\n… [10477 chars truncated]"
+    },
+    {
+      "type": "user",
+      "content": "我特别想养白银寿，能不能单独跟我说说白银寿的种植土质配方是什么，适合用哪种花盆，还有需要防范的病虫害风险有哪些呀？"
+    },
+    {
+      "type": "assistant",
+      "thinking": "The user is specifically asking about Haworthia emelyae var. emelyae (白银寿) cultivation details:\n1. Soil mix/substrate formula\n2. Suitable pot/container type\n3. Disease and pest risks to watch out for\n\nLet me search for specific information about growing H. emelyae / 白银寿.",
+      "content": "好的！白银寿是非常美的品种，让我帮您搜索关于它的专项种植配方、花盆选择和病虫害风险信息。",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01WFkhP1v54D8dwc7c31waqF",
+          "name": "search",
+          "args": {
+            "query": "白银寿 Haworthia emelyae 种植配土 土壤配方 赤玉土 颗粒比例 详细",
+            "topn": 10
+          },
+          "result": "A Google search for '白银寿 Haworthia emelyae 种植配土 土壤配方 赤玉土 颗粒比例 详细' found 9 results:\n\n## Web Results\n\n0. [土壤混合建议: r/haworthia - Reddit](https://www.reddit.com/r/haworthia/comments/195ulwi/soil_mix_recommendation/?tl=zh-hans)\nDate published: Jan 13, 2024\n我用2 份珍珠岩，1 份土的比例，然后彻底混合。 我的在室内养，在铁架子上的灯光 ... 赤玉土、浮石和火山岩。 蚯蚓粪和粘土。 ejk1414. • 2年前. 百分 ...\n\n1. [多肉土壤的终极真相：赤玉土神话还是科学？5分钟解锁完美配方！](https://www.youtube.com/watch?v=JRTO9-txfNE)\nDate published: Sep 7, 2025\n想养出胖嘟嘟的多肉？土壤是关键！ 诚品绿仓植物学院用科学数据揭秘赤玉土的“全能神话”，避开珍珠岩雷区，教你灵活配土，从新手到大神都能用！\n\n2. [配土入门教程：会做饭的都能快速上手！ - 23h8 爱生活吧！](https://www.23h8.com/4405.html)\n一份结构合理的土壤，要有约50%的空隙用来涵养水分和空气，另外50%才是固态的植料。固、液、气三态缺一不可。 优质土壤有六大指标：持水性、透气性、保肥性、营养 ...\n\n3. [关于给玉露用赤玉土的建议: r/haworthia - Reddit](https://www.reddit.com/r/haworthia/comments/re77fp/akadama_soil_for_haworthias_advice/?tl=zh-hans)\nDate published: Dec 11, 2021\n我刚收到大约1 公斤硬质中粒赤玉土。 我本来想把我大部分稀有的玉露都用100% 的赤玉土重新上盆，但是由于我买的量不够，我想问问大家会怎么把它和其他 ...\n\n4. [最简单的多肉植物配土](https://www.drlmeng.com/2-peitu.html)\nDate published: Dec 2, 2012\n配土比例是：泥炭土10%-20% + 沙子20% + 颗粒60%-80% 比例并不要求太严格，总之就是加大土壤中颗粒的占有率，但是我也不太推荐完全使用颗粒总感觉有点土壤 ...\n\n5. [介質要怎麼選呢？｜赤玉土｜沃鬆｜發泡煉石 - YouTube](https://www.youtube.com/watch?v=yf8Bdia3OfM)\nDate published: Sep 6, 2023\n植物的土壤介質要怎麼調配？｜介質要怎麼選呢？｜赤玉土｜沃鬆｜發泡煉石. 22K views · 2 years ago ...more. Tienloveshare. 6.72K. Subscribe. 435. Share.\n\n6. [多肉植物种植用土方案| 最适合北美地区的多肉配土 - YouTube](https://www.youtube.com/watch?v=HACrF7K8PRA)\nDate published: Nov 10, 2021\n... 配土#赤玉土#火山岩#温哥华多肉我们知道想要种好多肉并且让多肉呈现出肥美艳丽的状态，除了光照、通风、温差以外，还必须在种植土壤中加入一定比例的颗粒土 ...\n\n7. [多肉介質全攻略(第四集最終回)/新手必看/多肉配土比例需視情況調整 ...](https://www.youtube.com/watch?v=OSxOiIOZ02A)\nDate published: Oct 6, 2024\n小茉愛多肉#多肉新手#多肉配土#多肉介質#多肉顆粒土#多肉植物哈囉~大家好啊!先閒話家常一下~ 颱風剛過,都還好嗎?希望大家都不要有災情,畢竟我們才剛 ...\n\n8. [推荐用什么土？ : r/haworthia - Reddit](https://www.reddit.com/r/haworthia/comments/jfqvz9/what_soil_mix_is_recommended/?tl=zh-hans)\nDate published: Oct 22, 2020\n我住在南加州，露天种植，用2份浮石和1份袋装多肉土混合。对我来说，在这里效果很好。我喜欢土壤在几天内或多或少完全干燥，并在植物显示口渴时浇水。"
+        },
+        {
+          "id": "toolu_vrtx_01GwnahLjGHEVVADz3VVUvY1",
+          "name": "search",
+          "args": {
+            "query": "白银寿 十二卷 花盆选择 万象盆 养护经验 根系 浇水",
+            "topn": 10
+          },
+          "result": "A Google search for '白银寿 十二卷 花盆选择 万象盆 养护经验 根系 浇水' found 10 results:\n\n## Web Results\n\n0. [我買了我的第一棵十二卷！ 照顧它們的需求跟其他多肉植物都一樣嗎 ...](https://www.reddit.com/r/succulents/comments/170jkbg/got_my_first_haworthia_are_their_care_needs_the/?tl=zh-hant)\nDate published: Oct 5, 2023\n我的話，等到上面透明的「窗戶」開始看起來乾扁/皺巴巴的，就從底部澆水。我的大概四個禮拜澆一次水。我也把我的種在陶盆裡，用50/50的Bonsai Jack顆粒土 ...\n\n1. [多肉小心事，十二卷之我见 - 知乎专栏](https://zhuanlan.zhihu.com/p/37919519)\nDate published: Jun 10, 2018\n因为十二卷属软叶的根系多是萝卜根，根系发达但是根少，对透气程度要求较高。所以在盆器的选择上应该选择较高透气性较好盆器。比较常用的是用万象盆，因为 ...\n\n2. [多肉十二卷屬養護，如果出現果凍狀是缺水的信號，不曬太陽多澆水 ...](https://www.youtube.com/watch?v=C98GW91quC4)\nDate published: May 11, 2022\n... 十二卷属养护，如果出现果冻状是缺水的信号，不晒太阳多浇水 ... 這樣做變黑金肥，讓花開爆盆、根系更強壯｜天然長效肥DIY｜家庭園藝必看 ...\n\n3. [多肉十二卷的养殖方法及注意事项，花友必看！ - 惠农网](https://www.cnhnb.com/xt/article-57872.html)\nDate published: Sep 1, 2021\n... 10℃时十二卷都会进入休眠状态;. 3.光照：要尽量避免十二卷多肉被太阳直射;. 4.通风：保持良好的通风;. 5.浇水：少量浇水;. 6.换盆：夏季是大多数多肉植物 ...\n\n4. [十二卷怎么浇水、度夏 - 多肉联萌](https://www.drlmeng.com/tiaodeng.html)\nDate published: May 22, 2015\n二、浇水时，表面干是肯定要的，其次最好还要底部干。 三、可以在花盆底部铺一层赤玉之类对水敏感的介质，浇水前用电筒看底部的土壤。 四、底部土壤 ...\n\n5. [白银寿多肉怎么养 - 百度经验](https://jingyan.baidu.com/article/414eccf66946d82a431f0af4.html)\nDate published: Apr 20, 2021\n在春季、秋季保持土壤湿润即可；在夏季浇水同时还需喷点水；在冬季的时候，土壤尽量保持干燥一点。\n\n6. [十二卷爛掉了，但我的其他都長得很好。它們需要不同的照顧嗎？](https://www.reddit.com/r/succulents/comments/17maol9/haworthia_rotted_but_all_my_others_are_doing/?tl=zh-hant)\nDate published: Nov 2, 2023\n我立即將它們重新種植到排水良好的花盆中，等待一個星期，然後添加一個Jobe 多肉植物肥料棒並澆水。只有在它們看起來口渴時才重新澆水，這幾乎從未發生過。\n\n7. [十二卷的养护管理以及盆景制作方法- 好花网](https://www.haohua.com/huayu/50116.html)\nDate published: Mar 4, 2019\n它比较耐受干旱，不耐水湿，但绝对不是喜干旱，所以浇水应遵循干湿交替进行，浇水一定要浇透，在浇水时要注意盆土是否有缝隙漏水，要及时堵塞，否则即使是浇水很 ...\n\n8. [圆润丰满的十二卷你知道怎么养吗？ - 网易](https://www.163.com/dy/article/DKIN0O140512PDTO.html)\nDate published: Jun 18, 2018\n如果是没有根的侧芽，那么先蹲土上，等它慢慢发根吧，十二的发根很慢，千万不要着急，发根过程中可以浇水。其实也可以等同于正常养护。如果这个过程中肉肉受伤， ...\n\n9. [玉露十二卷多肉怎么养？看这三点你是不是做错了！ - YouTube](https://www.youtube.com/watch?v=qEZEww9di-s)\nDate published: Jan 3, 2025\nComments · 新手養玉露，只需6點，盆盆晶瑩開窗，一個不小心還會1盆變10盆，賺錢了！ · I was originally planning to show off this variegated Ice Angel plant ..."
+        },
+        {
+          "id": "toolu_vrtx_01T7xAyAU7Lki3Sw5dtD5xup",
+          "name": "search",
+          "args": {
+            "query": "白银寿 Haworthia emelyae 病虫害 烂根 介壳虫 黑腐 养护难点",
+            "topn": 10
+          },
+          "result": "No results for '白银寿 Haworthia emelyae 病虫害 烂根 介壳虫 黑腐 养护难点'"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01HgL1SV71iQrHNff1GJvGNo",
+          "name": "search",
+          "args": {
+            "query": "Haworthia emelyae picta cultivation soil mix pot watering care guide",
+            "topn": 8
+          },
+          "result": "A Google search for 'Haworthia emelyae picta cultivation soil mix pot watering care guide' found 8 results:\n\n## Web Results\n\n0. [Haworthia emelyae Plant Care: Water, Light, Nutrients | Greg App](https://greg.app/plant-care/haworthia-emelyae)\nHaworthia emelyae needs 0.8 cups of water every 12 days when it doesn't get direct sunlight and is potted in a 5.0\" pot.\n\n1. [Haworthia Care: How to Grow Healthy Succulents - Farmer's Almanac](https://www.almanac.com/plant/haworthia-care-how-grow-healthy-succulents)\nDate published: Feb 13, 2026\nUse well-draining soil: Potted haworthia thrive in succulent or cactus mix. You can make your own blend using equal parts potting mix, sand, and ...\n\n2. [Starting my Haworthia Adventure: Easy Care Tips & Soil Mix](https://www.youtube.com/watch?v=v9ADY9FUFRo)\nDate published: Jul 26, 2024\nIn this video, I'll walk you through the process of potting Haworthia, including tips on trimming roots, creating the perfect soil mix, ...\n\n3. [Haworthia: Plant Care & Growing Guide - The Spruce](https://www.thespruce.com/grow-haworthia-succulents-1902980)\nDate published: May 24, 2024\nAvoid overwatering, but don't let them dry out completely. Plant in sandy, well-draining, neutral soil; best planted in spring or early summer.\n\n4. [How to Care for Haworthia Succulents: Easy Tips for a Thriving Plant](https://intl.cheekyplantco.com.au/blogs/plants-blog/how-to-care-for-haworthia-succulents-easy-tips-for-a-thriving-plant)\nBy choosing the right container, using a well‑draining soil mix, adopting the soak and dry watering method, and providing adequate light and occasional feeding, ...\n\n5. [The Ultimate Guide to Caring for Haworthia Succulents - Urban Botany](https://urbanbotany.com/blogs/care-guide/the-ultimate-guide-to-caring-for-haworthia-succulents?srsltid=AfmBOopreKenv2pT-2RBudzHBkRGk0vz3oiFUF_9gAJ8bRoKjVvI9Bto)\nDate published: Jul 6, 2024\nMethod: Water the soil directly and avoid getting water on the leaves. Ensure that excess water drains out of the pot to prevent waterlogging. 3 ...\n\n6. [Caring for Haworthia - Bonsai Tree (Pty) Ltd.](https://www.bonsaitree.co.za/blogs/tree-talk/caring-for-haworthia?srsltid=AfmBOopA9nLJ2ZpQvFMh-lctcRx82c_BxSWGtbfHivhyKkMTQ8pmuoAC)\nIdeally, you would want a mix that is wet for one day, somewhat moist for two days, and completely dry by the fourth or fifth day at the latest. These plants ...\n\n7. [How to care for Ha\n\n… [335 chars truncated]"
+        },
+        {
+          "id": "toolu_vrtx_01Ci1bJNQjyWe3FkakWrLdws",
+          "name": "visit",
+          "args": {
+            "url": [
+              "https://www.23h8.com/4405.html",
+              "https://jingyan.baidu.com/article/414eccf66946d82a431f0af4.html"
+            ],
+            "goal": "十二卷属寿类（白银寿/H. emelyae）的配土方案详细比例、花盆选择建议、养护注意事项"
+          },
+          "result": "The useful information in https://www.23h8.com/4405.html for user goal 十二卷属寿类（白银寿/H. emelyae）的配土方案详细比例、花盆选择建议、养护注意事项 as follows:\n\nEvidence in page:\n泥炭打底，赤玉土、火山石提供微量元素和通透性（没有这两种也可用其他颗粒替换，确保泥炭与颗粒的比例3:7即可）。\n越老桩的多肉，泥炭比例可以越低，否则容易因为水肥过多导致徒长。这里没有使用珍珠岩，是因为多肉用土量不大，珍珠岩易碎且轻质，用火山岩更优质。仍然担心烂根的，可以再额外添加一部分河沙。\n\nSummary:\n针对十二卷属寿类（如白银寿/H. emelyae）的配土方案，建议以泥炭土为打底，搭配赤玉土或火山石等颗粒基质，保持泥炭与颗粒比例约为3:7，以确保良好的透气性和排水性。由于老桩多肉对水肥敏感，泥炭比例宜低，避免徒长；若担心烂根，可额外添加河沙增强排水。花盆选择上应避免过大过深的容器，以防土壤板结和积水；养护中需控制浇水频率，避免土壤长期潮湿，保持根系通气良好。\n\n=======\nThe useful information in https://jingyan.baidu.com/article/414eccf66946d82a431f0af4.html for user goal 十二卷属寿类（白银寿/H. emelyae）的配土方案详细比例、花盆选择建议、养护注意事项 as follows:\n\nEvidence in page:\n十二卷属寿类（白银寿/H. emelyae）的配土方案详细比例、花盆选择建议、养护注意事项\n\n白银寿是十二卷属中非常受欢迎的一种多肉植物，其叶片肥厚、呈银白色，具有很高的观赏价值。在养护过程中，科学的配土、合适的花盆选择以及合理的养护管理是保证其健康生长的关键。\n\n配土方案：建议使用疏松透气、排水良好的土壤。可采用泥炭土：珍珠岩：赤玉土（或粗沙）按 4:3:3 的比例混合。此配比既能保证土壤的透气性，又能提供适量的养分，避免积水导致根部腐烂。\n\n花盆选择：推荐使用陶盆或紫砂盆，这类花盆透气性好，有利于根系呼吸。花盆底部必须有排水孔，确保多余水分能够及时排出。花盆大小应与植株根系相匹配，不宜过大，以免土壤长期潮湿引发烂根。\n\n养护注意事项：\n1. 光照：白银寿喜光，可接受全日照，但夏季需适当遮阴，避免强光直射导致叶片灼伤。\n2. 浇水：遵循‘干透浇透’原则，春秋生长季可每7-10天浇水一次，夏季和冬季则需减少浇水频率，保持土壤偏干。\n3. 温度：适宜生长温度为15-25℃，冬季应保持在5℃以上，避免冻伤。\n4. 通风：保持环境通风良好，有助于减少病虫害发生。\n5. 施肥：生长期每月施一次稀释的多肉专用肥，其他季节不需施肥。\n\nSummary:\n白银寿（H. emelyae）的配土建议采用泥炭土:珍珠岩:赤玉土（或粗沙）=4:3:3的比例，以保证疏松透气和良好排水。花盆宜选用透气性好的陶盆或紫砂盆，底部需有排水孔，大小适中。养护时需提供充足光照（夏季适当遮阴），遵循‘干透浇透’原则浇水，春秋每7-10天一次，夏冬减少；适宜温度为15-25℃，冬季不低于5℃；保持良好通风，生长期每月施一次稀释多肉专用肥，其余时间不施肥。\n"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01C577T7NxsSc8znWCE6mqMr",
+          "name": "search",
+          "args": {
+            "query": "\"白银寿\" OR \"emelyae\" 配土 方案 颗粒土 泥炭 鹿沼土 赤玉 比例 经验",
+            "topn": 8
+          },
+          "result": "No results for '\"白银寿\" OR \"emelyae\" 配土 方案 颗粒土 泥炭 鹿沼土 赤玉 比例 经验'"
+        },
+        {
+          "id": "toolu_vrtx_0177dcNMLXExPn4tgkgYP1r1",
+          "name": "search",
+          "args": {
+            "query": "十二卷 寿 白银寿 夏季 烂根 黑腐 度夏 注意 根粉蚧 防治 经验",
+            "topn": 8
+          },
+          "result": "A Google search for '十二卷 寿 白银寿 夏季 烂根 黑腐 度夏 注意 根粉蚧 防治 经验' found 8 results:\n\n## Web Results\n\n0. [你可以幫我救救我的條紋十二卷，讓它免於爛根嗎？ - Reddit](https://www.reddit.com/r/succulents/comments/gczopg/can_you_help_me_save_my_haworthia_fasciata_from/?tl=zh-hant)\nDate published: May 3, 2020\n高顆粒度對十二卷來說不是「必要條件」，但它大大降低了未來根腐病的機會。你也可以用一般的盆栽土種它們，只要你確切知道什麼時候澆水、澆多少。但是 ...\n\n1. [［多肉养护］给十二卷属多肉修根的操作及注意事项 - YouTube](https://www.youtube.com/watch?v=XYUns5diWS8)\nDate published: Dec 10, 2024\n［多肉养护］给十二卷属多肉修根的操作及注意事项VLOG生活日志,多肉植物,教程,Haworthia,多肉,玉露.\n\n2. [多肉小心事，十二卷之我见 - 知乎专栏](https://zhuanlan.zhihu.com/p/37919519)\nDate published: Jun 10, 2018\n闷养必须在服盆后，春秋时节比较适合，也有朋友试过夏天也闷养，但要注意透气和通风的程度，湿度也要控制好，因为夏天玉露生长比较慢，太湿容易烂根和水化黑腐。\n\n3. [十二卷怎么浇水、度夏 - 多肉联萌](https://www.drlmeng.com/tiaodeng.html)\nDate published: May 22, 2015\n因为它有危机感：说不定喝完这口水，就好长时间都喝不到水了。如果之后很长时间都没有什么水。怎么办？它就把肉质根里面的水反哺出来供应叶子的生长。反正你 ...\n\n4. [多肉界的能量柱：十二卷属萝卜根的养护秘诀 - YouTube](https://www.youtube.com/watch?v=vwkG7q0Fazk)\nDate published: Jun 11, 2024\nShare your videos with friends, family, and the world.\n\n5. [多肉十二卷的养殖方法及注意事项，花友必看！ - 惠农网](https://www.cnhnb.com/xt/article-57872.html)\nDate published: Sep 1, 2021\n多肉十二卷的养殖方法及注意事项，花友必看！ · 1.常常动土修根. 多肉植物养殖需要经常动土，适当的给植物修理根须，对植物生长是有利的，还可以减少根须虫害的 ...\n\n6. [十二卷的养护管理以及盆景制作方法- 好花网](https://www.haohua.com/huayu/50116.html)\nDate published: Mar 4, 2019\n如毛汉十二卷、绿玉扇、青蟹、静鼓、白银寿、京之华锦、万象、康平寿等。 生长习性：十二卷喜温暖干燥的环境，耐干旱，怕水涝，适宜在半荫或充足而 ...\n\n7. [【转】多肉植物管理月历 - 360Doc](http://www.360doc.com/content/14/1223/17/14740753_435217486.shtml)\nDate published: Dec 23, 2014\n一月一月俗称元月，是一年当中最为寒冷的季节, 同时也是一年中光照时间较少的一个月。因此, 本月的多肉植物管理应以防寒保温和增加光照为主。"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01UuuQtZX6A83dr9VHwa8nme",
+          "name": "visit",
+          "args": {
+            "url": [
+              "https://www.drlmeng.com/tiaodeng.html",
+              "https://www.drlmeng.com/shou.html"
+            ],
+            "goal": "白银寿/寿类十二卷的配土方案、浇水要点、度夏注意事项、常见病虫害、根系管理"
+          },
+          "result": "The useful information in https://www.drlmeng.com/tiaodeng.html for user goal 白银寿/寿类十二卷的配土方案、浇水要点、度夏注意事项、常见病虫害、根系管理 as follows:\n\nEvidence in page:\n十二卷类植物长得算是慢的，那么慢，那么那么慢，以至于大家都形成了共识：不需要什么养料施肥也能养好的。当然不是真不需要，而是需要得很少，基本土壤里原有的那点养料就够了。也对，一年才长那么一点点，几片叶子，能要多少养料呢？大家只记得肥料是不需要在意却忽略了大量的水其实对十二卷也并不是那么的重要。同样只是长几片叶子，消耗不了多少肥料，同样的也消耗不了多少水分。需要的水分说白了就是叶子里面那点水，还有平时新陈代谢蒸发掉的那点水。可是我们太想对它好了，一有机会就浇水，没有条件也创造条件要浇水。但频繁的浇水对十二卷来说可不是一件好事。\n\n在自然界，十二卷生长在降水量很少的地方，为了活下来，它进化出了肉质根，好不容易得到点水它就在肉质根里存起来，很快把肉质根膨胀到很大。因为它有危机感：说不定喝完这口水，就好长时间都喝不到水了。如果之后很长时间都没有什么水。怎么办？它就把肉质根里面的水反哺出来供应叶子的生长。反正你一年也就长这么三两片叶子，就是不下雨，根部这点水也够了。要是不够怎么办？那就暂时干巴点，熬吧。而这种教训会让它在下次雨季来临之际储存更多的水分。当然了，这个过程不需要每棵十二卷植物去实践，它们已经从它们的妈妈，以及妈妈的妈妈那里有了遗传记忆。原产地和植物之间的关系，已经深刻到植物的遗传记忆里了。我们常常看到，特别在原产地，往往一个鸟屎那么大的十二卷植物，底下的根却像个大力士一样。\n\n在土壤下，十二卷的根总在经历这样的循环：浇水——吸饱——干燥得有点干瘪——再次吸水膨胀。从这里可以看出，危险在于根吸饱水后土壤里的水还有很多。最安全的是在根部稍微有干瘪处于渴水状态时。对水有所欠缺的时候12卷是最安全的，而且只要有肉质根，也不用担心植物长不好，肉质根可以提供水和养料。\n\n为了达到根有所欠缺的目的，就要少而适量的浇水，有些方法可以给大家做借鉴。土壤要疏松透气透水就不说了，太多这方面的帖子了，而且已经是共识了。\n\n请看下列几个步骤：\n一、从思想上认识到，土壤最先干的是表面，其次是底部，最后才是中间。\n二、浇水时，表面干是肯定要的，其次最好还要底部干。\n三、可以在花盆底部铺一层赤玉之类对水敏感的介质，浇水前用电筒看底部的土壤。\n四、底部土壤刚刚变白的那两天（哪怕晚一两天也不要紧）即可浇水。如果你的配土介质很硬，颗粒很大，很不保水，那不用很白，偏白就可以了。\n五、重点难点是抓住底部刚刚变白的时间点，不然变白后，一天是白的，三两天也是白的，一个月也是白的，就失去了意义了。\n\n此外对于十二卷爱好者来说,夏天是一个梦魇,因为高温。我们经常从论坛上看到各种讨论，说十二卷在35度以上还是37度以上休眠。其实这是个伪命题，温度再高就算40度，能有大棚温度高么？别说夏季，就是春季和秋季，大棚听说在晴好的天气温度都有可能达到四五十度。那么植物休眠关键的关键是什么？不是温度，而是温差。家庭养植的阳台窗台，其温差相对来说是比较小的，特别南方，白天如果37度，估计晚上也有个30多度，而且温度的上下限都超过了十二卷最适宜的温度区间15-25度，这才是问题。\n\n多肉植物往往生长于热带干旱地区，而这种环境的特点是白天炎热夜晚寒冷，昼夜温差非常巨大，为了在这种环境下生存下来，这类植物经过长期适应和进化发展出一套独特的生存策略：晚上，开放气孔吸收二氧化碳，并通过羧化反应形成苹果酸存于植物细胞内的大液泡中，而且在一定范围内，气温越低，二氧化碳吸收越多。到了白天，关闭气孔减少水分蒸腾，再把夜间储于细胞大液泡里的酸性物质（主要是苹果酸，但也有天门冬氨酸）作脱羧反应，释放的二氧化碳进入卡尔文循环进行光合作用，并且在一定的范围内，温度越高，脱羧越快。\n\n所以只要制造足够的温差，把晚上的温度降下来，白天温度高点也不要紧。在家庭养植环境下条件很有限，毕竟只是个爱好，不可能把所有时间精力耗在上面。但可以量力而为，比如浇水一定在晚上，最好在九点十点以后，水的蒸发有利于降温，还有只在晚上喷水，也是为了降温，放在卧室飘窗上也是一个不错的办法，白天去上班了，卧室温度较高，晚上回家睡觉开空调了刚好降温。办公室不是个好选择，因为白天开空调温度低，晚上下班回家，温度反而高，这样和景天酸代谢需要的条件是相反的。还有就是充分利用大自然的温差，午夜以后，再热的天气，温度也总要降个几度吧？这不需要你额外的精力和财力，但必须确保你的养植空间和外部空间充分流通。夏季放在伸出去的全开放式的阳台架子上是个不错的选择，在遮阳的情况下，可以最大限度享受大自然夜晚的降温，这个降温比起室内的封闭空间总要多那么一两度，再加上只在晚上浇水，常在晚上喷水，这样最大限度提高了温差，还是比较安全的。\n\n我在南昌，算是个有名的火炉，又属南方，到了夏天又湿又热比北方的种植难度更大，但是几年下来，我坚持夏天不断水，植物也不大死，而且还在生长，这样算下来，比起断水，一年可以争取到两个月以上时间。\n\nSummary:\n白银寿/寿类十二卷的配土应以疏松、透气、透水为基础，确保根系健康。浇水要点在于‘少而适量’，遵循‘见干见湿’原则，重点观察土壤底部干透（如铺赤玉后底部刚变白）时再浇水，避免根部长期潮湿。根系管理核心是维持肉质根的‘渴水状态’，利用其储水能力应对干旱，避免频繁浇水导致烂根。度夏关键不在于高温本身，而在于昼夜温差不足——建议通过夜间浇水、夜间喷水、放置于开放式阳台或卧室飘窗等方法提升夜间降温效果，创造有利于景天酸代谢的温差环境，实现夏季\n\n… [671 chars truncated]"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "content": "资料充分了，现在为您系统整理白银寿的专项养护方案。\n\n---\n\n# 🌟 白银寿（*Haworthia emelyae* var. *emelyae*）专项种植指南\n\n---\n\n## 一、配土方案\n\n白银寿的根系是典型的**\"萝卜根\"**——粗壮、数量少、储水能力强，对**透气性要求极高**。配土核心原则：**高颗粒占比 + 少量有机质保水保肥 + 绝不能积水**。\n\n### 📋 推荐配土方案\n\n| 方案 | 配比 | 适用阶段 | 特点 |\n|------|------|---------|------|\n| **🅰 经典通用方案** | 泥炭土 20-30% + 赤玉土 30% + 火山岩/浮石 30% + 珍珠岩或粗砂 10-20% | 成株日常养护 | 排水好，透气性强，最常用 |\n| **🅱 高颗粒方案** | 泥炭土 10-15% + 赤玉土 40% + 火山岩 30% + 鹿沼土 15-20% | 老桩 / 南方高湿地区 | 极高透气性，干得很快，防夏季闷根 |\n| **🅲 发根/幼苗方案** | 泥炭土 30-40% + 赤玉土 40% + 珍珠岩 20% | 新购裸根苗发根 / 小苗期 | 保水性稍高，利于新根生长 |\n| **🅳 极简方案** | 多肉专用土 33% + 粗砂 33% + 珍珠岩/浮石 33% | 新手入门 | 取材方便，效果可靠 |\n\n### 🔬 各介质成分作用详解\n\n| 介质 | 作用 | 要点 |\n|------|------|------|\n| **赤玉土** | 保水+透气+排水三者兼备，对水分敏感（干时变白、湿时变深），方便判断浇水时机 | 选**硬质中粒**（3-6mm），软质易碎化板结 |\n| **火山岩/浮石** | 极强排水性+透气性，提供矿物微量元素 | 多肉用土量小时优于珍珠岩（不碎不飘） |\n| **鹿沼土** | 保水性好，质地松软，弱酸性 | 适合发根阶段，但长期使用会酸化碎化，需定期换 |\n| **泥炭土** | 提供有机质和保肥性 | 占比不宜超过30%——过多会保水太久导致闷根 |\n| **珍珠岩** | 提高透气性 | 轻、易碎、易上浮，可用浮石替代 |\n| **粗河砂** | 增强排水和稳定性 | 担心烂根时额外添加一部分 |\n\n### ⚠️ 配土核心注意\n\n- **颗粒占比至少 70%**——这是白银寿配土的底线，颗粒太少极易烂根\n- ❌ **绝不能用纯泥炭土**——保水太久，萝卜根必烂\n- ❌ **不建议用纯颗粒**——虽然不会烂根但完全无保肥能力，白银寿生长极慢会更慢\n- 盆底铺一层**纯赤玉土或陶粒**作排水层——同时可以用手电筒观察底部是否干透来判断浇水时机\n- 配好的土可用**百菌清拌入**做预防性消毒（不建议用多菌灵拌土，土中易失效）\n\n---\n\n## 二、花盆选择\n\n### 🏺 推荐盆型：万象盆\n\n| 特征 | 说明 |\n|------|------|\n| **形状** | 方形直筒 |\n| **深度** | 较深——为白银寿粗壮的萝卜根提供充足的**向下伸展空间** |\n| **排水** | 底部大排水孔 |\n| **材质** | 黑色塑料为主流（吸热助蒸发，冬季有利；方便排列管理） |\n\n### 📋 花盆材质对照表\n\n| 材质 | 推荐度 | 优点 | 缺点 | 适合场景 |\n|------|--------|------|------|---------|\n| **黑色塑料万象盆** | ⭐⭐⭐⭐⭐ 首选 | 便宜、控水方便、排列整齐、黑色吸热促蒸发 | 美观度一般 | 大量收藏、日常养护 |\n| **粗陶/素烧盆** | ⭐⭐⭐⭐ | 透气性极佳 | 可能太透气致干透过快，需调整浇水频率 | 南方高湿环境 |\n| **紫砂盆** | ⭐⭐⭐ | 美观+透气兼顾 | 价格高；壁厚的透气性差 | 展示用，选**薄壁**款 |\n| **瓷盆** | ⭐⭐ 慎用 | 美观 | 透气性差，必须加透气措施 | 仅限有经验者 |\n\n### 🎯 选盆核心要点\n\n| 要点 | 说明 |\n|------|------|\n| **必须有排水孔** | 无排水孔 = 白银寿的死刑 |\n| **盆径** | 比白银寿株径大 **1-2cm** 即可，不宜过大 |\n| **盆深** | 宜深不宜浅——萝卜根需要纵向空间；但也不能太深，根球占盆内空间**1/2-2/3** 为宜 |\n| **多余空间越少越好** | 盆太大→土太多→积水太久→烂根 |\n\n---\n\n## 三、病虫害风险与防范\n\n白银寿总体比较强健，但因为其**生长缓慢、叶片排列紧密、萝卜根粗壮**的特点，存在以下特定风险：\n\n### 🦠 病害风险\n\n#### 1️⃣ 根腐病 —— ⚠️ 风险等级：🔴 高\n\n| 项目 | 详情 |\n|------|------|\n| **为什么白银寿容易得** | 萝卜根粗壮储水多，一旦盆土长期潮湿，根系处于\"吸饱水+泡在水中\"的状态，极易被真菌侵入腐烂；而且白银寿生长慢，根腐后**恢复周期很长** |\n| **高危季节** | 🔥 **夏季**（高温+高湿+生长停滞=最危险组合） |\n| **早期信号** | 叶片逐渐**发软、萎缩**，窗面**通透度下降**变浑浊，浇水后状态仍不恢复 |\n| **预防措施** | ① 配土颗粒占比≥70%；② 夏季严格控水（可2-3周甚至更久不浇）；③ 浇水观察盆底赤玉是否变白再浇；④ 保持通风 |\n| **治疗方法** | 脱盆→清除烂根至切面洁白→多菌灵溶液（1:800）浸泡15-20分钟→阴凉通风处晾干切口1-3天→干燥赤玉土重新上盆发根 |\n\n#### 2️⃣ 黑腐病 —— ⚠️ 风险等级：🟠 中\n\n|\n\n… [2542 chars truncated]"
+    },
+    {
+      "type": "user",
+      "content": "这些我都不太在意，你再跟我说说白银寿还有什么别的种养注意事项吗？"
+    },
+    {
+      "type": "assistant",
+      "thinking": "The user wants to know more about additional cultivation tips and care notes for 白银寿 (Haworthia emelyae var. emelyae) beyond what I've already covered (soil mix, pots, pest/disease). Let me search for more specific care details like:\n- Propagation methods (leaf cutting, offsets, seeds)\n- Dormancy management\n- Fertilization details\n- Repotting techniques\n- Root trimming\n- Light management for optimal window appearance\n- Humidity/闷养 techniques\n- Seasonal transitions\n- Buying tips (组培 vs 实生 vs 非组)\n- Common mistakes",
+      "content": "好的！让我搜索一下白银寿在日常养护中还有哪些容易忽视但很重要的注意事项。",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01N84tN5Sw6zmPwMjYCXfVCL",
+          "name": "search",
+          "args": {
+            "query": "白银寿 十二卷 寿 养护注意事项 闷养 服盆 修根 换盆 繁殖 叶插 侧芽",
+            "topn": 10
+          },
+          "result": "A Google search for '白银寿 十二卷 寿 养护注意事项 闷养 服盆 修根 换盆 繁殖 叶插 侧芽' found 10 results:\n\n## Web Results\n\n0. [［多肉养护］给十二卷属多肉修根的操作及注意事项 - YouTube](https://www.youtube.com/watch?v=XYUns5diWS8)\nDate published: Dec 10, 2024\n［多肉养护］给十二卷属多肉修根的操作及注意事项VLOG生活日志,多肉植物,教程,Haworthia,多肉,玉露.\n\n1. [寿类的繁殖 - 知乎专栏](https://zhuanlan.zhihu.com/p/237343337)\nDate published: Sep 12, 2020\n十二卷属的寿系列可用分株、叶插、播种和组培等方法来繁殖， 1、分株在生长期间，一些寿的老株旁会长出一些侧芽，待侧芽有3片叶子左右将其取下， ...\n\n2. [白银寿多肉怎么养 - 百度经验](https://jingyan.baidu.com/article/414eccf66946d82a431f0af4.html)\nDate published: Apr 20, 2021\n要定期给白银寿松松土、换换盆和土,保证土壤的透气度。 ... 白银寿繁殖率是很低的，一般来说繁殖大多用分株、 叶插和种子繁殖，但不易成活且生长缓慢。\n\n3. [十二卷，葉插繁殖，用什麼土？多久能髮根？注意事項有哪些！#多肉 ...](https://www.youtube.com/watch?v=RwgNAQDdgTg)\nDate published: Oct 11, 2023\n植物知識分享盆栽微景觀製作分享山水走不近你我我帶你近觀山水歡迎 ...\n\n4. [多肉十二卷的养殖方法及注意事项，花友必看！ - 惠农网](https://www.cnhnb.com/xt/article-57872.html)\nDate published: Sep 1, 2021\n1.常常动土修根. 多肉植物养殖需要经常动土，适当的给植物修理根须，对植物生长是有利的，还可以减少根须虫害的侵蚀。 · 2.少浇水勤施肥. 多肉是不喜水，一般 ...\n\n5. [十二卷的种植养护 - 多肉联萌](https://www.drlmeng.com/12yanghu.html)\nDate published: Jan 5, 2016\n十二卷养护万字好文一篇，作者师意修，从光、风、水、肥、器着笔，面面俱到的介绍了十二卷养护的一些心得和注意事项，其种植态度不管是种植十二卷还是其他 ...\n\n6. [多肉小心事，十二卷之我见 - 知乎专栏](https://zhuanlan.zhihu.com/p/37919519)\nDate published: Jun 10, 2018\n闷养必须在服盆后，春秋时节比较适合，也有朋友试过夏天也闷养，但要注意透气和通风的程度，湿度也要控制好，因为夏天玉露生长比较慢，太湿容易烂根和水化黑腐。\n\n7. [你知道怎么甄别白银寿的品级吗？ - 好花网](https://www.haohua.com/huayu/61346.html)\nDate published: Dec 9, 2021\n白银寿喜欢阳光，养殖期间需要保持光照的充足，但是白银寿害怕强烈的阳光直射，所以在夏季的时候不要将白银寿放在阳光直射的环境中，以免被晒伤。\n\n8. [十二卷玉露是可以叶插繁殖的，插了几盆，已经有出根了！ - YouTube](https://www.youtube.com/watch?v=JggI9I3T0BY)\nDate published: May 8, 2023\n十二卷玉露是可以叶插繁殖的，插了几盆，已经有出根了！\n\n9. [十二卷图片及养殖方法 - 农苗网](https://www.nongmiao.com/baike/shierjuan.html)\n选材条纹十二卷用分株的方法繁殖，一般结合春季换盆进行，方法是将老株旁萌生的幼苗掰下，栽于小盆中，有根无根都能成活。盆土宜用疏松肥沃、排水良好的沙质土壤。新栽的植株 ..."
+        },
+        {
+          "id": "toolu_vrtx_013U7DEMtnirr5BAjMiRgq6U",
+          "name": "search",
+          "args": {
+            "query": "十二卷 寿 窗面养护 上色 通透 施肥注意 休眠期管理 温差 新手误区",
+            "topn": 10
+          },
+          "result": "A Google search for '十二卷 寿 窗面养护 上色 通透 施肥注意 休眠期管理 温差 新手误区' found 10 results:\n\n## Web Results\n\n0. [我買了我的第一棵十二卷！ 照顧它們的需求跟其他多肉植物都一樣嗎 ...](https://www.reddit.com/r/succulents/comments/170jkbg/got_my_first_haworthia_are_their_care_needs_the/?tl=zh-hant)\nDate published: Oct 5, 2023\n它們喜歡明亮、間接的光線。你需要用顆粒感很重的介質，但只要搞定這個，澆水就超簡單。它們也幾乎不會休眠，除了冬天 ...\n\n1. [十二卷栽培攻略 - 湖南省林业局](http://lyj.hunan.gov.cn/tslm_71206/lykp/syjs/201512/t20151227_2616308.html)\nDate published: Dec 24, 2004\n十二卷既不耐寒，也怕酷热，其主要生长期在春秋季节，浇水做到“不干不浇，浇则浇透”，避免盆土积水，否则会造成烂根，但盆土也不能长期缺水，以免叶片干瘪不饱满。\n\n2. [呕心总结！堪比九阴真经的十二卷养护攻略](https://zhuanlan.zhihu.com/p/81389326)\nDate published: Sep 6, 2019\n十二卷属全属约150余种，原产南非，绝大部分都是多肉植物，少量草本。很多种类习性强健，形态美丽，有很多价格非常昂贵的品种，广受多肉爱好者喜爱。\n\n3. [十二卷的养护管理以及盆景制作方法- 好花网](https://www.haohua.com/huayu/50116.html)\nDate published: Mar 4, 2019\n生长习性：十二卷喜温暖干燥的环境，耐干旱，怕水涝，适宜在半荫或充足而柔和的阳光下生长。忌烈日暴晒，否则会使叶面上形成难看的灼伤斑，叶色暗淡无光泽，叶尖 ...\n\n4. [多肉十二卷屬養護，如果出現果凍狀是缺水的信號，不曬太陽多澆水 ...](https://www.youtube.com/watch?v=C98GW91quC4)\nDate published: May 11, 2022\n... 新手养多肉|多肉十二卷属养护，如果出现果冻状是缺水的信号，不晒太阳多浇水马上又开窗|花花世界.\n\n5. [十二卷的种植养护 - 多肉联萌](https://www.drlmeng.com/12yanghu.html)\nDate published: Jan 5, 2016\n综合来说，十二用水建议微潮，或者干透浇透。这里说得比较片面，详细说还要结合季节、温度湿度来说。好比春季秋季生长季，需水量自然是大一些 ...\n\n6. [多肉十二卷的养殖方法及注意事项，花友必看！ - 惠农网](https://www.cnhnb.com/xt/article-57872.html)\nDate published: Sep 1, 2021\n十二卷从叶子上划分，可分为硬叶和软叶两种。常见的软叶品种有玉露、寿、玉扇和万象等，目前市面上的软叶多肉要比硬叶多肉更受欢迎。下面惠农网小编就 ...\n\n7. [‍   ‍  十二卷属是近年较为流行的植物，其品种繁多 - Facebook](https://www.facebook.com/funlinkgreenery/posts/%E5%8D%81%E4%BA%8C%E5%8D%B7%E5%B1%9E%E6%98%AF%E8%BF%91%E5%B9%B4%E8%BE%83%E4%B8%BA%E6%B5%81%E8%A1%8C%E7%9A%84%E6%A4%8D%E7%89%A9-%E5%85%B6%E5%93%81%E7%A7%8D%E7%B9%81%E5%A4%9A%E5%BD%A2%E6%80%81%E5%90%84%E5%BC%82-%E6%A0%AA%E5%BD%A2%E5%A4%A7%E5%A4%9A%E5%B0%8F%E5%B7%A7%E7%8E%B2%E7%8F%91%E6%B8%85%E7%A7%80%E5%85%B8%E9%9B%85-%E9%9D%9E%E5%B8%B8%E9%80%82%E5%90%88%E4%B8%AA%E4%BA%BA%E6%A0%BD%E5%9F%B9%E8%A7%82%E8%B5%8F%E5%96%9C%E6%AC%A2%E5%A4%9A%E8%82%89%E7%9A%84%E6%9C%8B%E5%8F%8B%E4%B8%8D%E5%A6%A8%E5%85%A5%E6%89%8B%E5%93%9F%E5%8D%81%E4%BA%8C%E5%8D%B7%E5%B1%9E%E4%B8%8D%E6%98%AF%E4%B8%80%E4%B8%AA%E5%8D%95%E4%B8%AA%E7%9A%84%E6%A4%8D%E7%89%A9%E5%90%8D%E7%A7%B0%E6%98%AF%E7%99%BE%E5%90%88%E7%A7%91%E5%8D%81/510242326394280/?locale=zh_CN)\nDate published: Aug 23, 2019\n☀️7、换盆及种植： 虽说十二卷属多是冬型种，可现在家庭养殖除冬夏很短 时间温度极高、极低时生长基本停滞外基本不深度休眠 （短时的最低5℃最高40℃都可以生长） ...\n\n8. [巧养护和十二塌窗说拜拜 - 知乎专栏](https://zhuanlan.zhihu.com/p/85140213)\nDate publ\n\n… [271 chars truncated]"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01BPHZE4EzRfzMChcapdR8zr",
+          "name": "visit",
+          "args": {
+            "url": [
+              "https://zhuanlan.zhihu.com/p/85140213",
+              "https://zhuanlan.zhihu.com/p/237343337",
+              "https://www.drlmeng.com/12shangce.html",
+              "https://www.drlmeng.com/12yanghu.html"
+            ],
+            "goal": "十二卷寿类的修根与服盆技巧、闷养方法、繁殖方法（分株/叶插/播种）、窗面养护上色技巧、新手常见误区"
+          },
+          "result": "The useful information in https://zhuanlan.zhihu.com/p/85140213 for user goal 十二卷寿类的修根与服盆技巧、闷养方法、繁殖方法（分株/叶插/播种）、窗面养护上色技巧、新手常见误区 as follows:\n\nEvidence in page:\n十二如果在保留健康根系的前提下服盆速度要比修根更快。我来解释下这个的意思，并非说是完全不修根，而是现在很多购买十二卷的卖家都会带土发货，我建议根系比较优势的反而不用脱土修根，只要带着土整个种下反而更容易适应服盆。如果是脱土发货的，我建议只要把干枯受伤的根系剪去就可以了，一些须根不需要剪去，尤其是萝卜根，一旦伤到萝卜根就比较难恢复了。\n\n此外服盆期的十二卷，特别是小苗，一定不要用纯颗粒土，纯颗粒土是不适合生根的，建议保持30%左右的泥炭土比例，上盆时，可以在盆底多放颗粒，中上层增加泥炭土的比例，这样能快速生根。浇水可以采用浸盆法，让水汽集中在盆底，促使根系向下生长，能够促进根系的快速生长。此外如果空气比较干燥，可以一周在叶片和表面适当喷水以增加空气湿度。\n\n后期等服盆了，根也长壮后，如果是在南方种植，可以把中上层土慢慢挖掉，挖的时候，不要伤到根系，再放入纯颗粒。这样，哪怕在夏天也不用担心烂根了。如果是在北方，就不用折腾了，毕竟北方干燥，纯颗粒土不保水。\n\n浇水的控制关系到根系的发育，所以周期和量需要好好把握\n\n此外也提到了补光灯的使用：补光灯的使用一定要在适当的光照强度下（根据自身环境调节），光照距离在30厘米左右为宜。若照射过于近或者时间过于长久，可能会把植株晒黑，晒塌窗。巧用补光灯，和塌窗徒长说拜拜。\n\nSummary:\n十二卷寿类的服盆技巧在于：带土上盆优于彻底修根，仅剪除干枯受伤根系，保留健康须根（尤其萝卜根）以加速服盆；服盆期避免使用纯颗粒土，建议30%泥炭土配比，盆底多颗粒、中上层增泥炭，采用浸盆法促根下扎，干燥时可喷水增湿；服盆后南方地区可逐步替换中上层为纯颗粒以防夏季烂根，北方则无需更换。繁殖方面未提及具体方法。窗面养护上色需避免补光灯过近或过久照射（建议30cm距离、适度强度），以防晒伤塌窗；正常养护中，夏冬两季忌大水浇透，仅喷湿表土，春秋则可适当多浇水恢复塌窗。新手常见误区包括过度修根、使用纯颗粒土服盆、补光灯使用不当及浇水失衡。\n\n=======\nThe useful information in https://zhuanlan.zhihu.com/p/237343337 for user goal 十二卷寿类的修根与服盆技巧、闷养方法、繁殖方法（分株/叶插/播种）、窗面养护上色技巧、新手常见误区 as follows:\n\nEvidence in page:\n1、分株\n在生长期间，一些寿的老株旁会长出一些侧芽，待侧芽有3片叶子左右将其取下，另外栽种于排水良好的盆土中。刚栽植的侧芽小苗一般没有根或根很少，刚开始不要浇太多的水，保持盆土稍有潮湿即可，利于生长新根，根好苗才壮。\n\n2、叶插\n叶插经常在结合换盆时进行。叶插可取生长健壮的叶片，阴干2～3天，待伤口干燥后，扦插于湿润的粗砂或蛭石中，湿度不可过高，避免叶片腐烂，约2个月左右会发根；依品种不同，有的会先发根，有的会先长出新芽，而新芽会依不同品种的生长习性，生长速度也不相同，待其长成幼苗，即可移入新的盆土中。\n\n3、播种\n有播种经验或喜欢玩实生的玩家会选用人工授粉的方式，使其杂交，产生种子，来获得新品种或变异种，用播种繁殖来培育。寿类的种子大小约0.1公厘左右，发芽适温20℃左右，播种需要保持高湿度，约20～30天左右即会发芽，但小苗一般生长缓慢，待小苗满盆后即可换盆。\n\n4、组培\n对于一些繁殖率低或是变异的品种，为使其性状维持稳定，在技术进步的现在，可用组织培养来达成，不仅能大量来繁殖，更可降低成本，让一些高单价的品种，更能普及于一般大众之中。组培需要一定的实验室无菌环境才能进行，一般由专业人士完成。\n\nSummary:\n十二卷寿类的繁殖方法包括分株、叶插、播种和组培。分株宜在生长季选取有3片叶左右的侧芽，栽于排水良好的土壤中，初期保持盆土稍湿以促生新根；叶插通常在换盆时进行，取健壮叶片阴干2-3天后插入湿润粗砂或蛭石，避免湿度过高导致腐烂，约2个月发根，新芽生长速度因品种而异；播种适合有经验者，种子细小（约0.1毫米），发芽适温20℃，需保持高湿度，20-30天发芽，小苗生长缓慢，满盆后可换盆；组培适用于繁殖率低或变异品种，可稳定性状并实现规模化繁殖，但需无菌实验室环境，由专业人士操作。此外，根据内容可推断，刚分株或叶插的小苗应避免积水，保持适度湿润，即为‘服盆’关键；闷养虽未直接提及，但‘保持高湿度’‘避免腐烂’等提示与闷养逻辑相符，提示在叶插和播种阶段可适度闷养以提高成活率。新手常见误区可能包括过度浇水导致烂根、未阴干叶片即扦插、忽视湿度控制，以及在非适宜季节强行繁殖。\n\n=======\nThe useful information in https://www.drlmeng.com/12shangce.html for user goal 十二卷寿类的修根与服盆技巧、闷养方法、繁殖方法（分株/叶插/播种）、窗面养护上色技巧、新手常见误区 as follows:\n\nSummary:\nThe webpage could not be accessed.\n\n=======\nThe useful information in https://www.drlmeng.com/12yanghu.html for user goal 十二卷寿类的修根与服盆技巧、闷养方法、繁殖方法（分株/叶插/播种）、窗面养护上色技巧、新手常见误区\n\n… [2091 chars truncated]"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01LKVLUHhf42HfoV4kieAa4v",
+          "name": "visit",
+          "args": {
+            "url": [
+              "https://www.drlmeng.com/12shangse.html"
+            ],
+            "goal": "十二卷寿类窗面如何养得通透、上色技巧、审美标准、什么样的状态是好的"
+          },
+          "result": "The useful information in https://www.drlmeng.com/12shangse.html for user goal 十二卷寿类窗面如何养得通透、上色技巧、审美标准、什么样的状态是好的 as follows:\n\nEvidence in page:\n十二卷的赏色--寿\n寿很多年前的审美首先是要大，比如说以前康平系的寿非常流行，但是他占空间会比较大，而当前大部分爱好者都是养护在家中，对于占空间太大的花会越来越被淘汰。比如以前曾火爆一时的龙舌兰，如今也处于比较边缘状态了。所以现在寿的审美株型方面并不是越大越好。\n目前寿的审美最主要还要先看株型和叶形。整体植株成圆包状，叶形为丸窗是目前的主流趋势。\n而窗面油亮、通透质感也符合了传统审美。\n有纹路的丰富变化可以为寿的美度大大加分。\n其他有独特特性的也可以大大加分。比如竹虎，可以晒到很红。其他比如说有背窗等独特的特性也一样。\n白银和青蟹方面目前的审美除了上面一些方面主要是窗要白，疣点要大和密。\n当然有些有特色的比如有黑色相间的也不失为美。\n\nSummary:\n对于十二卷寿类，当前审美主流是株型呈圆包状、叶形为丸窗，强调整体协调性而非单纯追求大株型。窗面应具备油亮、通透的质感，符合传统审美；纹路丰富多变可显著提升美感。在上色方面，如竹虎等品种可通过强光晒制呈现红色，具备独特性。白银和青蟹类则注重窗面洁白、疣点大而密，有黑色相间等特色也属佳品。保持窗面通透的关键在于养护得当，避免过度浇水导致浑浊，同时合理光照有助于提升质感与色彩表现。\n"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "content": "资料齐全了，下面为您整理白银寿的补充种养注意事项。\n\n---\n\n# 🌟 白银寿种养补充注意事项\n\n前面已经讲过配土、花盆和病虫害了，下面这些是**同样关键但容易被忽视**的养护细节。\n\n---\n\n## 一、修根与服盆\n\n这是新到手白银寿的**第一道关口**，处理不当后续全盘受影响。\n\n### ✅ 正确做法\n\n| 情况 | 处理方式 |\n|------|---------|\n| **带土发货** | 🔑 **不要脱土修根！** 连原土整团种下，服盆最快。土外面包一层自己的颗粒土即可 |\n| **裸根发货** | 只剪掉**干枯、发黑、受伤**的根；保留所有健康的须根和萝卜根 |\n| **萝卜根受伤** | 涂多菌灵粉末，阴凉通风处晾干1-3天再上盆——萝卜根一旦伤了恢复非常慢 |\n\n### ❌ 新手常犯的错\n\n| 误区 | 后果 | 正确观念 |\n|------|------|---------|\n| 到手就把根剪秃 | 萝卜根被剪断后极难恢复，服盆期大幅延长 | 健康的根**能不动就不动** |\n| 服盆期用纯颗粒土 | 纯颗粒保水差、无养分，新根扎不住 | 服盆期泥炭比例提高到**30-40%**，盆底多颗粒、中上层增加泥炭 |\n| 上盆后立刻大水浇透 | 伤口未愈合时遇水→细菌侵入→烂根 | 上盆后**3-5天再沿盆壁少量给水**，一周后恢复正常浇水 |\n\n### 🕐 服盆周期参考\n\n| 状态 | 预计服盆时间 |\n|------|------------|\n| 带土上盆、根系完好 | 1-2周 |\n| 裸根但根系健康 | 2-4周 |\n| 修过根或萝卜根受伤 | 1-3个月甚至更久 |\n\n> 服盆期叶片会变软、窗面变浑浊——**这是正常的**，不要惊慌。等新根长出后，植株会从根部开始吸水恢复膨压，叶片重新饱满透亮。\n\n---\n\n## 二、浇水的精细化管理\n\n前面讲过\"干透浇透\"的原则，但白银寿的浇水还有很多讲究。\n\n### 🔑 核心理念：让根保持\"微渴\"状态\n\n白银寿的萝卜根**自带蓄水箱**，它的遗传记忆是\"喝到水→拼命存起来→慢慢用\"。在栽培中，根**稍有欠缺水分**的状态才是最安全的。频繁浇水反而打破了它的节律。\n\n### 📋 判断浇水时机的方法\n\n| 方法 | 操作 | 适合谁 |\n|------|------|--------|\n| **🔦 赤玉观察法（推荐）** | 盆底铺一层赤玉土，浇水前用手电筒照盆底排水孔——赤玉**刚变白**的1-2天内是最佳浇水窗口 | 所有人 |\n| **🪴 掂盆法** | 干透的盆比湿的明显轻很多，凭手感判断 | 有经验者 |\n| **👀 叶片观察法** | 叶片微微发软、窗面不如平时饱满→该浇了；如果出现果冻状半透明→严重缺水，需立即补水 | 所有人 |\n| **🪥 竹签法** | 插根竹签到盆土中部，拔出看是否带湿气 | 新手 |\n\n### ⏰ 浇水时间\n\n| 季节 | 最佳浇水时间 | 原因 |\n|------|------------|------|\n| **春秋** | 傍晚或清晨 | 温度适中，根系活跃 |\n| **夏季** | **晚上9-10点以后** | 水分蒸发可帮助降温，创造夜间温差；白天浇水会闷蒸根系 |\n| **冬季** | 晴天中午前后 | 利用白天余温让水分适度蒸发，避免夜间低温冻根 |\n\n### ⚠️ 浇水禁忌\n\n- ❌ 绝不能从**头顶淋浇**——水积在叶心和叶腋间是化水黑腐的第一元凶\n- ❌ 阴雨天不浇——蒸发慢，盆土闷湿\n- ❌ 夏季高温午间不浇——根系被\"蒸煮\"\n\n---\n\n## 三、闷养技巧\n\n闷养可以提高环境湿度，让窗面更加**饱满通透**，白银寿适度闷养效果显著——但操作不当也是最容易翻车的环节。\n\n### ✅ 闷养方法\n\n| 方式 | 操作 | 适用时机 | 风险 |\n|------|------|---------|------|\n| **半闷养（推荐新手）** | 白天揭开盖子通风，**晚上盖上盖子**保湿 | 秋冬季节 | 较低 |\n| **全闷养** | 用透明塑料盒/保鲜膜持续覆盖 | 秋冬低温期，空气极干燥时 | 中等——白天必须避开阳光直射！否则闷箱内温度飙升，植株被蒸熟 |\n\n### ⚠️ 闷养铁律\n\n| 铁律 | 说明 |\n|------|------|\n| **必须服盆后才能闷** | 未服盆的植株根系未恢复，闷养高湿环境→烂根 |\n| **只在秋冬闷** | 春末和夏季闷养→高温高湿→化水黑腐→全军覆没 |\n| **白天有光时不能全封闭** | 阳光照射密闭空间→温度暴涨→蒸煮植株 |\n| **闷养期间减少浇水** | 蒸发量大幅降低，原本的浇水频率会导致积水 |\n| **发现叶片有任何软烂迹象→立即停止闷养** | 宁可窗面不够通透，也不要冒烂根的风险 |\n\n---\n\n## 四、光照与窗面管理\n\n白银寿的观赏核心是窗面的**气泡质感和白色斑点**，光照管理直接决定了窗面的品质。\n\n### 📋 光照强度指引\n\n| 光照条件 | 窗面表现 | 叶色表现 |\n|---------|---------|---------|\n| 🟢 **散射光充足（理想）** | 窗面油亮、通透、饱满 | 健康绿色，白点清晰 |\n| 🟡 **光照稍强** | 窗面通透度尚可 | 叶色变深，可能泛红/泛紫——这是\"出状态\"，适度即可 |\n| 🔴 **光照过强（暴晒）** | 窗面发白变浑浊、塌窗 | 叶面出现灼伤斑，干枯 |\n| ⚫ **光照不足** | 窗面变浑、通透度差 | 叶片徒长拉长，株型松散 |\n\n### 🎯 白银寿\"出最佳状态\"的秘诀\n\n| 因素 | 操作 |\n|------|------|\n| **窗面白点\n\n… [2946 chars truncated]"
+    },
+    {
+      "type": "user",
+      "content": "那除了你刚才说的这些病虫害之外，白银寿还容易得别的什么病害吗？"
+    },
+    {
+      "type": "assistant",
+      "thinking": "The user wants to know if there are any other diseases that 白银寿 (Haworthia emelyae var. emelyae) is susceptible to, beyond what I've already covered (root rot, black rot, leaf rot, scale insects, root mealybugs, fungus gnats, and window damage). Let me search for more specific and less common diseases/issues.",
+      "content": "好的，让我搜索一下白银寿和寿类十二卷还可能遭遇的其他病害。",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01KJxXqfMFTDQfVi7C47sNnc",
+          "name": "search",
+          "args": {
+            "query": "十二卷 寿 多肉 病害 煤烟病 锈斑 叶斑病 白粉病 软腐病 细菌感染 病毒",
+            "topn": 10
+          },
+          "result": "A Google search for '十二卷 寿 多肉 病害 煤烟病 锈斑 叶斑病 白粉病 软腐病 细菌感染 病毒' found 10 results:\n\n## Web Results\n\n0. [五大常见多肉病害，MINI带大家看图识多肉【病害】](https://zh.minigarden.co.nz/post/%E4%BA%94%E5%A4%A7%E5%B8%B8%E8%A7%81%E5%A4%9A%E8%82%89%E7%97%85%E5%AE%B3%EF%BC%8Cmini%E5%B8%A6%E5%A4%A7%E5%AE%B6%E7%9C%8B%E5%9B%BE%E8%AF%86%E5%A4%9A%E8%82%89%E3%80%90%E7%97%85%E5%AE%B3%E3%80%91)\n黑斑病和煤烟病的区别是黑斑是少量成点状的黑点，煤烟是大量的小黑点。黑斑病会传染，一旦发现就需要将多肉及时隔离。\n\n1. [园林界的＂四大恶少＂：白粉病、锈病、叶斑病、炭疽病该如何防治](https://zhuanlan.zhihu.com/p/655723343)\nDate published: Sep 12, 2023\n当植物受到锈菌的感染后，会出现黄斑、褐斑、疮痂等症状，严重时会导致叶片凋萎、干枯甚至植株死亡。它既为害草本花卉,也为害木本花卉,如牡丹、月季、杜鹃、 ...\n\n2. [多肉易得的烟煤病、炭疽病、白粉病，发病特点和伤害以及如何治疗](https://www.youtube.com/watch?v=pZqyBps_9_c)\nDate published: Jun 25, 2023\n小周养多肉：多肉易得的烟煤病、炭疽病、白粉病，发病特点和伤害以及如何治疗｜多肉植物. 2K views · 2 years ago ...more ...\n\n3. [[PDF] 十二卷属多肉植物万象栽培技术研究](https://pdf.hanspub.org/br20230100000_20877346.pdf)\nDate published: Jan 9, 2023\n万象是百合科十二卷属多肉植物中的软叶种类，为十二卷中珍奇种类之一。 ... 万象常见病害主要有根腐病，炭疽病等。根腐病是多肉植物主要的病害，常 ...\n\n4. [不花1分錢永久消滅多肉白粉病，10種自製殺蟲水 - YouTube](https://www.youtube.com/watch?v=LT8lF8fXies)\nDate published: Oct 25, 2024\n... 白粉病01:18 二、白粉病的原因02:59 三、白粉病的样子03:57 四、白粉病的危害04:27 五、去除白粉病不花1分钱永久消灭多肉白粉病，10种自制杀虫水，多肉 ...\n\n5. [多肉植物的病害 - 詰雅花卉- 痞客邦](https://ayeah3713883.pixnet.net/blog/posts/9459828715)\n多肉植物的病害. 栽培多肉植物除了蟲害需要注意~. 在病害部分~ 則是更加棘手的一項課題~. 基本上~ 大多數多肉會陣亡的原因~ 都是病害造成~. 少數是蟲害或是人為疏忽~.\n\n6. [多肉煤烟病怎么防治](https://www.drlmeng.com/2-meiyanbing.html)\nDate published: Jul 30, 2013\n景天夏天的另一大病————煤烟病：煤烟病又称为煤污病，是植物的常见病之一。主要为害叶片、叶柄，严重的也危害主干，发病时叶片表面先出现暗褐色的霉斑， ...\n\n7. [多肉感染了烟煤病，用了多菌灵没用？用它效果好多了 - YouTube](https://www.youtube.com/watch?v=Q9Xuvi9P8S8)\nDate published: Jun 18, 2020\nShare your videos with friends, family, and the world.\n\n8. [多肉十二卷的养殖方法及注意事项，花友必看！ - 惠农网](https://www.cnhnb.com/xt/article-57872.html)\nDate published: Sep 1, 2021\n十二卷从叶子上划分，可分为硬叶和软叶两种。常见的软叶品种有玉露、寿、玉扇和万象等，目前市面上的软叶多肉要比硬叶多肉更受欢迎。下面惠农网小编就 ...\n\n9. [【你邢你说】肉肉宝典- 煤烟病、白粉病、炭疽病、黑斑病 - YouTube](https://www.youtube.com/watch?v=1yA2SArhDD4)\nDate published: Oct 3, 2020\n这一期我来跟大家说说多肉植物常见病的预防和治疗。多肉植物较为常见的病有煤烟病、白粉病、炭疽病、黑斑病、锈病、灰霉病、赤腐病，它们各自形成原因 ..."
+        },
+        {
+          "id": "toolu_vrtx_01QKftVDLNZzXpZiZsZmGGCf",
+          "name": "search",
+          "args": {
+            "query": "Haworthia disease fungal bacterial virus rot spots brown marks edema sunburn physiological disorder",
+            "topn": 10
+          },
+          "result": "A Google search for 'Haworthia disease fungal bacterial virus rot spots brown marks edema sunburn physiological disorder' found 10 results:\n\n## Web Results\n\n0. [Sick Haworthia - Garden Answers](https://www.gardenanswers.com/plant-diseases/sick-haworthia/)\nDate published: Jan 22, 2016\nThe cinnamon is a natural anti-fungal, anti-bacterial that might help. After about 5 days get a new, not very big pot with a drainage hole ...\n\n1. [Problems - The Genus Haworthia](https://www.haworthia.com/problems/)\nGrowth disorders often occur when Haworthias are less actively growing under too high or low temperatures. It is a good habit to constantly check weather.\n\n2. [What is the brown spot on my Haworthia? Bacteria infection? I think ...](https://www.reddit.com/r/succulents/comments/pafsd8/what_is_the_brown_spot_on_my_haworthia_bacteria/)\nDate published: Aug 24, 2021\nWhat is the brown spot on my Haworthia? Bacteria infection? I think it has caused the leaf to look a bit distorted? Would appreciate the help!\n\n3. [Why Are There Brown Spots on My Haworthia venosa? - Greg](https://greg.app/brown-spots-on-haworthia-venosa-leaves/)\nDate published: Jun 18, 2024\nYour Haworthia venosa's brown spots might be screaming infection. Fungal infections often show up as discolored patches with a telltale yellow ...\n\n4. [5. Diseases and Disorders | NC State Extension Publications](https://content.ces.ncsu.edu/extension-gardener-handbook/5-diseases-and-disorders)\nDate published: Feb 1, 2022\nExamples of common fungal foliar diseases are black spot of rose, powdery mildew, downy mildew, brown patch, and oak leaf blister.\n\n5. [WHY IS YOUR HAWORTHIA TURNING BROWN? - YouTube](https://www.youtube.com/watch?v=0zSn8TmaQMY)\nDate published: Jun 16, 2024\n... Sunburn and Temperature 1:42 Drainage Problems 2:18 Pest Infestation ... WHY IS YOUR HAWORTHIA TURNING BROWN? | SUCCULENT CARE TIPS. 10K ...\n\n6. [Toxic and Non-toxic Plants: Haworthia - ASPCA](https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/haworthia)\nIf you have questions regarding Haworthia, contact your local veterinarian or call our 24-hour emergency poison hotline: (888) 426-4435.\n\n7. [What Are Common Problems with Zebra Haworthia? - PictureThis](https://www.picturethisai.com/common-problems/Haworthiopsis_attenuata.html)\nDate published: Nov 13, 2024\nThis symptom typically indicates that the plant is suffering fr\n\n… [642 chars truncated]"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01HWWXnJFfF98kEsQR1fw1Gv",
+          "name": "visit",
+          "args": {
+            "url": [
+              "https://www.haworthia.com/problems/",
+              "https://pdf.hanspub.org/br20230100000_20877346.pdf"
+            ],
+            "goal": "Haworthia diseases and disorders - all types including fungal, bacterial, viral, physiological, edema, sunburn, cold damage, growth disorders, aloe mite, detailed symptoms and treatments"
+          },
+          "result": "The useful information in https://www.haworthia.com/problems/ for user goal Haworthia diseases and disorders - all types including fungal, bacterial, viral, physiological, edema, sunburn, cold damage, growth disorders, aloe mite, detailed symptoms and treatments as follows:\n\nEvidence in page:\nProblems\n\nI have long collected and cultivated, and with unremitting assiduity still continue to collect and cultivate, all the Aloes and other succulent plants which is it possible to procure.\n\nAdrian Haworth. A new Arrangement of the Genus Aloe. 1804.\n\nSummary:\nThe provided text, from Adrian Haworth's 1804 work 'A new Arrangement of the Genus Aloe,' discusses his dedication to collecting and cultivating aloes and other succulent plants. However, it does not contain any information about Haworthia diseases and disorders, including fungal, bacterial, viral, physiological conditions, edema, sunburn, cold damage, growth disorders, or aloe mite, nor does it describe symptoms or treatments for such issues. Therefore, no relevant evidence exists in the given content to address the user's goal.\n\n=======\nThe useful information in https://pdf.hanspub.org/br20230100000_20877346.pdf for user goal Haworthia diseases and disorders - all types including fungal, bacterial, viral, physiological, edema, sunburn, cold damage, growth disorders, aloe mite, detailed symptoms and treatments as follows:\n\nEvidence in page:\nIt is also necessary to control effectively the insect pests such as scale insects and root rot, which are easy to occur in summer.\n\nSummary:\nThe cultivation of Haworthia maughanii requires careful management of pests and diseases, particularly scale insects and root rot, which are common during the summer months. Effective control measures are essential to maintain plant health, though specific symptoms and treatments for other disorders such as fungal, bacterial, viral, physiological issues, edema, sunburn, cold damage, growth disorders, or aloe mite are not detailed in the provided text.\n"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01VfNsm6SBtdWSKg665eE3QZ",
+          "name": "search",
+          "args": {
+            "query": "多肉 十二卷 炭疽病 症状 防治 叶斑 褐斑 药剂 代森锰锌",
+            "topn": 8
+          },
+          "result": "A Google search for '多肉 十二卷 炭疽病 症状 防治 叶斑 褐斑 药剂 代森锰锌' found 8 results:\n\n## Web Results\n\n0. [关于老牌杀菌剂代森锰锌，你知道多少？ - 农药新闻网](http://www.pesticidenews.cn/zgny/fangzh/content/0a705462-9409-4b2f-acc1-01aa0eea5665.html)\nDate published: Apr 12, 2023\n即使用代森锰锌防治病害的同时，也相当于为作物补充了锌元素和锰元素，其中锌元素有利于幼芽和嫩叶的发育，锰元素可以促进叶片的光合作用。 5. 耐雨水冲刷， ...\n\n1. [代森联、代森锌和代森锰锌听起来差不多，实际上差别很大](https://zhuanlan.zhihu.com/p/451057323)\n代森联代森联是一种优良的保护性杀菌剂，属低毒农药。由于其杀菌范围广、不易产生抗性，防治效果明显优于其他同类杀菌剂，所以在国际上用量一直是大吨位产品。\n\n2. [代森锰锌用于多肉的方法](https://b2bwiki.baidu.com/article/d1je6tpftjskdn13p3sg)\nDate published: Mar 17, 2026\n代森锰锌是一种广谱保护性杀菌剂，主要用于预防多肉植物的真菌性病害，如黑斑病、炭疽病、锈病等。其原理是通过锰和锌离子破坏病原菌的酶系统，形成保护膜 ...\n\n3. [多菌靈代森錳鋅，花卉多肉的守護神？  深度解析與使用指南](https://world.taobao.com/lang/zh-tw/goods/2012659.htm)\nDate published: Mar 11, 2025\n- 葉斑病：原本佈滿斑點的葉片慢慢恢復了綠色，新的葉片也沒有再出現斑點。 - 炭疽病：植株基部的黑色斑點不再擴散，新長出的根系也更加健壯。 親愛的花友們， ...\n\n4. [代森锰锌使用技术汇总！ - ChemicalBook](https://www.chemicalbook.com/NewsInfo_34975.htm)\nDate published: Dec 22, 2021\n（3）代森锰锌主要用于防治蔬菜霜霉病、炭疽病、褐斑病等，目前是防治番茄早疫病和马铃薯晚疫病理想药剂。 （4）对多菌灵产生抗性的病害，改用代森锰锌可收到 ...\n\n5. [炭疽病用什么农药最好？ - 惠农网](https://www.cnhnb.com/xt/article-103964.html)\nDate published: Aug 23, 2021\n例如，在病虫害防治方面，可以使用代森锰锌800倍溶液或1:1:120波尔多液进行喷雾或灌根防治立枯病和疫病；对于根腐病，可以使用多菌灵600倍液或1:1:100波尔多液 ...\n\n6. [代森锌价格报价行情- 京东](https://www.jd.com/jiage/124736497fda1d8ddebe5.html)\n鑫星80%代森锌蓝粉莴苣多肉蔬菜植物花卉叶斑病炭疽病农药杀菌剂100g. 84条评价. 80%代森锌蓝粉早疫病霜霉病叶斑病植物果树蔬菜花卉杀菌剂100克. 100条评价. 80%代森锌 ...\n\n7. [利民80%代森锰锌花卉果蔬多肉疫病月季黑斑炭疽病杀菌剂 - 一亩田](https://m.ymt.com/supply/61454984)\nDate published: Oct 17, 2025\n... 锌主要用于防治蔬菜霜霉病、炭疽病、褐斑病等。目前是防治西红柿早疫病和马铃薯晚疫病理想药剂，防效分别为80%和90%左右，一般作叶面喷洒，隔1015天喷1次。"
+        },
+        {
+          "id": "toolu_vrtx_013rALH5qRw89Sxc6JGY6yn5",
+          "name": "search",
+          "args": {
+            "query": "Haworthia aloe mite eriophyid gall cancer edema cold damage frost physiological problems",
+            "topn": 8
+          },
+          "result": "A Google search for 'Haworthia aloe mite eriophyid gall cancer edema cold damage frost physiological problems' found 8 results:\n\n## Web Results\n\n0. [San Marcos Growers >Aloe Mite](https://www.smgrowers.com/info/aloemite.asp)\nSevere damage to some aloes is caused by aloe mite, also known aloe wart mite or aloe gall mite, a Eriophyid mite known as Aceria aloinis Keifer (syn Eriophyes ...\n\n1. [How to Manage Aloe Mite - Debra Lee Baldwin](https://debraleebaldwin.com/pests/how-to-manage-aloe-mite/)\nThey cause deformed flowers, a bubbly fringe on leaf edges, and orange-and-green growths where leaves meet stems. Aloe mite causes distorted, cancerous-like ...\n\n2. [Plant enemy part 2: Aloe Mites - Satanic hydra - Artisan Plants](https://artisanplants.com/blogs/news/plant-enemy-part-2-aloe-mites-satanic-hydra)\nAloe mites will usually not kill Haworthia, but they cause cosmetic damage on the leaves and stunt growth.\n\n3. [Eriophyid mites - Missouri Botanical Garden](https://www.missouribotanicalgarden.org/gardens-gardening/your-garden/help-for-the-home-gardener/advice-tips-resources/insects-pests-and-problems/insects/mites/eriophyid-mites)\nEriophyid mites are microscopic mites that often go undetected. Unlike most adult mites that have four pairs of legs eriophyid mites have only two pairs.\n\n4. [Eriophyid Mites | USU](https://extension.usu.edu/planthealth/research/eriophyid-mites)\nDamage from eriophyid mites usually consists of leaf galls, bud or flower galls, blisters, scabbing, and deformities of leaves, stems, buds, and flowers.\n\n5. [Eriophyid mites - Agricultural Biology - CSU College of Ag Sciences](https://agsci.colostate.edu/agbio/ipm-pests/eriophyid-mites-2/)\nEriophyid mites form finger-like galls, pocket galls, or masses of plant hairs on leaf surfaces that resemble the texture of felt.\n\n6. [Aloe mite: The hidden scourge of the Mediterranean succulent garden](https://davesgarden.com/guides/articles/view/2145)\nDate published: Mar 4, 2009\nHowever these cancer-like galls are permanent disfigurements of the leaves or flowers and unless removed, they will often continue to grow ...\n\n7. [Aloe Mite: The Other Pandemic - ResearchGate](https://www.researchgate.net/publication/366081728_Aloe_Mite_The_Other_Pandemic)\nAgave mites can be damaging to ornamental agave, yet little research has been conducted on them. Our goal was to validate basic methods for quantifying and .\n\n… [2 chars truncated]"
+        },
+        {
+          "id": "toolu_vrtx_01JuyMDC1szm6F9DTDnQEaQ5",
+          "name": "search",
+          "args": {
+            "query": "多肉 十二卷 冻伤 水肿 日灼 生理性病害 叶片褐斑 裂纹 伸展纹",
+            "topn": 8
+          },
+          "result": "A Google search for '多肉 十二卷 冻伤 水肿 日灼 生理性病害 叶片褐斑 裂纹 伸展纹' found 1 results:\n\n## Web Results\n\n0. [多肉十二卷屬養護，如果出現果凍狀是缺水的信號，不曬太陽 ...](https://www.youtube.com/watch?v=C98GW91quC4)\nDate published: 2023\n新手養多肉|多肉十二卷屬養護，如果出現果凍狀是缺水的信號，不曬太陽多澆水馬上又開窗|花花世界 · Comments."
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01DJfbjmNaTMSb2wr4txeNw8",
+          "name": "visit",
+          "args": {
+            "url": [
+              "https://artisanplants.com/blogs/news/plant-enemy-part-2-aloe-mites-satanic-hydra",
+              "https://zh.minigarden.co.nz/post/%E4%BA%94%E5%A4%A7%E5%B8%B8%E8%A7%81%E5%A4%9A%E8%82%89%E7%97%85%E5%AE%B3%EF%BC%8Cmini%E5%B8%A6%E5%A4%A7%E5%AE%B6%E7%9C%8B%E5%9B%BE%E8%AF%86%E5%A4%9A%E8%82%89%E3%80%90%E7%97%85%E5%AE%B3%E3%80%91"
+            ],
+            "goal": "Haworthia/多肉的炭疽病、黑斑病、煤烟病、芦荟瘿螨（aloe mite）、冻伤、水肿等病害的详细症状描述和防治方法"
+          },
+          "result": "The useful information in https://artisanplants.com/blogs/news/plant-enemy-part-2-aloe-mites-satanic-hydra for user goal Haworthia/多肉的炭疽病、黑斑病、煤烟病、芦荟瘿螨（aloe mite）、冻伤、水肿等病害的详细症状描述和防治方法 as follows:\n\nEvidence in page:\nThese pests are too small to be seen by the naked eye. I used a dissecting microscope to view them. First, I scanned the outside of the gall. I didn’t find any. Then I cut the gall open. There were several of them crawling around the inside of the gall. They did not look at all like the kind of mites I have seen in the past. These look nothing like the spider mites most of us have seen. They look like hydra with fat stems and stubby tentacles. You could see lots of round eggs around them. It was mesmerizing to watch these evil creatures. I was surprised how fast they moved.\n\nWhat makes these mites concerning is that their host range is expanding. Just as the COVID virus has evolved new variants with different qualities, Aloe mites have evolved variants capable of effectively infecting Haworthia and other succulents. It’s very important that growers are on the lookout for them and treat infestations before they get out of hand. My friend Matt has experience with dealing with these noxious creatures and has written an excellent article about them for the Haworthia journal (Aloe mite, a Haworthiad problem). He has given me permission to distribute the article to those interested. Send me an e-mail if you want a copy. Matt and I have been talking to growers and researching what is known about them for a review paper we are writing for the CSSA journal.\n\nHere is more information about aloe mite infestations in Haworthia:\n\nAloe mites will usually not kill Haworthia, but they cause cosmetic damage on the leaves and stunt growth. Here is a picture from Matt's paper showing an infected Haworthia plant:\n\nIn Haworthia, aloe mites will generally not form the flowers galls seen in aloe plants. The damage to Haworthia leaves is caused because when aloe mites feed, they inject toxins into the leaves that cause unsightly spotting and scarring. This damage can resemble damage caused by thrips and other pests or nutritional deficiencies such as lack of calcium. Here are the symptoms to look for: 1) Bubbly lines on the windows that run perpendicular to window lines 2) rust colored or black or orange spots or scars or lines on the leaves.\n\nThe good news is that aloe m\n\n… [4941 chars truncated]"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "content": "资料已经充分了，下面为您系统整理白银寿**除了前面已经讲过的根腐、黑腐、叶腐、介壳虫、根粉蚧和小黑飞之外**，还需要注意的其他病害。\n\n---\n\n# 🔎 白银寿其他病害补充\n\n前面已经详细讲过的根腐病、黑腐病、叶腐/化水、介壳虫、根粉蚧和小黑飞这里就不重复了。以下是**同样可能发生但容易被忽略**的病害，分为**真菌性病害**、**虫媒特殊病害**和**生理性病害（非感染性）**三类。\n\n---\n\n## 一、真菌性病害\n\n### 1️⃣ 炭疽病\n\n| 项目 | 详情 |\n|------|------|\n| **病原** | 炭疽菌（*Colletotrichum* spp.），真菌 |\n| **高发条件** | 🔥 高温高湿的**梅雨季节**最为典型；氮肥施用过量也可诱发 |\n| **症状** | 叶片出现**褐色小斑块**→逐渐扩展为**圆形或椭圆形**→病斑渐渐干枯凹陷、边缘颜色加深→严重时整株受侵 |\n| **与黑腐的区别** | 黑腐从茎基部向上蔓延、整片发黑变软；炭疽病是叶面上**局部出现圆斑**，初期不会整体软烂 |\n| **防治** | ① 切除病叶、销毁，不要随意丢弃以免传染；② 喷施**代森锰锌**（80%可湿性粉剂800-1000倍液）或**百菌清**（75%可湿性粉剂600-800倍液），隔7-10天喷一次，连喷2-3次；③ 改善通风，控制浇水，停止施氮肥 |\n\n### 2️⃣ 黑斑病\n\n| 项目 | 详情 |\n|------|------|\n| **病原** | 链格孢属等真菌 |\n| **高发条件** | 通风不良 + 光照不足 + 土壤潮湿 + 肥水使用不当 |\n| **症状** | 叶片上出现**黑色斑点**→叶片枯萎或化水→轻触即脱落→不及时处理会整株死亡 |\n| **与煤烟病的区别** | 黑斑病是**少量、成点状**的黑色斑点；煤烟病是**大量密集的小黑点**如煤灰覆盖 |\n| **⚠️ 黑斑病会传染！** | 发现后**必须立即隔离**病株 |\n| **防治** | ① 立即隔离；② 彻底切除病叶，伤口涂多菌灵干粉；③ 被切除部分及用过的旧土必须销毁；④ 花盆和工具全部消毒；⑤ 喷施多菌灵（50%粉剂500-800倍液）或代森锰锌进行周期性防治 |\n\n### 3️⃣ 煤烟病（煤污病）\n\n| 项目 | 详情 |\n|------|------|\n| **病原** | 煤炱菌等多种真菌 |\n| **高发条件** | 高温潮湿 + 通风差；**常与介壳虫伴生**——介壳虫分泌的蜜露是煤烟病菌的温床 |\n| **症状** | 叶片表面出现**大量密集的暗褐色至黑色霉斑/小黑点**，如覆了一层煤灰；严重时影响光合作用，植株衰弱 |\n| **与黑斑病的区别** | 煤烟病是**大面积密集小黑点**，像一层灰；黑斑病是分散的、边界较清晰的黑色圆斑 |\n| **防治** | ① 先解决介壳虫！（煤烟病的根源往往是介壳虫分泌物）；② 用湿布轻轻擦去叶面霉层；③ 喷施百菌清或代森锰锌；④ 改善通风、降低湿度 |\n| **白银寿特别注意** | 白银寿叶腋间隐蔽的介壳虫若不及时清除，其分泌物会在叶间缝隙中滋生煤烟病菌，等发现时已经很严重 |\n\n---\n\n## 二、虫媒特殊病害\n\n### 4️⃣ 芦荟瘿螨（Aloe Mite）——⚠️ 新兴威胁！\n\n这是近年来十二卷圈子日益关注的一种**极难察觉**的病害，特别值得警惕。\n\n| 项目 | 详情 |\n|------|------|\n| **病原** | 芦荟瘿螨（*Aceria aloinis*），属瘿螨科，**肉眼不可见**，须用解剖显微镜才能观察到 |\n| **为什么白银寿要特别注意** | 芦荟瘿螨原本主要侵害芦荟，但已**演化出可感染十二卷的变种**，正在向更多多肉品种扩散；白银寿这类高价值收藏品种一旦感染，造成的损失尤其惨痛 |\n| **症状** | ✦ 窗面上出现**垂直于自然窗纹的泡状线条/扭曲纹路**；✦ 叶面出现**锈色、黑色或橙色的斑点、疤痕或线状伤痕**；✦ 叶片局部异常膨大变形（瘿瘤/癌变状增生）；✦ 生长停滞或明显变慢 |\n| **容易混淆** | 症状可能与蓟马伤害、缺钙或其他营养缺乏症相似——如果常规处理无效，应考虑芦荟瘿螨的可能性 |\n| **传播途径** | 主要通过新购植株引入！新到手的植株即使外观正常也可能携带 |\n| **⚠️ 治疗后症状仍会持续** | 因为螨虫栖息在**生长点与叶基交接处**的深处，即使杀死了螨虫，受损组织长出的叶片仍会在数周甚至数月后才停止显示伤痕——**不要因此放弃治疗** |\n| **防治方法** | ✅ **阿维菌素（Abamectin）**：稀释后喷施，重点喷到叶基缝隙深处，**反复喷施**（间隔7-10天，连续3-4次以杀灭新孵化个体）；✅ **西维因（Carbaryl）**：同样有效；❌ **吡虫啉对芦荟瘿螨无效**，甚至可能加重感染！ |\n| **关键预防** | 🔑 **新购植株必须严格隔离检疫！** 远离原有收藏至少2-4周，仔细观察叶面有无异常纹路或疤痕后才可合入大部队 |\n\n---\n\n## 三、生理性病害（非感染性）\n\n这类问题不是由病菌或害虫引起，而是**环境条件不当**造成的组织损伤。虽然不传染，但对白银寿的观赏价值影响很大。\n\n### 5️⃣ 冻伤\n\n| 项目 | 详情 |\n|------|------|\n| **发生条件** | 温度低于**0℃**，尤其是突然降温或霜冻 |\n| **症状** | 叶片出现**水渍状透明斑**→逐渐变褐变软→严重冻伤的组织不可恢复，最终干枯 |\n| **白银寿耐寒下限** | 安全温度**5℃以上**；短暂降到0℃可能存活但会受\n\n… [2189 chars truncated]"
+    },
+    {
+      "type": "user",
+      "content": "对了，叶斑病的防治方法具体都有哪些呀？每种防治方法属于什么类型，什么时候施用，操作要点是什么？"
+    },
+    {
+      "type": "assistant",
+      "thinking": "The user is asking specifically about leaf spot disease (叶斑病) control methods for Haworthia emelyae (白银寿) or succulents in general. They want to know:\n1. What specific control methods exist\n2. What type each method is (chemical, biological, physical, agricultural)\n3. When to apply each method\n4. What are the operational key points\n\nLet me search for detailed information about leaf spot disease prevention and treatment in succulents/Haworthia.",
+      "content": "好的，让我专门搜索一下叶斑病在多肉/十二卷上的详细防治方法。",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01Sc4JHNJBmQ477Uehbz7hwX",
+          "name": "search",
+          "args": {
+            "query": "多肉植物 叶斑病 防治方法 类型 化学防治 物理防治 农业防治 操作要点 详细",
+            "topn": 10
+          },
+          "result": "A Google search for '多肉植物 叶斑病 防治方法 类型 化学防治 物理防治 农业防治 操作要点 详细' found 10 results:\n\n## Web Results\n\n0. [多肉植物叶子出现黑点，可能是黑斑病，这样救治肉肉重回颜值巅峰](https://m.baidu.com/bh/m/detail/ar_9843819108216802023?frsrcid=rec)\n如果多肉植物得了黑斑病，那么就要购买针对性的药物，所以要预防到位，一定要做好通风透气、消毒杀菌的工作。而常见的多菌灵和百菌清可以帮助杀死一部分细菌，而阿密西达，凯泽 ...\n\n1. [多肉黑斑病的正确处理方法，这样做才能有效防治！ - 搜狐](https://www.sohu.com/a/552509823_121251459)\nDate published: May 30, 2022\n预防黑斑病的主要物理手段有:不使用未灭菌的土壤，种植环境注意通风，雨季到来时避免随意淋雨(这点很重要)，避免盆土长期潮湿。 如果多肉植物得了黑斑病 ...\n\n2. [多肉植物叶片现黑斑黑点应该如何处理 - 湖南省林业局](http://lyj.hunan.gov.cn/lyj/tslm_71206/lykp/syjs/201512/t20151227_2588371.html)\nDate published: Aug 6, 2015\n预防黑斑病的主要物理手段有：未消毒杀菌的土壤不要使用，种植环境注意通风，雨季来临切忌随意淋雨（这点很重要），盆土切忌长期潮湿。 如果多肉植物得了黑斑病 ...\n\n3. [不想用药？叶斑病、霜霉病，5招全搞定 - YouTube](https://www.youtube.com/watch?v=_jMhWe-Qzqs)\nDate published: Nov 9, 2021\nComments · 白粉病，驅螞蟻，一招全搞定【美新社】 · 別再把香蕉皮直接扔進土裡！ · 扔掉劇毒農藥！ · 【长寿】人过60，最怕的不是“癌症”？ · 种菜防虫除虫系列1：防治 ...\n\n4. [多肉植物病虫害防治全攻略 - YouTube](https://www.youtube.com/watch?v=mMuGBVyDTCw)\nDate published: Jul 4, 2024\nShare your videos with friends, family, and the world.\n\n5. [(PDF) 多肉植物常见病虫害及防治技术要点 - ResearchGate](https://www.researchgate.net/publication/344732589_duorouzhiwuchangjianbingchonghaijifangzhijishuyaodian)\n多肉植物是目前观赏类植物中受欢迎的种类之一,经济价值也较高,但是多肉植物生长过程中会受到病虫害的影响,对多肉植物的正常生长产生了一定阻碍,降低了多肉植物的观赏性 ...\n\n6. [多肉植物病害症状及防治方法介绍 - 知乎专栏](https://zhuanlan.zhihu.com/p/374296164)\nDate published: May 22, 2021\n治疗方法：患病初期产生褐色凹陷、斑点，严重时病斑中央有坏疽现象，难根治，购买时应注意植株有无此一疫病，避免购买。发病时，务必将病处剪除烧毁，再使用炭疽 ...\n\n7. [多肉常见病害及防治方法 - 惠农网](https://www.cnhnb.com/xt/article-117521.html)\nDate published: Nov 11, 2022\n防治方法：为避免多肉死亡，应及时对腐烂的根部进行修剪、消毒、晾干处理，再换盆换土，重新栽种。 五、斑点病. 斑点病 ...\n\n8. [预防叶斑病的发生措施| 百度健康·医学科普](https://m.baidu.com/bh/m/detail/ar_8153993317740496706?frsrcid=rec)\n预防叶斑病需综合采取农业管理、环境调控及药剂防治措施，包括选用抗病品种、清除病残体、合理密植、控制湿度、科学施肥等，通过减少病原菌传播、增强植株抗性降低发病 ...\n\n9. [多肉植物常见病及防治方法 - 肥料、农药](http://bk.3456.tv/nongyaobk/14164)\nDate published: May 29, 2014\n防治方法：上盆要用经的培养土。发病初期发现有病斑点，应立即挖除，并将邻近病斑的健康组织也挖掉一部分，然后涂以硫磺粉或草木灰，晒干伤口，以利伤口尽快愈合 ..."
+        },
+        {
+          "id": "toolu_vrtx_018TF6LTf28uN3W4iVNTFTH1",
+          "name": "search",
+          "args": {
+            "query": "叶斑病 杀菌剂 代森锰锌 苯醚甲环唑 戊唑醇 嘧菌酯 多菌灵 使用浓度 时机 操作",
+            "topn": 10
+          },
+          "result": "A Google search for '叶斑病 杀菌剂 代森锰锌 苯醚甲环唑 戊唑醇 嘧菌酯 多菌灵 使用浓度 时机 操作' found 10 results:\n\n## Web Results\n\n0. [农业园艺用杀菌剂组合物以及植物病害的防除方法 - Google Patents](https://patents.google.com/patent/CN101312649B/zh)\n本发明的课题在于提供一种对感染了植物病害的栽培作物具有稳定的高的杀菌效果的组合物。本发明通过提供下述农业园艺用杀菌剂组合物而解决了上述课题，即，一种农业园艺用 ...\n\n1. [蔬菜上常用杀菌剂混剂 - 植保（中国）协会](http://www.croplifechina.com/ui/content.aspx?c3ViY29sdW1uaWQ9OTMmbmV3aWQ9MTI0)\n【科普】蔬菜上常用杀菌剂混剂手册 ; 满适金. 3.5%、6.25%精甲霜灵+. 咯菌腈悬浮剂. 蔬菜苗期立枯病、猝倒病、黑痣病 ; 杀毒矾. 64%噁霜灵+代森锰锌可湿性粉剂. 黄瓜霜霉病、 ...\n\n2. [[DOC] 农药基本知识](https://nyncj.taian.gov.cn/module/download/downfile.jsp?classid=0&filename=eed602c5457f4c88979ccdf3c65c2e78.doc)\n防治高等真菌病害的有：多菌灵、甲基托布津、腐霉剂（速克灵）、咪鲜胺（施保克）、苯醚甲环唑（世高）、氟硅唑（福星）、丙环唑（敌力脱）、嘧菌酯（阿米西达）、异菌脲（扑海因）、抑霉 ...\n\n3. [代森锰锌如何使用？一篇文章给你讲清楚 - 农资与市场](https://www.enongzi.com/news/details?id=73ba4979-14ac-4e6b-9650-d9e58fa8a5fd)\nDate published: Jun 23, 2022\n代森锰锌属高效、低毒、广谱的保护性杀菌剂，又称大生M-45、喷克。主要剂型有50％、70％、80％、85％可湿性粉剂，30％、420克/升、43％、430克/升悬浮 ...\n\n4. [苯醚甲环唑：能防治的病害实在太多，想要效果好，需注意这4点！](https://zhuanlan.zhihu.com/p/518444972)\nDate published: May 23, 2022\n苯醚甲环唑的作用机理主要是抑制病菌细胞麦角甾醇的生物合成，从而破坏病原菌细胞膜结构与功能，导致真菌死亡；是一种安全性比较高，高效、广谱、低毒、低用量 ...\n\n5. [苯醚甲环唑使用禁忌及其与代森锰锌的混用问题 - 百度爱采购](https://b2bwiki.baidu.com/article/d0rfbspftjssvguo7m1g)\nDate published: Apr 21, 2026\n本文详细解答苯醚甲环唑的使用禁忌，包括敏感作物、施用浓度、安全间隔期等关键注意事项，并分析其与代森锰锌混用的可行性。实验数据表明，两者混用可能 ...\n\n6. [用于防治甜菜中的叶斑病的杀真菌组合物 - Google Patents](https://patents.google.com/patent/CN105025718A/zh)\n... 剂使用成本的至少三倍。 有许多杀真菌剂用于防治甜菜叶斑病。这些包括嘧菌酯(azoxtstrobin)和苯醚甲环唑(difenconazole)两者。嘧菌酯为(αE)-2-[[6-(2-氰基苯氧基)-4 ...\n\n7. [[DOC] E45640V40REVIS00Box385236...](https://documents1.worldbank.org/curated/en/943171468220513939/E45640V40REVIS00Box385236B00PUBLIC0.doc)\n杀虫剂的使用情况：防治稻纵卷叶螟四代、五代、六代的发生一般用药4~5次，主要采用1.8%阿维菌素乳油每亩150mL或48%毒死蜱乳油每亩100mL或康宽每亩10克进行防治；稻飞虱四代、 ...\n\n8. [代森锰锌、戊唑醇、嘧菌酯……20余种杀菌剂使用禁忌 - 搜狐](https://www.sohu.com/a/637305742_121123920)\nDate published: Feb 4, 2023\n2、不能和含金属离子的杀菌剂、叶面肥混配，比如代森锌、代森锰锌、福美双等。 3、大部分铜制剂也不能和甲基硫菌灵、多菌灵和乙霉威等混配，需要混配 ...\n\n9. [[PDF] 2024 年小麦重大病虫害防控技术方案](https://xxgk.jcgov.gov.cn/szfgzbm/jcsnyncj/fdzdgknr_31370/fgwj_31380/202404/P020240401607224538727.pdf)\n对小麦白粉病、叶锈病，可以结合防治赤霉病、条锈病进行. 兼治；当田间病叶率达10%时，选用环丙唑醇、腈菌唑、丙环唑、. 氟环唑等杀菌剂进行防治，严重发生田，应隔7～10 天再喷1 ..."
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_017bNGtxiEqrg2Mi4EA4YBoZ",
+          "name": "visit",
+          "args": {
+            "url": [
+              "https://zhuanlan.zhihu.com/p/374296164",
+              "https://www.researchgate.net/publication/344732589_duorouzhiwuchangjianbingchonghaijifangzhijishuyaodian"
+            ],
+            "goal": "多肉植物叶斑病的详细防治方法，包括农业防治、物理防治、化学防治具体操作，杀菌剂种类和使用浓度"
+          },
+          "result": "The useful information in https://zhuanlan.zhihu.com/p/374296164 for user goal 多肉植物叶斑病的详细防治方法，包括农业防治、物理防治、化学防治具体操作，杀菌剂种类和使用浓度 as follows:\n\nEvidence in page:\n⑦黑斑病\n患病原因：黑斑点病又叫黑斑病或者褐斑病，是一种危害轻微的次要植物病害。斑点病主要会出现在节点附近或者砧木结合部，是由真菌或者细菌导致的植物坏死。如果有一盆多肉发现了这种情况，要尽快隔离，否则会传染给其他的多肉植物。\n治疗方法：斑点病被称为多肉病害中的“艾滋病”，这一称呼直接说明了斑点病的特性，一旦发生就根治不了，而且还容易把病菌传染给其他健康的植株。不过如果平时注意轮换着使用杀菌药，保持植株的干燥，就可以减少病害的发生。\n\nSummary:\n多肉植物叶斑病（又称黑斑病或褐斑病）由真菌或细菌引起，多发于节点附近或砧木结合部，具有传染性强、难以根治的特点。防治措施包括：农业防治方面，及时隔离病株，避免病菌传播；保持植株干燥，改善通风条件；轮换使用杀菌剂进行预防。物理防治方面，可通过移除病叶、加强光照和通风来减少病害发生。化学防治上，建议轮换使用杀菌剂（如异菌脲、嘧霉胺、丙环唑、乙霉多菌灵等），具体使用浓度需根据产品说明进行，一般可参考5天喷施一次，连续使用2次，或根据病情严重程度调整频率。\n\n=======\nThe useful information in https://www.researchgate.net/publication/344732589_duorouzhiwuchangjianbingchonghaijifangzhijishuyaodian for user goal 多肉植物叶斑病的详细防治方法，包括农业防治、物理防治、化学防治具体操作，杀菌剂种类和使用浓度 as follows:\n\nEvidence in page:\n多肉植物常见病虫害及防治技术要点\n\n2 多肉植物病虫害防治措施\n\n多肉植物的病虫害问题主要原因就是根部发生感染，多肉植物根部生长于地下，所以出现病变时并不会及时察觉，这也为多肉植物病虫害防治工作带来了一定难度。多肉植物病虫害如果不能及时治疗，病菌会从植物根部扩散到茎部，茎部出现黑色坏死斑，严重时会导致多肉植物茎部出现腐烂，出现这种情况时救治难度增大，也不利于多肉植物的恢复。\n\n2.1杀菌剂种类\n\n杀菌剂在多肉植物病虫害防治中的应用越来越广泛，防治效果也十分显著，杀菌剂的种类也逐渐增多。在病菌侵入多肉植物之前就使用杀菌剂，充分发挥杀菌剂的保护作用，避免多肉植物受到病菌的感染和侵害，常见的杀菌剂包括百菌清、代森锰锌等，都是保护型的杀菌剂，杀菌效果十分明显。通常情况下，保护型杀菌剂无法进入到多肉植物内部，只能保护药物喷洒处不受到病菌感染。\n\n2.1.1百菌清\n\n百菌清是多肉植物防止杀菌剂中较为常见的一种，主要的作用原理是和真菌细胞中的酶发生反应，和其中的蛋白质相结合，对酶的活性进行破坏，而导致真菌细胞失去新陈代谢能力和生命活力。百菌清的药效稳定性高，残效期较久，适用范围广，病菌不会产生抗药性，可以和其他多种杀菌剂混合使用。百菌清的优点较多，根据其作用特性，该种药剂更适合防治多肉植物的真菌性病害。\n\n2.1.2多菌灵\n\n多菌灵属于内吸式杀菌剂，不仅有保护作用，还可以对多肉植物进行治疗，主要的作用机理就是干扰细胞中纺锤体的形成，影响真菌的正常分裂。多菌灵不仅可以喷洒在多肉植物外部，还可以作用于多肉植物生长的土壤中，但是多菌灵的使用很容易让病菌产生抗药性。多菌灵通常对多肉植物的基质进行消毒，预防各种病菌对多肉植物的侵害和破坏。\n\n2.2常用的杀菌方法\n\n2.2.1栽植基质消毒\n\n有的多肉植物生长环境需要高温、阳光充足，在疏松、排水良好的砂质土壤中生长较好，但是夏季高温闷热，多肉植物很容易出现软腐病，此时就需要喷洒农用链霉素来进行解决，提高对土壤的管理，为多肉植物提供更好的生存环境。配置栽培基质时，可以采用赤玉土、红色火山岩等物质，按照比例进行混合，同时，做好基质消毒工作，提高多肉植物的生长质量。\n\n2.2.2扦插基质消毒\n\n多肉植物扦插之前需要采用高锰酸钾稀释溶液进行消毒，避免基质出现腐烂的情况，消毒完成以后，用清水进行清理，确保基质水分充足。需要注意的是高锰酸钾溶液浓度需要配置在合理范围内，这样才能达到理想的杀菌效果，进而提高多肉植物病虫害的防治效果。\n\nSummary:\n目前提供的网页内容未提及多肉植物叶斑病的具体防治方法，也未涉及农业防治、物理防治、化学防治的具体操作步骤，以及杀菌剂的使用浓度。文中虽然详细介绍了多肉植物常见病虫害的成因及防治措施，如使用百菌清、多菌灵等杀菌剂进行防治，以及栽植基质和扦插基质的消毒方法，但并未明确针对叶斑病这一特定病害进行说明。因此，无法根据该文提供关于叶斑病的详细防治信息。\n"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_014WLfKWYersPZww7zF9oGzF",
+          "name": "search",
+          "args": {
+            "query": "多肉 叶斑病 褐斑病 嘧菌酯 苯醚甲环唑 吡唑醚菌酯 防治 喷施浓度 倍数 预防 治疗",
+            "topn": 8
+          },
+          "result": "A Google search for '多肉 叶斑病 褐斑病 嘧菌酯 苯醚甲环唑 吡唑醚菌酯 防治 喷施浓度 倍数 预防 治疗' found 8 results:\n\n## Web Results\n\n0. [多肉植物如何防虫用药，看完这一篇就够了？](https://zhuanlan.zhihu.com/p/579385640)\nDate published: Nov 1, 2022\n吡唑嘧菌酯，也是甲氧基丙烯酸酯类物质，也是线粒体呼吸抑制剂，通过在细胞色素合成中阻止电子转移来达到杀菌效果。和嘧菌酯非常相似，但不同的是它没有嘧菌酯 ...\n\n1. [苯醚甲环唑这样用，竟然能治这么多病？ - ChemicalBook](https://www.chemicalbook.com/NewsInfo_36878.htm)\nDate published: Apr 7, 2022\n苯醚甲环唑水分散粒剂为米黄至棕色细粒。苯醚甲环唑对植物病原菌的孢子形成具有强烈抑制作用，并能抑制分生孢子成熟，从而控制病情进一步发展。苯醚甲环 ...\n\n2. [常见多肉植物杀菌剂使用方法和注意事项](https://www.drlmeng.com/shajunyao.html)\nDate published: Oct 10, 2015\n吡唑嘧菌酯：广谱杀菌剂比嘧菌酯更不易产生抗药性，有良好的渗透和内吸作用，施药几分钟以后即可渗透进植物组织内（下雨季节也可使用），具有保护和治疗作用。另 ...\n\n3. [蔬菜上常用杀菌剂混剂 - 植保（中国）协会](http://www.croplifechina.com/ui/content.aspx?c3ViY29sdW1uaWQ9OTMmbmV3aWQ9MTI0)\n满适金. 3.5%、6.25%精甲霜灵+. 咯菌腈悬浮剂. 蔬菜苗期立枯病、猝倒病、黑痣病 ; 杀毒矾. 64%噁霜灵+代森锰锌可湿性粉剂. 黄瓜霜霉病、番茄晚疫病 ; 克露. 72%霜脲氰+代森锰 ...\n\n4. [吡唑醚菌酯的正确使用方法 - 惠农网](https://www.cnhnb.com/xt/article-121007.html)\nDate published: Jul 11, 2023\n1、吡唑醚菌酯可以防治炭疽病、白粉病、叶斑病、腐烂病等较多病害，但是效果偏慢，不太明显，最好在发病前或发病初期使用，或者搭配其它药剂一块用。 2、吡唑 ...\n\n5. [苯醚甲环唑这几个经典配方，防病又治病，持效期长 - 农资与市场](https://www.enongzi.com/news/details?id=c89b2b98-2455-4860-ac72-51027aba2369)\nDate published: Oct 2, 2022\n这个杀菌剂就是苯醚甲环唑，苯醚甲环唑属三唑类杀菌剂，具有保护和治疗作用。是甾醇脱甲基化抑制剂，广谱、高效、持效期长，具有良好的内吸性，同时具有很强 ...\n\n6. [苯醚甲环唑+吡唑醚菌酯防治指南](https://b2bwiki.baidu.com/article/d2u181pftjspcoibnae0)\n本文解析苯醚甲环唑与吡唑醚菌酯的防治范围，详细说明两者单用及复配时的适用病害，帮助农户科学选择杀菌剂组合。\n\n7. [[PDF] 苯醚甲环唑和吡唑醚菌酯对柑橘炭疽病菌的联合毒力及防效 - 现代农药](http://xdnyqk.com/upload/file/20221009/20221009171190199019.pdf)\nDate published: Oct 5, 2022\n采用平皿法测定了苯醚甲环唑和吡唑醚菌酯及其不同比例混合物对柑橘炭疽病菌的毒力，并通过. 田间药效试验评价了其对柑橘炭疽病的防效。 结果显示，苯醚 ..."
+        },
+        {
+          "id": "toolu_vrtx_01ULEMsvTFuB741F96pQFL34",
+          "name": "search",
+          "args": {
+            "query": "多肉植物 叶斑病 农业防治 清除病残体 通风 降低湿度 轮换用药 修剪病叶 操作步骤",
+            "topn": 8
+          },
+          "result": "A Google search for '多肉植物 叶斑病 农业防治 清除病残体 通风 降低湿度 轮换用药 修剪病叶 操作步骤' found 8 results:\n\n## Web Results\n\n0. [不想用药？叶斑病、霜霉病，5招全搞定](https://www.youtube.com/watch?v=_jMhWe-Qzqs)\nDate published: 2022\n不想用药？叶斑病、霜霉病，5招全搞定. 10K views · 4 years ago ...more. 佛山二花匠. 29.7K. Subscribe. 103. Share.\n\n1. [救救你的多肉！這些致命病蟲害你一定要知道！多肉植物 ...](https://www.youtube.com/watch?v=6ILPqp6YO9E)\nDate published: 2025\n救救你的多肉！這些致命病蟲害你一定要知道！多肉植物病蟲害去除. 487 views · 1 year ago. #多肉植物#多肉介質#花藝 ...more ...\n\n2. [多肉植物掉叶不再怕，教你轻松解决的四大妙招](https://www.youtube.com/watch?v=JvqtK9wqRQY)\nDate published: 2024\n多肉植物掉叶不再怕，教你轻松解决的四大妙招 ... “眼袋”越來越重？醫師提醒：是這兩個器官在發“求救信”！3個方法教你從根本改善眼袋問題，瞬間年輕10歲！\n\n3. [不花1分錢永久消滅多肉白粉病，10種自製殺蟲水](https://www.youtube.com/watch?v=LT8lF8fXies)\nDate published: 2025\n#养花 ; #家庭养花 ; #种植 推薦訂閱： ; https://bit.ly/3yAJ5dq 不花1分錢，10種自製殺蟲水，消滅多肉植物白粉病，還你乾淨健康肉肉。 ; 00:00 多肉白粉病 ...\n\n4. [《园林植物保护技术（第二版）》教材展示材料目录](https://www.szai.edu.cn/__local/A/84/41/C4443F233FDD5383EB3010AA1D3_0EFA08F9_391836C.pdf)\n全书分为四个能力递进. 模块，把园林植物保护基础理论和园林植物保护应用技术融合为一体，涵盖了园林植物. 病害基础、园林植物昆虫基础、园林植物杂草基础、园林植物病虫草 ...\n\n5. [作物土壤管理與施肥技術](https://www.tari.gov.tw/scholars/100up/3-%E7%89%B9%E5%88%8A/no221/no221all.pdf)\n... 葉病危害，延續蕉園植蕉壽命，降低生. 產成本，提升植蕉收益，亦即是為維護蕉園 ... 統性藥劑進行噴藥，加強葉部病害防治效用。 6. 颱風季節前，應完成豎立防風 ...\n\n6. [2024!\"#$%&'()% - 农药新闻网](http://www.pesticide.vip/zgny/magazine/ZK202403.pdf)\n叶霉病和早期灰叶斑病， 同时壮秧保. 果， # H*+,-.2IJ<=，,7 .52K , 喷施25%¨菌醋 ... 害，叶面喷施可防治白粉病、霜霉病、疫. 病、灰霉病等， 生物农药安全又高效 ...\n\n7. [通知及附件.docx - 福建省科学技术厅](https://kjt.fujian.gov.cn/xxgk/tzgg/202406/P020250303537364214824.docx)\n药用植物窄叶台湾榕选育与林下栽培技术研究. 本研究成果收集窄叶台湾榕（细 ... 疾病的防治和科学用药提供参考。从辣蓼中提取活性成分黄酮，测定其抗氧化活性及对 ..."
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01Jm3NwYCJbrqUeckqdyaW8i",
+          "name": "visit",
+          "args": {
+            "url": [
+              "https://www.drlmeng.com/shajunyao.html"
+            ],
+            "goal": "多肉植物常用杀菌剂中与叶斑病防治相关的药剂种类、有效成分、使用浓度、使用方法、注意事项，特别是嘧菌酯、吡唑醚菌酯、苯醚甲环唑、代森锰锌的详细信息"
+          },
+          "result": "The useful information in https://www.drlmeng.com/shajunyao.html for user goal 多肉植物常用杀菌剂中与叶斑病防治相关的药剂种类、有效成分、使用浓度、使用方法、注意事项，特别是嘧菌酯、吡唑醚菌酯、苯醚甲环唑、代森锰锌的详细信息 as follows:\n\nEvidence in page:\n在网页内容中，关于多肉植物常用杀菌剂与叶斑病防治相关的药剂信息主要集中在‘常用杀菌药详述’和‘一些其他优秀的杀菌药’部分。以下是针对嘧菌酯、吡唑醚菌酯（原文为‘吡唑嘧菌酯’）、苯醚甲环唑（原文未直接提及，但丙环唑、腈菌唑等三唑类药剂与之功能相近，且具有防治叶斑病的广谱性）、代森锰锌的详细信息提取如下：\n\n**嘧菌酯**：\n- 药剂类型：广谱杀菌剂，内吸性好，可用于预防。\n- 有效成分：嘧菌酯（阿米西达）。\n- 使用浓度：未明确具体稀释倍数，但提到其内吸缓慢，24小时和8天后被作物吸收为20%和45%，持效期长达14天。\n- 使用方法：建议与百菌清搭配使用，以避免抗药性；高温干旱情况下慎用。\n- 注意事项：易产生抗药性，不宜单独长期使用；施药后需注意环境安全，避免污染水源。\n\n**吡唑嘧菌酯**：\n- 药剂类型：广谱杀菌剂，具有良好的渗透和内吸作用，施药几分钟后即可渗透进植物组织内，具有保护和治疗作用。\n- 有效成分：吡唑嘧菌酯。\n- 使用浓度：原文未明确具体稀释倍数，但提到其悬浮剂较不易产生药害。\n- 使用方法：适用于雨季使用，因具有良好的渗透性，可在下雨后仍有效；对白粉病、炭疽病、霜霉病、叶斑病等有特效。\n- 注意事项：与其他杀菌剂轮换使用可延缓抗药性产生；悬浮剂形式更安全，推荐使用。\n\n**代森锰锌**：\n- 药剂类型：优良的保护性杀菌剂，属低毒农药，杀菌范围广，不易产生抗性。\n- 有效成分：代森锰锌。\n- 使用浓度：以80%可湿性粉剂为准，喷施稀释800-1000倍液。\n- 使用方法：均匀喷透叶片和枝干，尤其注意叶背面；每隔10-15天施药一次，连续用药2-3次。\n- 注意事项：不可与碱性或含铜药剂混用；对鱼有毒，避免污染水源；贮藏时防高温潮湿，防止分解。\n\n**苯醚甲环唑**：\n- 原文未直接提及‘苯醚甲环唑’，但提及了功能相似的三唑类杀菌剂，如**丙环唑**和**腈菌唑**，它们均具有广谱杀菌活性，对叶斑病有良好防治效果。\n- 丙环唑：对叶斑病、根腐病、白粉病、锈病等有特效，具有治疗和保护双重作用，内吸性强，持效期长（15-35天）。\n- 腈菌唑：对叶斑病、炭疽病、黑痘病、纹枯病等多种高等真菌性病害均有效，具有预防和治疗双重作用，内吸性强，持效期长。\n- 使用建议：三唑类药剂可与其他杀菌剂轮换使用，避免抗药性；推荐使用国光品牌，溶解性好，不易堵塞喷嘴。\n\n综上，针对叶斑病防治，嘧菌酯、吡唑嘧菌酯、代森锰锌及三唑类杀菌剂（如丙环唑、腈菌唑）均被推荐使用，其中代森锰锌为保护性药剂，需均匀喷施；嘧菌酯和吡唑嘧菌酯为内吸性药剂，持效期长，但需注意抗药性问题，建议轮换使用。所有药剂均应避免与碱性或铜制剂混用，并注意对鱼类和环境的安全。\n\nSummary:\n多肉植物防治叶斑病的常用杀菌剂包括嘧菌酯、吡唑嘧菌酯、代森锰锌及三唑类杀菌剂（如丙环唑、腈菌唑）。嘧菌酯为广谱内吸性杀菌剂，持效期长达14天，但易产生抗药性，建议与百菌清轮用，高温干旱时慎用；吡唑嘧菌酯具有快速渗透和持久保护作用，对叶斑病等真菌病害特效，推荐使用悬浮剂以减少药害；代森锰锌为保护性杀菌剂，需稀释800-1000倍均匀喷施，尤其覆盖叶背面，不可与碱性或含铜药剂混用；丙环唑与腈菌唑同属三唑类，兼具治疗与保护作用，对叶斑病等广谱有效，持效期长，宜与其他药剂轮换使用以延缓抗性。所有药剂均应避免污染水源，注意操作安全，优先选用国光等知名品牌以确保溶解性和使用效果。\n"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "content": "资料齐全了，下面为您系统整理叶斑病的全部防治方法。\n\n---\n\n# 🍂 叶斑病防治方法全解析\n\n叶斑病（含黑斑病、褐斑病）是由**真菌或细菌**引起的叶片坏死性病害，传染性强，在多肉圈中甚至被称为\"多肉病害中的艾滋病\"——一旦发生很难根治，重在**预防**。\n\n下面按**农业防治 → 物理防治 → 化学防治（保护性 / 治疗性）**的顺序，逐一说明。\n\n---\n\n## 一、农业防治（环境管理预防）\n\n> 🏷️ **方法类型：** 通过优化日常养护环境，从源头切断发病条件\n> ✅ **这是最重要、最基础的防线**——环境对了，叶斑病几乎不会发生\n\n| 措施 | 操作要点 | 施用时机 |\n|------|---------|---------|\n| **保持通风** | 室内摆放位置确保空气对流；可配小风扇辅助，但风向不要固定朝一个方向吹 | 🔁 全年持续 |\n| **控制浇水** | 干透浇透，沿盆壁浇入，**严禁从顶部淋浇**让水滞留叶面；阴雨天不浇水 | 🔁 每次浇水时 |\n| **降低环境湿度** | 梅雨季和连续阴雨天尤其注意；避免植株长期处于高湿度环境；闷养期间发现任何异常立即停止 | 🔁 高湿季节重点关注 |\n| **避免氮肥过量** | 氮肥过多会让组织变嫩、抗病力下降，是叶斑病的重要诱因；生长季施肥浓度**减半**，夏冬停肥 | 🔁 施肥时 |\n| **合理光照** | 光照不足会让植株衰弱、抗病力下降；保持稳定充足的散射光 | 🔁 全年持续 |\n| **使用消毒过的基质** | 新配土可用百菌清拌入预防，或用高锰酸钾溶液（0.3%，浸泡5分钟）消毒 | 🔁 每次配土/换盆时 |\n| **新株检疫隔离** | 新购植株独立放置**2-4周**，仔细观察有无斑点后再合入 | 🔁 每次购入新株时 |\n| **清除枯叶残体** | 定期清除盆面和叶腋间的枯叶残片——这些是病菌的温床 | 🔁 日常巡查 |\n\n---\n\n## 二、物理防治（发病后的人工干预）\n\n> 🏷️ **方法类型：** 不使用药剂，通过人工操作直接清除病灶、阻断传播\n> ✅ 安全无毒，但**必须彻底**——留一点病组织就会复发蔓延\n\n### 1️⃣ 病叶切除 + 伤口消毒\n\n| 项目 | 操作要点 |\n|------|---------|\n| **施用时机** | 发现叶面出现斑点后**立即**操作——越早越好 |\n| **步骤** | ① 用**消毒后的锋利刀片**将病叶整片切除，**连带病斑周围一圈健康组织也要切掉**（病菌往往已在肉眼不可见的范围扩散）；② 伤口直接蘸**多菌灵干粉**（不要用溶液浸泡——保持伤口干燥更重要）；③ 置于通风处晾干伤口 |\n| **⚠️ 关键** | 切下来的病叶必须**立即销毁**（扔远处或烧掉），不能随手丢在盆边或花架上——病菌孢子会随气流传播感染其他植株 |\n\n### 2️⃣ 病株隔离\n\n| 项目 | 操作要点 |\n|------|---------|\n| **施用时机** | 发现叶斑病症状后**第一时间** |\n| **步骤** | 将发病植株从其他植株旁**远距离移开**，单独放置观察治疗，确认完全恢复后才可归位 |\n| **⚠️ 关键** | 叶斑病（尤其黑斑病）**传染性强**，一盆发病不隔离可能全军覆没 |\n\n### 3️⃣ 工具和花盆消毒\n\n| 项目 | 操作要点 |\n|------|---------|\n| **施用时机** | 处理完病株后立即进行 |\n| **步骤** | 切刀、镊子用**75%酒精**或**1%双氧水**彻底擦洗；病株用过的花盆用多菌灵溶液浸泡或开水烫洗后晾干；旧土**全部丢弃**，不可复用 |\n\n---\n\n## 三、化学防治——保护性杀菌剂（预防为主）\n\n> 🏷️ **方法类型：** 在**未发病时**或发病初期使用，药剂附着在植株和介质表面形成保护层，杀灭接触到的病菌孢子\n> ✅ **核心理念：没病的时候用，筑起防火墙**\n\n### 1️⃣ 百菌清\n\n| 项目 | 详情 |\n|------|------|\n| **有效成分** | 百菌清（Chlorothalonil） |\n| **类型** | 保护性杀菌剂（触杀型，不被植株吸收） |\n| **作用原理** | 附着在叶面和介质表面，与接触到的真菌细胞中的酶结合，破坏其代谢能力致其死亡 |\n| **使用浓度** | 75%可湿性粉剂稀释 **600-800倍液** |\n| **使用方法** | 均匀喷施叶面（含叶背面）和盆土表面；也可少量拌入配土中 |\n| **施用时机** | ✅ **未发病时预防性喷施**——春末入夏前、梅雨季来临前各喷一次；发病刚有征兆的初期也有效 |\n| **施药频率** | 每隔 **7-10天** 喷一次，连续2-3次 |\n| **药效持续期** | 7-10天（黏着性好，不易被浇水冲掉） |\n| **优势** | 病菌**不易产生抗药性**，可长期使用；可与多种其他杀菌剂混用 |\n| **⚠️ 注意** | 对**鱼类剧毒**，远离鱼缸水源；对皮肤眼睛有刺激，戴手套口罩操作；对已侵入植株体内的病菌无效 |\n\n### 2️⃣ 代森锰锌\n\n| 项目 | 详情 |\n|------|------|\n| **有效成分** | 代森锰锌（Mancozeb），含锰、锌两种微量元素 |\n| **类型** | 保护性杀菌剂（触杀型） |\n| **作用原理** | 锰、锌离子破坏病原菌的酶系统，在叶面形成保护膜抑制孢子萌发和侵入 |\n| **使用浓度** | 80%可湿性粉剂稀释 **800-1000倍液** |\n| **使用方法** | 均匀喷施，**特别注意覆盖叶背面**（叶背面是孢子最\n\n… [3736 chars truncated]"
+    },
+    {
+      "type": "user",
+      "content": "哦对了，你提到的铜制剂，它的有效成分是什么呀？属于什么类别的农药，作用机制是什么呢？"
+    },
+    {
+      "type": "assistant",
+      "thinking": "The user is asking about copper-based fungicides (铜制剂) - their active ingredients, classification, and mechanism of action. This is a straightforward agricultural chemistry question. Let me search for detailed information.",
+      "content": "好的，让我搜索一下铜制剂的详细信息。",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01BzSCL9TbQPdkcQ8V3673hN",
+          "name": "search",
+          "args": {
+            "query": "铜制剂 杀菌剂 有效成分 波尔多液 氢氧化铜 碱式硫酸铜 作用机制 分类 农药类别",
+            "topn": 10
+          },
+          "result": "A Google search for '铜制剂 杀菌剂 有效成分 波尔多液 氢氧化铜 碱式硫酸铜 作用机制 分类 农药类别' found 10 results:\n\n## Web Results\n\n0. [铜制农药全攻略](https://b2bwiki.baidu.com/article/d2uib6pftjsqp353io8g)\nDate published: Apr 7, 2026\n一、铜制农药家族大盘点 · 波尔多液：蓝绿色经典款，由硫酸铜和生石灰配制 · 氢氧化铜：蓝色悬浮剂，对真菌细菌双杀 · 氧化亚铜：红色粉末，持效期较长 · 碱式硫酸铜 ...\n\n1. [铜类杀菌剂及其作用机理](https://nc.shaoyang.gov.cn/sync/xsqsn/201509/a288d3f6ff59434ba03a30719b0c35a5.shtml)\nDate published: Sep 29, 2015\n对于铜类杀菌剂其铜离子释放的作用机理一般认为：①空气中含有的二氧化碳和氮氧化物带有酸性，在有水状态下，促使铜类杀菌剂释放铜离子。②植物体本身的分泌物 ...\n\n2. [含铜杀菌剂抗性越来越严重了？](https://zhuanlan.zhihu.com/p/634777020)\nDate published: Jun 5, 2023\n铜制剂使用得最早的是波尔多液，它是由硫酸铜和石灰调配而成的。按硫酸铜与石灰的不同调配比例，波尔多液可采用半量式（即石灰为硫酸铜的一半）、等量 ...\n\n3. [铜杀菌剂](https://www.chemicalbook.com/ChemicalProductProperty_CN_CB21162055.htm)\n最主要的含铜杀菌剂是波尔多液，其有效成分的化学组成是CuSO4·xCu（OH）2·yCa（OH）2·zH2O。1882年法国人A.米亚尔代在波尔多城发现其杀菌作用，故名叫做波尔多液。它是 ...\n\n4. [百年杀菌剂：铜制剂优缺点汇总！ - 搜狐](https://www.sohu.com/a/407321001_764919)\nDate published: Jul 12, 2020\n无机铜杀菌剂，如波尔多液、碱式硫酸铜、氢氧化铜（可杀得）、氧氯化铜 ... 其中壬菌铜（壬基酚苯磺酸铜）属于大分子有机铜类农药，是波尔多液、硫酸铜、氢氧化铜 ...\n\n5. [[PDF] 農用藥劑分類及作用機制檢索手冊_(第4版).4thEdit20220511.pdf](https://pesticide.aphia.gov.tw/information/file/download/%E8%BE%B2%E7%94%A8%E8%97%A5%E5%8A%91%E5%88%86%E9%A1%9E%E5%8F%8A%E4%BD%9C%E7%94%A8%E6%A9%9F%E5%88%B6%E6%AA%A2%E7%B4%A2%E6%89%8B%E5%86%8A_(%E7%AC%AC4%E7%89%88).4thEdit20220511.pdf)\n本版中的有效. 成分更新目前已登記的殺菌劑派滅芬(pydiflumetofen) 及登記中的. 派本克(pyribencarb)；更新除草劑的比拉芬(florpyrauxifen-benzyl). 及登記中的派伏利( ...\n\n6. [铜制剂是什么铜制剂杀菌剂不能与哪些药混用使用注意事项](http://www.3456.tv/news/1140942.html)\nDate published: Aug 25, 2020\n铜制剂使用得早的是波尔多液，它是由硫酸铜和石灰调配而成的。按硫酸 ... （1）铜制剂中的硫酸铜、氢氧化铜、碱式硫酸铜、氧化亚铜等无机铜制剂 ...\n\n7. [日本生物农药及其登记概况](http://www.chinapesticide.org.cn/zwb/detail/28184)\nDate published: May 22, 2024\n化学农药. 四聚乙醛f、氧化钙g、硫酸铜g、碱式硫酸铜、碱式氯化铜、碳酸氢钠、碳酸氢钾、石硫合剂、磷酸铁、次氯酸. a 自除虫菊提取的；b 用作展着剂的 ...\n\n8. [[PDF] 我国主要果树病害化学防治现状与建议 - 现代农药](http://xdnyqk.com/upload/file/20240304/20240304151861696169.pdf)\nDate published: Dec 6, 2023\n嗪霉素、中生菌素. 保护性杀菌剂. 波尔多液、代森锰锌、石硫合剂、氢氧化铜、百菌清、喹啉铜、碱式硫酸铜、松脂酸铜、丙森锌. 生物源杀菌剂. 多粘类芽孢 ...\n\n9. [快速有效的有機防治資材「波爾多液」 - 農業知識入口網](https://kmweb.moa.gov.tw/theme_data.php?theme=news&sub_theme=agri_life&id=54991)\n波爾多液提供長效型保護膜，持續保護作物波爾多液中的主要殺菌成分是二價銅離子，容易滲透至病原菌細胞內作用，進而殺死病原。但是，銅離子濃度過高反而容易對植物產生藥害。"
+        },
+        {
+          "id": "toolu_vrtx_01Feo8tkC5bwPa74q7ZRYD9L",
+          "name": "search",
+          "args": {
+            "query": "copper fungicide mode of action mechanism cupric ion cell membrane enzyme inhibition classification",
+            "topn": 10
+          },
+          "result": "A Google search for 'copper fungicide mode of action mechanism cupric ion cell membrane enzyme inhibition classification' found 10 results:\n\n## Web Results\n\n0. [Mode of action Group M1: Copper - Greenhouse Management](https://www.greenhousemag.com/article/gmpro-0210-copper-fungicides/)\nDate published: Mar 1, 2010\nCopper fungicides are classified as multisite and act by disrupting cellular proteins. ... copper ion (Cu) which can lead to phytotoxicity.\n\n1. [Copper pesticide - Wikipedia](https://en.wikipedia.org/wiki/Copper_pesticide)\nCopper fungicides work by slowly releasing positively charged copper ions Cu+ and Cu2+ in concentrations that interact with nucleic acids, interfere with energy ...\n\n2. [Copper-based Bactericides and Fungicides](https://pnwhandbooks.org/plantdisease/pesticide-articles/copper-based-bactericides-fungicides)\nWhen copper-based pesticides are tank mixed with acidic compounds more copper ion may be released, which can lead to phytotoxicity. Read label warnings ...\n\n3. [Copper Fungicides for Organic and Conventional Disease ...](https://www.vegetables.cornell.edu/pest-management/disease-factsheets/copper-fungicides-for-organic-disease-management-in-vegetables/)\nCopper ions kill by denaturing proteins and enzymes in cells of pathogens they contact that have not yet infected the plant. They have no post-infection ...\n\n4. [[PDF] Technical Report - Copper Products - Agricultural Marketing Service](https://www.ams.usda.gov/sites/default/files/media/NOPCopperProductsTR2022.pdf)\nDate published: Sep 22, 2022\nThe cupric ion's (Cu2+) mode of action is the nonspecific denaturing of cellular proteins resulting in cell. 493 leakage, as well as ...\n\n5. [Antifungal Effect of Copper Nanoparticles against Fusarium ... - PMC](https://pmc.ncbi.nlm.nih.gov/articles/PMC9032953/)\nCopper nanoparticles (Cu-NPs) have shown great antifungal activity against phytopathogenic fungi, making them a promising and affordable alternative to ...\n\n6. [Copper Oxychloride Mode of Action - POMAIS Agriculture](https://www.pomais.com/copper-oxychloride-mode-of-action/)\nCopper oxychloride releases Cu²⁺ ions in the presence of moisture. These ions bind to proteins and enzymes in fungal cells, disrupting respiration, enzyme ...\n\n7. [Fungicide Modes of Action - Bayer Crop Science](https://www.cropscience.bayer.us/articles/bayer/fungicide-modes-action)\nDate published: Mar 14, 2025\nT\n\n… [772 chars truncated]"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_0111MxoJntbzUaeJxJNVzpFT",
+          "name": "visit",
+          "args": {
+            "url": [
+              "https://nc.shaoyang.gov.cn/sync/xsqsn/201509/a288d3f6ff59434ba03a30719b0c35a5.shtml",
+              "https://b2bwiki.baidu.com/article/d2uib6pftjsqp353io8g"
+            ],
+            "goal": "铜制剂杀菌剂的详细分类（无机铜/有机铜）、各种铜制剂的有效成分、作用机制原理、使用注意事项、优缺点"
+          },
+          "result": "The useful information in https://nc.shaoyang.gov.cn/sync/xsqsn/201509/a288d3f6ff59434ba03a30719b0c35a5.shtml for user goal 铜制剂杀菌剂的详细分类（无机铜/有机铜）、各种铜制剂的有效成分、作用机制原理、使用注意事项、优缺点 as follows:\n\nEvidence in page:\n铜类杀菌剂及其作用机理\n\n铜类杀菌剂的历史十分悠久，自1761年采用硫酸铜防治小麦腥黑穗病至今已有254年历史，1885年法国研究开发成功著名的波尔多液，以波尔多液为代表的铜素杀菌剂在果园使用，已有130年历史。由于对人、畜安全，病菌的抗药性发展缓慢，长期以来被人们广泛使用，铜类制剂也从最初单一的波尔多液，发展到现在的多种无机铜类杀菌剂、有机铜类杀菌剂，使用范围更广泛、更安全、更方便。\n\n铜类杀菌剂的杀菌机理表现在3个方面：①铜离子进入病菌细胞使其蛋白质凝固或变性；②铜离子与病原菌细胞的巯基（-SH）反应，从而破坏其酶作用，使酶失去活性；③铜离子与病原菌细胞膜的正常离子（H+、Ca2+、Mg2+、K+等）起置换作用，使膜上的蛋白质凝固。因而铜类杀菌剂具有较宽的杀菌谱，可防治苹果、梨、桃、葡萄、杏、李等多种果树、多种作物的真菌和细菌病害，并且病菌的抗药性形成缓慢。国内外试验表明铜离子10mg/kg即可杀死致病菌，超过30mg/kg对敏感性植物即产生药害。\n\n对于铜类杀菌剂其铜离子释放的作用机理一般认为：①空气中含有的二氧化碳和氮氧化物带有酸性，在有水状态下，促使铜类杀菌剂释放铜离子。②植物体本身的分泌物也促使铜类杀菌剂的离解。③植物病原物的分泌素杀菌剂离解。④处理种子的铜制剂，由于土壤蛋白质分解的作用以及种子和土壤中孢子萌发过程产生的分泌物也有一定的关系。正因为不易产生抗药性又有持久的作用力，且近年开发的铜素杀菌剂往往采用离解常数较小的铜化合物，经植保专家的反复试验，采用保守的使用倍数，已大大增强了对作物的安全性。\n\n铜类杀菌剂多数品种属保护性杀菌剂，少数品种有保护和治疗双重作用，一般施药必须在植物发病前或发病初期，而且必须均匀周到，才能发挥好保护作用。铜类杀菌剂农药既可防治真菌性病害，又可防治细菌性病害。柿、梨、桃、杏、李及苹果的某些品种、大豆对铜离子敏感，特别是在阴湿和露水末干时、盛夏高温及花期，施用无机铜类杀菌剂易产生药害，应注意药剂中铜的含量。\n\nSummary:\n铜制剂杀菌剂主要分为无机铜类和有机铜类，其中以波尔多液和硫酸铜为代表，应用历史悠久。其作用机制包括：铜离子进入病菌细胞导致蛋白质凝固或变性；与病原菌细胞中的巯基（-SH）反应，破坏酶活性；与细胞膜上的H+、Ca2+、Mg2+、K+等离子发生置换，引起膜蛋白凝固。该类杀菌剂具有广谱杀菌效果，对真菌和细菌病害均有效，且病菌抗药性发展缓慢。铜离子释放依赖于空气中的酸性物质（如CO2、氮氧化物）、植物分泌物、病原物分泌素及土壤中有机物分解等环境因素。多数铜制剂为保护性杀菌剂，少数具保护与治疗双重作用，应在发病前或初期均匀施用。使用时需注意，柿、梨、桃、杏、李、部分苹果品种及大豆对铜离子敏感，尤其在阴湿、露水未干、高温或花期施用无机铜制剂易引发药害，应控制铜含量并合理使用。\n\n=======\nThe useful information in https://b2bwiki.baidu.com/article/d2uib6pftjsqp353io8g for user goal 铜制剂杀菌剂的详细分类（无机铜/有机铜）、各种铜制剂的有效成分、作用机制原理、使用注意事项、优缺点 as follows:\n\nEvidence in page:\n铜制农药就像植物界的‘铜墙铁壁’，常见成员包括：\n 1. 波尔多液：蓝绿色经典款，由硫酸铜和生石灰配制\n 2. 氢氧化铜：蓝色悬浮剂，对真菌细菌双杀\n 3. 氧化亚铜：红色粉末，持效期较长\n 4. 碱式硫酸铜：天蓝色结晶，适合预防性使用\n 5. 王铜：绿色粉末，混配性较好\n这些铜卫士通过释放铜离子破坏病菌细胞，就像给植物穿上防弹衣。\n\n铜制剂和其他杀菌剂组队能发挥1+1>2的效果：\n 1. 保护型CP：氢氧化铜+代森锰锌，扩大杀菌谱\n 2. 治疗型组合：王铜+春雷霉素，兼防真菌细菌\n 3. 抗性管理组：波尔多液+多菌灵，延缓抗药性\n 4. 增效方案：氧化亚铜+戊唑醇，提升内吸性\n注意！铜制剂忌与磷酸二氢钾、含金属离子的叶面肥混用，否则容易‘打架’产生沉淀。\n\n不同作物就像不同体质的病人，需要‘对症下药’：\n * 果蔬类：选用77%氢氧化铜WDG（可分散粒剂），细腻易吸收\n * 大田作物：20%王铜SC（悬浮剂）更经济实惠\n * 果树：30%碱式硫酸铜WP（可湿粉）耐雨水冲刷\n * 温室作物：选用低浓度波尔多液避免药害\n记住三个原则：新叶减量、高温慎用、采收前15天停用，让铜制剂既有效又安全。\n\nSummary:\n铜制剂杀菌剂主要分为无机铜类（如波尔多液、氢氧化铜、氧化亚铜、碱式硫酸铜、王铜）和有机铜类（文中未明确区分，但王铜、碱式硫酸铜等常归为无机铜）。其有效成分包括硫酸铜、氢氧化铜、氧化亚铜、碱式硫酸铜和王铜（主要成分为碱式氯化铜）。作用机制是通过释放铜离子破坏病菌细胞结构，从而实现对真菌和细菌的广谱防治。优点包括持效期长、安全性较高（如氢氧化铜、碱式硫酸铜）、混配性好（如王铜），且适用于多种作物。缺点包括在高温或新叶期使用易产生药害，不宜与磷酸二氢钾或含金属离子的叶面肥混用，否则易产生沉淀。使用注意事项包括：新叶减量、高温慎用、采收前15天停用；针对不同作物选择合适剂型（如果蔬类用77%氢氧化铜WDG，大田作物用2\n\n… [47 chars truncated]"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "content": "资料充分了，下面为您系统整理铜制剂的完整知识。\n\n---\n\n# 🔬 铜制剂杀菌剂详解\n\n---\n\n## 一、基本定义\n\n铜制剂是以**铜离子（Cu²⁺）**为核心杀菌活性成分的一类农药，是人类使用历史最悠久的杀菌剂——从1761年首次用硫酸铜防治小麦腥黑穗病至今已超过260年，1885年法国波尔多城发明了经典的波尔多液，沿用至今。\n\n| 项目 | 详情 |\n|------|------|\n| **核心有效成分** | **铜离子（Cu²⁺）**——所有铜制剂的杀菌活性都来源于此 |\n| **农药类别** | **杀菌剂**（Fungicide & Bactericide）——兼杀真菌和细菌，属广谱杀菌剂 |\n| **作用类型** | 绝大多数为**保护性杀菌剂**（触杀型），少数品种兼具保护和治疗作用 |\n| **FRAC分类** | **M01组**（多作用位点接触型杀菌剂）——这意味着它同时攻击病菌多个靶点，所以**病菌极难产生抗药性** |\n| **毒性** | 对人畜**低毒**；但对鱼类和水生生物有毒 |\n\n---\n\n## 二、作用机制（三重杀菌）\n\n铜制剂的杀菌原理是**铜离子对病菌细胞的多靶点破坏**，具体表现为三个层面：\n\n| 作用层面 | 机制详情 |\n|---------|---------|\n| 🔴 **蛋白质变性** | 铜离子进入病菌细胞后，使细胞内的**蛋白质凝固或变性**，直接导致细胞死亡 |\n| 🟠 **酶系统破坏** | 铜离子与病原菌细胞中的**巯基（-SH）**反应，破坏关键酶的活性中心，使酶**丧失催化功能**→细胞代谢全面停止 |\n| 🟡 **细胞膜瓦解** | 铜离子与细胞膜上的正常阳离子（H⁺、Ca²⁺、Mg²⁺、K⁺等）发生**置换反应**，导致膜蛋白凝固、膜结构破坏→细胞内容物泄漏→死亡 |\n\n> 💡 正因为铜离子**同时攻击蛋白质、酶和细胞膜三个靶点**（多作用位点），病菌要同时在三个层面产生突变才能抗药，所以铜制剂使用260多年来**抗药性发展极其缓慢**，这是它最大的优势。\n\n### 铜离子是怎么释放出来的？\n\n铜制剂中的铜并非以游离离子形式存在，而是以不溶性铜化合物附着在植株表面，通过以下途径**缓慢释放**铜离子：\n\n| 释放途径 | 说明 |\n|---------|------|\n| 空气中的酸性物质 | CO₂、氮氧化物溶于水后呈弱酸性，促使铜化合物溶解释放Cu²⁺ |\n| 植物自身的分泌物 | 叶面分泌的有机酸等物质促进铜离子释放 |\n| 病原菌的分泌物 | 病菌萌发和侵染过程中释放的酸性物质也会促使铜离子释放——**病菌来了，铜离子才大量释放，非常\"智能\"** |\n| 土壤中的有机质分解 | 种子处理或土壤施用时，微生物活动促进铜化合物分解 |\n\n---\n\n## 三、铜制剂的分类\n\n铜制剂按化学结构分为**无机铜**和**有机铜**两大类：\n\n### 📋 无机铜制剂\n\n| 品种 | 有效成分/化学式 | 外观 | 特点 |\n|------|---------------|------|------|\n| **波尔多液** | 碱式硫酸铜钙 CuSO₄·xCu(OH)₂·yCa(OH)₂ | 蓝绿色悬浊液 | 最经典的铜制剂；需现配现用（硫酸铜+生石灰+水）；黏着力强，耐雨水冲刷；但配制麻烦，有残留药斑 |\n| **氢氧化铜** | Cu(OH)₂ | 蓝色悬浮剂/粉剂 | 对真菌和细菌**双效**；细腻易吸收；商品名\"可杀得\"\"冠菌铜\"等 |\n| **碱式硫酸铜** | Cu₄(OH)₆SO₄ | 天蓝色结晶 | 适合预防性使用；耐雨水冲刷性好 |\n| **氧化亚铜** | Cu₂O | 红色粉末 | 持效期较长 |\n| **王铜（碱式氯化铜）** | Cu₂(OH)₃Cl | 绿色粉末 | 混配性好，可与多种药剂搭配使用 |\n| **硫酸铜** | CuSO₄·5H₂O | 蓝色晶体 | 杀菌力强但**药害风险也最高**，一般不单独使用，多作为配制波尔多液的原料 |\n\n### 📋 有机铜制剂\n\n| 品种 | 有效成分 | 特点 |\n|------|---------|------|\n| **壬菌铜** | 壬基酚苯磺酸铜 | 大分子有机铜，铜离子释放更缓慢均匀，**药害风险显著降低**；对嫩叶、花期使用更安全 |\n| **喹啉铜** | 8-羟基喹啉铜 | 有机铜类，对细菌性病害效果突出；内吸性优于无机铜 |\n| **松脂酸铜** | 松脂酸铜 | 安全性较好 |\n| **噻菌铜** | 噻唑锌铜 | 兼含锌和铜，广谱 |\n\n### 🆚 无机铜 vs. 有机铜对比\n\n| 对比维度 | 无机铜 | 有机铜 |\n|---------|--------|--------|\n| 铜离子释放速度 | 较快（杀菌力强但药害风险高） | 较慢（更安全温和） |\n| 药害风险 | 较高（嫩叶、高温、花期易产生） | 较低 |\n| 成本 | 便宜 | 稍贵 |\n| 混配性 | 差（碱性，与很多药不兼容） | 较好 |\n| 适合场景 | 休眠期/粗放管理 | 生长期/精细管理 |\n\n---\n\n## 四、与其他药剂的混配注意\n\n铜制剂的混配禁忌较多，因为铜离子化学活性强，容易与其他药剂发生反应：\n\n### ❌ 不能混用\n\n| 禁忌搭档 | 原因 |\n|---------|------|\n| **甲基托布津 / 多菌灵 / 苯菌灵** | 铜离子会分解这些苯并咪唑类药剂，使其失效 |\n| **代森锰锌 / 代森锌 / 福美双** | 铜离子与这些含金属离子的药剂反应产生沉淀 |\n| **磷酸二氢钾等含金属离子的叶面肥** | 产生沉淀，堵塞喷头，且可能加重药害 |\n\n\n… [840 chars truncated]"
+    },
+    {
+      "type": "user",
+      "content": "现在请根据我们整个对话内容，抽取结构化的知识图谱。\n\n# 抽取原则\n把整个搜索流程中所有符合用户信息需求的信息全部抽取出来。用户在对话过程中进行了多轮输入，每一轮交互都产生了各自的信息需求和研究发现。你必须从每一轮中都抽取与用户需求相关的信息，包括后续被筛选或缩小范围的中间结果。\n\n举例：如果第一轮用户要求查找抖音销量前20的美妆品牌，第二轮用户要求从中找出代言人为女性的品牌——那么最终知识图谱必须包含第一轮查到的全部20个品牌（及其销量/排名等信息），而不是只保留第二轮筛选后有女性代言人的品牌子集。每一轮的研究发现都有独立价值。 \n\n# 抽取内容\n1. **发现的实体**：在研究中找到的产品、品牌、商品、机构、人物等所有具体实体——包括在中间轮次中探索过的实体。\n2. **与任意一轮用户需求相关的属性**：针对每个实体，抽取在对话全过程中与任何一次用户提问相关的每一个属性维度。例如用户关注了价格、持妆时长、适合肤质、成分、评分，代言人，代言人性别等，就把每个属性分别抽取为独立的三元组。\n\n# 规则\n- 要穷尽：把对话每一轮中的所有相关三元组都抽取出来，而不是只抽取最后一轮的结果。如果你调研了20个产品、检查了每个产品的5个属性维度，那可能会有100+个三元组。\n- 用户要什么才能抽取什么：只抽取与用户在对话中明确表达过（显式说出来的）的信息需求相关的三元组。用户问了价格、成分、适合肤质等，- 尽量不要用“是”或“否”作为实体放在三元组中：用客观信息来描述事实，比如用户需求是“持妆时长大于24小时”，那你就把时长具体数据抽取出来作为属性，和那个产品组成三元组，而不是用“产品->持妆时长是否大于24时->否”这样的三元组。- 一个三元组表达一个事实：不要把多个独立信息塞进一个三元组的 tail 里。例如将\"主要成分：A、B、C\"拆分为独立三元组（如果它们是独立事实），或保持为一个三元组（如果它们本身就是一个完整的复合值，如完整的成分列表）。\n- 只包含你在研究中确实查到的信息，不要编造数据。\n- 直接在回复中输出 JSON 数组，不要调用任何工具（如 python、search 等）。\n- 只输出 JSON 数组，不要附加解释。\n\n\n# 输出格式\n以 JSON 三元组数组形式输出，每个三元组包含 head、relation、tail：\n```json\n[{\"head\": \"实体A\", \"relation\": \"关系\", \"tail\": \"实体B\"}, ...]\n```\n\n"
+    },
+    {
+      "type": "assistant",
+      "content": "```json\n[\n  {\"head\": \"十二卷属\", \"relation\": \"主要品种群\", \"tail\": \"玉露群\"},\n  {\"head\": \"十二卷属\", \"relation\": \"主要品种群\", \"tail\": \"寿群\"},\n  {\"head\": \"十二卷属\", \"relation\": \"主要品种群\", \"tail\": \"玉扇群\"},\n  {\"head\": \"十二卷属\", \"relation\": \"主要品种群\", \"tail\": \"万象群\"},\n  {\"head\": \"十二卷属\", \"relation\": \"主要品种群\", \"tail\": \"瑞鹤系(Albicantes)\"},\n  {\"head\": \"十二卷属\", \"relation\": \"主要品种群\", \"tail\": \"鹰爪系(Coarctatae)\"},\n  {\"head\": \"十二卷属\", \"relation\": \"主要品种群\", \"tail\": \"琉璃殿系(Limifoliae)\"},\n  {\"head\": \"十二卷属\", \"relation\": \"主要品种群\", \"tail\": \"条纹系(Margaritiferae)\"},\n  {\"head\": \"十二卷属\", \"relation\": \"主要品种群\", \"tail\": \"风车系(Scabrae)\"},\n  {\"head\": \"十二卷属\", \"relation\": \"主要品种群\", \"tail\": \"龙鳞系(Tessellatae)\"},\n  {\"head\": \"十二卷属\", \"relation\": \"主要品种群\", \"tail\": \"龙城系(Trifariae)\"},\n\n  {\"head\": \"玉露群\", \"relation\": \"所属叶系\", \"tail\": \"软叶系\"},\n  {\"head\": \"玉露群\", \"relation\": \"分布省区\", \"tail\": \"南非东开普省（Baviaanskloof等地）\"},\n  {\"head\": \"玉露群\", \"relation\": \"典型识别特征\", \"tail\": \"窗面凸起呈水滴/半球形，半透明\"},\n  {\"head\": \"玉露群\", \"relation\": \"包含品种\", \"tail\": \"姬玉露\"},\n  {\"head\": \"玉露群\", \"relation\": \"包含品种\", \"tail\": \"帝玉露\"},\n  {\"head\": \"玉露群\", \"relation\": \"包含品种\", \"tail\": \"草玉露\"},\n  {\"head\": \"玉露群\", \"relation\": \"包含品种\", \"tail\": \"冰灯玉露\"},\n  {\"head\": \"玉露群\", \"relation\": \"包含品种\", \"tail\": \"黑肌玉露\"},\n  {\"head\": \"玉露群\", \"relation\": \"包含品种\", \"tail\": \"OB-1\"},\n  {\"head\": \"玉露群\", \"relation\": \"包含品种\", \"tail\": \"水晶玉露\"},\n  {\"head\": \"玉露群\", \"relation\": \"包含品种\", \"tail\": \"赤线玉露\"},\n  {\"head\": \"玉露群\", \"relation\": \"包含品种\", \"tail\": \"紫肌玉露\"},\n  {\"head\": \"玉露群\", \"relation\": \"包含品种\", \"tail\": \"樱水晶\"},\n  {\"head\": \"玉露群\", \"relation\": \"包含品种\", \"tail\": \"大型蓝镜玉露\"},\n  {\"head\": \"玉露群\", \"relation\": \"包含品种\", \"tail\": \"钻石玉露\"},\n\n  {\"head\": \"寿群\", \"relation\": \"所属叶系\", \"tail\": \"软叶系\"},\n  {\"head\": \"寿群\", \"relation\": \"分布省区\", \"tail\": \"南非西开普省、东开普省\"},\n  {\"head\": \"寿群\", \"relation\": \"典型识别特征\", \"tail\": \"叶上半部向外翻折，窗面呈三角形截面，具有多种脉纹\"},\n  {\"head\": \"寿群\", \"relation\": \"包含品种\", \"tail\": \"贝叶寿\"},\n  {\"head\": \"寿群\", \"relation\": \"包含品种\", \"tail\": \"白银寿\"},\n  {\"head\": \"寿群\", \"relation\": \"包含品种\", \"tail\": \"康平寿\"},\n  {\"head\": \"寿群\", \"relation\": \"包含品种\", \"tail\": \"美吉寿(wimii)\"},\n  {\"head\": \"寿群\", \"relation\": \"包含品种\", \"tail\": \"青蟹寿\"},\n  {\"head\": \"寿群\", \"relation\": \"包含品种\", \"tail\": \"磨面寿\"},\n  {\"head\": \"寿群\", \"relation\": \"包含品种\", \"tail\": \"史扑寿(紫肌寿)\"},\n  {\"head\": \"寿群\", \"relation\": \"包含品种\", \"tail\": \"摩迪卡寿\"},\n  {\"head\": \"寿群\", \"relation\": \"包含品种\", \"tail\": \"芭堤雅寿\"},\n  {\"head\": \"寿群\", \"relation\": \"包含品种\", \"tail\": \"正寿\"},\n  {\"head\": \"寿群\", \"relation\": \"包含品种\", \"tail\": \"马克斯寿\"},\n\n  {\"head\": \"玉扇群\", \"relation\": \"所属叶系\", \"tail\":\n\n… [35543 chars truncated]"
+    }
+  ]
+}

@@ -1,0 +1,1819 @@
+{
+  "subsets": {
+    "daily": {
+      "label": "VibeSearch-Daily",
+      "description": "Daily-life scenarios",
+      "demo": false,
+      "tasks": [
+        {
+          "qid": "task_085_USNationalParks",
+          "file": "task_085_USNationalParks.json",
+          "question": "I'd like to get information about US national parks that meets all my following requirements and filters, please follow the steps below to return the complete matching data:\nFirst, start with the offi\n\n… [1328 chars truncated]",
+          "triplet_f1": 0.755,
+          "node_f1": 0.7808,
+          "user_turns": 10,
+          "tool_calls": 83
+        },
+        {
+          "qid": "task_012_hospital",
+          "file": "task_012_hospital.json",
+          "question": "我想要查询的相关信息如下：\n1. 2026QS大学排行榜前200名的内地高校都有哪些？\n2. 上述这些高校中建有直属附属医院的，分别列出这些直属附属医院的名称、所在城市，同时说明这些医院是否为公立三级甲等医院；再从中筛选出明确设有国家临床重点专科的医院，进一步找出其中国家临床重点专科涵盖脑科的医院。\n3. 上述筛选出的国家临床重点专科涵盖脑科的医院，对应的脑科相关国家临床重点专科的现任科室主任是谁\n\n… [103 chars truncated]",
+          "triplet_f1": 0.745,
+          "node_f1": 0.6762,
+          "user_turns": 9,
+          "tool_calls": 189
+        },
+        {
+          "qid": "task_008_Oscar-winning movie",
+          "file": "task_008_Oscar-winning_movie.json",
+          "question": "我现在有一系列相关的信息需求，请帮我按要求查询整理：\n1. 首先获取1980-2020年期间所有颁发过奥斯卡最佳导演奖的届次，以及每一届对应的具体颁奖时间；\n2. 统计上述每一届奥斯卡最佳导演获奖者在获奖当天的年龄，同时区分出这些获奖者的获奖执导作品中哪些属于非跨国电影；\n3. 针对以上获奖执导作品中的跨国电影，请先给出每部的首周票房数据，再筛选出其中首周票房大于35万美元的作品，在这些作品里找出\n\n… [379 chars truncated]",
+          "triplet_f1": 0.6795,
+          "node_f1": 0.7672,
+          "user_turns": 13,
+          "tool_calls": 231
+        },
+        {
+          "qid": "task_082_Disney Movie",
+          "file": "task_082_Disney_Movie.json",
+          "question": "I'm looking for a complete set of information about Disney's film studios and their related animated works, all content needs to meet the following requirements and constraints:\nFirst, list all active\n\n… [1390 chars truncated]",
+          "triplet_f1": 0.6431,
+          "node_f1": 0.6704,
+          "user_turns": 11,
+          "tool_calls": 90
+        },
+        {
+          "qid": "task_037_tennis tournaments",
+          "file": "task_037_tennis_tournaments.json",
+          "question": "I've recently gotten interested in tennis because of Zheng Qinwen, and I'm a high school student in the United States currently in SoHo, New York looking to buy tennis equipment. I need the following \n\n… [1170 chars truncated]",
+          "triplet_f1": 0.631,
+          "node_f1": 0.6957,
+          "user_turns": 12,
+          "tool_calls": 118
+        },
+        {
+          "qid": "task_026_homedrink",
+          "file": "task_026_homedrink.json",
+          "question": "我计划采购2025年FBIF Wow食品创新奖相关的获奖饮品，请帮我查询相关信息并按以下所有条件层层筛选，给出对应的结果：\n首先，请先列出2025年FBIF Wow食品创新奖中的所有饮品相关奖项，再从获奖饮品里排除奶粉等固体饮品，筛选出所有获奖的液体饮品以及对应的获奖机构；\n接下来请列出这些液体饮品对应的品牌、品牌全球归属公司、产品研发公司，仅保留品牌归属于中国公司的国产产品；\n然后请从这些国产饮\n\n… [127 chars truncated]",
+          "triplet_f1": 0.6241,
+          "node_f1": 0.6129,
+          "user_turns": 13,
+          "tool_calls": 366
+        },
+        {
+          "qid": "task_002_concert",
+          "file": "task_002_concert.json",
+          "question": "我想查询一系列和2025年鸟巢演唱会相关的信息，具体需求如下：\n1. 先帮我统计2025年国庆节前鸟巢一共举办了多少场演唱会，列出所有这些演唱会的举办歌手/组合分别是谁；\n2. 上述演唱会里有不少开了多场，帮我筛选出其中有嘉宾合唱的场次，告诉我每一场次的嘉宾都合唱了哪些歌曲；\n3. 除了上述合唱相关的信息外，再帮我查下这些演唱会在鸟巢举办的最后一个场次里，返场前的压轴曲目是什么，我喜欢经典老歌，麻\n\n… [224 chars truncated]",
+          "triplet_f1": 0.6161,
+          "node_f1": 0.6351,
+          "user_turns": 12,
+          "tool_calls": 159
+        },
+        {
+          "qid": "task_016_furniture select",
+          "file": "task_016_furniture_select.json",
+          "question": "I'm planning to buy new IKEA furniture for my living room and bedroom, and I'm only referencing the IKEA products mentioned in the two Kelsey Mulvey articles on the House Beautiful website: *8 IKEA Be\n\n… [1193 chars truncated]",
+          "triplet_f1": 0.567,
+          "node_f1": 0.7043,
+          "user_turns": 10,
+          "tool_calls": 235
+        },
+        {
+          "qid": "task_028_Fragrance",
+          "file": "task_028_Fragrance.json",
+          "question": "I've heard that the Fragrance Foundation Awards are known as the \"Oscars of the perfume industry\", and I need to get a full set of relevant information that meets all the following requirements:\n\nFirs\n\n… [1731 chars truncated]",
+          "triplet_f1": 0.563,
+          "node_f1": 0.6023,
+          "user_turns": 13,
+          "tool_calls": 253
+        },
+        {
+          "qid": "task_006_Marvel",
+          "file": "task_006_Marvel.json",
+          "question": "I need you to help me look up the following information strictly following all the constraints I specify, and present the results clearly matching the required information granularity:\n1. First, pull \n\n… [1652 chars truncated]",
+          "triplet_f1": 0.5609,
+          "node_f1": 0.5483,
+          "user_turns": 8,
+          "tool_calls": 204
+        },
+        {
+          "qid": "task_075_MBA",
+          "file": "task_075_MBA.json",
+          "question": "我本科毕业7年，目前在上海互联网大厂担任产品经理，计划报考国内在职MBA硕士，需要查询满足以下全部筛选条件的院校及相关详细信息：\n### 筛选条件\n1. 院校需同时持有EQUIS、AMBA、AACSB三项国际认证，且三项认证截至2026年1月1日均处于有效期内；\n2. 院校2026年1月在任的院长，其博士毕业院校需位列2026年QS世界大学排名前400名以内；\n3. 院校所在地属于江浙沪地区；\n4\n\n… [248 chars truncated]",
+          "triplet_f1": 0.5553,
+          "node_f1": 0.7065,
+          "user_turns": 12,
+          "tool_calls": 280
+        },
+        {
+          "qid": "task_058_BankSelection",
+          "file": "task_058_BankSelection.json",
+          "question": "我需要你帮我按如下要求筛选银行并输出对应信息，所有时间节点、筛选条件请严格遵守：\n首先第一步筛选：找出截至2024年12月底已经在中国A股上市、且总市值大于1000亿的银行，先提供这些银行2024年年底的净利润（单位为亿元），以及它们2024年末的第一大股东名称，再从中筛选出第一大股东为中央国有或者地方国有性质的银行，排除掉第一大股东是民营和外资企业的银行。\n第二步对第一步筛选出的银行继续筛选：查\n\n… [248 chars truncated]",
+          "triplet_f1": 0.5459,
+          "node_f1": 0.4851,
+          "user_turns": 12,
+          "tool_calls": 264
+        },
+        {
+          "qid": "task_036_NBA",
+          "file": "task_036_NBA.json",
+          "question": "My husband and I are planning a trip to the United States where we want to watch NBA games, and I need you to help me sort out all the relevant information I need for this trip following the filters a\n\n… [2035 chars truncated]",
+          "triplet_f1": 0.5444,
+          "node_f1": 0.6372,
+          "user_turns": 12,
+          "tool_calls": 120
+        },
+        {
+          "qid": "task_005_LOL",
+          "file": "task_005_LOL.json",
+          "question": "我现在想要查询2026年之前英雄联盟MSI和S赛的相关信息，具体需求如下：\n1. 首先筛选出所有LPL战队晋级了总决赛的届次，列出每届决赛的对阵双方战队，同时统计LPL在这些赛事中拿过冠军的总次数。\n2. 针对上面筛选出的所有届次，分别给出每届的冠军战队、亚军战队；同时给出每届夺冠战队的主教练姓名，以及这些主教练加入和离开对应夺冠战队的时间；另外还要列出每届赛事的FMVP选手。\n3. 针对上面筛选\n\n… [299 chars truncated]",
+          "triplet_f1": 0.5426,
+          "node_f1": 0.6387,
+          "user_turns": 11,
+          "tool_calls": 225
+        },
+        {
+          "qid": "task_086_Early PRC Commemorative Special Stamps",
+          "file": "task_086_Early_PRC_Commemorative_Special_Stamps.json",
+          "question": "我想了解建国30年最佳邮票这个新中国首次全国性邮票评选活动的相关信息，请按以下要求整理结果：\n1. 首先列出本次评选所有获奖的邮票系列，同步标注每套邮票的发行日期、印制机构；\n2. 从中筛选出印制机构在北京的获奖邮票套票，同步标注这些北京的印制机构的具体地址，方便我这周有空去参观；再从这些北京印刷厂印制的套票里，进一步筛选出单套包含邮票枚数≤5的套票，这类套票适合收藏我需要重点关注；\n3. 针对上\n\n… [195 chars truncated]",
+          "triplet_f1": 0.5382,
+          "node_f1": 0.6002,
+          "user_turns": 12,
+          "tool_calls": 160
+        },
+        {
+          "qid": "task_062_Bedding",
+          "file": "task_062_Bedding.json",
+          "question": "I live in Washington, USA and am planning to purchase bedding, and I trust the authority of the Good Housekeeping 2026 Bedding Awards, so I need the following relevant information:\n1. First, list all \n\n… [1294 chars truncated]",
+          "triplet_f1": 0.5256,
+          "node_f1": 0.5405,
+          "user_turns": 10,
+          "tool_calls": 87
+        },
+        {
+          "qid": "task_081_AJ",
+          "file": "task_081_AJ.json",
+          "question": "I need all relevant information about mainline Air Jordan signature models, please provide them according to the following requirements:\nFirst, list out every mainline Air Jordan signature model, and \n\n… [1119 chars truncated]",
+          "triplet_f1": 0.5083,
+          "node_f1": 0.5675,
+          "user_turns": 13,
+          "tool_calls": 234
+        },
+        {
+          "qid": "task_077_baseball cap‌",
+          "file": "task_077_baseball_cap_.json",
+          "question": "I need to find a whole set of information related to the 2025 Major League Baseball American League, please return the results in structured entity-relationship triples matching the granularity of the\n\n… [1527 chars truncated]",
+          "triplet_f1": 0.4885,
+          "node_f1": 0.6055,
+          "user_turns": 12,
+          "tool_calls": 131
+        },
+        {
+          "qid": "task_041_university selection",
+          "file": "task_041_university_selection.json",
+          "question": "我是2026年参加四川高考的物理类考生，需要查询以下升学相关信息，请按要求给出完整结果：\n一、请先筛选出2025年本部面向四川物理类考生录取分数线在590分以上的所有985大学，每所大学需对应给出2026年QS排名、所在城市信息；\n二、在上述筛选出的985大学范围内，找出所在地不在东北、西北地区，同时开设了口腔医学专业，且该专业第四轮学科评级为B+及以上、设有5+3一体化培养学制的学校，列出符合要\n\n… [214 chars truncated]",
+          "triplet_f1": 0.4823,
+          "node_f1": 0.6693,
+          "user_turns": 13,
+          "tool_calls": 75
+        },
+        {
+          "qid": "task_083_Musical",
+          "file": "task_083_Musical.json",
+          "question": "我现在想了解关于中国音乐剧的一系列相关信息，具体需求如下：\n1. 首先请告知截至2026年4月，按剧目原始语言来源划分的中国音乐剧市场两大阵营的名称，分类规则为：原始语言为中文的剧目属于“国产音乐剧”，原始语言为非中文（包含英语、法语、德语、西班牙语、意大利语）的剧目属于“进口音乐剧”。\n2. 请筛选出同时满足以下所有条件的音乐剧：①属于上述两大阵营、且入选2023年或2024年演艺大世界音乐剧风\n\n… [458 chars truncated]",
+          "triplet_f1": 0.4789,
+          "node_f1": 0.525,
+          "user_turns": 12,
+          "tool_calls": 297
+        },
+        {
+          "qid": "task_015_ClimbMountains",
+          "file": "task_015_ClimbMountains.json",
+          "question": "我想查询相关旅游信息，具体要求如下：\n1. 先基于截至2026年4月的《UNESCO世界遗产名录》，筛选出属于中国的自然遗产、文化与自然双重遗产，我只看两类纳入时间的遗产：2000年以前被纳入的经典遗产，以及2010-2025年被纳入的较新的遗产，请标注每处符合要求的遗产的具体纳入年份。\n2. 在上述筛选出的遗产对应的下属景区里，再帮我筛选出符合所有以下条件的景区：是国家5A级旅游景区、适合爬山、\n\n… [159 chars truncated]",
+          "triplet_f1": 0.4739,
+          "node_f1": 0.5289,
+          "user_turns": 11,
+          "tool_calls": 96
+        },
+        {
+          "qid": "task_010_csgo",
+          "file": "task_010_csgo.json",
+          "question": "I'm looking for information related to the four major CS:GO tournament series officially recognized by HLTV (Major, Intel Extreme Masters/IEM, BLAST Premier, ESL Pro League) for the period from 2021 t\n\n… [1162 chars truncated]",
+          "triplet_f1": 0.472,
+          "node_f1": 0.5537,
+          "user_turns": 10,
+          "tool_calls": 280
+        },
+        {
+          "qid": "task_078_SocialInsurance",
+          "file": "task_078_SocialInsurance.json",
+          "question": "我是全日制本科往届毕业生，户口在老家、毕业1年没有工作单位，打算去2025年第一财经发布的“新一线城市魅力排行榜”中排名前10的城市做自由职业，需要缴纳灵活就业社保，请你帮我按照以下规则逐步筛选城市，并提供对应信息：\n1. 先筛选出截至2026年4月1日，缴纳灵活就业社保没有户籍限制的城市，同时列出这些城市2025年的GDP数据；\n2. 对上述筛选出的城市，查询2026年4月当地灵活就业养老保险、\n\n… [329 chars truncated]",
+          "triplet_f1": 0.4406,
+          "node_f1": 0.5072,
+          "user_turns": 13,
+          "tool_calls": 211
+        },
+        {
+          "qid": "task_097_Game music",
+          "file": "task_097_Game_music.json",
+          "question": "I'm looking for all the following information related to Metacritic's 16th annual game publisher ranking, please provide the complete content that meets all the requirements below:\n1. First, list all \n\n… [1211 chars truncated]",
+          "triplet_f1": 0.4237,
+          "node_f1": 0.5516,
+          "user_turns": 11,
+          "tool_calls": 336
+        },
+        {
+          "qid": "task_095_shizhuangzhou",
+          "file": "task_095_shizhuangzhou.json",
+          "question": "I want to get all relevant information about the top 10 best show brands rated by Monocle magazine at the Milan Fall/Winter 2026 womenswear fashion shows, covering the following details:\n- First, for \n\n… [673 chars truncated]",
+          "triplet_f1": 0.4154,
+          "node_f1": 0.5055,
+          "user_turns": 9,
+          "tool_calls": 160
+        },
+        {
+          "qid": "task_038_Game Selection",
+          "file": "task_038_Game_Selection.json",
+          "question": "I'm looking to buy and play new games released in 2025, so please help me filter out games that meet all of the following requirements first, then provide me with all the relevant details I need for e\n\n… [1127 chars truncated]",
+          "triplet_f1": 0.4138,
+          "node_f1": 0.4201,
+          "user_turns": 12,
+          "tool_calls": 134
+        },
+        {
+          "qid": "task_022_airline",
+          "file": "task_022_airline.json",
+          "question": "我正在做环球旅行的规划，想要挑选合适的航空公司，请帮我查询以下相关信息：\n1. 首先请告诉我世界三大航空联盟分别叫什么名字，以及每一个联盟的创始年份是哪一年；\n2. 请列出这三大航空联盟各自的全部成员航司，以及每一家成员航司所属的国家；\n3. 我这次想体验欧洲航司的头等舱，麻烦帮我筛选出同时满足以下所有条件的航司，同时给出它们在SKYTRAX 2025年世界最佳头等舱航空公司榜单里的实际排名：\n \n\n… [207 chars truncated]",
+          "triplet_f1": 0.4077,
+          "node_f1": 0.5907,
+          "user_turns": 10,
+          "tool_calls": 49
+        },
+        {
+          "qid": "task_018_tubuluxian",
+          "file": "task_018_tubuluxian.json",
+          "question": "I would like to look up information related to the world's top 10 trekking routes featured in Lonely Planet's *Best Treks in the World* article, and I need all the following details as required:\n1. Fi\n\n… [1538 chars truncated]",
+          "triplet_f1": 0.4006,
+          "node_f1": 0.4201,
+          "user_turns": 16,
+          "tool_calls": 223
+        },
+        {
+          "qid": "task_049_Mobile Phone Parameters and Buying Guide",
+          "file": "task_049_Mobile_Phone_Parameters_and_Buying_Guide.json",
+          "question": "I want to buy a mobile phone, so please provide me with all the following information counted as of the first quarter of 2026:\n- First, tell me the top 5 global smartphone brands by shipment volume, a\n\n… [1038 chars truncated]",
+          "triplet_f1": 0.3915,
+          "node_f1": 0.4399,
+          "user_turns": 10,
+          "tool_calls": 187
+        },
+        {
+          "qid": "task_024_TeaCulture",
+          "file": "task_024_TeaCulture.json",
+          "question": "我现在需要筛选合适的茶叶作为送客户的备选，请帮我按照以下要求查询对应的所有信息：\n1. 先筛选出2024年中国茶叶出口量超过4000吨的所有省份，同时给出这些省份2024年的干毛茶产量数据。\n2. 在上述筛选出的省份范围内，查询截至2025年底拥有的国家级非遗制茶技艺，要求这些技艺必须有1960年之前出生的老非遗传承人。\n3. 筛选出上述符合要求的国家级非遗制茶技艺的所在地级市中，2024年茶园面\n\n… [424 chars truncated]",
+          "triplet_f1": 0.3882,
+          "node_f1": 0.4326,
+          "user_turns": 16,
+          "tool_calls": 346
+        },
+        {
+          "qid": "task_034_Camera Selection",
+          "file": "task_034_Camera_Selection.json",
+          "question": "我最近准备买相机挑合适的镜头，需要你帮我整理以下完整信息：\n1. 首先请提供友都八喜2025年最畅销的20款可换镜头榜单（是否带防抖均可），每款镜头需同步标注对应的重量、滤镜口径以及所属品牌；\n2. 针对上述上榜镜头的所有所属品牌，先完成筛选：仅保留「在开展某一项多元化衍生业务的当年，同步研发、推出过相机产品」的品牌。再针对筛选后的品牌，分别说明其是否只单独做镜头，若不是，请列出该品牌全部的多元化\n\n… [150 chars truncated]",
+          "triplet_f1": 0.3849,
+          "node_f1": 0.4056,
+          "user_turns": 10,
+          "tool_calls": 164
+        },
+        {
+          "qid": "task_063_BakingEssentials",
+          "file": "task_063_BakingEssentials.json",
+          "question": "I'm a total kitchen newbie, and I just watched a YouTube video from Ali's Kitchen about making caramel crust puffs that I really want to try making. I need all the following information sorted clearly\n\n… [1967 chars truncated]",
+          "triplet_f1": 0.3838,
+          "node_f1": 0.3964,
+          "user_turns": 13,
+          "tool_calls": 148
+        },
+        {
+          "qid": "task_096_Tropical Fish",
+          "file": "task_096_Tropical_Fish.json",
+          "question": "I'm currently studying tropical fish and have learned about 8 ornamental fish supplier exhibitors at Interzoo 2026: Aquazone Indonesia, BP Aquatic Group, LEOPARD AQUATIC INDONESIA, Miracle Pets - Sri \n\n… [1567 chars truncated]",
+          "triplet_f1": 0.3823,
+          "node_f1": 0.3473,
+          "user_turns": 10,
+          "tool_calls": 188
+        },
+        {
+          "qid": "task_087_vinyl record collection",
+          "file": "task_087_vinyl_record_collection.json",
+          "question": "I just bought a record player and want to collect some vinyl records, so I'm looking for the following complete information:\nFirst, give me the full list of records that made it onto IFPI's 2025 Globa\n\n… [865 chars truncated]",
+          "triplet_f1": 0.377,
+          "node_f1": 0.383,
+          "user_turns": 9,
+          "tool_calls": 172
+        },
+        {
+          "qid": "task_044_NutritionalSupplements",
+          "file": "task_044_NutritionalSupplements.json",
+          "question": "我想查询相关信息，所有查询的基础范围是QYResearch发布的《2026年全球运动和健身营养补充剂行业总体规模、主要企业国内外市场占有率及排名》报告中提到的运动营养补充剂生产厂商，具体要求如下：\n首先先对厂商做筛选：只保留满足上市要求的厂商，也就是厂商本体或者其母公司是1990年之后上市、截至2026年4月没有退市的，需要先列出这些符合要求的厂商的注册地所属国家，以及对应上市主体的上市交易所、上\n\n… [195 chars truncated]",
+          "triplet_f1": 0.3703,
+          "node_f1": 0.3569,
+          "user_turns": 15,
+          "tool_calls": 184
+        },
+        {
+          "qid": "task_073_Dental implant",
+          "file": "task_073_Dental_implant.json",
+          "question": "I'm planning to get dental implants this year, and I need to find information that fully meets all my following requirements:\nFirst, please filter out eligible dental implant brands that satisfy all t\n\n… [729 chars truncated]",
+          "triplet_f1": 0.3699,
+          "node_f1": 0.4167,
+          "user_turns": 11,
+          "tool_calls": 180
+        },
+        {
+          "qid": "task_088_Choosing Climbing Shoes",
+          "file": "task_088_Choosing_Climbing_Shoes.json",
+          "question": "I've recently gotten interested in climbing and would like to learn about the following aspects. Please clearly list the corresponding relationships between all items:\n1. What categories are there if \n\n… [712 chars truncated]",
+          "triplet_f1": 0.3669,
+          "node_f1": 0.5672,
+          "user_turns": 10,
+          "tool_calls": 120
+        },
+        {
+          "qid": "task_042_Shanghai Michelin Restaurant",
+          "file": "task_042_Shanghai_Michelin_Restaurant.json",
+          "question": "我需要找符合以下全部条件的上海餐厅，同时获取对应的相关信息：\n首先是餐厅的筛选规则：\n1. 2021—2025年期间连续纳入《米其林指南》，且评级为一星及以上；\n2. 主营菜式为粤菜或者创新菜；\n3. 2026年时，餐厅的驻店总厨（行政主厨）拥有过海外（含港澳台）米其林星级餐厅的正式厨务工作经历；\n4. 不属于酒店旗下，且2026年仍然处于营业状态。\n\n需要获取的这些餐厅的信息如下：\n1. 餐厅的\n\n… [209 chars truncated]",
+          "triplet_f1": 0.3554,
+          "node_f1": 0.3797,
+          "user_turns": 14,
+          "tool_calls": 281
+        },
+        {
+          "qid": "task_045_Oil or electric vehicles",
+          "file": "task_045_Oil_or_electric_vehicles.json",
+          "question": "我想查询2026年第一季度我国汽车市场的相关信息，具体需求如下：\n1. 请先列出该时段我国汽车市场的主要车辆动力类型，将这些动力类型按电车、油车两大类别归类，明确分别属于两类的具体动力类型；同时说明电车和油车中哪些动力类型可享受限行、限购相关优惠政策，另外请对应整理所有上述动力类型对应的驱动方式、补能方式，一一对应清晰呈现。\n2. 请统计除FCEV之外的所有电车类动力类型，各自在2026年第一季度\n\n… [342 chars truncated]",
+          "triplet_f1": 0.3423,
+          "node_f1": 0.3263,
+          "user_turns": 10,
+          "tool_calls": 81
+        },
+        {
+          "qid": "task_009_POP MART",
+          "file": "task_009_POP_MART.json",
+          "question": "我超级喜欢泡泡玛特，麻烦帮我查询以下相关信息，所有信息的统计截止时间均为2026年4月哦：\n首先帮我筛选出截止2026年4月已经出品、且在泡泡玛特官网上在售的非日本设计师设计的所有IP，针对每个符合要求的IP，先告诉我两个信息：一是它的设计来源，是个人设计师设计的话麻烦说清楚设计师是谁，如果是品牌公司授权合作的话麻烦说清楚授权方是哪家；二是这个IP在泡泡玛特的首发年份是哪一年。\n然后针对这些筛选出\n\n… [151 chars truncated]",
+          "triplet_f1": 0.3396,
+          "node_f1": 0.391,
+          "user_turns": 16,
+          "tool_calls": 253
+        },
+        {
+          "qid": "task_014_Shanghai Art Exhibition",
+          "file": "task_014_Shanghai_Art_Exhibition.json",
+          "question": "我需要查询以下信息，麻烦按照要求筛选后输出对应的内容：\n首先，先帮我筛选符合要求的上海美术馆：必须是截至2025年12月底上海官方认证的星级美术馆，而且所在的行政区内至少要有两家星级美术馆，那种一个区只有一家的就不用列出来了，另外这些美术馆还要是2026年3月正常营业的，麻烦把这些符合要求的美术馆名称、所在行政区还有对应的周日开馆时间都列出来。\n其次，针对上面筛选出来的这些美术馆，帮我找它们202\n\n… [173 chars truncated]",
+          "triplet_f1": 0.3185,
+          "node_f1": 0.3372,
+          "user_turns": 13,
+          "tool_calls": 105
+        },
+        {
+          "qid": "task_027_city",
+          "file": "task_027_city.json",
+          "question": "我打算去经济比较发达的地方旅游，需要你帮我查询整理以下信息：\n首先，请列出IMF公布的2024年世界GDP排名前20位的主权国家，标注每个国家的2024年GDP数值以及所属的大洲，并且筛选出其中拥有UNESCO世界遗产的国家；\n接下来，针对这些筛选出的国家，请从它们的政府官网的“国家概况”或者“首都介绍”页面查询确认每个国家法律规定的正式首都叫什么；\n然后，帮我整理这些首都里入选了UNESCO世界\n\n… [190 chars truncated]",
+          "triplet_f1": 0.3177,
+          "node_f1": 0.3708,
+          "user_turns": 11,
+          "tool_calls": 196
+        },
+        {
+          "qid": "task_040_Computer",
+          "file": "task_040_Computer.json",
+          "question": "我最近想换一张显卡用来装配我的电脑，首先请帮我筛选出2024到2026年这三年新出的、正式发布的消费级台式机显卡，要求这些显卡在Steam平台的玩家占比高于0.25%，并提供这些符合条件的显卡的具体信息，包括功耗、价格等内容。\n我现在重点考虑RTX 5060这款显卡，麻烦帮我提供它的相关信息：一是它的出品公司和各项基本信息；二是截至2026年它在Steam平台的存量占比情况；三是它的代工厂所在地、\n\n… [93 chars truncated]",
+          "triplet_f1": 0.3174,
+          "node_f1": 0.3446,
+          "user_turns": 13,
+          "tool_calls": 162
+        },
+        {
+          "qid": "task_079_Public Property",
+          "file": "task_079_Public_Property.json",
+          "question": "我想要了解截止到2026年3月成都武侯区和青羊区推出的保租房相关信息，请帮我按要求整理结果：\n首先先筛选出直线距离5公里内有三甲医院的保租房房源，先告诉我这些房源各自的首次配租房租标准和首次出租的物业费标准；\n针对每一套符合筛选条件的房源，再补充以下信息：\n1. 它直线距离5公里内的所有三级综合医院具体是哪些，这些医院里有哪些心脏方面的重点专科；\n2. 它直线距离2公里内最近的地铁站叫什么名字，能\n\n… [75 chars truncated]",
+          "triplet_f1": 0.31,
+          "node_f1": 0.3296,
+          "user_turns": 16,
+          "tool_calls": 263
+        },
+        {
+          "qid": "task_072_Hospitals in Changsha",
+          "file": "task_072_Hospitals_in_Changsha.json",
+          "question": "我想要查询截至2026年4月的以下所有相关信息，请按要求整理输出：\n一、首先筛选符合条件的医院科室：长沙市芙蓉区、岳麓区的三甲综合医院消化内科中，有主任医师同时承担研究生培养（硕导/博导）的科室，请先列出这些科室对应的医院信息，同时提供这些科室的以下基础信息：\n1. 科室所属医院最近的地铁站是哪个；\n2. 医院是否有停车场，小车停车24小时封顶多少钱；\n3. 该消化内科科室的营业时间。\n二、针对上\n\n… [517 chars truncated]",
+          "triplet_f1": 0.305,
+          "node_f1": 0.2606,
+          "user_turns": 25,
+          "tool_calls": 301
+        },
+        {
+          "qid": "task_004_British universities",
+          "file": "task_004_British_universities.json",
+          "question": "我是一名经济学本科生，计划2026年秋季出国留学申请全日制研究生，之后还想继续深造读PHD，听说英国治安不是很好，所以麻烦帮我按照以下要求完成筛选并提供对应信息：\n首先，先确定初选学校范围：仅限英格兰和苏格兰地区、2026年QS世界大学排名全球前150的院校。\n接下来从这些学校里筛选符合要求的专业，需要同时满足：\n1. 专业以经济学为核心，包含Business Economics或者Corpora\n\n… [310 chars truncated]",
+          "triplet_f1": 0.3012,
+          "node_f1": 0.3794,
+          "user_turns": 12,
+          "tool_calls": 229
+        },
+        {
+          "qid": "task_057_Baijiu brand and sales destination selection",
+          "file": "task_057_Baijiu_brand_and_sales_destination_selection.json",
+          "question": "我需要你帮我查询满足以下所有要求的信息，最终结果请以知识图谱三元组的形式呈现：\n1. 首先筛选出2025年前三季度国产白酒营业额TOP10的品牌，筛选前提为品牌的下属系列所含产品数大于7，同时收集这些品牌的核心信息：同比增长率、前三季度营收、成立时间、产地、执行标准、资质背景。\n2. 针对上述筛选出的TOP10品牌，提取它们2025年前三季度营业额最高的酒款的产品信息，仅保留度数不高于52度的酒款\n\n… [218 chars truncated]",
+          "triplet_f1": 0.2978,
+          "node_f1": 0.3327,
+          "user_turns": 18,
+          "tool_calls": 311
+        },
+        {
+          "qid": "task_051_OPT",
+          "file": "task_051_OPT.json",
+          "question": "我是持F-1 OPT身份、已经在美国工作3年的纳税人，需要基于2026年最新的OPT税收政策咨询报税相关问题，请按照F-1 OPT联邦报税规则的标准信息粒度为我解答以下内容：\n1. 首先请筛选出要求提交Form 8843和Form 1040-NR的报税身份，分别说明这些身份的免税期限、应纳税收入范围等相关规定；\n2. 我目前是未婚的Resident Alien（居民外国人），年收入为32200美元\n\n… [144 chars truncated]",
+          "triplet_f1": 0.2953,
+          "node_f1": 0.3262,
+          "user_turns": 24,
+          "tool_calls": 141
+        },
+        {
+          "qid": "task_094_shipin",
+          "file": "task_094_shipin.json",
+          "question": "我有以下需求麻烦一并查询处理：\n1. 首先请查询入选《2026年CNPP寿司行业十大品牌榜中榜名录》的所有品牌，依次列出每个品牌的排名、所属母公司、中国境内工商注册运营主体全称，再从中筛选出母公司注册地在日本的品牌。\n2. 针对上述筛选出的母公司注册地在日本的寿司品牌，请分别列出它们长期固定在售、常规菜单不下架的经典常驻寿司品项，每个品项对应的主食材鱼种，以及这些寿司所用的鱼食材取自对应鱼种的鱼身\n\n… [129 chars truncated]",
+          "triplet_f1": 0.2868,
+          "node_f1": 0.3144,
+          "user_turns": 11,
+          "tool_calls": 118
+        },
+        {
+          "qid": "task_055_Pet sports",
+          "file": "task_055_Pet_sports.json",
+          "question": "I'm planning to raise a dog that fits my frequent outdoor sports activities, so I need the following information referenced from official sources including AKC and RKC official breed introduction page\n\n… [506 chars truncated]",
+          "triplet_f1": 0.2797,
+          "node_f1": 0.458,
+          "user_turns": 7,
+          "tool_calls": 88
+        },
+        {
+          "qid": "task_017_museum",
+          "file": "task_017_museum.json",
+          "question": "I'm a cultural enthusiast planning to travel to Europe during the summer vacation, please help me gather all the following information that meets the requirements:\nFirst, extract the top 50 museums fr\n\n… [1246 chars truncated]",
+          "triplet_f1": 0.2667,
+          "node_f1": 0.2062,
+          "user_turns": 22,
+          "tool_calls": 238
+        },
+        {
+          "qid": "task_059_Sunscreen",
+          "file": "task_059_Sunscreen.json",
+          "question": "我是一名经常需要参与户外活动的导游，肤质比较敏感，最近夏天快到了想要选购合适的防晒产品，麻烦你帮我整理符合以下所有要求的相关信息，不要遗漏任何内容：\n1. 首先筛选新浪财经发布的2025年防晒化妆品销售榜单TOP10中，母公司总部在国外的品牌，且这些母公司的创立时长至少有50年，请先列出这些上榜品牌对应的母公司名称、母公司的创立年份。\n2. 请列出上述符合要求的上榜品牌旗下所有SPF50及以上的防\n\n… [278 chars truncated]",
+          "triplet_f1": 0.2662,
+          "node_f1": 0.3307,
+          "user_turns": 19,
+          "tool_calls": 290
+        },
+        {
+          "qid": "task_061_Spain Travel",
+          "file": "task_061_Spain_Travel.json",
+          "question": "I'm a recent college graduate with savings who is currently traveling in the Eixample (Eisimple) district of Barcelona, Spain, and I'm highly interested in Antoni Gaudi's architecture. I have confirme\n\n… [1565 chars truncated]",
+          "triplet_f1": 0.2605,
+          "node_f1": 0.4129,
+          "user_turns": 9,
+          "tool_calls": 158
+        },
+        {
+          "qid": "task_025_Western mythology",
+          "file": "task_025_Western_mythology.json",
+          "question": "我特别喜欢希腊神话的故事，但是一直分不清里面的人物，还有相关的神话事件和现实对应的打卡点，现在有一系列相关需求麻烦你帮忙解答：\n1. 首先请帮我列出所有的奥林匹斯主神，分别给出每位主神的父母、罗马名、象征物信息。\n2. 其次请梳理出希腊神话里所有满足「有两个及以上主神参与、最终导致战争一方遭到彻底的物理毁灭」的战争，针对每一场战争，列出全部的局势反转转折点，每个转折点需要标注清楚对应的参与主神、用\n\n… [321 chars truncated]",
+          "triplet_f1": 0.2591,
+          "node_f1": 0.3137,
+          "user_turns": 8,
+          "tool_calls": 53
+        },
+        {
+          "qid": "task_011_donghua",
+          "file": "task_011_donghua.json",
+          "question": "我现在有找动画行业工作和找动画作品观看的相关需求，麻烦帮我整理以下信息：\n首先，我想到知名动漫公司工作，先帮我列出所有作品数量大于5部的中国动画公司；另外麻烦告诉我这些公司里，作品中历史题材占比最高的是哪一家；我更想去成熟的公司发展，所以也请从上面这些作品数大于5部的中国动画公司里，筛选出2000年之前就创立的公司名单。\n接下来，麻烦告诉我上面提到的所有作品数大于5部的中国动画公司，总部分别在哪些\n\n… [205 chars truncated]",
+          "triplet_f1": 0.2567,
+          "node_f1": 0.3256,
+          "user_turns": 18,
+          "tool_calls": 183
+        },
+        {
+          "qid": "task_084_youlun",
+          "file": "task_084_youlun.json",
+          "question": "I'm planning a cruise trip with my friends in May 2026, and I'm referring to information from the Gangwaze website, please help me sort out all the information that meets my following requirements in \n\n… [1324 chars truncated]",
+          "triplet_f1": 0.2387,
+          "node_f1": 0.3223,
+          "user_turns": 16,
+          "tool_calls": 148
+        },
+        {
+          "qid": "task_071_erjijiangzao",
+          "file": "task_071_erjijiangzao.json",
+          "question": "I have a series of needs related to over-ear headphones, could you provide the relevant information as required below?\nFirst, tell me all the 13 brands selected as the world's best over-ear headphone \n\n… [1112 chars truncated]",
+          "triplet_f1": 0.2368,
+          "node_f1": 0.4146,
+          "user_turns": 10,
+          "tool_calls": 149
+        },
+        {
+          "qid": "task_020_Pet",
+          "file": "task_020_Pet.json",
+          "question": "我最近打算养一只狗，想了解一系列相关信息，麻烦帮我整理清楚：\n首先，我听说CKU把犬只分成了不同的品质等级，麻烦告诉我具体有哪些等级，每个等级需要满足什么认证条件？\n其次，这里面的冠军级还有没有进一步的细分，比如中国区冠军这类，各个细分的冠军之间是怎么进行等级区分、晋升的，对应的要求分别是什么？\n然后，目前CKU冠军登录展示里，每一种冠军细分分类下登录排在前三的犬种分别是什么？麻烦同时标注这些犬种\n\n… [225 chars truncated]",
+          "triplet_f1": 0.2359,
+          "node_f1": 0.2841,
+          "user_turns": 8,
+          "tool_calls": 70
+        },
+        {
+          "qid": "task_035_F1",
+          "file": "task_035_F1.json",
+          "question": "I've been following Formula 1 quite a lot lately, and I'd like to get the following related information, with all details provided at the same granularity as the standard F1 team knowledge graph entri\n\n… [1005 chars truncated]",
+          "triplet_f1": 0.23,
+          "node_f1": 0.2694,
+          "user_turns": 10,
+          "tool_calls": 70
+        },
+        {
+          "qid": "task_021_Jewelry brand",
+          "file": "task_021_Jewelry_brand.json",
+          "question": "我准备在母亲节挑选珠宝作为礼物，相关需求如下，请你整理提供所有符合条件的信息：\n1. 先给出「奢侈珠宝&腕表品牌中国活力榜2025」的TOP10上榜品牌完整名单，再从中筛选出2023年1月之前就已经在成都IFS或成都远洋太古里开设了线下门店的品牌。\n2. 从上述筛选出的品牌里，找出它们2026年1-3月发布或上市的包含项链的系列，要求这些系列的相关款式可以在VOGUE、ELLE、时尚芭莎、时尚CO\n\n… [322 chars truncated]",
+          "triplet_f1": 0.2264,
+          "node_f1": 0.2467,
+          "user_turns": 15,
+          "tool_calls": 318
+        },
+        {
+          "qid": "task_076_baby formula",
+          "file": "task_076_baby_formula.json",
+          "question": "I'm in Europe looking to buy infant formula for babies aged 0-6 months, and I only consider legitimate brands sold in the EU market that comply with EU regulations. Please help me collect the followin\n\n… [1381 chars truncated]",
+          "triplet_f1": 0.2208,
+          "node_f1": 0.2545,
+          "user_turns": 17,
+          "tool_calls": 359
+        },
+        {
+          "qid": "task_090_huaban",
+          "file": "task_090_huaban.json",
+          "question": "I want to systematically get a complete set of information about the professional competition system of competitive skateboarding, all based on the official definitions and certified lists from the Wo\n\n… [1569 chars truncated]",
+          "triplet_f1": 0.2163,
+          "node_f1": 0.2344,
+          "user_turns": 10,
+          "tool_calls": 137
+        },
+        {
+          "qid": "task_047_chongwu",
+          "file": "task_047_chongwu.json",
+          "question": "I live in Los Angeles, USA, and I'm planning to keep a parrot. As of June 2025, I first want to know which small-bodied parrot species can be legally purchased and kept by private individuals, with th\n\n… [1055 chars truncated]",
+          "triplet_f1": 0.2131,
+          "node_f1": 0.247,
+          "user_turns": 15,
+          "tool_calls": 142
+        },
+        {
+          "qid": "task_069_pet travel",
+          "file": "task_069_pet_travel.json",
+          "question": "我打算带自家狗狗去外地自驾旅游，需要查询以下全部相关信息，请按对应的信息层级清晰呈现，不要遗漏任何约束要求：\n1. 请提供截止到2026年4月1日，上海、北京、成都、杭州、广州这五个城市的宠物出行或养犬管理地方性法规，每部法规需要明确标注发布/日常执法主管部门、公共场所携犬外出相关规定、犬只体型/体重限制条款、牵引绳佩戴相关要求。\n2. 结合上述法规中允许携犬进入的场所范围，再对照大众点评的店铺介\n\n… [267 chars truncated]",
+          "triplet_f1": 0.2095,
+          "node_f1": 0.2442,
+          "user_turns": 11,
+          "tool_calls": 142
+        },
+        {
+          "qid": "task_033_aesthetic medicine",
+          "file": "task_033_aesthetic_medicine.json",
+          "question": "I want to choose a country with a developed medical aesthetics industry to receive treatment, so please provide me with all the following relevant 2024 data as required:\n1. First, identify the top 3 c\n\n… [1516 chars truncated]",
+          "triplet_f1": 0.2077,
+          "node_f1": 0.1881,
+          "user_turns": 13,
+          "tool_calls": 162
+        },
+        {
+          "qid": "task_007_allergy",
+          "file": "task_007_allergy.json",
+          "question": "我想咨询春季相关过敏性疾病的一系列问题，麻烦详细解答：\n1. 我一到春天就频繁打喷嚏、流鼻涕，有时还会眼睛发痒、起红疹，请问这些都是过敏的表现吗？除此之外春季高发的过敏性疾病还有哪些典型症状？\n2. 鼻子、眼睛、皮肤出现的这些过敏不适症状，分别对应哪些具体的过敏性疾病？请明确区分哪些症状属于过敏性鼻炎、哪些属于荨麻疹、哪些属于过敏性结膜炎。\n3. 如果已经基本能判断患上了上述这些过敏性疾病，应该怎\n\n… [213 chars truncated]",
+          "triplet_f1": 0.1964,
+          "node_f1": 0.2012,
+          "user_turns": 11,
+          "tool_calls": 56
+        },
+        {
+          "qid": "task_065_kuaiji",
+          "file": "task_065_kuaiji.json",
+          "question": "I need the following information about the US CPA exam and related prep resources, with all results presented in line with the structure of the provided knowledge graph triples, matching the exact inf\n\n… [1425 chars truncated]",
+          "triplet_f1": 0.1857,
+          "node_f1": 0.2528,
+          "user_turns": 11,
+          "tool_calls": 174
+        },
+        {
+          "qid": "task_054_GreenCard",
+          "file": "task_054_GreenCard.json",
+          "question": "我是一名没有国外亲属的中国高中生，未来打算入籍美国，需要查询以下全部相关信息，请按要求整理输出：\n1. 首先从美国公民及移民服务局（USCIS）官网上梳理所有我符合申请要求的美国绿卡获得途径的一级分类，以及每个一级分类对应的下属子类；同时列出职业移民各子类2023到2025财年的中国大陆申请人排期天数，以及各子类是否需要雇主担保或者PERM永久劳工证。\n2. 我已经确认后续会准备EB-3的PERM\n\n… [378 chars truncated]",
+          "triplet_f1": 0.1847,
+          "node_f1": 0.2669,
+          "user_turns": 12,
+          "tool_calls": 174
+        },
+        {
+          "qid": "task_023_House",
+          "file": "task_023_House.json",
+          "question": "我马上要去贵阳工作，打算在贵阳买房，麻烦帮我查询以下所有相关信息：\n1. 贵阳市所有的管辖区域有哪些？请分别列明其下辖区、下辖县、代管的县级市；\n2. 贵阳目前一共有多少条地铁线路？\n3. 请帮我筛选出贵阳所有符合以下全部条件的在售楼盘：楼盘距离最近的地铁站点小于1千米，楼盘周边1500米范围内有二级及以上等级医院或者三甲医院，楼盘周边有公办中小学；\n4. 针对上述筛选出来的每一个符合条件的楼盘，\n\n… [129 chars truncated]",
+          "triplet_f1": 0.1835,
+          "node_f1": 0.2021,
+          "user_turns": 19,
+          "tool_calls": 235
+        },
+        {
+          "qid": "task_039_VR",
+          "file": "task_039_VR.json",
+          "question": "I need a complete VR game selection and equipment configuration reference that meets all the following requirements, with information provided at the specified detailed granularity:\nFirst, retrieve th\n\n… [1402 chars truncated]",
+          "triplet_f1": 0.1829,
+          "node_f1": 0.2338,
+          "user_turns": 16,
+          "tool_calls": 240
+        },
+        {
+          "qid": "task_050_meizhaung",
+          "file": "task_050_meizhaung.json",
+          "question": "I want to buy well-received skincare products that can fix the fine lines and dullness on my skin, please help me find all the relevant information strictly following these rules, with results present\n\n… [1109 chars truncated]",
+          "triplet_f1": 0.1778,
+          "node_f1": 0.2712,
+          "user_turns": 17,
+          "tool_calls": 231
+        },
+        {
+          "qid": "task_074_Overseas Michelin-starred restaurants",
+          "file": "task_074_Overseas_Michelin-starred_restaurants.json",
+          "question": "I need the following information, with all results adhering strictly to the stated time limits and filter criteria, and output as standard knowledge graph triples (subject-predicate-object) consistent\n\n… [1238 chars truncated]",
+          "triplet_f1": 0.1777,
+          "node_f1": 0.1721,
+          "user_turns": 13,
+          "tool_calls": 257
+        },
+        {
+          "qid": "task_030_opera",
+          "file": "task_030_opera.json",
+          "question": "我是一名戏曲爱好者，目前正在撰写一份戏曲相关的报告，需要获取以下相关信息，请按照对应知识图谱三元组的结构呈现所有结果：\n1. 首先请告知中国传统五大戏曲剧种具体有哪些，同时从这五大剧种中完成两项筛选：一是筛选出经典剧目中历史题材占比最高的剧种，二是筛选出所有起源地为北方的剧种。\n2. 针对上述筛选出的起源地为北方的剧种，请列出其符合以下要求的经典代表剧目：在非遗网项目介绍中被列为代表性剧目，或是获\n\n… [224 chars truncated]",
+          "triplet_f1": 0.1697,
+          "node_f1": 0.1963,
+          "user_turns": 23,
+          "tool_calls": 328
+        },
+        {
+          "qid": "task_056_Cook",
+          "file": "task_056_Cook.json",
+          "question": "我最近刚开始学做饭，想找美食综艺参考学习，麻烦你帮我查询整理以下信息：\n1. 先列出所有2015年到2025年之间，在湖南卫视、广东卫视、浙江卫视、江苏卫视这四个电视台播出过或者正在播出的、有调味料产品赞助的美食类综艺节目；\n2. 对应每一档上述符合要求的综艺，列出它所有冠名或赞助的厨具品牌、调味料品牌；\n3. 对应上面提到的所有调味料品牌，分别列出这些品牌旗下的有机调味料产品都有哪些；\n4. 最\n\n… [50 chars truncated]",
+          "triplet_f1": 0.1689,
+          "node_f1": 0.2106,
+          "user_turns": 15,
+          "tool_calls": 218
+        },
+        {
+          "qid": "task_093_coffee",
+          "file": "task_093_coffee.json",
+          "question": "I'm planning to partner with a friend to open a coffee shop, but neither of us is familiar with this field, so I need the following information for reference, all relevant data should be as of 2026:\nF\n\n… [1293 chars truncated]",
+          "triplet_f1": 0.168,
+          "node_f1": 0.1653,
+          "user_turns": 16,
+          "tool_calls": 215
+        },
+        {
+          "qid": "task_001_liquid foundation",
+          "file": "task_001_liquid_foundation.json",
+          "question": "我是一名正在学习化妆的在校学生，想要挑选适合自己的粉底液，我的全部需求如下：\n1. 首先筛选符合以下要求的粉底液品牌：同时登上2025年全年淘宝粉底液销量排行榜前20、2025年全年抖音粉底液销量排行榜前20，且品牌所属公司为亚洲公司、公司成立时间在2020年及以前，请列出这些品牌对应的所属公司，以及各公司分别属于哪个国家。\n2. 从上述符合要求的品牌中，筛选2026年4月对应品牌官方旗舰店在售的\n\n… [128 chars truncated]",
+          "triplet_f1": 0.1671,
+          "node_f1": 0.1817,
+          "user_turns": 11,
+          "tool_calls": 89
+        },
+        {
+          "qid": "task_070_Ergonomic chair",
+          "file": "task_070_Ergonomic_chair.json",
+          "question": "我想基于CNPP十大品牌网公布的人体工学椅十大品牌相关信息，获取以下内容：\n1. 首先筛选出十大品牌中公司总部位于中国长三角的品牌，再列出这些品牌下同时满足「2025-2026年在售、通过BIFMA或国标人体工学认证、售价在1000-5000元区间」的所有主力型号，同时说明每款型号的全部调节功能，尤其要明确座高、座深、腰托、头枕、后仰、扶手这六项功能的具体支持情况。\n2. 给出全部十大上榜品牌对应\n\n… [139 chars truncated]",
+          "triplet_f1": 0.1539,
+          "node_f1": 0.195,
+          "user_turns": 13,
+          "tool_calls": 173
+        },
+        {
+          "qid": "task_098_yinger",
+          "file": "task_098_yinger.json",
+          "question": "My child is 8 months old and weighs 7.5 kg, I need to buy suitable foreign basic baby travel gear, please help me sort out all the following relevant information completely, covering every required de\n\n… [1379 chars truncated]",
+          "triplet_f1": 0.1443,
+          "node_f1": 0.1344,
+          "user_turns": 17,
+          "tool_calls": 451
+        },
+        {
+          "qid": "task_092_succulent",
+          "file": "task_092_succulent.json",
+          "question": "我想要了解十二卷属相关的一系列信息，麻烦参考给出的知识图谱三元组结构（实体-关系-属性值）为我整理输出对应内容，具体需求如下：\n1. 首先请说明十二卷属的主要品种群有哪些，每个品种群对应的所属叶系、分布省区、典型识别特征分别是什么；同时列出各品种群下包含的具体品种，每个品种的鉴别维度、推荐花器、易发病虫害分别是什么；另外针对每个易发病虫害，列出对应的具体防治方法，以及每种防治方法的类型、施用时机、\n\n… [210 chars truncated]",
+          "triplet_f1": 0.129,
+          "node_f1": 0.1767,
+          "user_turns": 11,
+          "tool_calls": 71
+        },
+        {
+          "qid": "task_029_Career Planning",
+          "file": "task_029_Career_Planning.json",
+          "question": "我想要查询一系列和人社部新职业相关的信息，麻烦你整理成清晰的内容给我，具体要求如下：\n首先，请你先列出2025到2026年国家人社部公布的所有新职业，以及每一个新职业对应的职业编码，并且先筛掉其中不能获得执业证书的职业，只保留可以获得执业证书的这些新职业范围；\n接下来，针对刚才筛选出的这些新职业，分别找出每个职业对应的市场招聘发布量排在前1到2位的核心岗位，同时给出这些核心岗位在一线或者新一线城市\n\n… [369 chars truncated]",
+          "triplet_f1": 0.126,
+          "node_f1": 0.1659,
+          "user_turns": 11,
+          "tool_calls": 138
+        },
+        {
+          "qid": "task_031_Mental Health",
+          "file": "task_031_Mental_Health.json",
+          "question": "我需要查询以下和上海地区精神疾病诊疗、抑郁症就诊相关的全部信息，请所有信息对应所属主体清晰呈现，不要混淆：\n1. 首先筛选上海市内全部满足以下条件的三甲及以上医院：设有独立的精神疾病相关科室、开设有精神疾病相关专病门诊、药费支持医保报销。请列出所有符合条件的医院，同步提供每家医院的所在地区、其精神疾病相关科室在复旦版中国医院专科声誉排行榜上的排名。\n2. 针对上述筛选出的每家医院，请明确列出其设置\n\n… [290 chars truncated]",
+          "triplet_f1": 0.123,
+          "node_f1": 0.1338,
+          "user_turns": 20,
+          "tool_calls": 251
+        },
+        {
+          "qid": "task_043_GamePlotGuide",
+          "file": "task_043_GamePlotGuide.json",
+          "question": "我最近迷上了剧情游戏，刚玩完《黑神话悟空》，现在想了解满足以下所有筛选条件的其他剧情驱动型游戏的相关信息：筛选条件为2020年至今发布、在Metacritic或IGN上评分高于75分、至少具备2个独立结局。麻烦帮我整理这些游戏的下列内容：\n1. 每款符合条件的游戏的基础信息：游戏名称、对应的开发商、上线年份；\n2. 每款游戏官方给出的、用来构建玩家代入感的核心叙事机制分别有哪些；\n3. 每款游戏的\n\n… [119 chars truncated]",
+          "triplet_f1": 0.1196,
+          "node_f1": 0.1834,
+          "user_turns": 10,
+          "tool_calls": 173
+        },
+        {
+          "qid": "task_032_petcare",
+          "file": "task_032_petcare.json",
+          "question": "I want to learn about pet infectious disease prevention measures (excluding daily care measures) for my dogs and cats, and I need all the following information structured at the granularity matching t\n\n… [1248 chars truncated]",
+          "triplet_f1": 0.1163,
+          "node_f1": 0.1848,
+          "user_turns": 12,
+          "tool_calls": 132
+        },
+        {
+          "qid": "task_003_Maldives vacation",
+          "file": "task_003_Maldives_vacation.json",
+          "question": "我想要找符合所有以下要求的马尔代夫酒店，同时请提供符合条件的酒店的相关详细信息：\n### 筛选条件\n1. 酒店所在的环礁，从Velana国际机场乘坐快艇或者水上飞机前往的行程时间在50分钟以内，且酒店本身符合2026年国际五星级酒店认证标准；\n2. 根据2026年官方发布的信息，酒店所在的岛屿没有登岛年龄限制，同时酒店的客房数量超过75间；\n3. 酒店可提供上岛后的一价全包套餐；\n4. 浮潜相关要\n\n… [232 chars truncated]",
+          "triplet_f1": 0.114,
+          "node_f1": 0.1512,
+          "user_turns": 19,
+          "tool_calls": 357
+        },
+        {
+          "qid": "task_067_Perming agent and coloring agent",
+          "file": "task_067_Perming_agent_and_coloring_agent.json",
+          "question": "1. First, list all legal compliant categories for household hair dyes and perming/straightening agents under the official regulations of the US FDA and EU cosmetics laws, according to the regulatory c\n\n… [1011 chars truncated]",
+          "triplet_f1": 0.107,
+          "node_f1": 0.1625,
+          "user_turns": 5,
+          "tool_calls": 80
+        },
+        {
+          "qid": "task_048_company",
+          "file": "task_048_company.json",
+          "question": "我是一名本科计算机专业的应届毕业生，我的需求如下：\n1. 请先筛选出2025年《财富》中国企业500强榜单排名前50、不属于国企和央企、且在上海和北京有正在招聘的校招岗位的公司，列出这些公司的名称、成立年份以及法定代表人。\n2. 从上述筛选出的公司里，再筛选出成立时间在1990年之后的公司，以这些公司的官方公告为准，列出它们2026年3月1日至3月31日期间的所有在招职位类型。\n3. 请列出上述符\n\n… [197 chars truncated]",
+          "triplet_f1": 0.1025,
+          "node_f1": 0.2182,
+          "user_turns": 11,
+          "tool_calls": 134
+        },
+        {
+          "qid": "task_068_xinfangzhuangxiu",
+          "file": "task_068_xinfangzhuangxiu.json",
+          "question": "I'm planning a whole-house interior renovation project in the U.S., and I need a complete, detailed guide covering every stage of the project from pre-planning to post-completion acceptance, structure\n\n… [5887 chars truncated]",
+          "triplet_f1": 0.0989,
+          "node_f1": 0.1021,
+          "user_turns": 18,
+          "tool_calls": 307
+        },
+        {
+          "qid": "task_013_Phone",
+          "file": "task_013_Phone.json",
+          "question": "My charger just broke, so I want to do thorough research on Qi2 magnetic wireless chargers sold between 2024 and 2025 to make a smart and safe purchase. Please provide me with all the information that\n\n… [1894 chars truncated]",
+          "triplet_f1": 0.0786,
+          "node_f1": 0.1328,
+          "user_turns": 13,
+          "tool_calls": 294
+        },
+        {
+          "qid": "task_099_Maternal Health",
+          "file": "task_099_Maternal_Health.json",
+          "question": "I want to learn pregnancy-related knowledge to better take care of my pregnant wife, and I need the following information clearly organized:\nFirst, tell me how many stages pregnancy can be divided int\n\n… [1192 chars truncated]",
+          "triplet_f1": 0.0773,
+          "node_f1": 0.1036,
+          "user_turns": 10,
+          "tool_calls": 117
+        },
+        {
+          "qid": "task_052_Japan",
+          "file": "task_052_Japan.json",
+          "question": "I'm planning a trip to Japan's Kansai region, and I need to get all the following information to arrange my itinerary:\nFirst, tell me which prefectures are part of the Kansai region, and confirm if th\n\n… [1478 chars truncated]",
+          "triplet_f1": 0.0695,
+          "node_f1": 0.0808,
+          "user_turns": 20,
+          "tool_calls": 312
+        },
+        {
+          "qid": "task_100_muying",
+          "file": "task_100_muying.json",
+          "question": "I need comprehensive information about postpartum recovery, with the output presented following the structured granularity of evidence-based guideline knowledge triples, covering the following content\n\n… [1919 chars truncated]",
+          "triplet_f1": 0.0655,
+          "node_f1": 0.0817,
+          "user_turns": 12,
+          "tool_calls": 127
+        },
+        {
+          "qid": "task_066_paoxie",
+          "file": "task_066_paoxie.json",
+          "question": "I'm planning to buy cushioning running shoes recently, and I need the following relevant information organized clearly:\n1. First, based on the running shoe material classification framework issued by \n\n… [1434 chars truncated]",
+          "triplet_f1": 0.0646,
+          "node_f1": 0.0878,
+          "user_turns": 20,
+          "tool_calls": 300
+        },
+        {
+          "qid": "task_019_Camping Gear",
+          "file": "task_019_Camping_Gear.json",
+          "question": "我想查询以下相关信息，麻烦按照要求筛选后输出对应内容：\n1. 先筛选2023年度亚洲户外装备大奖参选露营类的品牌，列出这些品牌对应的所属公司全称，筛选出公司总部位于中国的户外品牌。\n2. 从上述国产品牌的参选产品中，挑选适合三人去草原看星星使用的帐篷、睡袋、防潮垫三类产品，重量需满足：帐篷重量大于15kg、小于40kg，睡袋重量超过1kg，防潮垫重量小于200g，请列出符合重量要求的睡袋、防潮垫的\n\n… [296 chars truncated]",
+          "triplet_f1": 0.0612,
+          "node_f1": 0.0973,
+          "user_turns": 19,
+          "tool_calls": 339
+        },
+        {
+          "qid": "task_089_chonglangban",
+          "file": "task_089_chonglangban.json",
+          "question": "I'm a 75kg intermediate surfer planning to go surfing at 1–1.5m beach breaks in Spain, and I need a full surfboard selection guide that covers all the following information, with relevant data taken f\n\n… [1561 chars truncated]",
+          "triplet_f1": 0.0575,
+          "node_f1": 0.0906,
+          "user_turns": 18,
+          "tool_calls": 271
+        },
+        {
+          "qid": "task_080_Hotel Selection and Comparison",
+          "file": "task_080_Hotel_Selection_and_Comparison.json",
+          "question": "I'm planning a 10-day trip to Bali, during which I will go out to sea to watch dolphins, visit volcanoes and waterfalls, and experience wellness treatments. I need you to help me filter eligible Bali \n\n… [1213 chars truncated]",
+          "triplet_f1": 0.0527,
+          "node_f1": 0.0769,
+          "user_turns": 10,
+          "tool_calls": 152
+        },
+        {
+          "qid": "task_064_Myopia",
+          "file": "task_064_Myopia.json",
+          "question": "I'm a myopia patient who has had trouble seeing clearly in daily life for many years, so I want to systematically learn all relevant information about formal, scientific clinical myopia treatment, and\n\n… [1287 chars truncated]",
+          "triplet_f1": 0.0488,
+          "node_f1": 0.0794,
+          "user_turns": 15,
+          "tool_calls": 118
+        },
+        {
+          "qid": "task_046_qichebaoxian",
+          "file": "task_046_qichebaoxian.json",
+          "question": "I'm a UK car owner whose car insurance policy is due for renewal soon, and I'm looking to switch to a new insurance provider. I need the following information that strictly meets my requirements:\n1. F\n\n… [1303 chars truncated]",
+          "triplet_f1": 0.0439,
+          "node_f1": 0.0752,
+          "user_turns": 11,
+          "tool_calls": 273
+        },
+        {
+          "qid": "task_053_Chengdu",
+          "file": "task_053_Chengdu.json",
+          "question": "我2026年五一打算去成都游玩，出发前想整理一份符合要求的餐馆清单，请你帮我查询以下信息：\n首先先帮我筛选符合条件的餐馆范围：需包含2025年获评米其林星级的成都餐厅、2025年大众点评成都必吃榜前十的成都餐厅，且这些餐厅都要满足从成都东站出发地铁直达无需换乘的条件。\n针对筛选出的这些餐厅，请帮我同步查询以下信息：\n1. 各餐厅截至2026年4月15日是否正常营业，对应的营业时段分别是什么；\n2.\n\n… [185 chars truncated]",
+          "triplet_f1": 0.0296,
+          "node_f1": 0.0586,
+          "user_turns": 22,
+          "tool_calls": 161
+        },
+        {
+          "qid": "task_060_skin",
+          "file": "task_060_skin.json",
+          "question": "我是一名医学生，现在想要了解一系列皮肤病相关的专业内容，麻烦帮我整理输出：\n首先，皮肤病总体可以分为哪些病种？\n其次，我最近在学习过敏性皮肤病相关知识，请帮我筛选出其中高发病率、且可使用外用药物治疗的疾病，同时给出这些疾病对应的ICD-11编号，以及各自的临床症状；\n另外我还需要了解湿疹相关的详细信息：包括湿疹的发病病因有哪些？患者患上湿疹后有哪些可用的治疗方案？其中外用药物治疗的具体方案是什么，\n\n… [49 chars truncated]",
+          "triplet_f1": 0.0149,
+          "node_f1": 0.0167,
+          "user_turns": 10,
+          "tool_calls": 65
+        },
+        {
+          "qid": "task_091_Furniture greening",
+          "file": "task_091_Furniture_greening.json",
+          "question": "I'm looking to get some foliage plants for my new home, and I need all the following related information organized clearly following the attached organic foliage plant pest control knowledge graph tri\n\n… [1278 chars truncated]",
+          "triplet_f1": 0.0134,
+          "node_f1": 0.0253,
+          "user_turns": 3,
+          "tool_calls": 7
+        }
+      ]
+    },
+    "pro": {
+      "label": "VibeSearch-Pro",
+      "description": "Professional research scenarios",
+      "demo": false,
+      "tasks": [
+        {
+          "qid": "task_041_university selection",
+          "file": "task_041_university_selection.json",
+          "question": "我是2026年参加四川高考的物理类考生，需要查询以下升学相关信息，请按要求给出完整结果：\n一、请先筛选出2025年本部面向四川物理类考生录取分数线在590分以上的所有985大学，每所大学需对应给出2026年QS排名、所在城市信息；\n二、在上述筛选出的985大学范围内，找出所在地不在东北、西北地区，同时开设了口腔医学专业，且该专业第四轮学科评级为B+及以上、设有5+3一体化培养学制的学校，列出符合要\n\n… [214 chars truncated]",
+          "triplet_f1": 0.7392,
+          "node_f1": 0.6649,
+          "user_turns": 13,
+          "tool_calls": 75
+        },
+        {
+          "qid": "task_012_hospital",
+          "file": "task_012_hospital.json",
+          "question": "我想要查询的相关信息如下：\n1. 2026QS大学排行榜前200名的内地高校都有哪些？\n2. 上述这些高校中建有直属附属医院的，分别列出这些直属附属医院的名称、所在城市，同时说明这些医院是否为公立三级甲等医院；再从中筛选出明确设有国家临床重点专科的医院，进一步找出其中国家临床重点专科涵盖脑科的医院。\n3. 上述筛选出的国家临床重点专科涵盖脑科的医院，对应的脑科相关国家临床重点专科的现任科室主任是谁\n\n… [103 chars truncated]",
+          "triplet_f1": 0.7262,
+          "node_f1": 0.6635,
+          "user_turns": 9,
+          "tool_calls": 189
+        },
+        {
+          "qid": "task_088_Choosing Climbing Shoes",
+          "file": "task_088_Choosing_Climbing_Shoes.json",
+          "question": "I've recently gotten interested in climbing and would like to learn about the following aspects. Please clearly list the corresponding relationships between all items:\n1. What categories are there if \n\n… [712 chars truncated]",
+          "triplet_f1": 0.7141,
+          "node_f1": 0.7174,
+          "user_turns": 10,
+          "tool_calls": 120
+        },
+        {
+          "qid": "task_085_USNationalParks",
+          "file": "task_085_USNationalParks.json",
+          "question": "I'd like to get information about US national parks that meets all my following requirements and filters, please follow the steps below to return the complete matching data:\nFirst, start with the offi\n\n… [1328 chars truncated]",
+          "triplet_f1": 0.7079,
+          "node_f1": 0.6407,
+          "user_turns": 10,
+          "tool_calls": 114
+        },
+        {
+          "qid": "task_008_Oscar-winning movie",
+          "file": "task_008_Oscar-winning_movie.json",
+          "question": "我现在有一系列相关的信息需求，请帮我按要求查询整理：\n1. 首先获取1980-2020年期间所有颁发过奥斯卡最佳导演奖的届次，以及每一届对应的具体颁奖时间；\n2. 统计上述每一届奥斯卡最佳导演获奖者在获奖当天的年龄，同时区分出这些获奖者的获奖执导作品中哪些属于非跨国电影；\n3. 针对以上获奖执导作品中的跨国电影，请先给出每部的首周票房数据，再筛选出其中首周票房大于35万美元的作品，在这些作品里找出\n\n… [379 chars truncated]",
+          "triplet_f1": 0.6812,
+          "node_f1": 0.7289,
+          "user_turns": 13,
+          "tool_calls": 231
+        },
+        {
+          "qid": "task_026_homedrink",
+          "file": "task_026_homedrink.json",
+          "question": "我计划采购2025年FBIF Wow食品创新奖相关的获奖饮品，请帮我查询相关信息并按以下所有条件层层筛选，给出对应的结果：\n首先，请先列出2025年FBIF Wow食品创新奖中的所有饮品相关奖项，再从获奖饮品里排除奶粉等固体饮品，筛选出所有获奖的液体饮品以及对应的获奖机构；\n接下来请列出这些液体饮品对应的品牌、品牌全球归属公司、产品研发公司，仅保留品牌归属于中国公司的国产产品；\n然后请从这些国产饮\n\n… [127 chars truncated]",
+          "triplet_f1": 0.6759,
+          "node_f1": 0.6543,
+          "user_turns": 14,
+          "tool_calls": 221
+        },
+        {
+          "qid": "task_082_Disney Movie",
+          "file": "task_082_Disney_Movie.json",
+          "question": "I'm looking for a complete set of information about Disney's film studios and their related animated works, all content needs to meet the following requirements and constraints:\nFirst, list all active\n\n… [1390 chars truncated]",
+          "triplet_f1": 0.6514,
+          "node_f1": 0.5912,
+          "user_turns": 11,
+          "tool_calls": 90
+        },
+        {
+          "qid": "task_062_Bedding",
+          "file": "task_062_Bedding.json",
+          "question": "I live in Washington, USA and am planning to purchase bedding, and I trust the authority of the Good Housekeeping 2026 Bedding Awards, so I need the following relevant information:\n1. First, list all \n\n… [1294 chars truncated]",
+          "triplet_f1": 0.6486,
+          "node_f1": 0.5915,
+          "user_turns": 10,
+          "tool_calls": 87
+        },
+        {
+          "qid": "task_036_NBA",
+          "file": "task_036_NBA.json",
+          "question": "My husband and I are planning a trip to the United States where we want to watch NBA games, and I need you to help me sort out all the relevant information I need for this trip following the filters a\n\n… [2035 chars truncated]",
+          "triplet_f1": 0.6364,
+          "node_f1": 0.5995,
+          "user_turns": 12,
+          "tool_calls": 120
+        },
+        {
+          "qid": "task_005_LOL",
+          "file": "task_005_LOL.json",
+          "question": "我现在想要查询2026年之前英雄联盟MSI和S赛的相关信息，具体需求如下：\n1. 首先筛选出所有LPL战队晋级了总决赛的届次，列出每届决赛的对阵双方战队，同时统计LPL在这些赛事中拿过冠军的总次数。\n2. 针对上面筛选出的所有届次，分别给出每届的冠军战队、亚军战队；同时给出每届夺冠战队的主教练姓名，以及这些主教练加入和离开对应夺冠战队的时间；另外还要列出每届赛事的FMVP选手。\n3. 针对上面筛选\n\n… [299 chars truncated]",
+          "triplet_f1": 0.6313,
+          "node_f1": 0.6767,
+          "user_turns": 11,
+          "tool_calls": 225
+        },
+        {
+          "qid": "task_086_Early PRC Commemorative Special Stamps",
+          "file": "task_086_Early_PRC_Commemorative_Special_Stamps.json",
+          "question": "我想了解建国30年最佳邮票这个新中国首次全国性邮票评选活动的相关信息，请按以下要求整理结果：\n1. 首先列出本次评选所有获奖的邮票系列，同步标注每套邮票的发行日期、印制机构；\n2. 从中筛选出印制机构在北京的获奖邮票套票，同步标注这些北京的印制机构的具体地址，方便我这周有空去参观；再从这些北京印刷厂印制的套票里，进一步筛选出单套包含邮票枚数≤5的套票，这类套票适合收藏我需要重点关注；\n3. 针对上\n\n… [195 chars truncated]",
+          "triplet_f1": 0.6193,
+          "node_f1": 0.6583,
+          "user_turns": 12,
+          "tool_calls": 160
+        },
+        {
+          "qid": "task_037_tennis tournaments",
+          "file": "task_037_tennis_tournaments.json",
+          "question": "I've recently gotten interested in tennis because of Zheng Qinwen, and I'm a high school student in the United States currently in SoHo, New York looking to buy tennis equipment. I need the following \n\n… [1170 chars truncated]",
+          "triplet_f1": 0.6129,
+          "node_f1": 0.5758,
+          "user_turns": 10,
+          "tool_calls": 78
+        },
+        {
+          "qid": "task_016_furniture select",
+          "file": "task_016_furniture_select.json",
+          "question": "I'm planning to buy new IKEA furniture for my living room and bedroom, and I'm only referencing the IKEA products mentioned in the two Kelsey Mulvey articles on the House Beautiful website: *8 IKEA Be\n\n… [1193 chars truncated]",
+          "triplet_f1": 0.603,
+          "node_f1": 0.6122,
+          "user_turns": 10,
+          "tool_calls": 235
+        },
+        {
+          "qid": "task_077_baseball cap‌",
+          "file": "task_077_baseball_cap_.json",
+          "question": "I need to find a whole set of information related to the 2025 Major League Baseball American League, please return the results in structured entity-relationship triples matching the granularity of the\n\n… [1527 chars truncated]",
+          "triplet_f1": 0.5846,
+          "node_f1": 0.597,
+          "user_turns": 13,
+          "tool_calls": 162
+        },
+        {
+          "qid": "task_006_Marvel",
+          "file": "task_006_Marvel.json",
+          "question": "I need you to help me look up the following information strictly following all the constraints I specify, and present the results clearly matching the required information granularity:\n1. First, pull \n\n… [1652 chars truncated]",
+          "triplet_f1": 0.5797,
+          "node_f1": 0.5542,
+          "user_turns": 9,
+          "tool_calls": 189
+        },
+        {
+          "qid": "task_028_Fragrance",
+          "file": "task_028_Fragrance.json",
+          "question": "I've heard that the Fragrance Foundation Awards are known as the \"Oscars of the perfume industry\", and I need to get a full set of relevant information that meets all the following requirements:\n\nFirs\n\n… [1731 chars truncated]",
+          "triplet_f1": 0.5734,
+          "node_f1": 0.5718,
+          "user_turns": 14,
+          "tool_calls": 271
+        },
+        {
+          "qid": "task_075_MBA",
+          "file": "task_075_MBA.json",
+          "question": "我本科毕业7年，目前在上海互联网大厂担任产品经理，计划报考国内在职MBA硕士，需要查询满足以下全部筛选条件的院校及相关详细信息：\n### 筛选条件\n1. 院校需同时持有EQUIS、AMBA、AACSB三项国际认证，且三项认证截至2026年1月1日均处于有效期内；\n2. 院校2026年1月在任的院长，其博士毕业院校需位列2026年QS世界大学排名前400名以内；\n3. 院校所在地属于江浙沪地区；\n4\n\n… [248 chars truncated]",
+          "triplet_f1": 0.5647,
+          "node_f1": 0.5834,
+          "user_turns": 12,
+          "tool_calls": 200
+        },
+        {
+          "qid": "task_081_AJ",
+          "file": "task_081_AJ.json",
+          "question": "I need all relevant information about mainline Air Jordan signature models, please provide them according to the following requirements:\nFirst, list out every mainline Air Jordan signature model, and \n\n… [1119 chars truncated]",
+          "triplet_f1": 0.5496,
+          "node_f1": 0.4998,
+          "user_turns": 14,
+          "tool_calls": 205
+        },
+        {
+          "qid": "task_063_BakingEssentials",
+          "file": "task_063_BakingEssentials.json",
+          "question": "I'm a total kitchen newbie, and I just watched a YouTube video from Ali's Kitchen about making caramel crust puffs that I really want to try making. I need all the following information sorted clearly\n\n… [1967 chars truncated]",
+          "triplet_f1": 0.5472,
+          "node_f1": 0.4903,
+          "user_turns": 19,
+          "tool_calls": 130
+        },
+        {
+          "qid": "task_002_concert",
+          "file": "task_002_concert.json",
+          "question": "我想查询一系列和2025年鸟巢演唱会相关的信息，具体需求如下：\n1. 先帮我统计2025年国庆节前鸟巢一共举办了多少场演唱会，列出所有这些演唱会的举办歌手/组合分别是谁；\n2. 上述演唱会里有不少开了多场，帮我筛选出其中有嘉宾合唱的场次，告诉我每一场次的嘉宾都合唱了哪些歌曲；\n3. 除了上述合唱相关的信息外，再帮我查下这些演唱会在鸟巢举办的最后一个场次里，返场前的压轴曲目是什么，我喜欢经典老歌，麻\n\n… [224 chars truncated]",
+          "triplet_f1": 0.5427,
+          "node_f1": 0.5895,
+          "user_turns": 14,
+          "tool_calls": 327
+        },
+        {
+          "qid": "task_055_Pet sports",
+          "file": "task_055_Pet_sports.json",
+          "question": "I'm planning to raise a dog that fits my frequent outdoor sports activities, so I need the following information referenced from official sources including AKC and RKC official breed introduction page\n\n… [506 chars truncated]",
+          "triplet_f1": 0.5187,
+          "node_f1": 0.4699,
+          "user_turns": 8,
+          "tool_calls": 115
+        },
+        {
+          "qid": "task_058_BankSelection",
+          "file": "task_058_BankSelection.json",
+          "question": "我需要你帮我按如下要求筛选银行并输出对应信息，所有时间节点、筛选条件请严格遵守：\n首先第一步筛选：找出截至2024年12月底已经在中国A股上市、且总市值大于1000亿的银行，先提供这些银行2024年年底的净利润（单位为亿元），以及它们2024年末的第一大股东名称，再从中筛选出第一大股东为中央国有或者地方国有性质的银行，排除掉第一大股东是民营和外资企业的银行。\n第二步对第一步筛选出的银行继续筛选：查\n\n… [248 chars truncated]",
+          "triplet_f1": 0.5187,
+          "node_f1": 0.5117,
+          "user_turns": 12,
+          "tool_calls": 286
+        },
+        {
+          "qid": "task_044_NutritionalSupplements",
+          "file": "task_044_NutritionalSupplements.json",
+          "question": "我想查询相关信息，所有查询的基础范围是QYResearch发布的《2026年全球运动和健身营养补充剂行业总体规模、主要企业国内外市场占有率及排名》报告中提到的运动营养补充剂生产厂商，具体要求如下：\n首先先对厂商做筛选：只保留满足上市要求的厂商，也就是厂商本体或者其母公司是1990年之后上市、截至2026年4月没有退市的，需要先列出这些符合要求的厂商的注册地所属国家，以及对应上市主体的上市交易所、上\n\n… [195 chars truncated]",
+          "triplet_f1": 0.4973,
+          "node_f1": 0.5044,
+          "user_turns": 13,
+          "tool_calls": 178
+        },
+        {
+          "qid": "task_097_Game music",
+          "file": "task_097_Game_music.json",
+          "question": "I'm looking for all the following information related to Metacritic's 16th annual game publisher ranking, please provide the complete content that meets all the requirements below:\n1. First, list all \n\n… [1211 chars truncated]",
+          "triplet_f1": 0.4937,
+          "node_f1": 0.6042,
+          "user_turns": 11,
+          "tool_calls": 336
+        },
+        {
+          "qid": "task_084_youlun",
+          "file": "task_084_youlun.json",
+          "question": "I'm planning a cruise trip with my friends in May 2026, and I'm referring to information from the Gangwaze website, please help me sort out all the information that meets my following requirements in \n\n… [1324 chars truncated]",
+          "triplet_f1": 0.4802,
+          "node_f1": 0.4137,
+          "user_turns": 17,
+          "tool_calls": 119
+        },
+        {
+          "qid": "task_015_ClimbMountains",
+          "file": "task_015_ClimbMountains.json",
+          "question": "我想查询相关旅游信息，具体要求如下：\n1. 先基于截至2026年4月的《UNESCO世界遗产名录》，筛选出属于中国的自然遗产、文化与自然双重遗产，我只看两类纳入时间的遗产：2000年以前被纳入的经典遗产，以及2010-2025年被纳入的较新的遗产，请标注每处符合要求的遗产的具体纳入年份。\n2. 在上述筛选出的遗产对应的下属景区里，再帮我筛选出符合所有以下条件的景区：是国家5A级旅游景区、适合爬山、\n\n… [159 chars truncated]",
+          "triplet_f1": 0.4777,
+          "node_f1": 0.4819,
+          "user_turns": 11,
+          "tool_calls": 115
+        },
+        {
+          "qid": "task_024_TeaCulture",
+          "file": "task_024_TeaCulture.json",
+          "question": "我现在需要筛选合适的茶叶作为送客户的备选，请帮我按照以下要求查询对应的所有信息：\n1. 先筛选出2024年中国茶叶出口量超过4000吨的所有省份，同时给出这些省份2024年的干毛茶产量数据。\n2. 在上述筛选出的省份范围内，查询截至2025年底拥有的国家级非遗制茶技艺，要求这些技艺必须有1960年之前出生的老非遗传承人。\n3. 筛选出上述符合要求的国家级非遗制茶技艺的所在地级市中，2024年茶园面\n\n… [424 chars truncated]",
+          "triplet_f1": 0.473,
+          "node_f1": 0.4855,
+          "user_turns": 13,
+          "tool_calls": 327
+        },
+        {
+          "qid": "task_042_Shanghai Michelin Restaurant",
+          "file": "task_042_Shanghai_Michelin_Restaurant.json",
+          "question": "我需要找符合以下全部条件的上海餐厅，同时获取对应的相关信息：\n首先是餐厅的筛选规则：\n1. 2021—2025年期间连续纳入《米其林指南》，且评级为一星及以上；\n2. 主营菜式为粤菜或者创新菜；\n3. 2026年时，餐厅的驻店总厨（行政主厨）拥有过海外（含港澳台）米其林星级餐厅的正式厨务工作经历；\n4. 不属于酒店旗下，且2026年仍然处于营业状态。\n\n需要获取的这些餐厅的信息如下：\n1. 餐厅的\n\n… [209 chars truncated]",
+          "triplet_f1": 0.4609,
+          "node_f1": 0.4282,
+          "user_turns": 12,
+          "tool_calls": 180
+        },
+        {
+          "qid": "task_022_airline",
+          "file": "task_022_airline.json",
+          "question": "我正在做环球旅行的规划，想要挑选合适的航空公司，请帮我查询以下相关信息：\n1. 首先请告诉我世界三大航空联盟分别叫什么名字，以及每一个联盟的创始年份是哪一年；\n2. 请列出这三大航空联盟各自的全部成员航司，以及每一家成员航司所属的国家；\n3. 我这次想体验欧洲航司的头等舱，麻烦帮我筛选出同时满足以下所有条件的航司，同时给出它们在SKYTRAX 2025年世界最佳头等舱航空公司榜单里的实际排名：\n \n\n… [207 chars truncated]",
+          "triplet_f1": 0.4582,
+          "node_f1": 0.5658,
+          "user_turns": 10,
+          "tool_calls": 49
+        },
+        {
+          "qid": "task_049_Mobile Phone Parameters and Buying Guide",
+          "file": "task_049_Mobile_Phone_Parameters_and_Buying_Guide.json",
+          "question": "I want to buy a mobile phone, so please provide me with all the following information counted as of the first quarter of 2026:\n- First, tell me the top 5 global smartphone brands by shipment volume, a\n\n… [1038 chars truncated]",
+          "triplet_f1": 0.4478,
+          "node_f1": 0.4566,
+          "user_turns": 10,
+          "tool_calls": 187
+        },
+        {
+          "qid": "task_034_Camera Selection",
+          "file": "task_034_Camera_Selection.json",
+          "question": "我最近准备买相机挑合适的镜头，需要你帮我整理以下完整信息：\n1. 首先请提供友都八喜2025年最畅销的20款可换镜头榜单（是否带防抖均可），每款镜头需同步标注对应的重量、滤镜口径以及所属品牌；\n2. 针对上述上榜镜头的所有所属品牌，先完成筛选：仅保留「在开展某一项多元化衍生业务的当年，同步研发、推出过相机产品」的品牌。再针对筛选后的品牌，分别说明其是否只单独做镜头，若不是，请列出该品牌全部的多元化\n\n… [150 chars truncated]",
+          "triplet_f1": 0.4443,
+          "node_f1": 0.4432,
+          "user_turns": 10,
+          "tool_calls": 164
+        },
+        {
+          "qid": "task_096_Tropical Fish",
+          "file": "task_096_Tropical_Fish.json",
+          "question": "I'm currently studying tropical fish and have learned about 8 ornamental fish supplier exhibitors at Interzoo 2026: Aquazone Indonesia, BP Aquatic Group, LEOPARD AQUATIC INDONESIA, Miracle Pets - Sri \n\n… [1567 chars truncated]",
+          "triplet_f1": 0.441,
+          "node_f1": 0.4154,
+          "user_turns": 10,
+          "tool_calls": 188
+        },
+        {
+          "qid": "task_027_city",
+          "file": "task_027_city.json",
+          "question": "我打算去经济比较发达的地方旅游，需要你帮我查询整理以下信息：\n首先，请列出IMF公布的2024年世界GDP排名前20位的主权国家，标注每个国家的2024年GDP数值以及所属的大洲，并且筛选出其中拥有UNESCO世界遗产的国家；\n接下来，针对这些筛选出的国家，请从它们的政府官网的“国家概况”或者“首都介绍”页面查询确认每个国家法律规定的正式首都叫什么；\n然后，帮我整理这些首都里入选了UNESCO世界\n\n… [190 chars truncated]",
+          "triplet_f1": 0.4404,
+          "node_f1": 0.4602,
+          "user_turns": 12,
+          "tool_calls": 305
+        },
+        {
+          "qid": "task_038_Game Selection",
+          "file": "task_038_Game_Selection.json",
+          "question": "I'm looking to buy and play new games released in 2025, so please help me filter out games that meet all of the following requirements first, then provide me with all the relevant details I need for e\n\n… [1127 chars truncated]",
+          "triplet_f1": 0.4338,
+          "node_f1": 0.4522,
+          "user_turns": 15,
+          "tool_calls": 160
+        },
+        {
+          "qid": "task_078_SocialInsurance",
+          "file": "task_078_SocialInsurance.json",
+          "question": "我是全日制本科往届毕业生，户口在老家、毕业1年没有工作单位，打算去2025年第一财经发布的“新一线城市魅力排行榜”中排名前10的城市做自由职业，需要缴纳灵活就业社保，请你帮我按照以下规则逐步筛选城市，并提供对应信息：\n1. 先筛选出截至2026年4月1日，缴纳灵活就业社保没有户籍限制的城市，同时列出这些城市2025年的GDP数据；\n2. 对上述筛选出的城市，查询2026年4月当地灵活就业养老保险、\n\n… [329 chars truncated]",
+          "triplet_f1": 0.4298,
+          "node_f1": 0.4705,
+          "user_turns": 13,
+          "tool_calls": 211
+        },
+        {
+          "qid": "task_072_Hospitals in Changsha",
+          "file": "task_072_Hospitals_in_Changsha.json",
+          "question": "我想要查询截至2026年4月的以下所有相关信息，请按要求整理输出：\n一、首先筛选符合条件的医院科室：长沙市芙蓉区、岳麓区的三甲综合医院消化内科中，有主任医师同时承担研究生培养（硕导/博导）的科室，请先列出这些科室对应的医院信息，同时提供这些科室的以下基础信息：\n1. 科室所属医院最近的地铁站是哪个；\n2. 医院是否有停车场，小车停车24小时封顶多少钱；\n3. 该消化内科科室的营业时间。\n二、针对上\n\n… [517 chars truncated]",
+          "triplet_f1": 0.4174,
+          "node_f1": 0.4379,
+          "user_turns": 25,
+          "tool_calls": 301
+        },
+        {
+          "qid": "task_092_succulent",
+          "file": "task_092_succulent.json",
+          "question": "我想要了解十二卷属相关的一系列信息，麻烦参考给出的知识图谱三元组结构（实体-关系-属性值）为我整理输出对应内容，具体需求如下：\n1. 首先请说明十二卷属的主要品种群有哪些，每个品种群对应的所属叶系、分布省区、典型识别特征分别是什么；同时列出各品种群下包含的具体品种，每个品种的鉴别维度、推荐花器、易发病虫害分别是什么；另外针对每个易发病虫害，列出对应的具体防治方法，以及每种防治方法的类型、施用时机、\n\n… [210 chars truncated]",
+          "triplet_f1": 0.4163,
+          "node_f1": 0.4416,
+          "user_turns": 11,
+          "tool_calls": 71
+        },
+        {
+          "qid": "task_083_Musical",
+          "file": "task_083_Musical.json",
+          "question": "我现在想了解关于中国音乐剧的一系列相关信息，具体需求如下：\n1. 首先请告知截至2026年4月，按剧目原始语言来源划分的中国音乐剧市场两大阵营的名称，分类规则为：原始语言为中文的剧目属于“国产音乐剧”，原始语言为非中文（包含英语、法语、德语、西班牙语、意大利语）的剧目属于“进口音乐剧”。\n2. 请筛选出同时满足以下所有条件的音乐剧：①属于上述两大阵营、且入选2023年或2024年演艺大世界音乐剧风\n\n… [458 chars truncated]",
+          "triplet_f1": 0.4072,
+          "node_f1": 0.4575,
+          "user_turns": 12,
+          "tool_calls": 297
+        },
+        {
+          "qid": "task_010_csgo",
+          "file": "task_010_csgo.json",
+          "question": "I'm looking for information related to the four major CS:GO tournament series officially recognized by HLTV (Major, Intel Extreme Masters/IEM, BLAST Premier, ESL Pro League) for the period from 2021 t\n\n… [1162 chars truncated]",
+          "triplet_f1": 0.395,
+          "node_f1": 0.4695,
+          "user_turns": 10,
+          "tool_calls": 280
+        },
+        {
+          "qid": "task_021_Jewelry brand",
+          "file": "task_021_Jewelry_brand.json",
+          "question": "我准备在母亲节挑选珠宝作为礼物，相关需求如下，请你整理提供所有符合条件的信息：\n1. 先给出「奢侈珠宝&腕表品牌中国活力榜2025」的TOP10上榜品牌完整名单，再从中筛选出2023年1月之前就已经在成都IFS或成都远洋太古里开设了线下门店的品牌。\n2. 从上述筛选出的品牌里，找出它们2026年1-3月发布或上市的包含项链的系列，要求这些系列的相关款式可以在VOGUE、ELLE、时尚芭莎、时尚CO\n\n… [322 chars truncated]",
+          "triplet_f1": 0.3879,
+          "node_f1": 0.438,
+          "user_turns": 15,
+          "tool_calls": 318
+        },
+        {
+          "qid": "task_025_Western mythology",
+          "file": "task_025_Western_mythology.json",
+          "question": "我特别喜欢希腊神话的故事，但是一直分不清里面的人物，还有相关的神话事件和现实对应的打卡点，现在有一系列相关需求麻烦你帮忙解答：\n1. 首先请帮我列出所有的奥林匹斯主神，分别给出每位主神的父母、罗马名、象征物信息。\n2. 其次请梳理出希腊神话里所有满足「有两个及以上主神参与、最终导致战争一方遭到彻底的物理毁灭」的战争，针对每一场战争，列出全部的局势反转转折点，每个转折点需要标注清楚对应的参与主神、用\n\n… [321 chars truncated]",
+          "triplet_f1": 0.3849,
+          "node_f1": 0.4214,
+          "user_turns": 9,
+          "tool_calls": 72
+        },
+        {
+          "qid": "task_057_Baijiu brand and sales destination selection",
+          "file": "task_057_Baijiu_brand_and_sales_destination_selection.json",
+          "question": "我需要你帮我查询满足以下所有要求的信息，最终结果请以知识图谱三元组的形式呈现：\n1. 首先筛选出2025年前三季度国产白酒营业额TOP10的品牌，筛选前提为品牌的下属系列所含产品数大于7，同时收集这些品牌的核心信息：同比增长率、前三季度营收、成立时间、产地、执行标准、资质背景。\n2. 针对上述筛选出的TOP10品牌，提取它们2025年前三季度营业额最高的酒款的产品信息，仅保留度数不高于52度的酒款\n\n… [218 chars truncated]",
+          "triplet_f1": 0.3847,
+          "node_f1": 0.4112,
+          "user_turns": 18,
+          "tool_calls": 311
+        },
+        {
+          "qid": "task_020_Pet",
+          "file": "task_020_Pet.json",
+          "question": "我最近打算养一只狗，想了解一系列相关信息，麻烦帮我整理清楚：\n首先，我听说CKU把犬只分成了不同的品质等级，麻烦告诉我具体有哪些等级，每个等级需要满足什么认证条件？\n其次，这里面的冠军级还有没有进一步的细分，比如中国区冠军这类，各个细分的冠军之间是怎么进行等级区分、晋升的，对应的要求分别是什么？\n然后，目前CKU冠军登录展示里，每一种冠军细分分类下登录排在前三的犬种分别是什么？麻烦同时标注这些犬种\n\n… [225 chars truncated]",
+          "triplet_f1": 0.3814,
+          "node_f1": 0.4333,
+          "user_turns": 8,
+          "tool_calls": 62
+        },
+        {
+          "qid": "task_018_tubuluxian",
+          "file": "task_018_tubuluxian.json",
+          "question": "I would like to look up information related to the world's top 10 trekking routes featured in Lonely Planet's *Best Treks in the World* article, and I need all the following details as required:\n1. Fi\n\n… [1538 chars truncated]",
+          "triplet_f1": 0.3811,
+          "node_f1": 0.4026,
+          "user_turns": 16,
+          "tool_calls": 223
+        },
+        {
+          "qid": "task_094_shipin",
+          "file": "task_094_shipin.json",
+          "question": "我有以下需求麻烦一并查询处理：\n1. 首先请查询入选《2026年CNPP寿司行业十大品牌榜中榜名录》的所有品牌，依次列出每个品牌的排名、所属母公司、中国境内工商注册运营主体全称，再从中筛选出母公司注册地在日本的品牌。\n2. 针对上述筛选出的母公司注册地在日本的寿司品牌，请分别列出它们长期固定在售、常规菜单不下架的经典常驻寿司品项，每个品项对应的主食材鱼种，以及这些寿司所用的鱼食材取自对应鱼种的鱼身\n\n… [129 chars truncated]",
+          "triplet_f1": 0.3808,
+          "node_f1": 0.3747,
+          "user_turns": 11,
+          "tool_calls": 118
+        },
+        {
+          "qid": "task_073_Dental implant",
+          "file": "task_073_Dental_implant.json",
+          "question": "I'm planning to get dental implants this year, and I need to find information that fully meets all my following requirements:\nFirst, please filter out eligible dental implant brands that satisfy all t\n\n… [729 chars truncated]",
+          "triplet_f1": 0.3772,
+          "node_f1": 0.4191,
+          "user_turns": 11,
+          "tool_calls": 180
+        },
+        {
+          "qid": "task_004_British universities",
+          "file": "task_004_British_universities.json",
+          "question": "我是一名经济学本科生，计划2026年秋季出国留学申请全日制研究生，之后还想继续深造读PHD，听说英国治安不是很好，所以麻烦帮我按照以下要求完成筛选并提供对应信息：\n首先，先确定初选学校范围：仅限英格兰和苏格兰地区、2026年QS世界大学排名全球前150的院校。\n接下来从这些学校里筛选符合要求的专业，需要同时满足：\n1. 专业以经济学为核心，包含Business Economics或者Corpora\n\n… [310 chars truncated]",
+          "triplet_f1": 0.3767,
+          "node_f1": 0.3761,
+          "user_turns": 17,
+          "tool_calls": 272
+        },
+        {
+          "qid": "task_045_Oil or electric vehicles",
+          "file": "task_045_Oil_or_electric_vehicles.json",
+          "question": "我想查询2026年第一季度我国汽车市场的相关信息，具体需求如下：\n1. 请先列出该时段我国汽车市场的主要车辆动力类型，将这些动力类型按电车、油车两大类别归类，明确分别属于两类的具体动力类型；同时说明电车和油车中哪些动力类型可享受限行、限购相关优惠政策，另外请对应整理所有上述动力类型对应的驱动方式、补能方式，一一对应清晰呈现。\n2. 请统计除FCEV之外的所有电车类动力类型，各自在2026年第一季度\n\n… [342 chars truncated]",
+          "triplet_f1": 0.3751,
+          "node_f1": 0.329,
+          "user_turns": 10,
+          "tool_calls": 81
+        },
+        {
+          "qid": "task_051_OPT",
+          "file": "task_051_OPT.json",
+          "question": "我是持F-1 OPT身份、已经在美国工作3年的纳税人，需要基于2026年最新的OPT税收政策咨询报税相关问题，请按照F-1 OPT联邦报税规则的标准信息粒度为我解答以下内容：\n1. 首先请筛选出要求提交Form 8843和Form 1040-NR的报税身份，分别说明这些身份的免税期限、应纳税收入范围等相关规定；\n2. 我目前是未婚的Resident Alien（居民外国人），年收入为32200美元\n\n… [144 chars truncated]",
+          "triplet_f1": 0.3739,
+          "node_f1": 0.3872,
+          "user_turns": 20,
+          "tool_calls": 164
+        },
+        {
+          "qid": "task_087_vinyl record collection",
+          "file": "task_087_vinyl_record_collection.json",
+          "question": "I just bought a record player and want to collect some vinyl records, so I'm looking for the following complete information:\nFirst, give me the full list of records that made it onto IFPI's 2025 Globa\n\n… [865 chars truncated]",
+          "triplet_f1": 0.3716,
+          "node_f1": 0.3356,
+          "user_turns": 9,
+          "tool_calls": 172
+        },
+        {
+          "qid": "task_061_Spain Travel",
+          "file": "task_061_Spain_Travel.json",
+          "question": "I'm a recent college graduate with savings who is currently traveling in the Eixample (Eisimple) district of Barcelona, Spain, and I'm highly interested in Antoni Gaudi's architecture. I have confirme\n\n… [1565 chars truncated]",
+          "triplet_f1": 0.361,
+          "node_f1": 0.5061,
+          "user_turns": 13,
+          "tool_calls": 362
+        },
+        {
+          "qid": "task_095_shizhuangzhou",
+          "file": "task_095_shizhuangzhou.json",
+          "question": "I want to get all relevant information about the top 10 best show brands rated by Monocle magazine at the Milan Fall/Winter 2026 womenswear fashion shows, covering the following details:\n- First, for \n\n… [673 chars truncated]",
+          "triplet_f1": 0.3599,
+          "node_f1": 0.3791,
+          "user_turns": 9,
+          "tool_calls": 149
+        },
+        {
+          "qid": "task_009_POP MART",
+          "file": "task_009_POP_MART.json",
+          "question": "我超级喜欢泡泡玛特，麻烦帮我查询以下相关信息，所有信息的统计截止时间均为2026年4月哦：\n首先帮我筛选出截止2026年4月已经出品、且在泡泡玛特官网上在售的非日本设计师设计的所有IP，针对每个符合要求的IP，先告诉我两个信息：一是它的设计来源，是个人设计师设计的话麻烦说清楚设计师是谁，如果是品牌公司授权合作的话麻烦说清楚授权方是哪家；二是这个IP在泡泡玛特的首发年份是哪一年。\n然后针对这些筛选出\n\n… [151 chars truncated]",
+          "triplet_f1": 0.3585,
+          "node_f1": 0.4134,
+          "user_turns": 18,
+          "tool_calls": 268
+        },
+        {
+          "qid": "task_054_GreenCard",
+          "file": "task_054_GreenCard.json",
+          "question": "我是一名没有国外亲属的中国高中生，未来打算入籍美国，需要查询以下全部相关信息，请按要求整理输出：\n1. 首先从美国公民及移民服务局（USCIS）官网上梳理所有我符合申请要求的美国绿卡获得途径的一级分类，以及每个一级分类对应的下属子类；同时列出职业移民各子类2023到2025财年的中国大陆申请人排期天数，以及各子类是否需要雇主担保或者PERM永久劳工证。\n2. 我已经确认后续会准备EB-3的PERM\n\n… [378 chars truncated]",
+          "triplet_f1": 0.347,
+          "node_f1": 0.371,
+          "user_turns": 12,
+          "tool_calls": 174
+        },
+        {
+          "qid": "task_079_Public Property",
+          "file": "task_079_Public_Property.json",
+          "question": "我想要了解截止到2026年3月成都武侯区和青羊区推出的保租房相关信息，请帮我按要求整理结果：\n首先先筛选出直线距离5公里内有三甲医院的保租房房源，先告诉我这些房源各自的首次配租房租标准和首次出租的物业费标准；\n针对每一套符合筛选条件的房源，再补充以下信息：\n1. 它直线距离5公里内的所有三级综合医院具体是哪些，这些医院里有哪些心脏方面的重点专科；\n2. 它直线距离2公里内最近的地铁站叫什么名字，能\n\n… [75 chars truncated]",
+          "triplet_f1": 0.3384,
+          "node_f1": 0.3552,
+          "user_turns": 16,
+          "tool_calls": 263
+        },
+        {
+          "qid": "task_071_erjijiangzao",
+          "file": "task_071_erjijiangzao.json",
+          "question": "I have a series of needs related to over-ear headphones, could you provide the relevant information as required below?\nFirst, tell me all the 13 brands selected as the world's best over-ear headphone \n\n… [1112 chars truncated]",
+          "triplet_f1": 0.3347,
+          "node_f1": 0.3846,
+          "user_turns": 10,
+          "tool_calls": 149
+        },
+        {
+          "qid": "task_040_Computer",
+          "file": "task_040_Computer.json",
+          "question": "我最近想换一张显卡用来装配我的电脑，首先请帮我筛选出2024到2026年这三年新出的、正式发布的消费级台式机显卡，要求这些显卡在Steam平台的玩家占比高于0.25%，并提供这些符合条件的显卡的具体信息，包括功耗、价格等内容。\n我现在重点考虑RTX 5060这款显卡，麻烦帮我提供它的相关信息：一是它的出品公司和各项基本信息；二是截至2026年它在Steam平台的存量占比情况；三是它的代工厂所在地、\n\n… [93 chars truncated]",
+          "triplet_f1": 0.3293,
+          "node_f1": 0.3383,
+          "user_turns": 13,
+          "tool_calls": 162
+        },
+        {
+          "qid": "task_014_Shanghai Art Exhibition",
+          "file": "task_014_Shanghai_Art_Exhibition.json",
+          "question": "我需要查询以下信息，麻烦按照要求筛选后输出对应的内容：\n首先，先帮我筛选符合要求的上海美术馆：必须是截至2025年12月底上海官方认证的星级美术馆，而且所在的行政区内至少要有两家星级美术馆，那种一个区只有一家的就不用列出来了，另外这些美术馆还要是2026年3月正常营业的，麻烦把这些符合要求的美术馆名称、所在行政区还有对应的周日开馆时间都列出来。\n其次，针对上面筛选出来的这些美术馆，帮我找它们202\n\n… [173 chars truncated]",
+          "triplet_f1": 0.3273,
+          "node_f1": 0.3266,
+          "user_turns": 13,
+          "tool_calls": 105
+        },
+        {
+          "qid": "task_069_pet travel",
+          "file": "task_069_pet_travel.json",
+          "question": "我打算带自家狗狗去外地自驾旅游，需要查询以下全部相关信息，请按对应的信息层级清晰呈现，不要遗漏任何约束要求：\n1. 请提供截止到2026年4月1日，上海、北京、成都、杭州、广州这五个城市的宠物出行或养犬管理地方性法规，每部法规需要明确标注发布/日常执法主管部门、公共场所携犬外出相关规定、犬只体型/体重限制条款、牵引绳佩戴相关要求。\n2. 结合上述法规中允许携犬进入的场所范围，再对照大众点评的店铺介\n\n… [267 chars truncated]",
+          "triplet_f1": 0.32,
+          "node_f1": 0.3476,
+          "user_turns": 11,
+          "tool_calls": 83
+        },
+        {
+          "qid": "task_011_donghua",
+          "file": "task_011_donghua.json",
+          "question": "我现在有找动画行业工作和找动画作品观看的相关需求，麻烦帮我整理以下信息：\n首先，我想到知名动漫公司工作，先帮我列出所有作品数量大于5部的中国动画公司；另外麻烦告诉我这些公司里，作品中历史题材占比最高的是哪一家；我更想去成熟的公司发展，所以也请从上面这些作品数大于5部的中国动画公司里，筛选出2000年之前就创立的公司名单。\n接下来，麻烦告诉我上面提到的所有作品数大于5部的中国动画公司，总部分别在哪些\n\n… [205 chars truncated]",
+          "triplet_f1": 0.3151,
+          "node_f1": 0.3246,
+          "user_turns": 18,
+          "tool_calls": 183
+        },
+        {
+          "qid": "task_056_Cook",
+          "file": "task_056_Cook.json",
+          "question": "我最近刚开始学做饭，想找美食综艺参考学习，麻烦你帮我查询整理以下信息：\n1. 先列出所有2015年到2025年之间，在湖南卫视、广东卫视、浙江卫视、江苏卫视这四个电视台播出过或者正在播出的、有调味料产品赞助的美食类综艺节目；\n2. 对应每一档上述符合要求的综艺，列出它所有冠名或赞助的厨具品牌、调味料品牌；\n3. 对应上面提到的所有调味料品牌，分别列出这些品牌旗下的有机调味料产品都有哪些；\n4. 最\n\n… [50 chars truncated]",
+          "triplet_f1": 0.3151,
+          "node_f1": 0.3797,
+          "user_turns": 20,
+          "tool_calls": 275
+        },
+        {
+          "qid": "task_068_xinfangzhuangxiu",
+          "file": "task_068_xinfangzhuangxiu.json",
+          "question": "I'm planning a whole-house interior renovation project in the U.S., and I need a complete, detailed guide covering every stage of the project from pre-planning to post-completion acceptance, structure\n\n… [5887 chars truncated]",
+          "triplet_f1": 0.2996,
+          "node_f1": 0.3011,
+          "user_turns": 19,
+          "tool_calls": 272
+        },
+        {
+          "qid": "task_035_F1",
+          "file": "task_035_F1.json",
+          "question": "I've been following Formula 1 quite a lot lately, and I'd like to get the following related information, with all details provided at the same granularity as the standard F1 team knowledge graph entri\n\n… [1005 chars truncated]",
+          "triplet_f1": 0.2983,
+          "node_f1": 0.428,
+          "user_turns": 10,
+          "tool_calls": 70
+        },
+        {
+          "qid": "task_099_Maternal Health",
+          "file": "task_099_Maternal_Health.json",
+          "question": "I want to learn pregnancy-related knowledge to better take care of my pregnant wife, and I need the following information clearly organized:\nFirst, tell me how many stages pregnancy can be divided int\n\n… [1192 chars truncated]",
+          "triplet_f1": 0.2887,
+          "node_f1": 0.3431,
+          "user_turns": 10,
+          "tool_calls": 124
+        },
+        {
+          "qid": "task_029_Career Planning",
+          "file": "task_029_Career_Planning.json",
+          "question": "我想要查询一系列和人社部新职业相关的信息，麻烦你整理成清晰的内容给我，具体要求如下：\n首先，请你先列出2025到2026年国家人社部公布的所有新职业，以及每一个新职业对应的职业编码，并且先筛掉其中不能获得执业证书的职业，只保留可以获得执业证书的这些新职业范围；\n接下来，针对刚才筛选出的这些新职业，分别找出每个职业对应的市场招聘发布量排在前1到2位的核心岗位，同时给出这些核心岗位在一线或者新一线城市\n\n… [369 chars truncated]",
+          "triplet_f1": 0.2858,
+          "node_f1": 0.3482,
+          "user_turns": 11,
+          "tool_calls": 139
+        },
+        {
+          "qid": "task_047_chongwu",
+          "file": "task_047_chongwu.json",
+          "question": "I live in Los Angeles, USA, and I'm planning to keep a parrot. As of June 2025, I first want to know which small-bodied parrot species can be legally purchased and kept by private individuals, with th\n\n… [1055 chars truncated]",
+          "triplet_f1": 0.2843,
+          "node_f1": 0.3041,
+          "user_turns": 15,
+          "tool_calls": 142
+        },
+        {
+          "qid": "task_048_company",
+          "file": "task_048_company.json",
+          "question": "我是一名本科计算机专业的应届毕业生，我的需求如下：\n1. 请先筛选出2025年《财富》中国企业500强榜单排名前50、不属于国企和央企、且在上海和北京有正在招聘的校招岗位的公司，列出这些公司的名称、成立年份以及法定代表人。\n2. 从上述筛选出的公司里，再筛选出成立时间在1990年之后的公司，以这些公司的官方公告为准，列出它们2026年3月1日至3月31日期间的所有在招职位类型。\n3. 请列出上述符\n\n… [197 chars truncated]",
+          "triplet_f1": 0.2819,
+          "node_f1": 0.3724,
+          "user_turns": 10,
+          "tool_calls": 118
+        },
+        {
+          "qid": "task_001_liquid foundation",
+          "file": "task_001_liquid_foundation.json",
+          "question": "我是一名正在学习化妆的在校学生，想要挑选适合自己的粉底液，我的全部需求如下：\n1. 首先筛选符合以下要求的粉底液品牌：同时登上2025年全年淘宝粉底液销量排行榜前20、2025年全年抖音粉底液销量排行榜前20，且品牌所属公司为亚洲公司、公司成立时间在2020年及以前，请列出这些品牌对应的所属公司，以及各公司分别属于哪个国家。\n2. 从上述符合要求的品牌中，筛选2026年4月对应品牌官方旗舰店在售的\n\n… [128 chars truncated]",
+          "triplet_f1": 0.2781,
+          "node_f1": 0.3422,
+          "user_turns": 14,
+          "tool_calls": 83
+        },
+        {
+          "qid": "task_076_baby formula",
+          "file": "task_076_baby_formula.json",
+          "question": "I'm in Europe looking to buy infant formula for babies aged 0-6 months, and I only consider legitimate brands sold in the EU market that comply with EU regulations. Please help me collect the followin\n\n… [1381 chars truncated]",
+          "triplet_f1": 0.2777,
+          "node_f1": 0.328,
+          "user_turns": 17,
+          "tool_calls": 359
+        },
+        {
+          "qid": "task_007_allergy",
+          "file": "task_007_allergy.json",
+          "question": "我想咨询春季相关过敏性疾病的一系列问题，麻烦详细解答：\n1. 我一到春天就频繁打喷嚏、流鼻涕，有时还会眼睛发痒、起红疹，请问这些都是过敏的表现吗？除此之外春季高发的过敏性疾病还有哪些典型症状？\n2. 鼻子、眼睛、皮肤出现的这些过敏不适症状，分别对应哪些具体的过敏性疾病？请明确区分哪些症状属于过敏性鼻炎、哪些属于荨麻疹、哪些属于过敏性结膜炎。\n3. 如果已经基本能判断患上了上述这些过敏性疾病，应该怎\n\n… [213 chars truncated]",
+          "triplet_f1": 0.2766,
+          "node_f1": 0.2931,
+          "user_turns": 11,
+          "tool_calls": 56
+        },
+        {
+          "qid": "task_031_Mental Health",
+          "file": "task_031_Mental_Health.json",
+          "question": "我需要查询以下和上海地区精神疾病诊疗、抑郁症就诊相关的全部信息，请所有信息对应所属主体清晰呈现，不要混淆：\n1. 首先筛选上海市内全部满足以下条件的三甲及以上医院：设有独立的精神疾病相关科室、开设有精神疾病相关专病门诊、药费支持医保报销。请列出所有符合条件的医院，同步提供每家医院的所在地区、其精神疾病相关科室在复旦版中国医院专科声誉排行榜上的排名。\n2. 针对上述筛选出的每家医院，请明确列出其设置\n\n… [290 chars truncated]",
+          "triplet_f1": 0.2752,
+          "node_f1": 0.3023,
+          "user_turns": 23,
+          "tool_calls": 323
+        },
+        {
+          "qid": "task_017_museum",
+          "file": "task_017_museum.json",
+          "question": "I'm a cultural enthusiast planning to travel to Europe during the summer vacation, please help me gather all the following information that meets the requirements:\nFirst, extract the top 50 museums fr\n\n… [1246 chars truncated]",
+          "triplet_f1": 0.2729,
+          "node_f1": 0.2292,
+          "user_turns": 22,
+          "tool_calls": 238
+        },
+        {
+          "qid": "task_033_aesthetic medicine",
+          "file": "task_033_aesthetic_medicine.json",
+          "question": "I want to choose a country with a developed medical aesthetics industry to receive treatment, so please provide me with all the following relevant 2024 data as required:\n1. First, identify the top 3 c\n\n… [1516 chars truncated]",
+          "triplet_f1": 0.272,
+          "node_f1": 0.2842,
+          "user_turns": 15,
+          "tool_calls": 119
+        },
+        {
+          "qid": "task_090_huaban",
+          "file": "task_090_huaban.json",
+          "question": "I want to systematically get a complete set of information about the professional competition system of competitive skateboarding, all based on the official definitions and certified lists from the Wo\n\n… [1569 chars truncated]",
+          "triplet_f1": 0.2719,
+          "node_f1": 0.3092,
+          "user_turns": 10,
+          "tool_calls": 137
+        },
+        {
+          "qid": "task_059_Sunscreen",
+          "file": "task_059_Sunscreen.json",
+          "question": "我是一名经常需要参与户外活动的导游，肤质比较敏感，最近夏天快到了想要选购合适的防晒产品，麻烦你帮我整理符合以下所有要求的相关信息，不要遗漏任何内容：\n1. 首先筛选新浪财经发布的2025年防晒化妆品销售榜单TOP10中，母公司总部在国外的品牌，且这些母公司的创立时长至少有50年，请先列出这些上榜品牌对应的母公司名称、母公司的创立年份。\n2. 请列出上述符合要求的上榜品牌旗下所有SPF50及以上的防\n\n… [278 chars truncated]",
+          "triplet_f1": 0.2545,
+          "node_f1": 0.2917,
+          "user_turns": 19,
+          "tool_calls": 290
+        },
+        {
+          "qid": "task_032_petcare",
+          "file": "task_032_petcare.json",
+          "question": "I want to learn about pet infectious disease prevention measures (excluding daily care measures) for my dogs and cats, and I need all the following information structured at the granularity matching t\n\n… [1248 chars truncated]",
+          "triplet_f1": 0.252,
+          "node_f1": 0.2612,
+          "user_turns": 16,
+          "tool_calls": 226
+        },
+        {
+          "qid": "task_065_kuaiji",
+          "file": "task_065_kuaiji.json",
+          "question": "I need the following information about the US CPA exam and related prep resources, with all results presented in line with the structure of the provided knowledge graph triples, matching the exact inf\n\n… [1425 chars truncated]",
+          "triplet_f1": 0.2467,
+          "node_f1": 0.2958,
+          "user_turns": 19,
+          "tool_calls": 232
+        },
+        {
+          "qid": "task_100_muying",
+          "file": "task_100_muying.json",
+          "question": "I need comprehensive information about postpartum recovery, with the output presented following the structured granularity of evidence-based guideline knowledge triples, covering the following content\n\n… [1919 chars truncated]",
+          "triplet_f1": 0.236,
+          "node_f1": 0.2795,
+          "user_turns": 11,
+          "tool_calls": 121
+        },
+        {
+          "qid": "task_039_VR",
+          "file": "task_039_VR.json",
+          "question": "I need a complete VR game selection and equipment configuration reference that meets all the following requirements, with information provided at the specified detailed granularity:\nFirst, retrieve th\n\n… [1402 chars truncated]",
+          "triplet_f1": 0.2343,
+          "node_f1": 0.2932,
+          "user_turns": 16,
+          "tool_calls": 240
+        },
+        {
+          "qid": "task_093_coffee",
+          "file": "task_093_coffee.json",
+          "question": "I'm planning to partner with a friend to open a coffee shop, but neither of us is familiar with this field, so I need the following information for reference, all relevant data should be as of 2026:\nF\n\n… [1293 chars truncated]",
+          "triplet_f1": 0.2199,
+          "node_f1": 0.2262,
+          "user_turns": 16,
+          "tool_calls": 215
+        },
+        {
+          "qid": "task_030_opera",
+          "file": "task_030_opera.json",
+          "question": "我是一名戏曲爱好者，目前正在撰写一份戏曲相关的报告，需要获取以下相关信息，请按照对应知识图谱三元组的结构呈现所有结果：\n1. 首先请告知中国传统五大戏曲剧种具体有哪些，同时从这五大剧种中完成两项筛选：一是筛选出经典剧目中历史题材占比最高的剧种，二是筛选出所有起源地为北方的剧种。\n2. 针对上述筛选出的起源地为北方的剧种，请列出其符合以下要求的经典代表剧目：在非遗网项目介绍中被列为代表性剧目，或是获\n\n… [224 chars truncated]",
+          "triplet_f1": 0.2133,
+          "node_f1": 0.3098,
+          "user_turns": 23,
+          "tool_calls": 328
+        },
+        {
+          "qid": "task_074_Overseas Michelin-starred restaurants",
+          "file": "task_074_Overseas_Michelin-starred_restaurants.json",
+          "question": "I need the following information, with all results adhering strictly to the stated time limits and filter criteria, and output as standard knowledge graph triples (subject-predicate-object) consistent\n\n… [1238 chars truncated]",
+          "triplet_f1": 0.2096,
+          "node_f1": 0.2096,
+          "user_turns": 13,
+          "tool_calls": 257
+        },
+        {
+          "qid": "task_070_Ergonomic chair",
+          "file": "task_070_Ergonomic_chair.json",
+          "question": "我想基于CNPP十大品牌网公布的人体工学椅十大品牌相关信息，获取以下内容：\n1. 首先筛选出十大品牌中公司总部位于中国长三角的品牌，再列出这些品牌下同时满足「2025-2026年在售、通过BIFMA或国标人体工学认证、售价在1000-5000元区间」的所有主力型号，同时说明每款型号的全部调节功能，尤其要明确座高、座深、腰托、头枕、后仰、扶手这六项功能的具体支持情况。\n2. 给出全部十大上榜品牌对应\n\n… [139 chars truncated]",
+          "triplet_f1": 0.2029,
+          "node_f1": 0.2475,
+          "user_turns": 12,
+          "tool_calls": 109
+        },
+        {
+          "qid": "task_064_Myopia",
+          "file": "task_064_Myopia.json",
+          "question": "I'm a myopia patient who has had trouble seeing clearly in daily life for many years, so I want to systematically learn all relevant information about formal, scientific clinical myopia treatment, and\n\n… [1287 chars truncated]",
+          "triplet_f1": 0.1992,
+          "node_f1": 0.2245,
+          "user_turns": 15,
+          "tool_calls": 118
+        },
+        {
+          "qid": "task_050_meizhaung",
+          "file": "task_050_meizhaung.json",
+          "question": "I want to buy well-received skincare products that can fix the fine lines and dullness on my skin, please help me find all the relevant information strictly following these rules, with results present\n\n… [1109 chars truncated]",
+          "triplet_f1": 0.1933,
+          "node_f1": 0.2752,
+          "user_turns": 17,
+          "tool_calls": 231
+        },
+        {
+          "qid": "task_023_House",
+          "file": "task_023_House.json",
+          "question": "我马上要去贵阳工作，打算在贵阳买房，麻烦帮我查询以下所有相关信息：\n1. 贵阳市所有的管辖区域有哪些？请分别列明其下辖区、下辖县、代管的县级市；\n2. 贵阳目前一共有多少条地铁线路？\n3. 请帮我筛选出贵阳所有符合以下全部条件的在售楼盘：楼盘距离最近的地铁站点小于1千米，楼盘周边1500米范围内有二级及以上等级医院或者三甲医院，楼盘周边有公办中小学；\n4. 针对上述筛选出来的每一个符合条件的楼盘，\n\n… [129 chars truncated]",
+          "triplet_f1": 0.1876,
+          "node_f1": 0.2251,
+          "user_turns": 8,
+          "tool_calls": 132
+        },
+        {
+          "qid": "task_067_Perming agent and coloring agent",
+          "file": "task_067_Perming_agent_and_coloring_agent.json",
+          "question": "1. First, list all legal compliant categories for household hair dyes and perming/straightening agents under the official regulations of the US FDA and EU cosmetics laws, according to the regulatory c\n\n… [1011 chars truncated]",
+          "triplet_f1": 0.1863,
+          "node_f1": 0.2668,
+          "user_turns": 5,
+          "tool_calls": 73
+        },
+        {
+          "qid": "task_060_skin",
+          "file": "task_060_skin.json",
+          "question": "我是一名医学生，现在想要了解一系列皮肤病相关的专业内容，麻烦帮我整理输出：\n首先，皮肤病总体可以分为哪些病种？\n其次，我最近在学习过敏性皮肤病相关知识，请帮我筛选出其中高发病率、且可使用外用药物治疗的疾病，同时给出这些疾病对应的ICD-11编号，以及各自的临床症状；\n另外我还需要了解湿疹相关的详细信息：包括湿疹的发病病因有哪些？患者患上湿疹后有哪些可用的治疗方案？其中外用药物治疗的具体方案是什么，\n\n… [49 chars truncated]",
+          "triplet_f1": 0.1837,
+          "node_f1": 0.2259,
+          "user_turns": 10,
+          "tool_calls": 65
+        },
+        {
+          "qid": "task_089_chonglangban",
+          "file": "task_089_chonglangban.json",
+          "question": "I'm a 75kg intermediate surfer planning to go surfing at 1–1.5m beach breaks in Spain, and I need a full surfboard selection guide that covers all the following information, with relevant data taken f\n\n… [1561 chars truncated]",
+          "triplet_f1": 0.1781,
+          "node_f1": 0.2648,
+          "user_turns": 22,
+          "tool_calls": 316
+        },
+        {
+          "qid": "task_066_paoxie",
+          "file": "task_066_paoxie.json",
+          "question": "I'm planning to buy cushioning running shoes recently, and I need the following relevant information organized clearly:\n1. First, based on the running shoe material classification framework issued by \n\n… [1434 chars truncated]",
+          "triplet_f1": 0.1703,
+          "node_f1": 0.1997,
+          "user_turns": 12,
+          "tool_calls": 199
+        },
+        {
+          "qid": "task_043_GamePlotGuide",
+          "file": "task_043_GamePlotGuide.json",
+          "question": "我最近迷上了剧情游戏，刚玩完《黑神话悟空》，现在想了解满足以下所有筛选条件的其他剧情驱动型游戏的相关信息：筛选条件为2020年至今发布、在Metacritic或IGN上评分高于75分、至少具备2个独立结局。麻烦帮我整理这些游戏的下列内容：\n1. 每款符合条件的游戏的基础信息：游戏名称、对应的开发商、上线年份；\n2. 每款游戏官方给出的、用来构建玩家代入感的核心叙事机制分别有哪些；\n3. 每款游戏的\n\n… [119 chars truncated]",
+          "triplet_f1": 0.1679,
+          "node_f1": 0.2202,
+          "user_turns": 12,
+          "tool_calls": 259
+        },
+        {
+          "qid": "task_052_Japan",
+          "file": "task_052_Japan.json",
+          "question": "I'm planning a trip to Japan's Kansai region, and I need to get all the following information to arrange my itinerary:\nFirst, tell me which prefectures are part of the Kansai region, and confirm if th\n\n… [1478 chars truncated]",
+          "triplet_f1": 0.1648,
+          "node_f1": 0.2069,
+          "user_turns": 20,
+          "tool_calls": 312
+        },
+        {
+          "qid": "task_013_Phone",
+          "file": "task_013_Phone.json",
+          "question": "My charger just broke, so I want to do thorough research on Qi2 magnetic wireless chargers sold between 2024 and 2025 to make a smart and safe purchase. Please provide me with all the information that\n\n… [1894 chars truncated]",
+          "triplet_f1": 0.1633,
+          "node_f1": 0.2266,
+          "user_turns": 10,
+          "tool_calls": 198
+        },
+        {
+          "qid": "task_019_Camping Gear",
+          "file": "task_019_Camping_Gear.json",
+          "question": "我想查询以下相关信息，麻烦按照要求筛选后输出对应内容：\n1. 先筛选2023年度亚洲户外装备大奖参选露营类的品牌，列出这些品牌对应的所属公司全称，筛选出公司总部位于中国的户外品牌。\n2. 从上述国产品牌的参选产品中，挑选适合三人去草原看星星使用的帐篷、睡袋、防潮垫三类产品，重量需满足：帐篷重量大于15kg、小于40kg，睡袋重量超过1kg，防潮垫重量小于200g，请列出符合重量要求的睡袋、防潮垫的\n\n… [296 chars truncated]",
+          "triplet_f1": 0.1501,
+          "node_f1": 0.1631,
+          "user_turns": 13,
+          "tool_calls": 238
+        },
+        {
+          "qid": "task_003_Maldives vacation",
+          "file": "task_003_Maldives_vacation.json",
+          "question": "我想要找符合所有以下要求的马尔代夫酒店，同时请提供符合条件的酒店的相关详细信息：\n### 筛选条件\n1. 酒店所在的环礁，从Velana国际机场乘坐快艇或者水上飞机前往的行程时间在50分钟以内，且酒店本身符合2026年国际五星级酒店认证标准；\n2. 根据2026年官方发布的信息，酒店所在的岛屿没有登岛年龄限制，同时酒店的客房数量超过75间；\n3. 酒店可提供上岛后的一价全包套餐；\n4. 浮潜相关要\n\n… [232 chars truncated]",
+          "triplet_f1": 0.1486,
+          "node_f1": 0.1656,
+          "user_turns": 19,
+          "tool_calls": 357
+        },
+        {
+          "qid": "task_098_yinger",
+          "file": "task_098_yinger.json",
+          "question": "My child is 8 months old and weighs 7.5 kg, I need to buy suitable foreign basic baby travel gear, please help me sort out all the following relevant information completely, covering every required de\n\n… [1379 chars truncated]",
+          "triplet_f1": 0.1323,
+          "node_f1": 0.1397,
+          "user_turns": 18,
+          "tool_calls": 413
+        },
+        {
+          "qid": "task_080_Hotel Selection and Comparison",
+          "file": "task_080_Hotel_Selection_and_Comparison.json",
+          "question": "I'm planning a 10-day trip to Bali, during which I will go out to sea to watch dolphins, visit volcanoes and waterfalls, and experience wellness treatments. I need you to help me filter eligible Bali \n\n… [1213 chars truncated]",
+          "triplet_f1": 0.1215,
+          "node_f1": 0.1427,
+          "user_turns": 10,
+          "tool_calls": 161
+        },
+        {
+          "qid": "task_091_Furniture greening",
+          "file": "task_091_Furniture_greening.json",
+          "question": "I'm looking to get some foliage plants for my new home, and I need all the following related information organized clearly following the attached organic foliage plant pest control knowledge graph tri\n\n… [1278 chars truncated]",
+          "triplet_f1": 0.1013,
+          "node_f1": 0.1491,
+          "user_turns": 3,
+          "tool_calls": 7
+        },
+        {
+          "qid": "task_053_Chengdu",
+          "file": "task_053_Chengdu.json",
+          "question": "我2026年五一打算去成都游玩，出发前想整理一份符合要求的餐馆清单，请你帮我查询以下信息：\n首先先帮我筛选符合条件的餐馆范围：需包含2025年获评米其林星级的成都餐厅、2025年大众点评成都必吃榜前十的成都餐厅，且这些餐厅都要满足从成都东站出发地铁直达无需换乘的条件。\n针对筛选出的这些餐厅，请帮我同步查询以下信息：\n1. 各餐厅截至2026年4月15日是否正常营业，对应的营业时段分别是什么；\n2.\n\n… [185 chars truncated]",
+          "triplet_f1": 0.0977,
+          "node_f1": 0.1518,
+          "user_turns": 22,
+          "tool_calls": 161
+        },
+        {
+          "qid": "task_046_qichebaoxian",
+          "file": "task_046_qichebaoxian.json",
+          "question": "I'm a UK car owner whose car insurance policy is due for renewal soon, and I'm looking to switch to a new insurance provider. I need the following information that strictly meets my requirements:\n1. F\n\n… [1303 chars truncated]",
+          "triplet_f1": 0.066,
+          "node_f1": 0.0955,
+          "user_turns": 12,
+          "tool_calls": 342
+        }
+      ]
+    }
+  },
+  "demo_mode": false
+}

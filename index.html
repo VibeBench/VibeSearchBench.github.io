@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VibeSearchBench — Benchmarking Long-horizon Proactive Search in the Wild</title>
+    <meta
+      name="description"
+      content="VibeSearchBench evaluates LLM agents on vague, multi-turn proactive search with schema-free knowledge graph matching."
+    />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <nav class="nav" id="nav">
+      <div class="container nav-inner">
+        <a class="logo" href="#top">
+          <img src="assets/img/logo.png" alt="VibeSearchBench" />
+          VibeSearchBench
+        </a>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#leaderboard">Leaderboard</a></li>
+          <li><a href="#tasks">Tasks</a></li>
+          <li><a href="assets/paper.pdf" target="_blank" rel="noopener">Paper</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a class="btn btn-ghost" href="https://github.com/VibeSearchBench/VibeSearchBench" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn btn-primary" href="https://huggingface.co/datasets/VibeSearchBench/VibeSearchBench" target="_blank" rel="noopener">Dataset</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="page" id="top">
+      <section class="hero">
+        <div class="container hero-inner">
+          <img class="hero-logo" src="assets/img/logo.png" alt="" />
+          <h1><span>VibeSearchBench</span></h1>
+          <p class="hero-sub">
+            Benchmarking long-horizon proactive search in the wild — 200 bilingual tasks with
+            persona-driven progressive disclosure and schema-free knowledge graph evaluation.
+          </p>
+          <div class="hero-stats">
+            <div class="h-stat">
+              <div class="h-stat-n">200</div>
+              <div class="h-stat-l">Tasks</div>
+            </div>
+            <div class="h-stat">
+              <div class="h-stat-n">20</div>
+              <div class="h-stat-l">Domains</div>
+            </div>
+            <div class="h-stat">
+              <div class="h-stat-n">7</div>
+              <div class="h-stat-l">Models</div>
+            </div>
+            <div class="h-stat">
+              <div class="h-stat-n">30.3</div>
+              <div class="h-stat-l">Best F1</div>
+            </div>
+          </div>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#leaderboard">View Leaderboard</a>
+            <a class="btn btn-outline" href="#tasks">Explore Trajectories</a>
+            <a class="btn btn-ghost" href="assets/paper.pdf" target="_blank" rel="noopener">Read Paper</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="section-title">What is <span>VibeSearch</span>?</h2>
+            <p class="section-sub">
+              Real users rarely specify full intent upfront. VibeSearch captures bidirectional
+              convergence: agents interleave partial results with follow-up questions while users
+              progressively disclose needs. VibeSearchBench pairs each task with a persona simulator
+              and evaluates schema-free knowledge graphs via graph matching (Precision / Recall / F1).
+            </p>
+          </div>
+          <div class="hl-grid">
+            <article class="card hl-card">
+              <h3>VibeSearch-Pro</h3>
+              <p>
+                100 professional research scenarios — literature reviews, market analysis, technical
+                due diligence across specialized domains.
+              </p>
+              <span class="tag">Professional</span>
+            </article>
+            <article class="card hl-card">
+              <h3>VibeSearch-Daily</h3>
+              <p>
+                100 daily-life search tasks — shopping, travel, lifestyle decisions with vague initial
+                queries and evolving preferences.
+              </p>
+              <span class="tag">Daily-life</span>
+            </article>
+            <article class="card hl-card">
+              <h3>Evaluation</h3>
+              <p>
+                Progressive-disclosure user simulator, multi-turn tool use (search / visit / code),
+                and LLM-as-judge graph matching on predicted vs. ground-truth triples.
+              </p>
+              <span class="tag">Graph F1</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="leaderboard">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="section-title"><span>Leaderboard</span></h2>
+            <p class="section-sub" id="lb-subtitle">
+              Triplet-level F1 on VibeSearchBench (Table 3 in the paper). Toggle framework and sort columns.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="lb-toolbar">
+              <div class="tab-bar" id="framework-tabs">
+                <button type="button" class="tab-btn active" data-framework="openclaw">OpenClaw</button>
+                <button type="button" class="tab-btn" data-framework="react">ReAct</button>
+              </div>
+              <div class="tab-bar" id="subset-tabs">
+                <button type="button" class="tab-btn active" data-subset="avg">Average</button>
+                <button type="button" class="tab-btn" data-subset="pro">Pro</button>
+                <button type="button" class="tab-btn" data-subset="daily">Daily</button>
+              </div>
+            </div>
+            <div class="table-wrap">
+              <table id="leaderboard-table">
+                <thead>
+                  <tr>
+                    <th data-sort="rank">#</th>
+                    <th data-sort="name">Model</th>
+                    <th data-sort="f1">F1 ↑</th>
+                    <th data-sort="p">Precision</th>
+                    <th data-sort="r">Recall</th>
+                  </tr>
+                </thead>
+                <tbody id="leaderboard-body"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top: 1rem">
+            <h3 style="font-size: 0.95rem; margin-bottom: 0.75rem">Interaction statistics</h3>
+            <div class="table-wrap">
+              <table id="interaction-table">
+                <thead>
+                  <tr>
+                    <th>Model</th>
+                    <th># Asst turns</th>
+                    <th># User turns</th>
+                    <th>Asst / User</th>
+                    <th># Compact</th>
+                  </tr>
+                </thead>
+                <tbody id="interaction-body"></tbody>
+              </table>
+            </div>
+            <p class="section-sub" style="margin-top: 0.75rem; margin-bottom: 0">
+              Trajectory visualizations use <span id="traj-model-label">—</span>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="tasks">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="section-title">Task <span>Visualization</span></h2>
+            <p class="section-sub">
+              Browse multi-turn agent trajectories: user simulation, tool calls (search / visit / python),
+              and final knowledge-graph extraction.
+            </p>
+          </div>
+
+          <div id="demo-banner" class="demo-banner" hidden></div>
+
+          <div class="tasks-layout">
+            <aside class="task-sidebar">
+              <div class="task-filters card">
+                <select id="subset-select" aria-label="Subset">
+                  <option value="pro">VibeSearch-Pro</option>
+                  <option value="daily">VibeSearch-Daily</option>
+                </select>
+                <input type="search" id="task-search" placeholder="Search tasks…" />
+              </div>
+              <div class="task-list" id="task-list" role="listbox" aria-label="Tasks"></div>
+            </aside>
+            <article class="task-viewer" id="task-viewer">
+              <div class="empty-state">Select a task to view its trajectory.</div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>
+          VibeSearchBench · Rednote-Hilab &amp; Unipat AI ·
+          <a href="https://github.com/VibeSearchBench/VibeSearchBench">Code</a> ·
+          <a href="https://huggingface.co/datasets/VibeSearchBench/VibeSearchBench">Data</a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>
