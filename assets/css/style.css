@@ -811,6 +811,14 @@ tbody tr:hover td {
   border-color: var(--accent);
 }
 
+.task-acc-hint {
+  flex: 1;
+  font-size: 0.65rem;
+  color: var(--muted);
+  text-align: left;
+  align-self: center;
+}
+
 .task-accordion {
   flex-shrink: 0;
 }

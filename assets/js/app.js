@@ -1112,6 +1112,7 @@ function renderTrajectory(task, subset, file) {
     '<div class="task-accordion-toolbar">' +
     '<button type="button" class="task-acc-tool" data-acc-action="expand-all">Expand all</button>' +
     '<button type="button" class="task-acc-tool" data-acc-action="collapse-all">Collapse all</button>' +
+    '<span class="task-acc-hint">Click a section title to fold / unfold</span>' +
     "</div>";
   html += '<div class="task-accordion">';
   html += renderTaskAccordionSection(
