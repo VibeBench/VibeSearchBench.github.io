@@ -1,0 +1,12 @@
+---
+description: Push to origin/main after completing implementation work on this site
+alwaysApply: true
+---
+
+When you finish a task that changes files in this repository:
+
+1. Commit with a clear message (user does not need to ask separately).
+2. Push to `origin main` unless the user says not to push or only asked a question with no code changes.
+3. Report the commit hash after a successful push.
+
+Do not force-push. Do not push secrets or credential files.
