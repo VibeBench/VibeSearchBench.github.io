@@ -239,7 +239,7 @@ a:hover {
 }
 
 .hero-logo {
-  width: min(480px, 92vw);
+  width: min(500px, 92vw);
   height: auto;
   object-fit: contain;
   display: block;
