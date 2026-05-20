@@ -904,14 +904,23 @@ tbody tr:hover td {
   margin: 0;
 }
 
+.tool-args.md-body {
+  font-family: inherit;
+  white-space: normal;
+}
+
 .tool-result {
   padding: 0.5rem 0.65rem;
   font-size: 0.78rem;
   word-break: break-word;
-  max-height: 280px;
+  max-height: 360px;
   overflow-y: auto;
   border-top: 1px solid var(--border);
   background: #fafafa;
+}
+
+.tool-result.md-body {
+  font-size: 0.8rem;
 }
 
 .trajectory .md-body {
@@ -965,6 +974,19 @@ tbody tr:hover td {
 
 .trajectory .md-body a:hover {
   color: #1d4ed8;
+}
+
+.trajectory .md-body strong {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.trajectory .md-body ol {
+  list-style: decimal;
+}
+
+.trajectory .md-body li > p {
+  margin: 0.15rem 0;
 }
 
 .trajectory .md-body code {

@@ -18,11 +18,37 @@ function escapeHtml(s) {
     .replace(/"/g, "&quot;");
 }
 
+let markdownReady = false;
+
+function ensureMarkdown() {
+  if (markdownReady || typeof marked === "undefined") return;
+  marked.setOptions({
+    breaks: true,
+    gfm: true,
+    headerIds: false,
+    mangle: false,
+  });
+  markdownReady = true;
+}
+
+function preprocessTrajectoryMarkdown(text) {
+  let s = String(text);
+  s = s.replace(/\r\n/g, "\n");
+  s = s.replace(/^={3,}\s*$/gm, "\n---\n");
+  s = s.replace(
+    /^The useful information in .+ for user goal .+ as follows:\s*/gm,
+    ""
+  );
+  s = s.replace(/^Evidence in page:\s*/gim, "**Evidence in page**\n\n");
+  s = s.replace(/^Summary:\s*/gim, "**Summary**\n\n");
+  return s;
+}
+
 function renderMarkdown(text) {
   if (text == null || text === "") return "";
   const src = String(text);
   if (typeof marked !== "undefined") {
-    marked.setOptions({ breaks: true, gfm: true });
+    ensureMarkdown();
     let html = marked.parse(src);
     if (typeof DOMPurify !== "undefined") {
       html = DOMPurify.sanitize(html, {
@@ -36,6 +62,19 @@ function renderMarkdown(text) {
     return html;
   }
   return escapeHtml(src);
+}
+
+function renderTrajectoryMarkdown(text) {
+  return renderMarkdown(preprocessTrajectoryMarkdown(text));
+}
+
+function renderToolArgs(args) {
+  const formatted = formatArgs(args);
+  const trimmed = formatted.trim();
+  if (trimmed.startsWith("{") || trimmed.startsWith("[")) {
+    return '<pre class="tool-args">' + escapeHtml(formatted) + "</pre>";
+  }
+  return '<div class="tool-args md-body">' + renderTrajectoryMarkdown(formatted) + "</div>";
 }
 
 function formatArgs(args) {
@@ -739,10 +778,7 @@ function renderGroundTruthShell() {
     '<div class="ground-truth-panel">' +
     '<p class="gt-status">Loading ground truth…</p>' +
     '<img class="gt-image" alt="Ground truth knowledge graph" hidden />' +
-    graphWrapHtml("gt-graph", "gt-graph", "Ground truth knowledge graph").replace(
-      'class="kg-graph-wrap"',
-      'class="kg-graph-wrap" hidden'
-    ) +
+    graphWrapHtml("gt-graph", "gt-graph", "Ground truth knowledge graph", true) +
     '<p class="kg-legend gt-legend" hidden></p>' +
     "</div>"
   );
@@ -960,24 +996,27 @@ function renderTurn(turn) {
       '<div class="turn turn-user">' +
       '<div class="turn-role">User</div>' +
       '<div class="turn-content md-body">' +
-      renderMarkdown(turn.content || "") +
+      renderTrajectoryMarkdown(turn.content || "") +
       "</div></div>"
     );
   }
 
   let html = '<div class="turn turn-assistant"><div class="turn-role">Agent</div>';
   if (turn.thinking) {
-    html += '<div class="turn-thinking md-body">' + renderMarkdown(turn.thinking) + "</div>";
+    html +=
+      '<div class="turn-thinking md-body">' + renderTrajectoryMarkdown(turn.thinking) + "</div>";
   }
   if (turn.content) {
-    html += '<div class="turn-content md-body">' + renderMarkdown(turn.content) + "</div>";
+    html +=
+      '<div class="turn-content md-body">' + renderTrajectoryMarkdown(turn.content) + "</div>";
   }
   for (const tc of turn.tool_calls || []) {
     html += '<div class="tool-block">';
     html += '<div class="tool-head">' + escapeHtml(tc.name) + "</div>";
-    html += '<pre class="tool-args">' + escapeHtml(formatArgs(tc.args)) + "</pre>";
+    html += renderToolArgs(tc.args);
     if (tc.result != null) {
-      html += '<div class="tool-result md-body">' + renderMarkdown(tc.result) + "</div>";
+      html +=
+        '<div class="tool-result md-body">' + renderTrajectoryMarkdown(tc.result) + "</div>";
     }
     html += "</div>";
   }
