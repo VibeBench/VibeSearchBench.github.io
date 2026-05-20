@@ -2,9 +2,22 @@
 
 Static project website for [VibeSearchBench](https://github.com/VibeSearchBench/VibeSearchBench).
 
-**Live site:** https://vibesearchbench.github.io/
+**Live site:** https://vibebench.github.io/VibeSearchBench.github.io/
 
-This repository is deployed automatically by GitHub Pages (no `/docs` folder — site files live at the repository root).
+This repo is under the [VibeBench](https://github.com/VibeBench) org, so it is a **project** site (not `vibesearchbench.github.io`, which would require a `VibeSearchBench` GitHub org).
+
+### Enable GitHub Pages (required once)
+
+Pushing code does **not** turn on Pages. An admin must:
+
+1. Open **Settings → Pages**: https://github.com/VibeBench/VibeSearchBench.github.io/settings/pages  
+2. Under **Build and deployment → Source**, choose **GitHub Actions** (recommended; uses `.github/workflows/deploy-pages.yml`)  
+   - Or choose **Deploy from a branch** → branch `main`, folder `/ (root)`  
+3. Save and wait a few minutes. Check **Actions** for a green “Deploy GitHub Pages” run.
+
+If the Pages menu is missing or disabled, a **VibeBench org owner** must allow Pages under https://github.com/organizations/VibeBench/settings/pages .
+
+Site files live at the repository root (no `/docs` folder). `.nojekyll` disables Jekyll so `data/` is served as static files.
 
 ## Update from the main benchmark repo
 
