@@ -69,12 +69,23 @@
 
           <div class="tasks-layout">
             <aside class="task-sidebar">
-              <div class="task-filters card">
-                <select id="subset-select" aria-label="Subset">
-                  <option value="pro">VibeSearch-Pro</option>
-                  <option value="daily">VibeSearch-Daily</option>
-                </select>
-                <input type="search" id="task-search" placeholder="Search tasks…" />
+              <div class="task-filters">
+                <label class="task-filter-field">
+                  <span class="task-filter-label">Subset</span>
+                  <select id="subset-select">
+                    <option value="pro">VibeSearch-Pro</option>
+                    <option value="daily">VibeSearch-Daily</option>
+                  </select>
+                </label>
+                <label class="task-filter-field">
+                  <span class="task-filter-label">Search</span>
+                  <input
+                    type="search"
+                    id="task-search"
+                    placeholder="Filter by keyword…"
+                    autocomplete="off"
+                  />
+                </label>
               </div>
               <div class="task-list" id="task-list" role="listbox" aria-label="Tasks"></div>
             </aside>
