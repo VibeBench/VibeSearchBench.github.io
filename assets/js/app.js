@@ -1049,8 +1049,40 @@ function layoutNodesByLayer(nodeMap, nodeLevels, el, style) {
       const node = nodeMap.get(id);
       node.x = (i - (count - 1) / 2) * nodeSpacing;
       node.y = layer * levelSep;
+      node.fixed = false;
     });
   });
+}
+
+function layerLayoutUpdates(nodeMap) {
+  return Array.from(nodeMap.values()).map(function (node) {
+    return { id: node.id, x: node.x, y: node.y, fixed: false };
+  });
+}
+
+function scheduleLayerGraphRelayout(network, nodes, nodeMap, nodeLevels, el, style) {
+  if (!network || !nodes || !nodeMap || !el) return;
+
+  function relayout() {
+    if (!el.isConnected || el.offsetWidth < 20 || el.offsetHeight < 20) return;
+    layoutNodesByLayer(nodeMap, nodeLevels, el, style);
+    nodes.update(layerLayoutUpdates(nodeMap));
+    fitKgNetwork(network, 40);
+  }
+
+  relayout();
+  setTimeout(relayout, 80);
+  setTimeout(relayout, 300);
+
+  if (typeof ResizeObserver !== "undefined") {
+    const ro = new ResizeObserver(function () {
+      relayout();
+    });
+    ro.observe(el);
+    network.on("destroy", function () {
+      ro.disconnect();
+    });
+  }
 }
 
 function fitKgNetwork(network, padding) {
@@ -1137,11 +1169,13 @@ function initTripletsGraph(el, triplets, viewer, networkKey, style) {
         borderWidth: 1.5,
         margin: 10,
       },
-      layout: useLayerLayout ? {} : { improvedLayout: nodeMap.size < 80 },
+      layout: useLayerLayout
+        ? { improvedLayout: false, hierarchical: false }
+        : { improvedLayout: nodeMap.size < 80 },
     }
   );
   if (useLayerLayout) {
-    fitKgNetwork(network, 40);
+    scheduleLayerGraphRelayout(network, nodes, nodeMap, style.nodeLevels, el, style);
   } else {
     network.once("stabilizationIterationsDone", function () {
       network.fit({ animation: { duration: 250 } });
