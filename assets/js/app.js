@@ -596,16 +596,10 @@ function setupTaskAccordion(viewer) {
     if (btn) btn.setAttribute("aria-expanded", open ? "true" : "false");
     if (open) {
       if (section.dataset.acc === "gt" && viewer._gtNetwork) {
-        setTimeout(function () {
-          viewer._gtNetwork.redraw();
-          viewer._gtNetwork.fit({ animation: { duration: 200 } });
-        }, 80);
+        fitKgNetwork(viewer._gtNetwork, 40);
       }
       if (section.dataset.acc === "final" && viewer._kgNetwork) {
-        setTimeout(function () {
-          viewer._kgNetwork.redraw();
-          viewer._kgNetwork.fit({ animation: { duration: 200 } });
-        }, 80);
+        fitKgNetwork(viewer._kgNetwork, 40);
       }
     }
   }
@@ -1017,16 +1011,57 @@ function setupKgTabs(scope) {
 }
 
 function makeKgNode(id, style) {
-  const node = {
+  return {
     id: id,
     label: truncateKgLabel(id, 30),
     title: id,
     shape: "dot",
     font: { size: 12, face: "Inter, sans-serif" },
   };
-  const levels = style.nodeLevels;
-  if (levels && levels.has(id)) node.level = levels.get(id);
-  return node;
+}
+
+function layoutNodesByLayer(nodeMap, nodeLevels, el, style) {
+  const byLayer = new Map();
+  nodeMap.forEach(function (_node, id) {
+    const layer = nodeLevels && nodeLevels.has(id) ? nodeLevels.get(id) : 0;
+    if (!byLayer.has(layer)) byLayer.set(layer, []);
+    byLayer.get(layer).push(id);
+  });
+
+  const levelSep = style.levelSeparation || 90;
+  const layers = Array.from(byLayer.keys()).sort(function (a, b) {
+    return a - b;
+  });
+  let maxCount = 1;
+  layers.forEach(function (layer) {
+    maxCount = Math.max(maxCount, byLayer.get(layer).length);
+  });
+  const width = (el && el.clientWidth) || 720;
+  const nodeSpacing = Math.max(
+    style.nodeSpacing || 80,
+    Math.min(130, Math.floor((width - 80) / Math.max(maxCount, 1)))
+  );
+
+  layers.forEach(function (layer) {
+    const ids = byLayer.get(layer).slice().sort();
+    const count = ids.length;
+    ids.forEach(function (id, i) {
+      const node = nodeMap.get(id);
+      node.x = (i - (count - 1) / 2) * nodeSpacing;
+      node.y = layer * levelSep;
+    });
+  });
+}
+
+function fitKgNetwork(network, padding) {
+  if (!network) return;
+  const pad = padding != null ? padding : 40;
+  requestAnimationFrame(function () {
+    requestAnimationFrame(function () {
+      network.redraw();
+      network.fit({ animation: { duration: 250 }, padding: pad });
+    });
+  });
 }
 
 function initTripletsGraph(el, triplets, viewer, networkKey, style) {
@@ -1038,6 +1073,7 @@ function initTripletsGraph(el, triplets, viewer, networkKey, style) {
   }
 
   const hierarchical = !!style.hierarchical;
+  const useLayerLayout = hierarchical && style.nodeLevels && style.nodeLevels.size > 0;
   const maxN = style.maxTriplets || KG_GRAPH_MAX_TRIPLETS;
   const capped = triplets.slice(0, maxN);
   const nodeMap = new Map();
@@ -1057,11 +1093,13 @@ function initTripletsGraph(el, triplets, viewer, networkKey, style) {
       title: rel,
       arrows: "to",
       font: { size: 9, align: "middle", face: "Inter, sans-serif" },
-      smooth: hierarchical
+      smooth: useLayerLayout
         ? { enabled: true, type: "cubicBezier", forceDirection: "vertical", roundness: 0.35 }
         : { type: "dynamic" },
     });
   });
+
+  if (useLayerLayout) layoutNodesByLayer(nodeMap, style.nodeLevels, el, style);
 
   const nodes = new vis.DataSet(Array.from(nodeMap.values()));
   const edges = new vis.DataSet(edgeList);
@@ -1069,7 +1107,7 @@ function initTripletsGraph(el, triplets, viewer, networkKey, style) {
     el,
     { nodes: nodes, edges: edges },
     {
-      physics: hierarchical
+      physics: useLayerLayout
         ? { enabled: false }
         : {
             enabled: true,
@@ -1099,27 +1137,11 @@ function initTripletsGraph(el, triplets, viewer, networkKey, style) {
         borderWidth: 1.5,
         margin: 10,
       },
-      layout: hierarchical
-        ? {
-            hierarchical: {
-              enabled: true,
-              direction: "UD",
-              sortMethod: "directed",
-              levelSeparation: style.levelSeparation || 95,
-              nodeSpacing: style.nodeSpacing || 110,
-              treeSpacing: 180,
-              blockShifting: true,
-              edgeMinimization: true,
-              parentCentralization: true,
-            },
-          }
-        : { improvedLayout: nodeMap.size < 80 },
+      layout: useLayerLayout ? {} : { improvedLayout: nodeMap.size < 80 },
     }
   );
-  if (hierarchical) {
-    setTimeout(function () {
-      network.fit({ animation: { duration: 250 } });
-    }, 60);
+  if (useLayerLayout) {
+    fitKgNetwork(network, 40);
   } else {
     network.once("stabilizationIterationsDone", function () {
       network.fit({ animation: { duration: 250 } });
@@ -1198,6 +1220,7 @@ async function loadGroundTruthPanel(viewer, subset, qid, file) {
       text += " · drag nodes to explore";
       legend.textContent = text;
     }
+    fitKgNetwork(viewer._gtNetwork, 40);
     const gtSection = viewer.querySelector('.task-acc-section[data-acc="gt"]');
     if (gtSection && !gtSection.classList.contains("is-open")) {
       gtSection.classList.add("is-open");
