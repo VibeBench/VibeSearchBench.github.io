@@ -320,27 +320,25 @@ a:hover {
   background: linear-gradient(90deg, transparent, #3181f0);
 }
 
-.hero-sub {
-  font-size: 0.95rem;
-  color: var(--muted);
-  line-height: 1.55;
-  max-width: 640px;
-  margin: 0.35rem auto 1.25rem;
-}
-
 .hero-stats {
   display: flex;
   width: 100%;
   max-width: 640px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0.5rem auto 0.85rem;
   flex-wrap: nowrap;
   border: 1px solid var(--border);
   border-radius: 10px;
   overflow: hidden;
   background: var(--surface);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
-  margin-bottom: 1.5rem;
+}
+
+.hero-sub {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.55;
+  max-width: 640px;
+  margin: 0 auto 1.25rem;
 }
 
 .h-stat {
