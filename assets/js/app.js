@@ -1200,11 +1200,15 @@ function initTripletsGraph(el, triplets, viewer, networkKey, style) {
         id: networkKey + "-e" + i,
         from: h,
         to: tail,
+        label: "",
         title: rel,
-        color: { color: "rgba(203,213,225,0)", highlight: "rgba(203,213,225,0)", hover: "rgba(203,213,225,0)" },
-        arrows: { to: { enabled: false } },
-        smooth: false,
-        width: 0,
+        arrows: "to",
+        smooth: {
+          enabled: true,
+          type: "cubicBezier",
+          forceDirection: "horizontal",
+          roundness: 0.45,
+        },
       });
     } else {
       edgeList.push({
