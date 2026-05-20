@@ -1,5 +1,6 @@
-# Requires: Settings → Pages → Source = GitHub Actions (save once), then push or re-run.
-name: Deploy GitHub Pages
+# Pushes a static build to the gh-pages branch (no configure-pages / OIDC needed).
+# One-time: Settings → Pages → Deploy from a branch → gh-pages → / (root) → Save
+name: Publish site to gh-pages
 
 on:
   push:
@@ -7,24 +8,19 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
-  group: pages
-  cancel-in-progress: false
+  group: gh-pages
+  cancel-in-progress: true
 
 jobs:
-  deploy:
+  publish:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
 
-      - name: Prepare static site (exclude source jsonl, not used by the viewer)
+      - name: Build static site
         run: |
           set -euo pipefail
           mkdir -p _site/data/trajs
@@ -35,11 +31,10 @@ jobs:
           touch _site/.nojekyll
           du -sh _site
 
-      - uses: actions/configure-pages@v5
-
-      - uses: actions/upload-pages-artifact@v3
+      - name: Push to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          path: _site
-
-      - id: deployment
-        uses: actions/deploy-pages@v4
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
+          publish_branch: gh-pages
+          force_orphan: true

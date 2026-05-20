@@ -8,15 +8,16 @@ This repo is under the [VibeBench](https://github.com/VibeBench) org, so it is a
 
 ### Enable GitHub Pages (required once)
 
-The **Deploy GitHub Pages** workflow fails at `configure-pages` until this is done:
+The **Publish site to gh-pages** workflow builds the site and pushes the `gh-pages` branch. Then:
 
 1. Open **Settings → Pages**: https://github.com/VibeBench/VibeSearchBench.github.io/settings/pages  
-2. **Build and deployment → Source** → **GitHub Actions** → **Save**  
-3. **Actions** → **Deploy GitHub Pages** → **Re-run all jobs** (or push to `main`)
+2. **Build and deployment → Source** → **Deploy from a branch**  
+3. Branch **`gh-pages`**, folder **`/ (root)`** → **Save**  
+4. Wait 2–5 min → https://vibebench.github.io/VibeSearchBench.github.io/
+
+If Actions cannot push, enable **Settings → Actions → General → Workflow permissions → Read and write**.
 
 If the Pages menu is missing, a **VibeBench org owner** must allow Pages: https://github.com/organizations/VibeBench/settings/pages
-
-Alternative (no Actions): Source → **Deploy from a branch** → `main` / `/ (root)`.
 
 Site files live at the repository root (no `/docs` folder). `.nojekyll` disables Jekyll so `data/` is served as static files.
 
