@@ -872,6 +872,11 @@ tbody tr:hover td {
 @media (max-width: 640px) {
   .hero-logo {
     width: min(312px, 90vw);
+    margin: -1rem auto -2.75rem;
+  }
+
+  .hero-brand {
+    margin-top: -0.35rem;
   }
 
   .hero-stats {
