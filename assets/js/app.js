@@ -1099,6 +1099,59 @@ function gtEdgeChannel(nodeLevels, levelSep, fromId, toId) {
 }
 
 function installGtLayerEdgeOverlay(network, edgeMeta, nodeLevels, levelSep) {
+  function drawCurvedEdges(ctx) {
+    let positions;
+    try {
+      positions = network.getPositions();
+    } catch (e) {
+      return;
+    }
+
+    ctx.save();
+    ctx.strokeStyle = "#94a3b8";
+    ctx.fillStyle = "#94a3b8";
+    ctx.lineWidth = 1.4;
+
+    edgeMeta.forEach(function (edge) {
+      const from = positions[edge.from];
+      const to = positions[edge.to];
+      if (!from || !to) return;
+
+      const midX = gtEdgeChannel(nodeLevels, levelSep, edge.from, edge.to);
+      ctx.beginPath();
+      if (midX != null) {
+        ctx.moveTo(from.x, from.y);
+        ctx.bezierCurveTo(midX, from.y, midX, to.y, to.x, to.y);
+      } else {
+        const cx = (from.x + to.x) / 2;
+        const cy = (from.y + to.y) / 2;
+        ctx.moveTo(from.x, from.y);
+        ctx.quadraticCurveTo(cx, cy, to.x, to.y);
+      }
+      ctx.stroke();
+
+      const endAngle =
+        midX != null ? 0 : Math.atan2(to.y - from.y, to.x - from.x);
+      const head = 6;
+      ctx.beginPath();
+      ctx.moveTo(to.x, to.y);
+      ctx.lineTo(
+        to.x - head * Math.cos(endAngle - 0.45),
+        to.y - head * Math.sin(endAngle - 0.45)
+      );
+      ctx.lineTo(
+        to.x - head * Math.cos(endAngle + 0.45),
+        to.y - head * Math.sin(endAngle + 0.45)
+      );
+      ctx.closePath();
+      ctx.fill();
+    });
+
+    ctx.restore();
+  }
+
+  network.on("beforeDrawing", drawCurvedEdges);
+
   network.on("afterDrawing", function (ctx) {
     let positions;
     try {
