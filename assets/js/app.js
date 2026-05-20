@@ -683,7 +683,7 @@ function graphWrapHtml(graphId, extraClass, ariaLabel, hidden) {
     cls +
     '" aria-label="' +
     escapeHtml(ariaLabel) +
-    '"></div></div>"
+    '"></div></div>'
   );
 }
 
