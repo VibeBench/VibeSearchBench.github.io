@@ -235,15 +235,15 @@ a:hover {
   flex-direction: column;
   align-items: center;
   gap: 0.35rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .hero-logo {
-  width: min(500px, 92vw);
+  width: min(380px, 88vw);
   height: auto;
   object-fit: contain;
   display: block;
-  margin: 0 auto;
+  margin: 0 auto -0.75rem;
 }
 
 .hero-sub {
@@ -710,7 +710,7 @@ tbody tr:hover td {
 
 @media (max-width: 640px) {
   .hero-logo {
-    width: min(300px, 92vw);
+    width: min(280px, 88vw);
   }
 
   .hero-stats {
