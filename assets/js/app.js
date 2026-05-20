@@ -499,28 +499,8 @@ const extractionCache = {};
 
 const KG_GRAPH_MAX_TRIPLETS = 500;
 const GT_GRAPH_MAX_TRIPLETS = 200;
-const GT_LAYER_COLORS = [
-  { background: "#dbeafe", border: "#2563eb" },
-  { background: "#dcfce7", border: "#16a34a" },
-  { background: "#fef3c7", border: "#d97706" },
-  { background: "#fce7f3", border: "#db2777" },
-  { background: "#ede9fe", border: "#7c3aed" },
-  { background: "#cffafe", border: "#0891b2" },
-  { background: "#fee2e2", border: "#dc2626" },
-  { background: "#ecfccb", border: "#65a30d" },
-];
 const HF_GT_BASE =
   "https://huggingface.co/datasets/VibeSearchBench/VibeSearchBench/resolve/main/";
-
-function gtColorForLayer(layer) {
-  const c = GT_LAYER_COLORS[Math.abs(layer) % GT_LAYER_COLORS.length];
-  return {
-    background: c.background,
-    border: c.border,
-    highlight: { background: c.background, border: c.border },
-    hover: { background: c.background, border: c.border },
-  };
-}
 
 function truncateKgLabel(s, max) {
   const t = String(s);
@@ -616,10 +596,16 @@ function setupTaskAccordion(viewer) {
     if (btn) btn.setAttribute("aria-expanded", open ? "true" : "false");
     if (open) {
       if (section.dataset.acc === "gt" && viewer._gtNetwork) {
-        fitKgNetwork(viewer._gtNetwork, 40);
+        setTimeout(function () {
+          viewer._gtNetwork.redraw();
+          viewer._gtNetwork.fit({ animation: { duration: 200 } });
+        }, 80);
       }
       if (section.dataset.acc === "final" && viewer._kgNetwork) {
-        fitKgNetwork(viewer._kgNetwork, 40);
+        setTimeout(function () {
+          viewer._kgNetwork.redraw();
+          viewer._kgNetwork.fit({ animation: { duration: 200 } });
+        }, 80);
       }
     }
   }
@@ -697,17 +683,6 @@ function normalizeGtTriples(gt) {
     .filter(function (t) {
       return t.head && t.tail;
     });
-}
-
-function buildGtNodeLevels(gt) {
-  const levels = new Map();
-  (gt.nodes || []).forEach(function (n) {
-    if (n.layer == null) return;
-    const name = n.node_name || n.name || n.node_id;
-    if (name != null) levels.set(String(name), n.layer);
-    if (n.node_id != null) levels.set(String(n.node_id), n.layer);
-  });
-  return levels;
 }
 
 async function loadGroundTruthData(subset, qid, file) {
@@ -1030,194 +1005,6 @@ function setupKgTabs(scope) {
   });
 }
 
-function makeKgNode(id, style) {
-  return {
-    id: id,
-    label: truncateKgLabel(id, 30),
-    title: id,
-    shape: "dot",
-    font: { size: 12, face: "Inter, sans-serif" },
-  };
-}
-
-function gtNodeLayer(id, nodeLevels) {
-  return nodeLevels && nodeLevels.has(id) ? nodeLevels.get(id) : 0;
-}
-
-function buildDirectedLayerEdges(triplets, nodeLevels) {
-  const preds = new Map();
-  const succs = new Map();
-
-  function link(from, to) {
-    if (!succs.has(from)) succs.set(from, new Set());
-    if (!preds.has(to)) preds.set(to, new Set());
-    succs.get(from).add(to);
-    preds.get(to).add(from);
-  }
-
-  (triplets || []).forEach(function (t) {
-    const h = t.head;
-    const tail = t.tail;
-    const hl = gtNodeLayer(h, nodeLevels);
-    const tl = gtNodeLayer(tail, nodeLevels);
-    if (hl < tl) link(h, tail);
-    else if (tl < hl) link(tail, h);
-  });
-  return { preds, succs };
-}
-
-function layerRankMap(orderedIds) {
-  const ranks = new Map();
-  orderedIds.forEach(function (id, i) {
-    ranks.set(id, i);
-  });
-  return ranks;
-}
-
-function layerBarycenter(id, neighborIds, neighborRanks) {
-  if (!neighborIds || !neighborIds.size) return null;
-  let sum = 0;
-  let count = 0;
-  neighborIds.forEach(function (nid) {
-    if (neighborRanks.has(nid)) {
-      sum += neighborRanks.get(nid);
-      count++;
-    }
-  });
-  return count ? sum / count : null;
-}
-
-function sortLayerByBarycenter(ids, neighborOf, neighborRanks) {
-  return ids.slice().sort(function (a, b) {
-    const ba = layerBarycenter(a, neighborOf(a), neighborRanks);
-    const bb = layerBarycenter(b, neighborOf(b), neighborRanks);
-    if (ba != null && bb != null && ba !== bb) return ba - bb;
-    if (ba != null && bb == null) return -1;
-    if (ba == null && bb != null) return 1;
-    return String(a).localeCompare(String(b));
-  });
-}
-
-function orderLayersByBarycenter(byLayer, layers, preds, succs) {
-  const order = new Map();
-  layers.forEach(function (layer) {
-    order.set(layer, byLayer.get(layer).slice().sort());
-  });
-
-  const iterations = Math.max(4, layers.length * 2);
-  for (let iter = 0; iter < iterations; iter++) {
-    for (let li = 1; li < layers.length; li++) {
-      const layer = layers[li];
-      const prevRanks = layerRankMap(order.get(layers[li - 1]));
-      order.set(
-        layer,
-        sortLayerByBarycenter(order.get(layer), function (id) {
-          return preds.get(id);
-        }, prevRanks)
-      );
-    }
-    for (let li = layers.length - 2; li >= 0; li--) {
-      const layer = layers[li];
-      const nextRanks = layerRankMap(order.get(layers[li + 1]));
-      order.set(
-        layer,
-        sortLayerByBarycenter(order.get(layer), function (id) {
-          return succs.get(id);
-        }, nextRanks)
-      );
-    }
-  }
-  return order;
-}
-
-function layoutNodesByLayer(nodeMap, nodeLevels, el, style) {
-  const byLayer = new Map();
-  nodeMap.forEach(function (_node, id) {
-    const layer = gtNodeLayer(id, nodeLevels);
-    if (!byLayer.has(layer)) byLayer.set(layer, []);
-    byLayer.get(layer).push(id);
-  });
-
-  const levelSep = style.levelSeparation || 660;
-  const minNodeGap = style.nodeSpacing || 120;
-  const layers = Array.from(byLayer.keys()).sort(function (a, b) {
-    return a - b;
-  });
-  let maxCount = 1;
-  layers.forEach(function (layer) {
-    maxCount = Math.max(maxCount, byLayer.get(layer).length);
-  });
-  const height = (el && el.clientHeight) || 640;
-  const nodeSpacing = Math.max(
-    minNodeGap,
-    Math.min(160, Math.floor((height - 100) / Math.max(maxCount, 1)))
-  );
-
-  const { preds, succs } = buildDirectedLayerEdges(style._layoutTriplets || [], nodeLevels);
-  const layerOrder = orderLayersByBarycenter(byLayer, layers, preds, succs);
-
-  layers.forEach(function (layer) {
-    const ids = layerOrder.get(layer);
-    const count = ids.length;
-    const color = gtColorForLayer(layer);
-    ids.forEach(function (id, i) {
-      const node = nodeMap.get(id);
-      node.x = layer * levelSep;
-      node.y = (i - (count - 1) / 2) * nodeSpacing;
-      node.color = color;
-      node.fixed = false;
-    });
-  });
-}
-
-function layerLayoutUpdates(nodeMap) {
-  return Array.from(nodeMap.values()).map(function (node) {
-    return {
-      id: node.id,
-      x: node.x,
-      y: node.y,
-      color: node.color,
-      fixed: false,
-    };
-  });
-}
-
-function scheduleLayerGraphRelayout(network, nodes, nodeMap, nodeLevels, el, style) {
-  if (!network || !nodes || !nodeMap || !el) return;
-
-  function relayout() {
-    if (!el.isConnected || el.offsetWidth < 20 || el.offsetHeight < 20) return;
-    layoutNodesByLayer(nodeMap, nodeLevels, el, style);
-    nodes.update(layerLayoutUpdates(nodeMap));
-    fitKgNetwork(network, 40);
-  }
-
-  relayout();
-  setTimeout(relayout, 80);
-  setTimeout(relayout, 300);
-
-  if (typeof ResizeObserver !== "undefined") {
-    const ro = new ResizeObserver(function () {
-      relayout();
-    });
-    ro.observe(el);
-    network.on("destroy", function () {
-      ro.disconnect();
-    });
-  }
-}
-
-function fitKgNetwork(network, padding) {
-  if (!network) return;
-  const pad = padding != null ? padding : 40;
-  requestAnimationFrame(function () {
-    requestAnimationFrame(function () {
-      network.redraw();
-      network.fit({ animation: { duration: 250 }, padding: pad });
-    });
-  });
-}
-
 function initTripletsGraph(el, triplets, viewer, networkKey, style) {
   if (!el || typeof vis === "undefined") return null;
 
@@ -1226,8 +1013,6 @@ function initTripletsGraph(el, triplets, viewer, networkKey, style) {
     viewer[networkKey] = null;
   }
 
-  const hierarchical = !!style.hierarchical;
-  const useLayerLayout = hierarchical && style.nodeLevels && style.nodeLevels.size > 0;
   const maxN = style.maxTriplets || KG_GRAPH_MAX_TRIPLETS;
   const capped = triplets.slice(0, maxN);
   const nodeMap = new Map();
@@ -1237,8 +1022,24 @@ function initTripletsGraph(el, triplets, viewer, networkKey, style) {
     const h = t.head;
     const tail = t.tail;
     const rel = t.relation || "";
-    if (!nodeMap.has(h)) nodeMap.set(h, makeKgNode(h, style));
-    if (!nodeMap.has(tail)) nodeMap.set(tail, makeKgNode(tail, style));
+    if (!nodeMap.has(h)) {
+      nodeMap.set(h, {
+        id: h,
+        label: truncateKgLabel(h, 30),
+        title: h,
+        shape: "dot",
+        font: { size: 12, face: "Inter, sans-serif" },
+      });
+    }
+    if (!nodeMap.has(tail)) {
+      nodeMap.set(tail, {
+        id: tail,
+        label: truncateKgLabel(tail, 30),
+        title: tail,
+        shape: "dot",
+        font: { size: 12, face: "Inter, sans-serif" },
+      });
+    }
     edgeList.push({
       id: networkKey + "-e" + i,
       from: h,
@@ -1247,16 +1048,9 @@ function initTripletsGraph(el, triplets, viewer, networkKey, style) {
       title: rel,
       arrows: "to",
       font: { size: 9, align: "middle", face: "Inter, sans-serif" },
-      smooth: useLayerLayout
-        ? { enabled: true, type: "cubicBezier", forceDirection: "horizontal", roundness: 0.35 }
-        : { type: "dynamic" },
+      smooth: { type: "dynamic" },
     });
   });
-
-  if (useLayerLayout) {
-    style._layoutTriplets = capped;
-    layoutNodesByLayer(nodeMap, style.nodeLevels, el, style);
-  }
 
   const nodes = new vis.DataSet(Array.from(nodeMap.values()));
   const edges = new vis.DataSet(edgeList);
@@ -1264,17 +1058,15 @@ function initTripletsGraph(el, triplets, viewer, networkKey, style) {
     el,
     { nodes: nodes, edges: edges },
     {
-      physics: useLayerLayout
-        ? { enabled: false }
-        : {
-            enabled: true,
-            stabilization: { iterations: 100 },
-            barnesHut: {
-              gravitationalConstant: -2800,
-              springLength: style.springLength || 140,
-              springConstant: 0.05,
-            },
-          },
+      physics: {
+        enabled: true,
+        stabilization: { iterations: 100 },
+        barnesHut: {
+          gravitationalConstant: -2800,
+          springLength: style.springLength || 140,
+          springConstant: 0.05,
+        },
+      },
       interaction: { hover: true, tooltipDelay: 120, navigationButtons: false },
       edges: {
         color: style.edgeColor || {
@@ -1294,18 +1086,12 @@ function initTripletsGraph(el, triplets, viewer, networkKey, style) {
         borderWidth: 1.5,
         margin: 10,
       },
-      layout: useLayerLayout
-        ? { improvedLayout: false, hierarchical: false }
-        : { improvedLayout: nodeMap.size < 80 },
+      layout: { improvedLayout: nodeMap.size < 80 },
     }
   );
-  if (useLayerLayout) {
-    scheduleLayerGraphRelayout(network, nodes, nodeMap, style.nodeLevels, el, style);
-  } else {
-    network.once("stabilizationIterationsDone", function () {
-      network.fit({ animation: { duration: 250 } });
-    });
-  }
+  network.once("stabilizationIterationsDone", function () {
+    network.fit({ animation: { duration: 250 } });
+  });
   viewer[networkKey] = network;
   const wrap = el.closest(".kg-graph-wrap");
   if (wrap) {
@@ -1347,21 +1133,22 @@ async function loadGroundTruthPanel(viewer, subset, qid, file) {
 
   const gt = await loadGroundTruthData(subset, qid, file);
   const triplets = normalizeGtTriples(gt);
-  const nodeLevels = buildGtNodeLevels(gt);
 
   if (triplets.length) {
     if (graphWrap) graphWrap.hidden = false;
     status.hidden = true;
     const stats = initTripletsGraph(graph, triplets, viewer, "_gtNetwork", {
       maxTriplets: GT_GRAPH_MAX_TRIPLETS,
-      hierarchical: nodeLevels.size > 0,
-      nodeLevels: nodeLevels,
-      levelSeparation: 220,
-      nodeSpacing: 130,
+      nodeColor: {
+        background: "#dcfce7",
+        border: "#16a34a",
+        highlight: { background: "#bbf7d0", border: "#15803d" },
+        hover: { background: "#bbf7d0", border: "#15803d" },
+      },
       edgeColor: {
-        color: "#cbd5e1",
-        highlight: "#64748b",
-        hover: "#64748b",
+        color: "#86efac",
+        highlight: "#16a34a",
+        hover: "#16a34a",
       },
     });
     if (stats && legend) {
@@ -1373,7 +1160,6 @@ async function loadGroundTruthPanel(viewer, subset, qid, file) {
       text += " · drag nodes to explore";
       legend.textContent = text;
     }
-    fitKgNetwork(viewer._gtNetwork, 40);
     const gtSection = viewer.querySelector('.task-acc-section[data-acc="gt"]');
     if (gtSection && !gtSection.classList.contains("is-open")) {
       gtSection.classList.add("is-open");

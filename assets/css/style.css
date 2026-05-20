@@ -1189,7 +1189,6 @@ tbody tr:hover td {
 
 .gt-graph {
   margin-top: 0;
-  height: min(680px, 68vh);
 }
 
 .gt-legend {
