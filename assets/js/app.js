@@ -1,6 +1,6 @@
 function asset(path) {
-  const base = window.location.pathname.replace(/\/[^/]*$/, "/");
-  return `${base}${path}`.replace(/\/+/g, "/").replace(":/", "://");
+  if (path.startsWith("http")) return path;
+  return new URL(path, document.baseURI).href;
 }
 
 async function loadJSON(path) {
