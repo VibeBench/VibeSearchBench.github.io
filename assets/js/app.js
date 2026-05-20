@@ -1013,7 +1013,8 @@ function initTripletsGraph(el, triplets, viewer, networkKey, style) {
     viewer[networkKey] = null;
   }
 
-  const capped = triplets;
+  const maxN = style.maxTriplets || KG_GRAPH_MAX_TRIPLETS;
+  const capped = triplets.slice(0, maxN);
   const nodeMap = new Map();
   const edgeList = [];
 
