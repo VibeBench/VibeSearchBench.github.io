@@ -455,8 +455,12 @@ let currentSubset = "pro";
 let currentLanguage = "english";
 let currentTaskFile = null;
 const taskCache = {};
+const gtCache = {};
 
 const KG_GRAPH_MAX_TRIPLETS = 120;
+const GT_GRAPH_MAX_TRIPLETS = 200;
+const HF_GT_BASE =
+  "https://huggingface.co/datasets/VibeSearchBench/VibeSearchBench/resolve/main/";
 
 function truncateKgLabel(s, max) {
   const t = String(s);
@@ -521,6 +525,110 @@ function parseKgTriplets(raw) {
   return out;
 }
 
+function renderTaskPanel(title, bodyHtml, panelClass) {
+  const cls = panelClass ? ' class="task-panel ' + panelClass + '"' : ' class="task-panel"';
+  return (
+    "<details" +
+    cls +
+    ' open><summary class="task-panel-summary">' +
+    escapeHtml(title) +
+    '</summary><div class="task-panel-body">' +
+    bodyHtml +
+    "</div></details>"
+  );
+}
+
+function taskNumberFromQid(qid) {
+  const m = String(qid || "").match(/^task_(\d+)_/i);
+  return m ? m[1] : null;
+}
+
+function groundTruthJsonUrls(subset, qid, file) {
+  const urls = [];
+  const base = file.replace(/\.json$/i, "");
+  const num = taskNumberFromQid(qid);
+  urls.push(asset("data/ground_truth/" + subset + "/" + file));
+  urls.push(asset("data/ground_truth/" + subset + "/" + base + ".json"));
+  if (num) urls.push(asset("data/ground_truth/" + subset + "/" + num + ".json"));
+  if (subset === "pro" && num) {
+    urls.push(HF_GT_BASE + "VibeSearch-Pro/" + num + ".json");
+  } else {
+    urls.push(HF_GT_BASE + "VibeSearch-Daily/" + encodeURIComponent(file));
+  }
+  return urls;
+}
+
+function groundTruthImageUrls(subset, qid, file) {
+  const base = file.replace(/\.json$/i, "");
+  const num = taskNumberFromQid(qid);
+  const names = [base + ".png", base + ".jpg", base + ".webp"];
+  if (num) names.push(num + ".png", num + ".jpg");
+  const urls = [];
+  names.forEach(function (name) {
+    urls.push(asset("data/ground_truth/" + subset + "/" + name));
+  });
+  return urls;
+}
+
+function normalizeGtTriples(gt) {
+  if (!gt) return [];
+  const idToName = {};
+  (gt.nodes || []).forEach(function (n) {
+    idToName[n.node_id] = n.node_name || n.name || n.node_id;
+  });
+  return (gt.triples || [])
+    .map(function (t) {
+      return {
+        head: idToName[t.head_id] || t.head || t.head_id || "",
+        relation: t.relation || "",
+        tail: idToName[t.tail_id] || t.tail || t.tail_id || "",
+      };
+    })
+    .filter(function (t) {
+      return t.head && t.tail;
+    });
+}
+
+async function loadGroundTruthData(subset, qid, file) {
+  const key = subset + "/" + file;
+  if (gtCache[key]) return gtCache[key];
+  const urls = groundTruthJsonUrls(subset, qid, file);
+  for (let i = 0; i < urls.length; i++) {
+    try {
+      const data = await loadJSON(urls[i]);
+      if (data && ((data.nodes && data.nodes.length) || (data.triples && data.triples.length))) {
+        gtCache[key] = data;
+        return data;
+      }
+    } catch (e) {
+      /* try next source */
+    }
+  }
+  return null;
+}
+
+function loadGroundTruthImage(urls) {
+  return new Promise(function (resolve) {
+    let i = 0;
+    function tryNext() {
+      if (i >= urls.length) {
+        resolve(null);
+        return;
+      }
+      const img = new Image();
+      img.onload = function () {
+        resolve(urls[i]);
+      };
+      img.onerror = function () {
+        i += 1;
+        tryNext();
+      };
+      img.src = urls[i];
+    }
+    tryNext();
+  });
+}
+
 function renderKgExtraction(preview) {
   const triplets = parseKgTriplets(preview);
   const total = triplets.length;
@@ -529,12 +637,11 @@ function renderKgExtraction(preview) {
 
   if (!total) {
     return (
-      '<section class="kg-extraction">' +
-      '<div class="kg-extraction-head"><div class="turn-role">Final extraction</div></div>' +
+      '<div class="kg-extraction">' +
       '<p class="kg-note">Could not parse triplets from the preview.</p>' +
       '<pre class="kg-raw">' +
       escapeHtml(preview.slice(0, 5000)) +
-      "</pre></section>"
+      "</pre></div>"
     );
   }
 
@@ -549,16 +656,15 @@ function renderKgExtraction(preview) {
   }
 
   return (
-    '<section class="kg-extraction">' +
+    '<div class="kg-extraction">' +
     '<div class="kg-extraction-head">' +
-    '<div class="turn-role">Final extraction</div>' +
     '<div class="kg-tabs" role="tablist">' +
     '<button type="button" class="kg-tab active" data-kg-tab="graph" role="tab" aria-selected="true">Graph</button>' +
     '<button type="button" class="kg-tab" data-kg-tab="json" role="tab" aria-selected="false">JSON</button>' +
     "</div></div>" +
     note +
     '<div class="kg-panel kg-panel-graph active" data-kg-panel="graph" role="tabpanel">' +
-    '<div id="kg-graph" class="kg-graph" aria-label="Knowledge graph"></div>' +
+    '<div id="kg-graph" class="kg-graph" aria-label="Predicted knowledge graph"></div>' +
     '<p class="kg-legend">' +
     total +
     " triplet" +
@@ -567,27 +673,42 @@ function renderKgExtraction(preview) {
     '<div class="kg-panel kg-panel-json" data-kg-panel="json" role="tabpanel" hidden>' +
     '<pre class="kg-raw">' +
     escapeHtml(JSON.stringify(shown, null, 2)) +
-    "</pre></div></section>"
+    "</pre></div></div>"
   );
 }
 
-function setupKgTabs(viewer) {
-  const tabs = viewer.querySelectorAll(".kg-tab");
+function renderGroundTruthShell() {
+  return (
+    '<div class="ground-truth-panel">' +
+    '<p class="gt-status">Loading ground truth…</p>' +
+    '<img class="gt-image" alt="Ground truth knowledge graph" hidden />' +
+    '<div id="gt-graph" class="kg-graph gt-graph" hidden aria-label="Ground truth knowledge graph"></div>' +
+    '<p class="kg-legend gt-legend" hidden></p>' +
+    "</div>"
+  );
+}
+
+function setupKgTabs(scope) {
+  const root = scope || document;
+  const tabs = root.querySelectorAll(".kg-tab");
   if (!tabs.length) return;
   tabs.forEach(function (btn) {
     btn.addEventListener("click", function () {
+      const panelRoot = btn.closest(".kg-extraction");
+      if (!panelRoot) return;
       const name = btn.dataset.kgTab;
-      viewer.querySelectorAll(".kg-tab").forEach(function (b) {
+      panelRoot.querySelectorAll(".kg-tab").forEach(function (b) {
         const on = b.dataset.kgTab === name;
         b.classList.toggle("active", on);
         b.setAttribute("aria-selected", on ? "true" : "false");
       });
-      viewer.querySelectorAll(".kg-panel").forEach(function (panel) {
-        const on = panel.dataset.kgPanel === name;
-        panel.classList.toggle("active", on);
-        panel.hidden = !on;
+      panelRoot.querySelectorAll(".kg-panel").forEach(function (p) {
+        const on = p.dataset.kgPanel === name;
+        p.classList.toggle("active", on);
+        p.hidden = !on;
       });
-      if (name === "graph" && viewer._kgNetwork) {
+      const viewer = document.getElementById("task-viewer");
+      if (name === "graph" && viewer && viewer._kgNetwork) {
         viewer._kgNetwork.redraw();
         viewer._kgNetwork.fit({ animation: { duration: 200 } });
       }
@@ -595,16 +716,16 @@ function setupKgTabs(viewer) {
   });
 }
 
-function initKgGraph(viewer, triplets) {
-  const el = viewer.querySelector("#kg-graph");
-  if (!el || typeof vis === "undefined") return;
+function initTripletsGraph(el, triplets, viewer, networkKey, style) {
+  if (!el || typeof vis === "undefined") return null;
 
-  if (viewer._kgNetwork) {
-    viewer._kgNetwork.destroy();
-    viewer._kgNetwork = null;
+  if (viewer[networkKey]) {
+    viewer[networkKey].destroy();
+    viewer[networkKey] = null;
   }
 
-  const capped = triplets.slice(0, KG_GRAPH_MAX_TRIPLETS);
+  const maxN = style.maxTriplets || KG_GRAPH_MAX_TRIPLETS;
+  const capped = triplets.slice(0, maxN);
   const nodeMap = new Map();
   const edgeList = [];
 
@@ -631,7 +752,7 @@ function initKgGraph(viewer, triplets) {
       });
     }
     edgeList.push({
-      id: "e" + i,
+      id: networkKey + "-e" + i,
       from: h,
       to: tail,
       label: rel ? truncateKgLabel(rel, 22) : "",
@@ -659,11 +780,15 @@ function initKgGraph(viewer, triplets) {
       },
       interaction: { hover: true, tooltipDelay: 120, navigationButtons: false },
       edges: {
-        color: { color: "#94a3b8", highlight: "#2563eb", hover: "#2563eb" },
+        color: style.edgeColor || {
+          color: "#94a3b8",
+          highlight: "#2563eb",
+          hover: "#2563eb",
+        },
         width: 1.2,
       },
       nodes: {
-        color: {
+        color: style.nodeColor || {
           background: "#e0f2fe",
           border: "#2563eb",
           highlight: { background: "#bfdbfe", border: "#1d4ed8" },
@@ -678,150 +803,123 @@ function initKgGraph(viewer, triplets) {
   network.once("stabilizationIterationsDone", function () {
     network.fit({ animation: { duration: 250 } });
   });
-  viewer._kgNetwork = network;
+  viewer[networkKey] = network;
+  return { shown: capped.length, total: triplets.length, maxN: maxN };
 }
 
-function turnPreviewText(turn) {
-  let raw = "";
+function initKgGraph(viewer, triplets) {
+  const el = viewer.querySelector("#kg-graph");
+  initTripletsGraph(el, triplets, viewer, "_kgNetwork", { maxTriplets: KG_GRAPH_MAX_TRIPLETS });
+}
+
+async function loadGroundTruthPanel(viewer, subset, qid, file) {
+  const panel = viewer.querySelector(".ground-truth-panel");
+  if (!panel) return;
+
+  if (viewer._gtNetwork) {
+    viewer._gtNetwork.destroy();
+    viewer._gtNetwork = null;
+  }
+
+  const status = panel.querySelector(".gt-status");
+  const img = panel.querySelector(".gt-image");
+  const graph = panel.querySelector("#gt-graph");
+  const legend = panel.querySelector(".gt-legend");
+
+  status.hidden = false;
+  status.textContent = "Loading ground truth…";
+  img.hidden = true;
+  graph.hidden = true;
+  legend.hidden = true;
+
+  const imageUrl = await loadGroundTruthImage(groundTruthImageUrls(subset, qid, file));
+  if (imageUrl) {
+    img.src = imageUrl;
+    img.hidden = false;
+    status.hidden = true;
+    graph.hidden = true;
+    legend.hidden = true;
+  }
+
+  const gt = await loadGroundTruthData(subset, qid, file);
+  const triplets = normalizeGtTriples(gt);
+
+  if (!imageUrl && triplets.length) {
+    graph.hidden = false;
+    status.hidden = true;
+    const stats = initTripletsGraph(graph, triplets, viewer, "_gtNetwork", {
+      maxTriplets: GT_GRAPH_MAX_TRIPLETS,
+      nodeColor: {
+        background: "#dcfce7",
+        border: "#16a34a",
+        highlight: { background: "#bbf7d0", border: "#15803d" },
+        hover: { background: "#bbf7d0", border: "#15803d" },
+      },
+      edgeColor: {
+        color: "#86efac",
+        highlight: "#16a34a",
+        hover: "#16a34a",
+      },
+    });
+    if (stats && legend) {
+      legend.hidden = false;
+      let text = stats.total + " ground-truth triplet" + (stats.total !== 1 ? "s" : "");
+      if (stats.total > stats.maxN) {
+        text += " (showing " + stats.shown + ")";
+      }
+      text += " · drag nodes to explore";
+      legend.textContent = text;
+    }
+    const gtPanel = viewer.querySelector(".task-panel-gt");
+    if (gtPanel && !gtPanel.open) gtPanel.open = true;
+    return;
+  }
+
+  if (imageUrl) return;
+
+  status.hidden = false;
+  status.textContent = "Ground truth not available for this task.";
+  graph.hidden = true;
+  legend.hidden = true;
+}
+
+function renderTurn(turn) {
   if (turn.type === "user") {
-    raw = turn.content || "";
-  } else {
-    if (turn.content) raw = turn.content;
-    else if (turn.thinking) raw = turn.thinking;
-    else if (turn.tool_calls && turn.tool_calls.length) {
-      raw =
-        turn.tool_calls.length +
-        " tool call" +
-        (turn.tool_calls.length !== 1 ? "s" : "") +
-        " (" +
-        turn.tool_calls
-          .slice(0, 3)
-          .map(function (tc) {
-            return tc.name;
-          })
-          .join(", ") +
-        (turn.tool_calls.length > 3 ? "…" : "") +
-        ")";
-    }
+    return (
+      '<div class="turn turn-user">' +
+      '<div class="turn-role">User</div>' +
+      '<div class="turn-content md-body">' +
+      renderMarkdown(turn.content || "") +
+      "</div></div>"
+    );
   }
-  raw = raw.replace(/\s+/g, " ").trim();
-  if (raw.length > 72) raw = raw.slice(0, 71) + "…";
-  return raw || "—";
-}
 
-function toolPreviewText(tc) {
-  let hint = "";
-  const args = tc.args;
-  if (args && typeof args === "object" && args.query) hint = String(args.query);
-  else if (typeof args === "string") {
-    try {
-      const parsed = JSON.parse(args);
-      if (parsed && parsed.query) hint = String(parsed.query);
-    } catch (e1) {
-      hint = args;
+  let html = '<div class="turn turn-assistant"><div class="turn-role">Agent</div>';
+  if (turn.thinking) {
+    html += '<div class="turn-thinking md-body">' + renderMarkdown(turn.thinking) + "</div>";
+  }
+  if (turn.content) {
+    html += '<div class="turn-content md-body">' + renderMarkdown(turn.content) + "</div>";
+  }
+  for (const tc of turn.tool_calls || []) {
+    html += '<div class="tool-block">';
+    html += '<div class="tool-head">' + escapeHtml(tc.name) + "</div>";
+    html += '<pre class="tool-args">' + escapeHtml(formatArgs(tc.args)) + "</pre>";
+    if (tc.result != null) {
+      html += '<div class="tool-result md-body">' + renderMarkdown(tc.result) + "</div>";
     }
+    html += "</div>";
   }
-  hint = hint.replace(/\s+/g, " ").trim();
-  if (hint.length > 56) hint = hint.slice(0, 55) + "…";
-  return hint;
-}
-
-function renderToolCall(tc, open) {
-  const preview = toolPreviewText(tc);
-  let html =
-    '<details class="tool-fold"' +
-    (open ? " open" : "") +
-    ">" +
-    '<summary class="tool-fold-summary">' +
-    '<span class="tool-fold-name">' +
-    escapeHtml(tc.name) +
-    "</span>";
-  if (preview) {
-    html += '<span class="tool-fold-preview">' + escapeHtml(preview) + "</span>";
-  }
-  html += '</summary><div class="tool-fold-body">';
-  html += '<pre class="tool-args">' + escapeHtml(formatArgs(tc.args)) + "</pre>";
-  if (tc.result != null) {
-    html += '<div class="tool-result md-body">' + renderMarkdown(tc.result) + "</div>";
-  }
-  html += "</div></details>";
+  html += "</div>";
   return html;
 }
 
-function renderTurn(turn, index, total) {
-  const openTurn = total <= 4 || index >= total - 2;
-  const role = turn.type === "user" ? "User" : "Agent";
-  const roleClass = turn.type === "user" ? "turn-user" : "turn-assistant";
-  const preview = turnPreviewText(turn);
-
-  let body = "";
-  if (turn.type === "user") {
-    body +=
-      '<div class="turn-content md-body">' + renderMarkdown(turn.content || "") + "</div>";
-  } else {
-    if (turn.thinking) {
-      body +=
-        '<details class="thinking-fold">' +
-        '<summary class="thinking-fold-summary">Thinking</summary>' +
-        '<div class="turn-thinking md-body">' +
-        renderMarkdown(turn.thinking) +
-        "</div></details>";
-    }
-    if (turn.content) {
-      body +=
-        '<div class="turn-content md-body">' + renderMarkdown(turn.content) + "</div>";
-    }
-    const tools = turn.tool_calls || [];
-    tools.forEach(function (tc, ti) {
-      const openTool = openTurn && ti === tools.length - 1;
-      body += renderToolCall(tc, openTool);
-    });
-  }
-
-  return (
-    '<details class="turn-fold ' +
-    roleClass +
-    '"' +
-    (openTurn ? " open" : "") +
-    ">" +
-    '<summary class="turn-fold-summary">' +
-    '<span class="turn-fold-label">' +
-    role +
-    "</span>" +
-    '<span class="turn-fold-preview">' +
-    escapeHtml(preview) +
-    "</span></summary>" +
-    '<div class="turn-fold-body">' +
-    body +
-    "</div></details>"
-  );
-}
-
-function setupTrajectoryFolds(viewer) {
-  const toolbar = viewer.querySelector(".trajectory-toolbar");
-  if (!toolbar) return;
-  toolbar.querySelectorAll("[data-traj-action]").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      const action = btn.dataset.trajAction;
-      const folds = viewer.querySelectorAll(".turn-fold, .tool-fold, .thinking-fold");
-      folds.forEach(function (el) {
-        el.open = action === "expand-all";
-      });
-    });
-  });
-}
-
-function renderTrajectory(task) {
+function renderTrajectory(task, subset, file) {
   const viewer = document.getElementById("task-viewer");
   const m = task.metrics || {};
   const f1 = m.triplet_f1 != null ? (m.triplet_f1 * 100).toFixed(1) + "%" : "—";
   const nf1 = m.node_f1 != null ? (m.node_f1 * 100).toFixed(1) + "%" : "—";
-  const turns = task.turns || [];
-  const turnsHtml = turns
-    .map(function (t, i) {
-      return renderTurn(t, i, turns.length);
-    })
-    .join("");
+  const turnsHtml = (task.turns || []).map(renderTurn).join("");
 
   let html = "";
   const display = getTaskDisplayTitle(task);
@@ -843,28 +941,46 @@ function renderTrajectory(task) {
   html += '<span class="metric-pill">Tool calls: ' + (task.stats?.tool_calls ?? "—") + "</span>";
   html += "</div></header>";
   html += '<div class="task-viewer-body">';
-  html += '<div class="trajectory">';
-  if (turns.length) {
-    html +=
-      '<div class="trajectory-toolbar">' +
-      '<button type="button" class="traj-btn" data-traj-action="expand-all">Expand all</button>' +
-      '<button type="button" class="traj-btn" data-traj-action="collapse-all">Collapse all</button>' +
-      "</div>";
-  }
-  html += turnsHtml || '<p class="empty-state">No turns in trajectory.</p>';
-  html += "</div>";
+  html += renderTaskPanel(
+    "Trajectory",
+    '<div class="trajectory">' +
+      (turnsHtml || '<p class="empty-state">No turns in trajectory.</p>') +
+      "</div>",
+    "task-panel-traj"
+  );
+  html += renderTaskPanel("Ground truth", renderGroundTruthShell(), "task-panel-gt");
   if (task.response_preview) {
-    html += renderKgExtraction(task.response_preview);
+    html += renderTaskPanel(
+      "Final extraction",
+      renderKgExtraction(task.response_preview),
+      "task-panel-final"
+    );
   }
   html += "</div>";
   viewer.innerHTML = html;
 
-  setupTrajectoryFolds(viewer);
+  const qid = task.qid || "";
+  loadGroundTruthPanel(viewer, subset, qid, file);
+
   if (task.response_preview) {
     const triplets = parseKgTriplets(task.response_preview);
     if (triplets.length) initKgGraph(viewer, triplets);
-    setupKgTabs(viewer);
+    const finalPanel = viewer.querySelector(".task-panel-final");
+    if (finalPanel) setupKgTabs(finalPanel);
   }
+
+  viewer.querySelectorAll(".task-panel").forEach(function (panel) {
+    panel.addEventListener("toggle", function () {
+      if (panel.classList.contains("task-panel-gt") && panel.open && viewer._gtNetwork) {
+        viewer._gtNetwork.redraw();
+        viewer._gtNetwork.fit({ animation: { duration: 200 } });
+      }
+      if (panel.classList.contains("task-panel-final") && panel.open && viewer._kgNetwork) {
+        viewer._kgNetwork.redraw();
+        viewer._kgNetwork.fit({ animation: { duration: 200 } });
+      }
+    });
+  });
 }
 
 async function selectTask(subset, file) {
@@ -877,7 +993,7 @@ async function selectTask(subset, file) {
   if (!taskCache[cacheKey]) {
     taskCache[cacheKey] = await loadJSON("data/trajs/" + subset + "/" + file);
   }
-  renderTrajectory(taskCache[cacheKey]);
+  renderTrajectory(taskCache[cacheKey], subset, file);
 }
 
 function renderTaskList(filter) {

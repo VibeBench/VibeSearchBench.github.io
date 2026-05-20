@@ -28,6 +28,9 @@ jobs:
           cp -r assets _site/
           cp data/leaderboard.json data/tasks_index.json _site/data/
           cp -r data/trajs/daily data/trajs/pro _site/data/trajs/
+          if [ -d data/ground_truth ]; then
+            cp -r data/ground_truth _site/data/
+          fi
           touch _site/.nojekyll
           du -sh _site
 
