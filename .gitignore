@@ -1,2 +1,4 @@
 .DS_Store
 *.swp
+data/ground_truth/
+scripts/__pycache__/
