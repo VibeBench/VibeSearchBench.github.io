@@ -1,5 +1,4 @@
-# Publish static site to GitHub Pages (project site).
-# One-time setup: repo Settings → Pages → Build and deployment → Source: GitHub Actions
+# Requires: Settings → Pages → Source = GitHub Actions (save once), then push or re-run.
 name: Deploy GitHub Pages
 
 on:
@@ -25,11 +24,22 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Prepare static site (exclude source jsonl, not used by the viewer)
+        run: |
+          set -euo pipefail
+          mkdir -p _site/data/trajs
+          cp index.html favicon.png _site/
+          cp -r assets _site/
+          cp data/leaderboard.json data/tasks_index.json _site/data/
+          cp -r data/trajs/daily data/trajs/pro _site/data/trajs/
+          touch _site/.nojekyll
+          du -sh _site
+
       - uses: actions/configure-pages@v5
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
 
       - id: deployment
         uses: actions/deploy-pages@v4
