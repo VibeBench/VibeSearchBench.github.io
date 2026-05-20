@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Results — VibeSearchBench</title>
+    <title>Leaderboard — VibeSearchBench</title>
     <meta
       name="description"
-      content="VibeSearchBench leaderboard and multi-turn trajectory visualizations."
+      content="VibeSearchBench model rankings and interaction statistics."
     />
     <link rel="icon" type="image/png" href="assets/img/smallicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -26,8 +26,8 @@
         </a>
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
-          <li><a href="#leaderboard">Leaderboard</a></li>
-          <li><a href="#tasks">Tasks</a></li>
+          <li><a href="leaderboard.html" class="active">Leaderboard</a></li>
+          <li><a href="tasks.html">Tasks</a></li>
           <li><a href="assets/paper.pdf" target="_blank" rel="noopener">Paper</a></li>
         </ul>
         <div class="nav-actions">
@@ -37,25 +37,18 @@
       </div>
     </nav>
 
-    <main class="page page-results" id="top">
+    <main class="page page-sub" id="top">
       <section class="section page-intro">
         <div class="container">
-          <h1 class="page-intro-title">Results &amp; <span>Trajectories</span></h1>
-          <p class="section-sub page-intro-sub">
-            Model rankings on VibeSearchBench and interactive multi-turn agent trajectories.
+          <h1 class="page-intro-title"><span>Leaderboard</span></h1>
+          <p class="section-sub page-intro-sub" id="lb-subtitle">
+            Triplet-level F1 on VibeSearchBench (Table 3 in the paper). Toggle framework and sort columns.
           </p>
         </div>
       </section>
 
-      <section class="section" id="leaderboard">
+      <section class="section">
         <div class="container">
-          <div class="section-head">
-            <h2 class="section-title"><span>Leaderboard</span></h2>
-            <p class="section-sub" id="lb-subtitle">
-              Triplet-level F1 on VibeSearchBench (Table 3 in the paper). Toggle framework and sort columns.
-            </p>
-          </div>
-
           <div class="card">
             <div class="lb-toolbar">
               <div class="tab-bar" id="framework-tabs">
@@ -101,38 +94,9 @@
               </table>
             </div>
             <p class="section-sub" style="margin-top: 0.75rem; margin-bottom: 0">
-              Trajectory visualizations use <span id="traj-model-label">—</span>.
+              Trajectory visualizations on the
+              <a href="tasks.html">Tasks</a> page use <span id="traj-model-label">—</span>.
             </p>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section-alt" id="tasks">
-        <div class="container">
-          <div class="section-head">
-            <h2 class="section-title">Task <span>Visualization</span></h2>
-            <p class="section-sub">
-              Browse multi-turn agent trajectories: user simulation, tool calls (search / visit / python),
-              and final knowledge-graph extraction.
-            </p>
-          </div>
-
-          <div id="demo-banner" class="demo-banner" hidden></div>
-
-          <div class="tasks-layout">
-            <aside class="task-sidebar">
-              <div class="task-filters card">
-                <select id="subset-select" aria-label="Subset">
-                  <option value="pro">VibeSearch-Pro</option>
-                  <option value="daily">VibeSearch-Daily</option>
-                </select>
-                <input type="search" id="task-search" placeholder="Search tasks…" />
-              </div>
-              <div class="task-list" id="task-list" role="listbox" aria-label="Tasks"></div>
-            </aside>
-            <article class="task-viewer" id="task-viewer">
-              <div class="empty-state">Select a task to view its trajectory.</div>
-            </article>
           </div>
         </div>
       </section>

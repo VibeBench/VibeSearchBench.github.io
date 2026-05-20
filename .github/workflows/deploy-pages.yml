@@ -24,7 +24,7 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p _site/data/trajs
-          cp index.html results.html _site/
+          cp index.html leaderboard.html tasks.html _site/
           cp -r assets _site/
           cp data/leaderboard.json data/tasks_index.json _site/data/
           cp -r data/trajs/daily data/trajs/pro _site/data/trajs/
