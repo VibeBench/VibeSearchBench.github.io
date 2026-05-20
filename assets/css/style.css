@@ -1101,16 +1101,6 @@ tbody tr:hover td {
   text-align: center;
 }
 
-.gt-image {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  margin: 0 auto;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: #fff;
-}
-
 .kg-graph-wrap {
   position: relative;
   margin-top: 0.35rem;

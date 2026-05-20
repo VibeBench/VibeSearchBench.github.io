@@ -650,18 +650,6 @@ function groundTruthJsonUrls(subset, qid, file) {
   return urls;
 }
 
-function groundTruthImageUrls(subset, qid, file) {
-  const base = file.replace(/\.json$/i, "");
-  const num = taskNumberFromQid(qid);
-  const names = [base + ".png", base + ".jpg", base + ".webp"];
-  if (num) names.push(num + ".png", num + ".jpg");
-  const urls = [];
-  names.forEach(function (name) {
-    urls.push(asset("data/ground_truth/" + subset + "/" + name));
-  });
-  return urls;
-}
-
 function normalizeGtTriples(gt) {
   if (!gt) return [];
   const idToName = {};
@@ -697,28 +685,6 @@ async function loadGroundTruthData(subset, qid, file) {
     }
   }
   return null;
-}
-
-function loadGroundTruthImage(urls) {
-  return new Promise(function (resolve) {
-    let i = 0;
-    function tryNext() {
-      if (i >= urls.length) {
-        resolve(null);
-        return;
-      }
-      const img = new Image();
-      img.onload = function () {
-        resolve(urls[i]);
-      };
-      img.onerror = function () {
-        i += 1;
-        tryNext();
-      };
-      img.src = urls[i];
-    }
-    tryNext();
-  });
 }
 
 function graphWrapHtml(graphId, extraClass, ariaLabel, hidden) {
@@ -830,7 +796,6 @@ function renderGroundTruthShell() {
   return (
     '<div class="ground-truth-panel">' +
     '<p class="gt-status">Loading ground truth…</p>' +
-    '<img class="gt-image" alt="Ground truth knowledge graph" hidden />' +
     graphWrapHtml("gt-graph", "gt-graph", "Ground truth knowledge graph", true) +
     '<p class="kg-legend gt-legend" hidden></p>' +
     "</div>"
@@ -977,34 +942,20 @@ async function loadGroundTruthPanel(viewer, subset, qid, file) {
   }
 
   const status = panel.querySelector(".gt-status");
-  const img = panel.querySelector(".gt-image");
   const graph = panel.querySelector("#gt-graph");
   const graphWrap = panel.querySelector(".kg-graph-wrap");
   const legend = panel.querySelector(".gt-legend");
 
   status.hidden = false;
   status.textContent = "Loading ground truth…";
-  img.hidden = true;
-  if (graph) graph.hidden = true;
   if (graphWrap) graphWrap.hidden = true;
   legend.hidden = true;
-
-  const imageUrl = await loadGroundTruthImage(groundTruthImageUrls(subset, qid, file));
-  if (imageUrl) {
-    img.src = imageUrl;
-    img.hidden = false;
-    status.hidden = true;
-    if (graph) graph.hidden = true;
-    if (graphWrap) graphWrap.hidden = true;
-    legend.hidden = true;
-  }
 
   const gt = await loadGroundTruthData(subset, qid, file);
   const triplets = normalizeGtTriples(gt);
 
-  if (!imageUrl && triplets.length) {
+  if (triplets.length) {
     if (graphWrap) graphWrap.hidden = false;
-    if (graph) graph.hidden = false;
     status.hidden = true;
     const stats = initTripletsGraph(graph, triplets, viewer, "_gtNetwork", {
       maxTriplets: GT_GRAPH_MAX_TRIPLETS,
@@ -1037,8 +988,6 @@ async function loadGroundTruthPanel(viewer, subset, qid, file) {
     }
     return;
   }
-
-  if (imageUrl) return;
 
   status.hidden = false;
   status.textContent = "Ground truth not available for this task.";
