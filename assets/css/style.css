@@ -227,8 +227,14 @@ a:hover {
 }
 
 .h-stat {
-  padding: 0.85rem 1.6rem;
+  padding: 0.85rem 1.15rem;
   border-right: 1px solid var(--border);
+}
+
+@media (min-width: 720px) {
+  .h-stat {
+    padding: 0.85rem 1.35rem;
+  }
 }
 
 .h-stat:last-child {

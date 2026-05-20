@@ -87,6 +87,44 @@ function renderLeaderboard() {
   });
 }
 
+function renderHeroStats() {
+  if (!leaderboardData) return;
+  const fw = "openclaw";
+  const sub = "avg";
+
+  let bestF1 = 0;
+  leaderboardData.models.forEach((m) => {
+    const f1 = getMetrics(m, fw, sub).f1;
+    if (f1 > bestF1) bestF1 = f1;
+  });
+
+  const bestModels = leaderboardData.models.filter(
+    (m) => m.highlight || getMetrics(m, fw, sub).f1 >= bestF1 - 0.001
+  );
+
+  const statsByModel = new Map(
+    (leaderboardData.interaction_stats || []).map((row) => [row.model, row[fw]])
+  );
+
+  let userSum = 0;
+  let toolSum = 0;
+  let n = 0;
+  bestModels.forEach((m) => {
+    const s = statsByModel.get(m.name);
+    if (!s) return;
+    userSum += s.user;
+    toolSum += s.asst;
+    n += 1;
+  });
+
+  const userEl = document.getElementById("hero-user-turns");
+  const toolEl = document.getElementById("hero-tool-turns");
+  const f1El = document.getElementById("hero-best-f1");
+  if (userEl) userEl.textContent = n ? (userSum / n).toFixed(1) : "—";
+  if (toolEl) toolEl.textContent = n ? (toolSum / n).toFixed(1) : "—";
+  if (f1El) f1El.textContent = bestF1 ? bestF1.toFixed(1) : "—";
+}
+
 function renderInteractionStats() {
   if (!leaderboardData?.interaction_stats) return;
   const tbody = document.getElementById("interaction-body");
@@ -316,6 +354,7 @@ async function init() {
     }
 
     setupLeaderboardTabs();
+    renderHeroStats();
     renderLeaderboard();
     renderInteractionStats();
     setupTasks();
