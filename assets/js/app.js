@@ -681,35 +681,134 @@ function initKgGraph(viewer, triplets) {
   viewer._kgNetwork = network;
 }
 
-function renderTurn(turn) {
+function turnPreviewText(turn) {
+  let raw = "";
   if (turn.type === "user") {
-    return (
-      '<div class="turn turn-user">' +
-      '<div class="turn-role">User</div>' +
-      '<div class="turn-content md-body">' +
-      renderMarkdown(turn.content || "") +
-      "</div></div>"
-    );
+    raw = turn.content || "";
+  } else {
+    if (turn.content) raw = turn.content;
+    else if (turn.thinking) raw = turn.thinking;
+    else if (turn.tool_calls && turn.tool_calls.length) {
+      raw =
+        turn.tool_calls.length +
+        " tool call" +
+        (turn.tool_calls.length !== 1 ? "s" : "") +
+        " (" +
+        turn.tool_calls
+          .slice(0, 3)
+          .map(function (tc) {
+            return tc.name;
+          })
+          .join(", ") +
+        (turn.tool_calls.length > 3 ? "…" : "") +
+        ")";
+    }
+  }
+  raw = raw.replace(/\s+/g, " ").trim();
+  if (raw.length > 72) raw = raw.slice(0, 71) + "…";
+  return raw || "—";
+}
+
+function toolPreviewText(tc) {
+  let hint = "";
+  const args = tc.args;
+  if (args && typeof args === "object" && args.query) hint = String(args.query);
+  else if (typeof args === "string") {
+    try {
+      const parsed = JSON.parse(args);
+      if (parsed && parsed.query) hint = String(parsed.query);
+    } catch (e1) {
+      hint = args;
+    }
+  }
+  hint = hint.replace(/\s+/g, " ").trim();
+  if (hint.length > 56) hint = hint.slice(0, 55) + "…";
+  return hint;
+}
+
+function renderToolCall(tc, open) {
+  const preview = toolPreviewText(tc);
+  let html =
+    '<details class="tool-fold"' +
+    (open ? " open" : "") +
+    ">" +
+    '<summary class="tool-fold-summary">' +
+    '<span class="tool-fold-name">' +
+    escapeHtml(tc.name) +
+    "</span>";
+  if (preview) {
+    html += '<span class="tool-fold-preview">' + escapeHtml(preview) + "</span>";
+  }
+  html += '</summary><div class="tool-fold-body">';
+  html += '<pre class="tool-args">' + escapeHtml(formatArgs(tc.args)) + "</pre>";
+  if (tc.result != null) {
+    html += '<div class="tool-result md-body">' + renderMarkdown(tc.result) + "</div>";
+  }
+  html += "</div></details>";
+  return html;
+}
+
+function renderTurn(turn, index, total) {
+  const openTurn = total <= 4 || index >= total - 2;
+  const role = turn.type === "user" ? "User" : "Agent";
+  const roleClass = turn.type === "user" ? "turn-user" : "turn-assistant";
+  const preview = turnPreviewText(turn);
+
+  let body = "";
+  if (turn.type === "user") {
+    body +=
+      '<div class="turn-content md-body">' + renderMarkdown(turn.content || "") + "</div>";
+  } else {
+    if (turn.thinking) {
+      body +=
+        '<details class="thinking-fold">' +
+        '<summary class="thinking-fold-summary">Thinking</summary>' +
+        '<div class="turn-thinking md-body">' +
+        renderMarkdown(turn.thinking) +
+        "</div></details>";
+    }
+    if (turn.content) {
+      body +=
+        '<div class="turn-content md-body">' + renderMarkdown(turn.content) + "</div>";
+    }
+    const tools = turn.tool_calls || [];
+    tools.forEach(function (tc, ti) {
+      const openTool = openTurn && ti === tools.length - 1;
+      body += renderToolCall(tc, openTool);
+    });
   }
 
-  let html = '<div class="turn turn-assistant"><div class="turn-role">Agent</div>';
-  if (turn.thinking) {
-    html += '<div class="turn-thinking md-body">' + renderMarkdown(turn.thinking) + "</div>";
-  }
-  if (turn.content) {
-    html += '<div class="turn-content md-body">' + renderMarkdown(turn.content) + "</div>";
-  }
-  for (const tc of turn.tool_calls || []) {
-    html += '<div class="tool-block">';
-    html += '<div class="tool-head">' + escapeHtml(tc.name) + "</div>";
-    html += '<pre class="tool-args">' + escapeHtml(formatArgs(tc.args)) + "</pre>";
-    if (tc.result != null) {
-      html += '<div class="tool-result md-body">' + renderMarkdown(tc.result) + "</div>";
-    }
-    html += "</div>";
-  }
-  html += "</div>";
-  return html;
+  return (
+    '<details class="turn-fold ' +
+    roleClass +
+    '"' +
+    (openTurn ? " open" : "") +
+    ">" +
+    '<summary class="turn-fold-summary">' +
+    '<span class="turn-fold-label">' +
+    role +
+    "</span>" +
+    '<span class="turn-fold-preview">' +
+    escapeHtml(preview) +
+    "</span></summary>" +
+    '<div class="turn-fold-body">' +
+    body +
+    "</div></details>"
+  );
+}
+
+function setupTrajectoryFolds(viewer) {
+  const toolbar = viewer.querySelector(".trajectory-toolbar");
+  if (!toolbar) return;
+  toolbar.querySelectorAll("[data-traj-action]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      const action = btn.dataset.trajAction;
+      const folds = viewer.querySelectorAll(".turn-fold, .tool-fold, .thinking-fold");
+      folds.forEach(function (el) {
+        el.open = action === "expand-all";
+      });
+    });
+  });
 }
 
 function renderTrajectory(task) {
@@ -717,7 +816,12 @@ function renderTrajectory(task) {
   const m = task.metrics || {};
   const f1 = m.triplet_f1 != null ? (m.triplet_f1 * 100).toFixed(1) + "%" : "—";
   const nf1 = m.node_f1 != null ? (m.node_f1 * 100).toFixed(1) + "%" : "—";
-  const turnsHtml = (task.turns || []).map(renderTurn).join("");
+  const turns = task.turns || [];
+  const turnsHtml = turns
+    .map(function (t, i) {
+      return renderTurn(t, i, turns.length);
+    })
+    .join("");
 
   let html = "";
   const display = getTaskDisplayTitle(task);
@@ -739,16 +843,23 @@ function renderTrajectory(task) {
   html += '<span class="metric-pill">Tool calls: ' + (task.stats?.tool_calls ?? "—") + "</span>";
   html += "</div></header>";
   html += '<div class="task-viewer-body">';
-  html +=
-    '<div class="trajectory">' +
-    (turnsHtml || '<p class="empty-state">No turns in trajectory.</p>') +
-    "</div>";
+  html += '<div class="trajectory">';
+  if (turns.length) {
+    html +=
+      '<div class="trajectory-toolbar">' +
+      '<button type="button" class="traj-btn" data-traj-action="expand-all">Expand all</button>' +
+      '<button type="button" class="traj-btn" data-traj-action="collapse-all">Collapse all</button>' +
+      "</div>";
+  }
+  html += turnsHtml || '<p class="empty-state">No turns in trajectory.</p>';
+  html += "</div>";
   if (task.response_preview) {
     html += renderKgExtraction(task.response_preview);
   }
   html += "</div>";
   viewer.innerHTML = html;
 
+  setupTrajectoryFolds(viewer);
   if (task.response_preview) {
     const triplets = parseKgTriplets(task.response_preview);
     if (triplets.length) initKgGraph(viewer, triplets);
