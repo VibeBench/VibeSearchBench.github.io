@@ -341,6 +341,12 @@ a:hover {
   margin: 0 auto 1.25rem;
 }
 
+.hero-sub-em {
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
 .h-stat {
   flex: 1 1 0;
   min-width: 0;
