@@ -243,6 +243,7 @@ a:hover {
   height: auto;
   object-fit: contain;
   display: block;
+  background: transparent;
 }
 
 .hero-sub {
