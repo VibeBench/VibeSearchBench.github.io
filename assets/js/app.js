@@ -1048,7 +1048,7 @@ function layoutNodesByLayer(nodeMap, nodeLevels, el, style) {
     byLayer.get(layer).push(id);
   });
 
-  const levelSep = style.levelSeparation || 200;
+  const levelSep = style.levelSeparation || 320;
   const minNodeGap = style.nodeSpacing || 120;
   const layers = Array.from(byLayer.keys()).sort(function (a, b) {
     return a - b;
@@ -1142,7 +1142,6 @@ function installGtLayerEdgeOverlay(network, edgeMeta, nodeLevels, levelSep) {
     });
 
     ctx.restore();
-    return positions;
   }
 
   network.on("beforeDrawing", function (ctx) {
