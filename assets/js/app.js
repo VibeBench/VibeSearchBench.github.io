@@ -1250,15 +1250,15 @@ async function renderTrajectory(task, subset, file) {
     '<div class="trajectory">' +
       (turnsHtml || '<p class="empty-state">No turns in trajectory.</p>') +
       "</div>",
-    true
+    false
   );
-  html += renderTaskAccordionSection("gt", "Ground truth", renderGroundTruthShell(), false);
+  html += renderTaskAccordionSection("gt", "Ground truth", renderGroundTruthShell(), true);
   if (extraction && extraction.triplets.length) {
     html += renderTaskAccordionSection(
       "final",
       "Final extraction",
       renderKgExtraction(extraction),
-      false
+      true
     );
   }
   html += "</div></div>";
