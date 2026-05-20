@@ -767,8 +767,16 @@ tbody tr:hover td {
   color: var(--muted);
   margin-bottom: 0.5rem;
   line-height: 1.45;
-  max-height: 4.5rem;
+  max-height: 10rem;
   overflow-y: auto;
+}
+
+.task-question-preview.md-body {
+  color: var(--text);
+}
+
+.task-question-preview.md-body em {
+  font-style: italic;
 }
 
 .task-metrics {
@@ -876,8 +884,16 @@ tbody tr:hover td {
   padding: 0 1.15rem 1rem;
 }
 
+.task-acc-body[hidden] {
+  display: none !important;
+}
+
 .task-acc-section.is-open .task-acc-body {
   display: block;
+}
+
+.task-acc-section.is-open .task-acc-body[hidden] {
+  display: none !important;
 }
 
 .trajectory {
@@ -978,69 +994,86 @@ tbody tr:hover td {
   font-size: 0.8rem;
 }
 
-.trajectory .md-body {
+.trajectory .md-body,
+.task-question-preview.md-body {
   line-height: 1.5;
 }
 
-.trajectory .md-body > :first-child {
+.trajectory .md-body > :first-child,
+.task-question-preview.md-body > :first-child {
   margin-top: 0;
 }
 
-.trajectory .md-body > :last-child {
+.trajectory .md-body > :last-child,
+.task-question-preview.md-body > :last-child {
   margin-bottom: 0;
 }
 
 .trajectory .md-body h1,
 .trajectory .md-body h2,
-.trajectory .md-body h3 {
+.trajectory .md-body h3,
+.task-question-preview.md-body h1,
+.task-question-preview.md-body h2,
+.task-question-preview.md-body h3 {
   font-size: 0.9rem;
   font-weight: 700;
   margin: 0.75rem 0 0.35rem;
   color: var(--text);
 }
 
-.trajectory .md-body h2 {
+.trajectory .md-body h2,
+.task-question-preview.md-body h2 {
   font-size: 0.85rem;
 }
 
-.trajectory .md-body h3 {
+.trajectory .md-body h3,
+.task-question-preview.md-body h3 {
   font-size: 0.8rem;
 }
 
-.trajectory .md-body p {
+.trajectory .md-body p,
+.task-question-preview.md-body p {
   margin: 0.35rem 0;
 }
 
 .trajectory .md-body ul,
-.trajectory .md-body ol {
+.trajectory .md-body ol,
+.task-question-preview.md-body ul,
+.task-question-preview.md-body ol {
   margin: 0.35rem 0;
   padding-left: 1.25rem;
 }
 
-.trajectory .md-body li {
+.trajectory .md-body li,
+.task-question-preview.md-body li {
   margin: 0.2rem 0;
 }
 
-.trajectory .md-body a {
+.trajectory .md-body a,
+.task-question-preview.md-body a {
   color: var(--accent);
   text-decoration: underline;
   word-break: break-all;
 }
 
-.trajectory .md-body a:hover {
+.trajectory .md-body a:hover,
+.task-question-preview.md-body a:hover {
   color: #1d4ed8;
 }
 
-.trajectory .md-body strong {
+.trajectory .md-body strong,
+.task-question-preview.md-body strong {
   font-weight: 700;
   color: var(--text);
 }
 
-.trajectory .md-body ol {
+.trajectory .md-body ol,
+.task-question-preview.md-body ol {
   list-style: decimal;
 }
 
-.trajectory .md-body li > p {
+.trajectory .md-body li > p,
+.task-question-preview.md-body li > p {
   margin: 0.15rem 0;
 }
 
@@ -1156,6 +1189,7 @@ tbody tr:hover td {
 
 .gt-graph {
   margin-top: 0;
+  height: min(520px, 55vh);
 }
 
 .gt-legend {

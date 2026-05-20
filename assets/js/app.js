@@ -685,6 +685,17 @@ function normalizeGtTriples(gt) {
     });
 }
 
+function buildGtNodeLevels(gt) {
+  const levels = new Map();
+  (gt.nodes || []).forEach(function (n) {
+    if (n.layer == null) return;
+    const name = n.node_name || n.name || n.node_id;
+    if (name != null) levels.set(String(name), n.layer);
+    if (n.node_id != null) levels.set(String(n.node_id), n.layer);
+  });
+  return levels;
+}
+
 async function loadGroundTruthData(subset, qid, file) {
   const key = subset + "/" + file;
   if (gtCache[key]) return gtCache[key];
@@ -1005,6 +1016,19 @@ function setupKgTabs(scope) {
   });
 }
 
+function makeKgNode(id, style) {
+  const node = {
+    id: id,
+    label: truncateKgLabel(id, 30),
+    title: id,
+    shape: "dot",
+    font: { size: 12, face: "Inter, sans-serif" },
+  };
+  const levels = style.nodeLevels;
+  if (levels && levels.has(id)) node.level = levels.get(id);
+  return node;
+}
+
 function initTripletsGraph(el, triplets, viewer, networkKey, style) {
   if (!el || typeof vis === "undefined") return null;
 
@@ -1013,6 +1037,7 @@ function initTripletsGraph(el, triplets, viewer, networkKey, style) {
     viewer[networkKey] = null;
   }
 
+  const hierarchical = !!style.hierarchical;
   const maxN = style.maxTriplets || KG_GRAPH_MAX_TRIPLETS;
   const capped = triplets.slice(0, maxN);
   const nodeMap = new Map();
@@ -1022,24 +1047,8 @@ function initTripletsGraph(el, triplets, viewer, networkKey, style) {
     const h = t.head;
     const tail = t.tail;
     const rel = t.relation || "";
-    if (!nodeMap.has(h)) {
-      nodeMap.set(h, {
-        id: h,
-        label: truncateKgLabel(h, 30),
-        title: h,
-        shape: "dot",
-        font: { size: 12, face: "Inter, sans-serif" },
-      });
-    }
-    if (!nodeMap.has(tail)) {
-      nodeMap.set(tail, {
-        id: tail,
-        label: truncateKgLabel(tail, 30),
-        title: tail,
-        shape: "dot",
-        font: { size: 12, face: "Inter, sans-serif" },
-      });
-    }
+    if (!nodeMap.has(h)) nodeMap.set(h, makeKgNode(h, style));
+    if (!nodeMap.has(tail)) nodeMap.set(tail, makeKgNode(tail, style));
     edgeList.push({
       id: networkKey + "-e" + i,
       from: h,
@@ -1048,7 +1057,9 @@ function initTripletsGraph(el, triplets, viewer, networkKey, style) {
       title: rel,
       arrows: "to",
       font: { size: 9, align: "middle", face: "Inter, sans-serif" },
-      smooth: { type: "dynamic" },
+      smooth: hierarchical
+        ? { enabled: true, type: "cubicBezier", forceDirection: "vertical", roundness: 0.35 }
+        : { type: "dynamic" },
     });
   });
 
@@ -1058,15 +1069,17 @@ function initTripletsGraph(el, triplets, viewer, networkKey, style) {
     el,
     { nodes: nodes, edges: edges },
     {
-      physics: {
-        enabled: true,
-        stabilization: { iterations: 100 },
-        barnesHut: {
-          gravitationalConstant: -2800,
-          springLength: style.springLength || 140,
-          springConstant: 0.05,
-        },
-      },
+      physics: hierarchical
+        ? { enabled: false }
+        : {
+            enabled: true,
+            stabilization: { iterations: 100 },
+            barnesHut: {
+              gravitationalConstant: -2800,
+              springLength: style.springLength || 140,
+              springConstant: 0.05,
+            },
+          },
       interaction: { hover: true, tooltipDelay: 120, navigationButtons: false },
       edges: {
         color: style.edgeColor || {
@@ -1086,12 +1099,32 @@ function initTripletsGraph(el, triplets, viewer, networkKey, style) {
         borderWidth: 1.5,
         margin: 10,
       },
-      layout: { improvedLayout: nodeMap.size < 80 },
+      layout: hierarchical
+        ? {
+            hierarchical: {
+              enabled: true,
+              direction: "UD",
+              sortMethod: "directed",
+              levelSeparation: style.levelSeparation || 95,
+              nodeSpacing: style.nodeSpacing || 110,
+              treeSpacing: 180,
+              blockShifting: true,
+              edgeMinimization: true,
+              parentCentralization: true,
+            },
+          }
+        : { improvedLayout: nodeMap.size < 80 },
     }
   );
-  network.once("stabilizationIterationsDone", function () {
-    network.fit({ animation: { duration: 250 } });
-  });
+  if (hierarchical) {
+    setTimeout(function () {
+      network.fit({ animation: { duration: 250 } });
+    }, 60);
+  } else {
+    network.once("stabilizationIterationsDone", function () {
+      network.fit({ animation: { duration: 250 } });
+    });
+  }
   viewer[networkKey] = network;
   const wrap = el.closest(".kg-graph-wrap");
   if (wrap) {
@@ -1133,12 +1166,17 @@ async function loadGroundTruthPanel(viewer, subset, qid, file) {
 
   const gt = await loadGroundTruthData(subset, qid, file);
   const triplets = normalizeGtTriples(gt);
+  const nodeLevels = buildGtNodeLevels(gt);
 
   if (triplets.length) {
     if (graphWrap) graphWrap.hidden = false;
     status.hidden = true;
     const stats = initTripletsGraph(graph, triplets, viewer, "_gtNetwork", {
       maxTriplets: GT_GRAPH_MAX_TRIPLETS,
+      hierarchical: nodeLevels.size > 0,
+      nodeLevels: nodeLevels,
+      levelSeparation: 90,
+      nodeSpacing: 100,
       nodeColor: {
         background: "#dcfce7",
         border: "#16a34a",
@@ -1227,9 +1265,9 @@ async function renderTrajectory(task, subset, file) {
     escapeHtml(display.title) +
     "</span></h3>";
   html +=
-    '<p class="task-question-preview">' +
-    escapeHtml(task.question || "") +
-    "</p>";
+    '<div class="task-question-preview md-body">' +
+    renderMarkdown(task.question || "") +
+    "</div>";
   html += '<div class="task-metrics">';
   html += '<span class="metric-pill">Triplet F1: <strong>' + f1 + "</strong></span>";
   html += '<span class="metric-pill">Node F1: <strong>' + nf1 + "</strong></span>";
