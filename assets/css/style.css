@@ -783,15 +783,47 @@ tbody tr:hover td {
   color: var(--accent);
 }
 
-.task-panel {
+.task-accordion-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.4rem;
+  padding: 0.5rem 1.15rem 0.35rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface2);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.task-acc-tool {
+  padding: 0.2rem 0.55rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.task-acc-tool:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.task-accordion {
   flex-shrink: 0;
+}
+
+.task-acc-section {
   border-top: 1px solid var(--border);
 }
 
-.task-panel-summary {
+.task-acc-head {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  width: 100%;
   padding: 0.7rem 1.15rem;
   font-size: 0.72rem;
   font-weight: 700;
@@ -799,30 +831,39 @@ tbody tr:hover td {
   letter-spacing: 0.05em;
   color: var(--muted);
   cursor: pointer;
-  list-style: none;
-  user-select: none;
+  border: none;
+  background: var(--surface);
+  text-align: left;
 }
 
-.task-panel-summary::-webkit-details-marker {
-  display: none;
+.task-acc-head:hover {
+  background: var(--surface2);
+  color: var(--text);
 }
 
-.task-panel-summary::before {
-  content: "▸";
-  font-size: 0.65rem;
+.task-acc-section.is-open > .task-acc-head {
+  color: var(--accent);
+  background: #f8faff;
+}
+
+.task-acc-chevron {
+  display: inline-block;
+  font-size: 0.7rem;
   transition: transform 0.15s ease;
+  flex-shrink: 0;
 }
 
-.task-panel[open] > .task-panel-summary::before {
+.task-acc-section.is-open .task-acc-chevron {
   transform: rotate(90deg);
 }
 
-.task-panel[open] > .task-panel-summary {
-  color: var(--accent);
+.task-acc-body {
+  display: none;
+  padding: 0 1.15rem 1rem;
 }
 
-.task-panel-body {
-  padding: 0 1.15rem 1rem;
+.task-acc-section.is-open .task-acc-body {
+  display: block;
 }
 
 .trajectory {

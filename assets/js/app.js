@@ -564,17 +564,70 @@ function parseKgTriplets(raw) {
   return out;
 }
 
-function renderTaskPanel(title, bodyHtml, panelClass) {
-  const cls = panelClass ? ' class="task-panel ' + panelClass + '"' : ' class="task-panel"';
+function renderTaskAccordionSection(id, title, bodyHtml, open) {
   return (
-    "<details" +
-    cls +
-    ' open><summary class="task-panel-summary">' +
+    '<section class="task-acc-section' +
+    (open ? " is-open" : "") +
+    '" data-acc="' +
+    escapeHtml(id) +
+    '">' +
+    '<button type="button" class="task-acc-head" aria-expanded="' +
+    (open ? "true" : "false") +
+    '">' +
+    '<span class="task-acc-chevron" aria-hidden="true">▸</span>' +
+    '<span class="task-acc-title">' +
     escapeHtml(title) +
-    '</summary><div class="task-panel-body">' +
+    "</span></button>" +
+    '<div class="task-acc-body">' +
     bodyHtml +
-    "</div></details>"
+    "</div></section>"
   );
+}
+
+function setupTaskAccordion(viewer) {
+  const root = viewer.querySelector(".task-accordion");
+  if (!root || root.dataset.accBound === "1") return;
+  root.dataset.accBound = "1";
+
+  function setSectionOpen(section, open) {
+    section.classList.toggle("is-open", open);
+    const btn = section.querySelector(".task-acc-head");
+    if (btn) btn.setAttribute("aria-expanded", open ? "true" : "false");
+    if (open) {
+      if (section.dataset.acc === "gt" && viewer._gtNetwork) {
+        setTimeout(function () {
+          viewer._gtNetwork.redraw();
+          viewer._gtNetwork.fit({ animation: { duration: 200 } });
+        }, 80);
+      }
+      if (section.dataset.acc === "final" && viewer._kgNetwork) {
+        setTimeout(function () {
+          viewer._kgNetwork.redraw();
+          viewer._kgNetwork.fit({ animation: { duration: 200 } });
+        }, 80);
+      }
+    }
+  }
+
+  root.querySelectorAll(".task-acc-head").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      const section = btn.closest(".task-acc-section");
+      if (!section) return;
+      setSectionOpen(section, !section.classList.contains("is-open"));
+    });
+  });
+
+  const toolbar = viewer.querySelector(".task-accordion-toolbar");
+  if (toolbar) {
+    toolbar.querySelectorAll("[data-acc-action]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        const action = btn.dataset.accAction;
+        root.querySelectorAll(".task-acc-section").forEach(function (section) {
+          setSectionOpen(section, action === "expand-all");
+        });
+      });
+    });
+  }
 }
 
 function taskNumberFromQid(qid) {
@@ -976,8 +1029,12 @@ async function loadGroundTruthPanel(viewer, subset, qid, file) {
       text += " · drag nodes to explore";
       legend.textContent = text;
     }
-    const gtPanel = viewer.querySelector(".task-panel-gt");
-    if (gtPanel && !gtPanel.open) gtPanel.open = true;
+    const gtSection = viewer.querySelector('.task-acc-section[data-acc="gt"]');
+    if (gtSection && !gtSection.classList.contains("is-open")) {
+      gtSection.classList.add("is-open");
+      const btn = gtSection.querySelector(".task-acc-head");
+      if (btn) btn.setAttribute("aria-expanded", "true");
+    }
     return;
   }
 
@@ -1051,23 +1108,33 @@ function renderTrajectory(task, subset, file) {
   html += '<span class="metric-pill">Tool calls: ' + (task.stats?.tool_calls ?? "—") + "</span>";
   html += "</div></header>";
   html += '<div class="task-viewer-body">';
-  html += renderTaskPanel(
+  html +=
+    '<div class="task-accordion-toolbar">' +
+    '<button type="button" class="task-acc-tool" data-acc-action="expand-all">Expand all</button>' +
+    '<button type="button" class="task-acc-tool" data-acc-action="collapse-all">Collapse all</button>' +
+    "</div>";
+  html += '<div class="task-accordion">';
+  html += renderTaskAccordionSection(
+    "traj",
     "Trajectory",
     '<div class="trajectory">' +
       (turnsHtml || '<p class="empty-state">No turns in trajectory.</p>') +
       "</div>",
-    "task-panel-traj"
+    true
   );
-  html += renderTaskPanel("Ground truth", renderGroundTruthShell(), "task-panel-gt");
+  html += renderTaskAccordionSection("gt", "Ground truth", renderGroundTruthShell(), false);
   if (task.response_preview) {
-    html += renderTaskPanel(
+    html += renderTaskAccordionSection(
+      "final",
       "Final extraction",
       renderKgExtraction(task.response_preview),
-      "task-panel-final"
+      false
     );
   }
-  html += "</div>";
+  html += "</div></div>";
   viewer.innerHTML = html;
+
+  setupTaskAccordion(viewer);
 
   const qid = task.qid || "";
   loadGroundTruthPanel(viewer, subset, qid, file);
@@ -1075,22 +1142,9 @@ function renderTrajectory(task, subset, file) {
   if (task.response_preview) {
     const triplets = parseKgTriplets(task.response_preview);
     if (triplets.length) initKgGraph(viewer, triplets);
-    const finalPanel = viewer.querySelector(".task-panel-final");
-    if (finalPanel) setupKgTabs(finalPanel);
+    const finalSection = viewer.querySelector('.task-acc-section[data-acc="final"]');
+    if (finalSection) setupKgTabs(finalSection);
   }
-
-  viewer.querySelectorAll(".task-panel").forEach(function (panel) {
-    panel.addEventListener("toggle", function () {
-      if (panel.classList.contains("task-panel-gt") && panel.open && viewer._gtNetwork) {
-        viewer._gtNetwork.redraw();
-        viewer._gtNetwork.fit({ animation: { duration: 200 } });
-      }
-      if (panel.classList.contains("task-panel-final") && panel.open && viewer._kgNetwork) {
-        viewer._kgNetwork.redraw();
-        viewer._kgNetwork.fit({ animation: { duration: 200 } });
-      }
-    });
-  });
 }
 
 async function selectTask(subset, file) {
