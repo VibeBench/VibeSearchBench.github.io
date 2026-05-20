@@ -499,8 +499,28 @@ const extractionCache = {};
 
 const KG_GRAPH_MAX_TRIPLETS = 500;
 const GT_GRAPH_MAX_TRIPLETS = 200;
+const GT_LAYER_COLORS = [
+  { background: "#dbeafe", border: "#2563eb" },
+  { background: "#dcfce7", border: "#16a34a" },
+  { background: "#fef3c7", border: "#d97706" },
+  { background: "#fce7f3", border: "#db2777" },
+  { background: "#ede9fe", border: "#7c3aed" },
+  { background: "#cffafe", border: "#0891b2" },
+  { background: "#fee2e2", border: "#dc2626" },
+  { background: "#ecfccb", border: "#65a30d" },
+];
 const HF_GT_BASE =
   "https://huggingface.co/datasets/VibeSearchBench/VibeSearchBench/resolve/main/";
+
+function gtColorForLayer(layer) {
+  const c = GT_LAYER_COLORS[Math.abs(layer) % GT_LAYER_COLORS.length];
+  return {
+    background: c.background,
+    border: c.border,
+    highlight: { background: c.background, border: c.border },
+    hover: { background: c.background, border: c.border },
+  };
+}
 
 function truncateKgLabel(s, max) {
   const t = String(s);
@@ -1028,7 +1048,8 @@ function layoutNodesByLayer(nodeMap, nodeLevels, el, style) {
     byLayer.get(layer).push(id);
   });
 
-  const levelSep = style.levelSeparation || 90;
+  const levelSep = style.levelSeparation || 200;
+  const minNodeGap = style.nodeSpacing || 120;
   const layers = Array.from(byLayer.keys()).sort(function (a, b) {
     return a - b;
   });
@@ -1036,19 +1057,21 @@ function layoutNodesByLayer(nodeMap, nodeLevels, el, style) {
   layers.forEach(function (layer) {
     maxCount = Math.max(maxCount, byLayer.get(layer).length);
   });
-  const width = (el && el.clientWidth) || 720;
+  const height = (el && el.clientHeight) || 640;
   const nodeSpacing = Math.max(
-    style.nodeSpacing || 80,
-    Math.min(130, Math.floor((width - 80) / Math.max(maxCount, 1)))
+    minNodeGap,
+    Math.min(160, Math.floor((height - 100) / Math.max(maxCount, 1)))
   );
 
   layers.forEach(function (layer) {
     const ids = byLayer.get(layer).slice().sort();
     const count = ids.length;
+    const color = gtColorForLayer(layer);
     ids.forEach(function (id, i) {
       const node = nodeMap.get(id);
-      node.x = (i - (count - 1) / 2) * nodeSpacing;
-      node.y = layer * levelSep;
+      node.x = layer * levelSep;
+      node.y = (i - (count - 1) / 2) * nodeSpacing;
+      node.color = color;
       node.fixed = false;
     });
   });
@@ -1056,7 +1079,13 @@ function layoutNodesByLayer(nodeMap, nodeLevels, el, style) {
 
 function layerLayoutUpdates(nodeMap) {
   return Array.from(nodeMap.values()).map(function (node) {
-    return { id: node.id, x: node.x, y: node.y, fixed: false };
+    return {
+      id: node.id,
+      x: node.x,
+      y: node.y,
+      color: node.color,
+      fixed: false,
+    };
   });
 }
 
@@ -1126,7 +1155,7 @@ function initTripletsGraph(el, triplets, viewer, networkKey, style) {
       arrows: "to",
       font: { size: 9, align: "middle", face: "Inter, sans-serif" },
       smooth: useLayerLayout
-        ? { enabled: true, type: "cubicBezier", forceDirection: "vertical", roundness: 0.35 }
+        ? { enabled: true, type: "cubicBezier", forceDirection: "horizontal", roundness: 0.35 }
         : { type: "dynamic" },
     });
   });
@@ -1231,18 +1260,12 @@ async function loadGroundTruthPanel(viewer, subset, qid, file) {
       maxTriplets: GT_GRAPH_MAX_TRIPLETS,
       hierarchical: nodeLevels.size > 0,
       nodeLevels: nodeLevels,
-      levelSeparation: 90,
-      nodeSpacing: 100,
-      nodeColor: {
-        background: "#dcfce7",
-        border: "#16a34a",
-        highlight: { background: "#bbf7d0", border: "#15803d" },
-        hover: { background: "#bbf7d0", border: "#15803d" },
-      },
+      levelSeparation: 220,
+      nodeSpacing: 130,
       edgeColor: {
-        color: "#86efac",
-        highlight: "#16a34a",
-        hover: "#16a34a",
+        color: "#cbd5e1",
+        highlight: "#64748b",
+        hover: "#64748b",
       },
     });
     if (stats && legend) {
