@@ -27,6 +27,50 @@ function formatArgs(args) {
   }
 }
 
+function formatTaskTitle(raw) {
+  return String(raw)
+    .replace(/_/g, " ")
+    .replace(/([a-z])([A-Z])/g, "$1 $2")
+    .replace(/([A-Z]+)([A-Z][a-z])/g, "$1 $2")
+    .replace(/\s+/g, " ")
+    .trim()
+    .replace(/\b\w/g, function (c) {
+      return c.toUpperCase();
+    });
+}
+
+function parseTaskId(qid) {
+  if (!qid) return { number: "", title: "Task", label: "Task" };
+  const m = String(qid).match(/^task_(\d+)_(.+)$/i);
+  if (!m) return { number: "", title: formatTaskTitle(qid), label: formatTaskTitle(qid) };
+  const number = m[1];
+  const title = formatTaskTitle(m[2]);
+  return { number: number, title: title, label: number + " " + title };
+}
+
+function isEnglishTask(task) {
+  const text = (task.question || "") + " " + (task.qid || "");
+  const cjk = (text.match(/[\u4e00-\u9fff]/g) || []).length;
+  const latin = (text.match(/[a-zA-Z]/g) || []).length;
+  return latin > cjk;
+}
+
+function sortTasks(tasks) {
+  return tasks.slice().sort(function (a, b) {
+    const ea = isEnglishTask(a);
+    const eb = isEnglishTask(b);
+    if (ea !== eb) return ea ? -1 : 1;
+    const na = parseInt(parseTaskId(a.qid).number, 10) || 0;
+    const nb = parseInt(parseTaskId(b.qid).number, 10) || 0;
+    return na - nb;
+  });
+}
+
+function taskSearchText(task) {
+  const p = parseTaskId(task.qid);
+  return [task.qid, p.number, p.title, p.label, task.question].join(" ").toLowerCase();
+}
+
 const nav = document.getElementById("nav");
 if (nav) {
   window.addEventListener("scroll", () => {
@@ -221,8 +265,14 @@ function renderTrajectory(task) {
   const turnsHtml = (task.turns || []).map(renderTurn).join("");
 
   let html = "";
+  const parsed = parseTaskId(task.qid);
   html += '<header class="task-viewer-header">';
-  html += "<h3>" + escapeHtml(task.qid || "Task") + "</h3>";
+  html +=
+    '<h3><span class="task-heading-num">' +
+    escapeHtml(parsed.number) +
+    '</span> <span class="task-heading-name">' +
+    escapeHtml(parsed.title) +
+    "</span></h3>";
   html +=
     '<p style="font-size:0.82rem;color:var(--muted);margin-bottom:0.5rem">' +
     escapeHtml(task.question || "") +
@@ -270,17 +320,17 @@ function renderTaskList(filter) {
   }
 
   const q = (filter || "").trim().toLowerCase();
-  const tasks = sub.tasks.filter(function (t) {
-    if (!q) return true;
-    return (
-      (t.qid && t.qid.toLowerCase().includes(q)) ||
-      (t.question && t.question.toLowerCase().includes(q))
-    );
-  });
+  const tasks = sortTasks(
+    sub.tasks.filter(function (t) {
+      if (!q) return true;
+      return taskSearchText(t).includes(q);
+    })
+  );
 
   list.innerHTML = tasks
     .map(function (t) {
       const active = t.file === currentTaskFile ? " active" : "";
+      const parsed = parseTaskId(t.qid);
       const f1 =
         t.triplet_f1 != null
           ? "<span>F1 " + (t.triplet_f1 * 100).toFixed(0) + "%</span>"
@@ -291,8 +341,13 @@ function renderTaskList(filter) {
         '" data-file="' +
         escapeHtml(t.file) +
         '">' +
-        '<div class="task-item-q">' +
-        escapeHtml(t.question || t.qid) +
+        '<div class="task-item-title">' +
+        '<span class="task-item-num">' +
+        escapeHtml(parsed.number) +
+        "</span>" +
+        '<span class="task-item-name">' +
+        escapeHtml(parsed.title) +
+        "</span>" +
         "</div>" +
         '<div class="task-item-meta">' +
         f1 +

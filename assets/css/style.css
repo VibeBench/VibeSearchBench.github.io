@@ -674,15 +674,47 @@ tbody tr:hover td {
   border-left: 3px solid var(--accent);
 }
 
-.task-item-q {
-  font-size: 0.78rem;
-  color: var(--text);
-  line-height: 1.45;
+.task-item-title {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
   margin-bottom: 0.35rem;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  line-height: 1.35;
+  text-align: left;
+}
+
+.task-item-num {
+  flex-shrink: 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.task-item-name {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.task-viewer-header h3 {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.35rem;
+}
+
+.task-heading-num {
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.task-heading-name {
+  color: var(--text);
 }
 
 .task-item-meta {
@@ -705,11 +737,6 @@ tbody tr:hover td {
 .task-viewer-header {
   padding: 1rem 1.15rem;
   border-bottom: 1px solid var(--border);
-}
-
-.task-viewer-header h3 {
-  font-size: 0.95rem;
-  margin-bottom: 0.35rem;
 }
 
 .task-metrics {
