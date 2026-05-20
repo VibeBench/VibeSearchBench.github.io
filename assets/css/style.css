@@ -349,13 +349,28 @@ a:hover {
 
 .hero-sub-kw {
   font-weight: 800;
-  color: var(--accent2);
-  background: linear-gradient(180deg, rgba(37, 99, 235, 0.14) 0%, rgba(37, 99, 235, 0.08) 100%);
-  padding: 0.12em 0.4em;
+  padding: 0.12em 0.35em;
   border-radius: 5px;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
-  box-shadow: inset 0 -2px 0 rgba(37, 99, 235, 0.35);
+}
+
+.hero-sub-kw-hardest {
+  color: #1d4ed8;
+  background: rgba(37, 99, 235, 0.14);
+  box-shadow: inset 0 -2px 0 rgba(37, 99, 235, 0.4);
+}
+
+.hero-sub-kw-verifiable {
+  color: #15803d;
+  background: rgba(22, 163, 74, 0.14);
+  box-shadow: inset 0 -2px 0 rgba(22, 163, 74, 0.4);
+}
+
+.hero-sub-kw-horizon {
+  color: #7c3aed;
+  background: rgba(124, 58, 237, 0.14);
+  box-shadow: inset 0 -2px 0 rgba(124, 58, 237, 0.4);
 }
 
 .h-stat {
