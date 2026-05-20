@@ -89,9 +89,10 @@ a:hover {
 }
 
 .logo img {
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   object-fit: contain;
+  flex-shrink: 0;
 }
 
 .nav-links {
@@ -189,10 +190,11 @@ a:hover {
 }
 
 .hero-logo {
-  width: 88px;
-  height: 88px;
+  width: 96px;
+  height: 96px;
   margin: 0 auto 1.25rem;
   object-fit: contain;
+  display: block;
 }
 
 .hero h1 {
