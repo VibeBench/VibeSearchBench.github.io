@@ -20,6 +20,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Process logo assets
+        run: |
+          pip install pillow -q
+          python3 scripts/process_icons.py
+
       - name: Build static site
         run: |
           set -euo pipefail
