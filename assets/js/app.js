@@ -55,11 +55,14 @@ function isEnglishTask(task) {
   return latin > cjk;
 }
 
+function matchesLanguage(task, lang) {
+  if (lang === "all") return true;
+  const en = isEnglishTask(task);
+  return lang === "english" ? en : !en;
+}
+
 function sortTasks(tasks) {
   return tasks.slice().sort(function (a, b) {
-    const ea = isEnglishTask(a);
-    const eb = isEnglishTask(b);
-    if (ea !== eb) return ea ? -1 : 1;
     const na = parseInt(parseTaskId(a.qid).number, 10) || 0;
     const nb = parseInt(parseTaskId(b.qid).number, 10) || 0;
     return na - nb;
@@ -223,6 +226,7 @@ function setupLeaderboardTabs() {
 
 let tasksIndex = null;
 let currentSubset = "pro";
+let currentLanguage = "english";
 let currentTaskFile = null;
 const taskCache = {};
 
@@ -322,10 +326,17 @@ function renderTaskList(filter) {
   const q = (filter || "").trim().toLowerCase();
   const tasks = sortTasks(
     sub.tasks.filter(function (t) {
+      if (!matchesLanguage(t, currentLanguage)) return false;
       if (!q) return true;
       return taskSearchText(t).includes(q);
     })
   );
+
+  if (!tasks.length) {
+    currentTaskFile = null;
+    list.innerHTML = '<p class="empty-state">No tasks match this filter.</p>';
+    return;
+  }
 
   list.innerHTML = tasks
     .map(function (t) {
@@ -368,22 +379,35 @@ function renderTaskList(filter) {
     });
   });
 
-  if (tasks.length && !currentTaskFile) {
+  const activeVisible = tasks.some(function (t) {
+    return t.file === currentTaskFile;
+  });
+  if (!currentTaskFile || !activeVisible) {
     selectTask(currentSubset, tasks[0].file);
   }
 }
 
 function setupTasks() {
   const subsetSelect = document.getElementById("subset-select");
+  const languageSelect = document.getElementById("language-select");
   const search = document.getElementById("task-search");
+
+  function refreshTaskList() {
+    currentTaskFile = null;
+    renderTaskList(search.value);
+  }
 
   subsetSelect.addEventListener("change", function () {
     currentSubset = subsetSelect.value;
-    currentTaskFile = null;
     Object.keys(taskCache).forEach(function (k) {
       delete taskCache[k];
     });
-    renderTaskList(search.value);
+    refreshTaskList();
+  });
+
+  languageSelect.addEventListener("change", function () {
+    currentLanguage = languageSelect.value;
+    refreshTaskList();
   });
 
   search.addEventListener("input", function () {
