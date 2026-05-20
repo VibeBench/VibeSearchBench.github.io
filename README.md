@@ -1,6 +1,6 @@
 # VibeSearchBench Project Page
 
-Static project website for [VibeSearchBench](https://github.com/VibeSearchBench/VibeSearchBench).
+Static project website for [VibeSearchBench](https://github.com/VibeBench/VibeSearchBench).
 
 **Live site:** https://vibebench.github.io/VibeSearchBench.github.io/
 
