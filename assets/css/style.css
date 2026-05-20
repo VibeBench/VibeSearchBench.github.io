@@ -235,7 +235,7 @@ a:hover {
 }
 
 .hero {
-  padding: 0.35rem 0 1.75rem;
+  padding: 0.5rem 0 2rem;
   text-align: center;
   position: relative;
 }
@@ -259,20 +259,20 @@ a:hover {
   flex-direction: column;
   align-items: center;
   gap: 0;
-  margin: -0.25rem 0 0.25rem;
+  margin: -0.5rem 0 0.35rem;
 }
 
 .hero-logo {
-  width: min(300px, 82vw);
+  width: min(320px, 82vw);
   height: auto;
   object-fit: contain;
   display: block;
-  margin: -1rem auto -2.5rem;
+  margin: -0.1rem auto -0.1rem;
   line-height: 0;
 }
 
 .hero-title {
-  font-size: clamp(1.85rem, 4.6vw, 2.55rem);
+  font-size: clamp(2.15rem, 5.8vw, 3.1rem);
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1;
@@ -283,8 +283,8 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  font-size: 0.74rem;
+  gap: 0.65rem;
+  font-size: 0.8rem;
   color: var(--muted);
   letter-spacing: 0.03em;
   margin: -0.15rem 0 0;
@@ -321,11 +321,11 @@ a:hover {
 }
 
 .hero-sub {
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   color: var(--muted);
-  line-height: 1.5;
-  max-width: 600px;
-  margin: 0.25rem auto 1rem;
+  line-height: 1.55;
+  max-width: 640px;
+  margin: 0.35rem auto 1.25rem;
 }
 
 .hero-stats {
@@ -338,11 +338,11 @@ a:hover {
   overflow: hidden;
   background: var(--surface);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
 .h-stat {
-  padding: 0.7rem 1rem;
+  padding: 0.85rem 1.15rem;
   border-right: 1px solid var(--border);
 }
 
@@ -357,7 +357,7 @@ a:hover {
 }
 
 .h-stat-n {
-  font-size: 1.25rem;
+  font-size: 1.45rem;
   font-weight: 700;
   color: var(--accent);
   line-height: 1;
@@ -970,12 +970,12 @@ tbody tr:hover td {
 
 @media (max-width: 640px) {
   .hero-logo {
-    width: min(252px, 82vw);
-    margin: -0.75rem auto -2rem;
+    width: min(260px, 82vw);
+    margin: -0.1rem auto -0.1rem;
   }
 
   .hero-brand {
-    margin-top: -0.15rem;
+    margin-top: -0.35rem;
   }
 
   .hero-stats {
