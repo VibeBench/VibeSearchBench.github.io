@@ -234,43 +234,14 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
   margin-bottom: 1.5rem;
 }
 
 .hero-logo {
-  width: 140px;
-  height: 140px;
+  width: min(380px, 88vw);
+  height: auto;
   object-fit: contain;
   display: block;
-}
-
-.hero-title {
-  font-size: clamp(2rem, 5vw, 2.65rem);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  margin: 0;
-}
-
-.title-vibe {
-  color: #0d9488;
-}
-
-.title-search {
-  color: var(--accent);
-}
-
-.title-bench {
-  color: #1e3a5f;
-}
-
-.hero-tagline {
-  font-size: 0.8rem;
-  color: var(--muted);
-  letter-spacing: 0.03em;
-  margin: 0;
-  max-width: 22rem;
 }
 
 .hero-sub {
@@ -737,8 +708,7 @@ tbody tr:hover td {
 
 @media (max-width: 640px) {
   .hero-logo {
-    width: 112px;
-    height: 112px;
+    width: min(300px, 92vw);
   }
 
   .hero-stats {
