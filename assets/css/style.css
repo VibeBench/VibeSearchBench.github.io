@@ -263,11 +263,11 @@ a:hover {
 }
 
 .hero-logo {
-  width: min(280px, 82vw);
+  width: min(250px, 82vw);
   height: auto;
   object-fit: contain;
   display: block;
-  margin: 0 auto -0.05rem;
+  margin: 30px auto 30px;
   line-height: 0;
 }
 
@@ -970,8 +970,8 @@ tbody tr:hover td {
 
 @media (max-width: 640px) {
   .hero-logo {
-    width: min(228px, 82vw);
-    margin: 0 auto -0.05rem;
+    width: min(204px, 82vw);
+    margin: 30px auto 30px;
   }
 
   .hero-brand {
