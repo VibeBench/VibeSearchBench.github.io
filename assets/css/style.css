@@ -239,7 +239,7 @@ a:hover {
 }
 
 .hero-logo {
-  width: min(320px, 78vw);
+  width: min(240px, 68vw);
   height: auto;
   object-fit: contain;
   display: block;
@@ -247,26 +247,26 @@ a:hover {
 }
 
 .hero-title {
-  font-size: clamp(1.85rem, 4.5vw, 2.5rem);
+  font-size: clamp(2.15rem, 5.8vw, 3.1rem);
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.05;
-  margin: 0.1rem 0 0.15rem;
+  margin: 0.15rem 0 0.2rem;
 }
 
 .title-vibe {
-  background: linear-gradient(90deg, #34d399, #0d9488);
+  background: linear-gradient(90deg, #3ee8c9, #1fc5a5);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
 .title-search {
-  color: #2563eb;
+  color: #3181f0;
 }
 
 .title-bench {
-  color: #1e3a5f;
+  color: #03194b;
 }
 
 .hero-tagline {
