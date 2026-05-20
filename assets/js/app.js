@@ -718,6 +718,7 @@ function renderTrajectory(task) {
   html += '<span class="metric-pill">User turns: ' + (task.stats?.user_turns ?? "—") + "</span>";
   html += '<span class="metric-pill">Tool calls: ' + (task.stats?.tool_calls ?? "—") + "</span>";
   html += "</div></header>";
+  html += '<div class="task-viewer-body">';
   html +=
     '<div class="trajectory">' +
     (turnsHtml || '<p class="empty-state">No turns in trajectory.</p>') +
@@ -725,6 +726,7 @@ function renderTrajectory(task) {
   if (task.response_preview) {
     html += renderKgExtraction(task.response_preview);
   }
+  html += "</div>";
   viewer.innerHTML = html;
 
   if (task.response_preview) {
