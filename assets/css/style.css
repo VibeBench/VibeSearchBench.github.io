@@ -1040,8 +1040,55 @@ tbody tr:hover td {
   background: #fff;
 }
 
-.gt-graph {
+.kg-graph-wrap {
+  position: relative;
   margin-top: 0.35rem;
+}
+
+.kg-graph-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 0.35rem;
+}
+
+.kg-fullscreen-btn {
+  padding: 0.2rem 0.55rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.kg-fullscreen-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.kg-graph-wrap:fullscreen {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.kg-graph-wrap:fullscreen .kg-graph {
+  flex: 1 1 auto;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+}
+
+.kg-graph-wrap:fullscreen .kg-graph-toolbar {
+  flex-shrink: 0;
+}
+
+.gt-graph {
+  margin-top: 0;
 }
 
 .gt-legend {

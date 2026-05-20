@@ -629,6 +629,63 @@ function loadGroundTruthImage(urls) {
   });
 }
 
+function graphWrapHtml(graphId, extraClass, ariaLabel, hidden) {
+  const cls = "kg-graph" + (extraClass ? " " + extraClass : "");
+  return (
+    '<div class="kg-graph-wrap"' +
+    (hidden ? " hidden" : "") +
+    ">" +
+    '<div class="kg-graph-toolbar">' +
+    '<button type="button" class="kg-fullscreen-btn" title="View graph fullscreen">Fullscreen</button>' +
+    "</div>" +
+    '<div id="' +
+    graphId +
+    '" class="' +
+    cls +
+    '" aria-label="' +
+    escapeHtml(ariaLabel) +
+    '"></div></div>"
+  );
+}
+
+function bindGraphFullscreen(wrap, getNetwork) {
+  if (!wrap || wrap.dataset.fsBound === "1") return;
+  wrap.dataset.fsBound = "1";
+  const btn = wrap.querySelector(".kg-fullscreen-btn");
+  if (!btn) return;
+
+  function refreshNetwork() {
+    const net = getNetwork();
+    if (net) {
+      setTimeout(function () {
+        net.redraw();
+        net.fit({ animation: { duration: 200 } });
+      }, 150);
+    }
+  }
+
+  function updateBtn() {
+    btn.textContent = document.fullscreenElement === wrap ? "Exit fullscreen" : "Fullscreen";
+  }
+
+  btn.addEventListener("click", function () {
+    if (document.fullscreenElement === wrap) {
+      document.exitFullscreen();
+    } else if (wrap.requestFullscreen) {
+      wrap.requestFullscreen();
+    } else if (wrap.webkitRequestFullscreen) {
+      wrap.webkitRequestFullscreen();
+    }
+  });
+
+  document.addEventListener("fullscreenchange", function () {
+    if (document.fullscreenElement === wrap || !document.fullscreenElement) {
+      updateBtn();
+      refreshNetwork();
+    }
+  });
+}
+
 function renderKgExtraction(preview) {
   const triplets = parseKgTriplets(preview);
   const total = triplets.length;
@@ -664,7 +721,7 @@ function renderKgExtraction(preview) {
     "</div></div>" +
     note +
     '<div class="kg-panel kg-panel-graph active" data-kg-panel="graph" role="tabpanel">' +
-    '<div id="kg-graph" class="kg-graph" aria-label="Predicted knowledge graph"></div>' +
+    graphWrapHtml("kg-graph", "", "Predicted knowledge graph") +
     '<p class="kg-legend">' +
     total +
     " triplet" +
@@ -682,7 +739,10 @@ function renderGroundTruthShell() {
     '<div class="ground-truth-panel">' +
     '<p class="gt-status">Loading ground truth…</p>' +
     '<img class="gt-image" alt="Ground truth knowledge graph" hidden />' +
-    '<div id="gt-graph" class="kg-graph gt-graph" hidden aria-label="Ground truth knowledge graph"></div>' +
+    graphWrapHtml("gt-graph", "gt-graph", "Ground truth knowledge graph").replace(
+      'class="kg-graph-wrap"',
+      'class="kg-graph-wrap" hidden'
+    ) +
     '<p class="kg-legend gt-legend" hidden></p>' +
     "</div>"
   );
@@ -804,6 +864,12 @@ function initTripletsGraph(el, triplets, viewer, networkKey, style) {
     network.fit({ animation: { duration: 250 } });
   });
   viewer[networkKey] = network;
+  const wrap = el.closest(".kg-graph-wrap");
+  if (wrap) {
+    bindGraphFullscreen(wrap, function () {
+      return viewer[networkKey];
+    });
+  }
   return { shown: capped.length, total: triplets.length, maxN: maxN };
 }
 
@@ -824,12 +890,14 @@ async function loadGroundTruthPanel(viewer, subset, qid, file) {
   const status = panel.querySelector(".gt-status");
   const img = panel.querySelector(".gt-image");
   const graph = panel.querySelector("#gt-graph");
+  const graphWrap = panel.querySelector(".kg-graph-wrap");
   const legend = panel.querySelector(".gt-legend");
 
   status.hidden = false;
   status.textContent = "Loading ground truth…";
   img.hidden = true;
-  graph.hidden = true;
+  if (graph) graph.hidden = true;
+  if (graphWrap) graphWrap.hidden = true;
   legend.hidden = true;
 
   const imageUrl = await loadGroundTruthImage(groundTruthImageUrls(subset, qid, file));
@@ -837,7 +905,8 @@ async function loadGroundTruthPanel(viewer, subset, qid, file) {
     img.src = imageUrl;
     img.hidden = false;
     status.hidden = true;
-    graph.hidden = true;
+    if (graph) graph.hidden = true;
+    if (graphWrap) graphWrap.hidden = true;
     legend.hidden = true;
   }
 
@@ -845,7 +914,8 @@ async function loadGroundTruthPanel(viewer, subset, qid, file) {
   const triplets = normalizeGtTriples(gt);
 
   if (!imageUrl && triplets.length) {
-    graph.hidden = false;
+    if (graphWrap) graphWrap.hidden = false;
+    if (graph) graph.hidden = false;
     status.hidden = true;
     const stats = initTripletsGraph(graph, triplets, viewer, "_gtNetwork", {
       maxTriplets: GT_GRAPH_MAX_TRIPLETS,
@@ -879,7 +949,8 @@ async function loadGroundTruthPanel(viewer, subset, qid, file) {
 
   status.hidden = false;
   status.textContent = "Ground truth not available for this task.";
-  graph.hidden = true;
+  if (graph) graph.hidden = true;
+  if (graphWrap) graphWrap.hidden = true;
   legend.hidden = true;
 }
 
