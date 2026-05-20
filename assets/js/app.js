@@ -630,23 +630,38 @@ function setupTaskAccordion(viewer) {
   }
 }
 
-function taskNumberFromQid(qid) {
-  const m = String(qid || "").match(/^task_(\d+)_/i);
-  return m ? m[1] : null;
+function hfDailyGroundTruthFilenames(file) {
+  const names = [];
+  const seen = {};
+  function add(name) {
+    if (name && !seen[name]) {
+      seen[name] = true;
+      names.push(name);
+    }
+  }
+  add(file);
+  const m = file.match(/^(task_\d+_)(.+)\.json$/i);
+  if (m) {
+    const slug = m[2].replace(/_+$/, "");
+    const spaced = m[1] + slug.replace(/_/g, " ") + ".json";
+    add(spaced);
+    add(spaced.replace(/\.json$/i, "\u200c.json"));
+  }
+  return names;
 }
 
 function groundTruthJsonUrls(subset, qid, file) {
   const urls = [];
   const base = file.replace(/\.json$/i, "");
-  const num = taskNumberFromQid(qid);
   urls.push(asset("data/ground_truth/" + subset + "/" + file));
   urls.push(asset("data/ground_truth/" + subset + "/" + base + ".json"));
-  if (num) urls.push(asset("data/ground_truth/" + subset + "/" + num + ".json"));
-  if (subset === "pro" && num) {
-    urls.push(HF_GT_BASE + "VibeSearch-Pro/" + num + ".json");
-  } else {
-    urls.push(HF_GT_BASE + "VibeSearch-Daily/" + encodeURIComponent(file));
-  }
+  urls.push(asset("data/ground_truth/daily/" + file));
+  urls.push(asset("data/ground_truth/daily/" + base + ".json"));
+  // Official GT JSON for trajectories lives under VibeSearch-Daily on Hugging Face.
+  // Do NOT use VibeSearch-Pro/NNN.json — NNN is HF's own index, not task_XXX in qid.
+  hfDailyGroundTruthFilenames(file).forEach(function (name) {
+    urls.push(HF_GT_BASE + "VibeSearch-Daily/" + encodeURIComponent(name));
+  });
   return urls;
 }
 
@@ -991,7 +1006,6 @@ async function loadGroundTruthPanel(viewer, subset, qid, file) {
 
   status.hidden = false;
   status.textContent = "Ground truth not available for this task.";
-  if (graph) graph.hidden = true;
   if (graphWrap) graphWrap.hidden = true;
   legend.hidden = true;
 }
