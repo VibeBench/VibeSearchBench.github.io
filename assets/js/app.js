@@ -18,6 +18,26 @@ function escapeHtml(s) {
     .replace(/"/g, "&quot;");
 }
 
+function renderMarkdown(text) {
+  if (text == null || text === "") return "";
+  const src = String(text);
+  if (typeof marked !== "undefined") {
+    marked.setOptions({ breaks: true, gfm: true });
+    let html = marked.parse(src);
+    if (typeof DOMPurify !== "undefined") {
+      html = DOMPurify.sanitize(html, {
+        ADD_ATTR: ["target", "rel"],
+      });
+      html = html.replace(
+        /<a href=/g,
+        '<a target="_blank" rel="noopener noreferrer" href='
+      );
+    }
+    return html;
+  }
+  return escapeHtml(src);
+}
+
 function formatArgs(args) {
   if (typeof args === "string") return args;
   try {
@@ -666,25 +686,25 @@ function renderTurn(turn) {
     return (
       '<div class="turn turn-user">' +
       '<div class="turn-role">User</div>' +
-      '<div class="turn-content">' +
-      escapeHtml(turn.content || "") +
+      '<div class="turn-content md-body">' +
+      renderMarkdown(turn.content || "") +
       "</div></div>"
     );
   }
 
   let html = '<div class="turn turn-assistant"><div class="turn-role">Agent</div>';
   if (turn.thinking) {
-    html += '<div class="turn-thinking">' + escapeHtml(turn.thinking) + "</div>";
+    html += '<div class="turn-thinking md-body">' + renderMarkdown(turn.thinking) + "</div>";
   }
   if (turn.content) {
-    html += '<div class="turn-content">' + escapeHtml(turn.content) + "</div>";
+    html += '<div class="turn-content md-body">' + renderMarkdown(turn.content) + "</div>";
   }
   for (const tc of turn.tool_calls || []) {
     html += '<div class="tool-block">';
     html += '<div class="tool-head">' + escapeHtml(tc.name) + "</div>";
     html += '<pre class="tool-args">' + escapeHtml(formatArgs(tc.args)) + "</pre>";
     if (tc.result != null) {
-      html += '<pre class="tool-result">' + escapeHtml(tc.result) + "</pre>";
+      html += '<div class="tool-result md-body">' + renderMarkdown(tc.result) + "</div>";
     }
     html += "</div>";
   }

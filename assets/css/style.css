@@ -821,17 +821,18 @@ tbody tr:hover td {
 .turn-thinking {
   font-size: 0.78rem;
   color: var(--muted);
-  font-style: italic;
   margin-bottom: 0.5rem;
   padding: 0.5rem 0.65rem;
   background: var(--surface2);
   border-radius: 6px;
-  white-space: pre-wrap;
+}
+
+.turn-thinking.md-body {
+  font-style: normal;
 }
 
 .turn-content {
   font-size: 0.84rem;
-  white-space: pre-wrap;
   word-break: break-word;
 }
 
@@ -853,20 +854,128 @@ tbody tr:hover td {
   font-family: var(--mono);
 }
 
-.tool-args,
-.tool-result {
+.tool-args {
   padding: 0.5rem 0.65rem;
   font-size: 0.72rem;
   font-family: var(--mono);
   white-space: pre-wrap;
   word-break: break-word;
-  max-height: 180px;
-  overflow-y: auto;
+  margin: 0;
 }
 
 .tool-result {
+  padding: 0.5rem 0.65rem;
+  font-size: 0.78rem;
+  word-break: break-word;
+  max-height: 280px;
+  overflow-y: auto;
   border-top: 1px solid var(--border);
   background: #fafafa;
+}
+
+.trajectory .md-body {
+  line-height: 1.5;
+}
+
+.trajectory .md-body > :first-child {
+  margin-top: 0;
+}
+
+.trajectory .md-body > :last-child {
+  margin-bottom: 0;
+}
+
+.trajectory .md-body h1,
+.trajectory .md-body h2,
+.trajectory .md-body h3 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin: 0.75rem 0 0.35rem;
+  color: var(--text);
+}
+
+.trajectory .md-body h2 {
+  font-size: 0.85rem;
+}
+
+.trajectory .md-body h3 {
+  font-size: 0.8rem;
+}
+
+.trajectory .md-body p {
+  margin: 0.35rem 0;
+}
+
+.trajectory .md-body ul,
+.trajectory .md-body ol {
+  margin: 0.35rem 0;
+  padding-left: 1.25rem;
+}
+
+.trajectory .md-body li {
+  margin: 0.2rem 0;
+}
+
+.trajectory .md-body a {
+  color: var(--accent);
+  text-decoration: underline;
+  word-break: break-all;
+}
+
+.trajectory .md-body a:hover {
+  color: #1d4ed8;
+}
+
+.trajectory .md-body code {
+  font-family: var(--mono);
+  font-size: 0.9em;
+  background: var(--surface2);
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+}
+
+.trajectory .md-body pre {
+  margin: 0.5rem 0;
+  padding: 0.5rem 0.65rem;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow-x: auto;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  white-space: pre-wrap;
+}
+
+.trajectory .md-body pre code {
+  background: none;
+  padding: 0;
+}
+
+.trajectory .md-body blockquote {
+  margin: 0.5rem 0;
+  padding-left: 0.75rem;
+  border-left: 3px solid var(--border);
+  color: var(--muted);
+}
+
+.trajectory .md-body hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0.65rem 0;
+}
+
+.trajectory .md-body table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.75rem;
+  margin: 0.5rem 0;
+}
+
+.trajectory .md-body th,
+.trajectory .md-body td {
+  border: 1px solid var(--border);
+  padding: 0.35rem 0.5rem;
+  text-align: left;
 }
 
 .kg-extraction {
