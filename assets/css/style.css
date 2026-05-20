@@ -169,6 +169,37 @@ a:hover {
   padding-top: var(--nav-h);
 }
 
+.page-results {
+  padding-top: var(--nav-h);
+}
+
+.page-intro {
+  padding-top: 2rem;
+  padding-bottom: 0.5rem;
+}
+
+.page-intro-title {
+  font-size: clamp(1.65rem, 3.5vw, 2.1rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.5rem;
+}
+
+.page-intro-title span {
+  color: var(--accent);
+}
+
+.page-intro-sub {
+  margin-bottom: 0;
+  max-width: 640px;
+}
+
+.section-alt {
+  background: var(--surface2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
 .hero {
   padding: 3.5rem 0 3rem;
   text-align: center;

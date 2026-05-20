@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Results — VibeSearchBench</title>
+    <meta
+      name="description"
+      content="VibeSearchBench leaderboard and multi-turn trajectory visualizations."
+    />
+    <link rel="icon" type="image/png" href="assets/img/smallicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <nav class="nav" id="nav">
+      <div class="container nav-inner">
+        <a class="logo" href="index.html">
+          <img src="assets/img/smallicon.png" alt="" width="32" height="32" />
+          VibeSearchBench
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#leaderboard">Leaderboard</a></li>
+          <li><a href="#tasks">Tasks</a></li>
+          <li><a href="assets/paper.pdf" target="_blank" rel="noopener">Paper</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a class="btn btn-ghost" href="https://github.com/VibeBench/VibeSearchBench" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn btn-primary" href="https://huggingface.co/datasets/VibeSearchBench/VibeSearchBench" target="_blank" rel="noopener">Dataset</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="page page-results" id="top">
+      <section class="section page-intro">
+        <div class="container">
+          <h1 class="page-intro-title">Results &amp; <span>Trajectories</span></h1>
+          <p class="section-sub page-intro-sub">
+            Model rankings on VibeSearchBench and interactive multi-turn agent trajectories.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" id="leaderboard">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="section-title"><span>Leaderboard</span></h2>
+            <p class="section-sub" id="lb-subtitle">
+              Triplet-level F1 on VibeSearchBench (Table 3 in the paper). Toggle framework and sort columns.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="lb-toolbar">
+              <div class="tab-bar" id="framework-tabs">
+                <button type="button" class="tab-btn active" data-framework="openclaw">OpenClaw</button>
+                <button type="button" class="tab-btn" data-framework="react">ReAct</button>
+              </div>
+              <div class="tab-bar" id="subset-tabs">
+                <button type="button" class="tab-btn active" data-subset="avg">Average</button>
+                <button type="button" class="tab-btn" data-subset="pro">Pro</button>
+                <button type="button" class="tab-btn" data-subset="daily">Daily</button>
+              </div>
+            </div>
+            <div class="table-wrap">
+              <table id="leaderboard-table">
+                <thead>
+                  <tr>
+                    <th data-sort="rank">#</th>
+                    <th data-sort="name">Model</th>
+                    <th data-sort="f1">F1 ↑</th>
+                    <th data-sort="p">Precision</th>
+                    <th data-sort="r">Recall</th>
+                  </tr>
+                </thead>
+                <tbody id="leaderboard-body"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top: 1rem">
+            <h3 style="font-size: 0.95rem; margin-bottom: 0.75rem">Interaction statistics</h3>
+            <div class="table-wrap">
+              <table id="interaction-table">
+                <thead>
+                  <tr>
+                    <th>Model</th>
+                    <th># Asst turns</th>
+                    <th># User turns</th>
+                    <th>Asst / User</th>
+                    <th># Compact</th>
+                  </tr>
+                </thead>
+                <tbody id="interaction-body"></tbody>
+              </table>
+            </div>
+            <p class="section-sub" style="margin-top: 0.75rem; margin-bottom: 0">
+              Trajectory visualizations use <span id="traj-model-label">—</span>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="tasks">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="section-title">Task <span>Visualization</span></h2>
+            <p class="section-sub">
+              Browse multi-turn agent trajectories: user simulation, tool calls (search / visit / python),
+              and final knowledge-graph extraction.
+            </p>
+          </div>
+
+          <div id="demo-banner" class="demo-banner" hidden></div>
+
+          <div class="tasks-layout">
+            <aside class="task-sidebar">
+              <div class="task-filters card">
+                <select id="subset-select" aria-label="Subset">
+                  <option value="pro">VibeSearch-Pro</option>
+                  <option value="daily">VibeSearch-Daily</option>
+                </select>
+                <input type="search" id="task-search" placeholder="Search tasks…" />
+              </div>
+              <div class="task-list" id="task-list" role="listbox" aria-label="Tasks"></div>
+            </aside>
+            <article class="task-viewer" id="task-viewer">
+              <div class="empty-state">Select a task to view its trajectory.</div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>
+          VibeSearchBench · Rednote-Hilab &amp; Unipat AI ·
+          <a href="https://github.com/VibeBench/VibeSearchBench">Code</a> ·
+          <a href="https://huggingface.co/datasets/VibeSearchBench/VibeSearchBench">Data</a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>

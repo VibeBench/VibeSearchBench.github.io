@@ -28,9 +28,11 @@ function formatArgs(args) {
 }
 
 const nav = document.getElementById("nav");
-window.addEventListener("scroll", () => {
-  nav.classList.toggle("scrolled", window.scrollY > 8);
-});
+if (nav) {
+  window.addEventListener("scroll", () => {
+    nav.classList.toggle("scrolled", window.scrollY > 8);
+  });
+}
 
 document.querySelectorAll('.nav-links a[href^="#"]').forEach((link) => {
   link.addEventListener("click", (e) => {
@@ -344,20 +346,37 @@ function setupTasks() {
 }
 
 async function init() {
-  try {
-    leaderboardData = await loadJSON("data/leaderboard.json");
-    tasksIndex = await loadJSON("data/tasks_index.json");
+  const needsLeaderboard = document.getElementById("leaderboard-body");
+  const needsTasks = document.getElementById("task-list");
+  const needsHero = document.getElementById("hero-user-turns");
 
-    const trajLabel = document.getElementById("traj-model-label");
-    if (trajLabel && leaderboardData.trajectory_model) {
-      trajLabel.textContent = leaderboardData.trajectory_model;
+  if (!needsLeaderboard && !needsTasks && !needsHero) return;
+
+  try {
+    if (needsLeaderboard || needsHero) {
+      leaderboardData = await loadJSON("data/leaderboard.json");
+    }
+    if (needsTasks) {
+      tasksIndex = await loadJSON("data/tasks_index.json");
     }
 
-    setupLeaderboardTabs();
-    renderHeroStats();
-    renderLeaderboard();
-    renderInteractionStats();
-    setupTasks();
+    if (needsHero) {
+      renderHeroStats();
+    }
+
+    if (needsLeaderboard) {
+      const trajLabel = document.getElementById("traj-model-label");
+      if (trajLabel && leaderboardData.trajectory_model) {
+        trajLabel.textContent = leaderboardData.trajectory_model;
+      }
+      setupLeaderboardTabs();
+      renderLeaderboard();
+      renderInteractionStats();
+    }
+
+    if (needsTasks) {
+      setupTasks();
+    }
   } catch (err) {
     console.error(err);
     const lb = document.getElementById("leaderboard-body");
