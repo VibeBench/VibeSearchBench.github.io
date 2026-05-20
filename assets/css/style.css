@@ -183,16 +183,11 @@ a:hover {
   background: rgba(37, 99, 235, 0.08);
 }
 
-.page-intro {
-  padding-top: 2rem;
-  padding-bottom: 0.5rem;
-}
-
 .page-intro-title {
-  font-size: clamp(1.65rem, 3.5vw, 2.1rem);
+  font-size: clamp(1.5rem, 3vw, 1.85rem);
   font-weight: 800;
   letter-spacing: -0.03em;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.35rem;
 }
 
 .page-intro-title span {
@@ -202,6 +197,31 @@ a:hover {
 .page-intro-sub {
   margin-bottom: 0;
   max-width: 640px;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* Subpages: intro + content — avoid .section padding stacking */
+.page-sub .section.page-intro {
+  padding: 1.25rem 0 0;
+}
+
+.page-sub .section.page-intro + .section {
+  padding: 0.75rem 0 2rem;
+}
+
+.page-sub .card + .card {
+  margin-top: 0.75rem;
+}
+
+.page-sub .card-section-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0 0 0.65rem;
+}
+
+.page-sub .card-footnote {
+  margin: 0.65rem 0 0;
 }
 
 .section-alt {
