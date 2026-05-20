@@ -1099,55 +1099,6 @@ function gtEdgeChannel(nodeLevels, levelSep, fromId, toId) {
 }
 
 function installGtLayerEdgeOverlay(network, edgeMeta, nodeLevels, levelSep) {
-  function drawEdges(ctx) {
-    let positions;
-    try {
-      positions = network.getPositions();
-    } catch (e) {
-      return;
-    }
-
-    ctx.save();
-    ctx.strokeStyle = "#cbd5e1";
-    ctx.fillStyle = "#cbd5e1";
-    ctx.lineWidth = 1.2;
-
-    edgeMeta.forEach(function (edge) {
-      const from = positions[edge.from];
-      const to = positions[edge.to];
-      if (!from || !to) return;
-
-      const midX = gtEdgeChannel(nodeLevels, levelSep, edge.from, edge.to);
-      ctx.beginPath();
-      if (midX != null) {
-        ctx.moveTo(from.x, from.y);
-        ctx.lineTo(midX, from.y);
-        ctx.lineTo(midX, to.y);
-        ctx.lineTo(to.x, to.y);
-      } else {
-        ctx.moveTo(from.x, from.y);
-        ctx.lineTo(to.x, to.y);
-      }
-      ctx.stroke();
-
-      if (midX != null) {
-        const head = 6;
-        ctx.beginPath();
-        ctx.moveTo(to.x, to.y);
-        ctx.lineTo(to.x - head, to.y - head * 0.55);
-        ctx.lineTo(to.x - head, to.y + head * 0.55);
-        ctx.closePath();
-        ctx.fill();
-      }
-    });
-
-    ctx.restore();
-  }
-
-  network.on("beforeDrawing", function (ctx) {
-    drawEdges(ctx);
-  });
-
   network.on("afterDrawing", function (ctx) {
     let positions;
     try {
@@ -1317,7 +1268,7 @@ function initTripletsGraph(el, triplets, viewer, networkKey, style) {
       network,
       layerEdgeMeta,
       style.nodeLevels,
-      style.levelSeparation || 220
+      style.levelSeparation || 320
     );
     scheduleLayerGraphRelayout(network, nodes, nodeMap, style.nodeLevels, el, style);
   } else {
@@ -1375,7 +1326,7 @@ async function loadGroundTruthPanel(viewer, subset, qid, file) {
       maxTriplets: GT_GRAPH_MAX_TRIPLETS,
       hierarchical: nodeLevels.size > 0,
       nodeLevels: nodeLevels,
-      levelSeparation: 220,
+      levelSeparation: 320,
       nodeSpacing: 130,
       edgeColor: {
         color: "#cbd5e1",
