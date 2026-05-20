@@ -1089,6 +1089,103 @@ function layerLayoutUpdates(nodeMap) {
   });
 }
 
+function gtEdgeChannel(nodeLevels, levelSep, fromId, toId) {
+  const fromLayer = nodeLevels.has(fromId) ? nodeLevels.get(fromId) : null;
+  const toLayer = nodeLevels.has(toId) ? nodeLevels.get(toId) : null;
+  if (fromLayer != null && toLayer != null && fromLayer !== toLayer) {
+    return ((fromLayer + toLayer) / 2) * levelSep;
+  }
+  return null;
+}
+
+function installGtLayerEdgeOverlay(network, edgeMeta, nodeLevels, levelSep) {
+  function drawEdges(ctx) {
+    let positions;
+    try {
+      positions = network.getPositions();
+    } catch (e) {
+      return;
+    }
+
+    ctx.save();
+    ctx.strokeStyle = "#cbd5e1";
+    ctx.fillStyle = "#cbd5e1";
+    ctx.lineWidth = 1.2;
+
+    edgeMeta.forEach(function (edge) {
+      const from = positions[edge.from];
+      const to = positions[edge.to];
+      if (!from || !to) return;
+
+      const midX = gtEdgeChannel(nodeLevels, levelSep, edge.from, edge.to);
+      ctx.beginPath();
+      if (midX != null) {
+        ctx.moveTo(from.x, from.y);
+        ctx.lineTo(midX, from.y);
+        ctx.lineTo(midX, to.y);
+        ctx.lineTo(to.x, to.y);
+      } else {
+        ctx.moveTo(from.x, from.y);
+        ctx.lineTo(to.x, to.y);
+      }
+      ctx.stroke();
+
+      if (midX != null) {
+        const head = 6;
+        ctx.beginPath();
+        ctx.moveTo(to.x, to.y);
+        ctx.lineTo(to.x - head, to.y - head * 0.55);
+        ctx.lineTo(to.x - head, to.y + head * 0.55);
+        ctx.closePath();
+        ctx.fill();
+      }
+    });
+
+    ctx.restore();
+    return positions;
+  }
+
+  network.on("beforeDrawing", function (ctx) {
+    drawEdges(ctx);
+  });
+
+  network.on("afterDrawing", function (ctx) {
+    let positions;
+    try {
+      positions = network.getPositions();
+    } catch (e) {
+      return;
+    }
+
+    ctx.save();
+    edgeMeta.forEach(function (edge) {
+      if (!edge.relation) return;
+      const from = positions[edge.from];
+      const to = positions[edge.to];
+      if (!from || !to) return;
+
+      const midX = gtEdgeChannel(nodeLevels, levelSep, edge.from, edge.to);
+      const mx = midX != null ? midX : (from.x + to.x) / 2;
+      const my = (from.y + to.y) / 2;
+      const label = truncateKgLabel(edge.relation, 24);
+
+      ctx.font = "500 9px Inter, sans-serif";
+      const textW = ctx.measureText(label).width;
+      const boxW = textW + 8;
+      const boxH = 14;
+      ctx.fillStyle = "rgba(255,255,255,0.94)";
+      ctx.fillRect(mx - boxW / 2, my - boxH / 2, boxW, boxH);
+      ctx.strokeStyle = "#e2e8f0";
+      ctx.strokeRect(mx - boxW / 2 + 0.5, my - boxH / 2 + 0.5, boxW - 1, boxH - 1);
+      ctx.fillStyle = "#475569";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText(label, mx, my);
+    });
+    ctx.restore();
+  });
+}
+
 function scheduleLayerGraphRelayout(network, nodes, nodeMap, nodeLevels, el, style) {
   if (!network || !nodes || !nodeMap || !el) return;
 
@@ -1139,6 +1236,7 @@ function initTripletsGraph(el, triplets, viewer, networkKey, style) {
   const capped = triplets.slice(0, maxN);
   const nodeMap = new Map();
   const edgeList = [];
+  const layerEdgeMeta = [];
 
   capped.forEach(function (t, i) {
     const h = t.head;
@@ -1146,18 +1244,30 @@ function initTripletsGraph(el, triplets, viewer, networkKey, style) {
     const rel = t.relation || "";
     if (!nodeMap.has(h)) nodeMap.set(h, makeKgNode(h, style));
     if (!nodeMap.has(tail)) nodeMap.set(tail, makeKgNode(tail, style));
-    edgeList.push({
-      id: networkKey + "-e" + i,
-      from: h,
-      to: tail,
-      label: rel ? truncateKgLabel(rel, 22) : "",
-      title: rel,
-      arrows: "to",
-      font: { size: 9, align: "middle", face: "Inter, sans-serif" },
-      smooth: useLayerLayout
-        ? { enabled: true, type: "cubicBezier", forceDirection: "horizontal", roundness: 0.35 }
-        : { type: "dynamic" },
-    });
+    if (useLayerLayout) {
+      layerEdgeMeta.push({ from: h, to: tail, relation: rel });
+      edgeList.push({
+        id: networkKey + "-e" + i,
+        from: h,
+        to: tail,
+        title: rel,
+        color: { color: "rgba(203,213,225,0)", highlight: "rgba(203,213,225,0)", hover: "rgba(203,213,225,0)" },
+        arrows: { to: { enabled: false } },
+        smooth: false,
+        width: 0,
+      });
+    } else {
+      edgeList.push({
+        id: networkKey + "-e" + i,
+        from: h,
+        to: tail,
+        label: rel ? truncateKgLabel(rel, 22) : "",
+        title: rel,
+        arrows: "to",
+        font: { size: 9, align: "middle", face: "Inter, sans-serif" },
+        smooth: { type: "dynamic" },
+      });
+    }
   });
 
   if (useLayerLayout) layoutNodesByLayer(nodeMap, style.nodeLevels, el, style);
@@ -1204,6 +1314,12 @@ function initTripletsGraph(el, triplets, viewer, networkKey, style) {
     }
   );
   if (useLayerLayout) {
+    installGtLayerEdgeOverlay(
+      network,
+      layerEdgeMeta,
+      style.nodeLevels,
+      style.levelSeparation || 220
+    );
     scheduleLayerGraphRelayout(network, nodes, nodeMap, style.nodeLevels, el, style);
   } else {
     network.once("stabilizationIterationsDone", function () {
