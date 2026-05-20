@@ -288,11 +288,11 @@ a:hover {
   width: 1.75rem;
   height: 2px;
   border-radius: 1px;
-  background: linear-gradient(90deg, #0d9488, transparent);
+  background: linear-gradient(90deg, #1fc5a5, transparent);
 }
 
 .tagline-accent-right {
-  background: linear-gradient(90deg, transparent, var(--accent));
+  background: linear-gradient(90deg, transparent, #3181f0);
 }
 
 .hero-sub {
@@ -759,7 +759,7 @@ tbody tr:hover td {
 
 @media (max-width: 640px) {
   .hero-logo {
-    width: min(260px, 78vw);
+    width: min(200px, 68vw);
   }
 
   .hero-stats {
