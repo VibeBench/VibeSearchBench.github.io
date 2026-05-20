@@ -1040,10 +1040,100 @@ function makeKgNode(id, style) {
   };
 }
 
+function gtNodeLayer(id, nodeLevels) {
+  return nodeLevels && nodeLevels.has(id) ? nodeLevels.get(id) : 0;
+}
+
+function buildDirectedLayerEdges(triplets, nodeLevels) {
+  const preds = new Map();
+  const succs = new Map();
+
+  function link(from, to) {
+    if (!succs.has(from)) succs.set(from, new Set());
+    if (!preds.has(to)) preds.set(to, new Set());
+    succs.get(from).add(to);
+    preds.get(to).add(from);
+  }
+
+  (triplets || []).forEach(function (t) {
+    const h = t.head;
+    const tail = t.tail;
+    const hl = gtNodeLayer(h, nodeLevels);
+    const tl = gtNodeLayer(tail, nodeLevels);
+    if (hl < tl) link(h, tail);
+    else if (tl < hl) link(tail, h);
+  });
+  return { preds, succs };
+}
+
+function layerRankMap(orderedIds) {
+  const ranks = new Map();
+  orderedIds.forEach(function (id, i) {
+    ranks.set(id, i);
+  });
+  return ranks;
+}
+
+function layerBarycenter(id, neighborIds, neighborRanks) {
+  if (!neighborIds || !neighborIds.size) return null;
+  let sum = 0;
+  let count = 0;
+  neighborIds.forEach(function (nid) {
+    if (neighborRanks.has(nid)) {
+      sum += neighborRanks.get(nid);
+      count++;
+    }
+  });
+  return count ? sum / count : null;
+}
+
+function sortLayerByBarycenter(ids, neighborOf, neighborRanks) {
+  return ids.slice().sort(function (a, b) {
+    const ba = layerBarycenter(a, neighborOf(a), neighborRanks);
+    const bb = layerBarycenter(b, neighborOf(b), neighborRanks);
+    if (ba != null && bb != null && ba !== bb) return ba - bb;
+    if (ba != null && bb == null) return -1;
+    if (ba == null && bb != null) return 1;
+    return String(a).localeCompare(String(b));
+  });
+}
+
+function orderLayersByBarycenter(byLayer, layers, preds, succs) {
+  const order = new Map();
+  layers.forEach(function (layer) {
+    order.set(layer, byLayer.get(layer).slice().sort());
+  });
+
+  const iterations = Math.max(4, layers.length * 2);
+  for (let iter = 0; iter < iterations; iter++) {
+    for (let li = 1; li < layers.length; li++) {
+      const layer = layers[li];
+      const prevRanks = layerRankMap(order.get(layers[li - 1]));
+      order.set(
+        layer,
+        sortLayerByBarycenter(order.get(layer), function (id) {
+          return preds.get(id);
+        }, prevRanks)
+      );
+    }
+    for (let li = layers.length - 2; li >= 0; li--) {
+      const layer = layers[li];
+      const nextRanks = layerRankMap(order.get(layers[li + 1]));
+      order.set(
+        layer,
+        sortLayerByBarycenter(order.get(layer), function (id) {
+          return succs.get(id);
+        }, nextRanks)
+      );
+    }
+  }
+  return order;
+}
+
 function layoutNodesByLayer(nodeMap, nodeLevels, el, style) {
   const byLayer = new Map();
   nodeMap.forEach(function (_node, id) {
-    const layer = nodeLevels && nodeLevels.has(id) ? nodeLevels.get(id) : 0;
+    const layer = gtNodeLayer(id, nodeLevels);
     if (!byLayer.has(layer)) byLayer.set(layer, []);
     byLayer.get(layer).push(id);
   });
@@ -1063,8 +1153,11 @@ function layoutNodesByLayer(nodeMap, nodeLevels, el, style) {
     Math.min(160, Math.floor((height - 100) / Math.max(maxCount, 1)))
   );
 
+  const { preds, succs } = buildDirectedLayerEdges(style._layoutTriplets || [], nodeLevels);
+  const layerOrder = orderLayersByBarycenter(byLayer, layers, preds, succs);
+
   layers.forEach(function (layer) {
-    const ids = byLayer.get(layer).slice().sort();
+    const ids = layerOrder.get(layer);
     const count = ids.length;
     const color = gtColorForLayer(layer);
     ids.forEach(function (id, i) {
@@ -1160,7 +1253,10 @@ function initTripletsGraph(el, triplets, viewer, networkKey, style) {
     });
   });
 
-  if (useLayerLayout) layoutNodesByLayer(nodeMap, style.nodeLevels, el, style);
+  if (useLayerLayout) {
+    style._layoutTriplets = capped;
+    layoutNodesByLayer(nodeMap, style.nodeLevels, el, style);
+  }
 
   const nodes = new vis.DataSet(Array.from(nodeMap.values()));
   const edges = new vis.DataSet(edgeList);
