@@ -234,16 +234,39 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.15rem;
   margin-bottom: 0.75rem;
 }
 
 .hero-logo {
-  width: min(380px, 88vw);
+  width: min(320px, 78vw);
   height: auto;
   object-fit: contain;
   display: block;
   margin: 0 auto;
+}
+
+.hero-title {
+  font-size: clamp(1.85rem, 4.5vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin: 0.1rem 0 0.15rem;
+}
+
+.title-vibe {
+  background: linear-gradient(90deg, #34d399, #0d9488);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.title-search {
+  color: #2563eb;
+}
+
+.title-bench {
+  color: #1e3a5f;
 }
 
 .hero-tagline {
@@ -736,7 +759,7 @@ tbody tr:hover td {
 
 @media (max-width: 640px) {
   .hero-logo {
-    width: min(280px, 88vw);
+    width: min(260px, 78vw);
   }
 
   .hero-stats {
