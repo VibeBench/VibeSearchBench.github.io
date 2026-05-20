@@ -18,20 +18,29 @@ def luminance(r: int, g: int, b: int) -> float:
     return 0.2126 * r + 0.7152 * g + 0.0722 * b
 
 
-def is_background(r: int, g: int, b: int, a: int) -> bool:
-    if a == 0:
-        return True
+def is_matte_black(r: int, g: int, b: int) -> bool:
+    """Only remove neutral black matte, not dark brand colors in the wordmark."""
+    _, s, _ = colorsys.rgb_to_hsv(r / 255, g / 255, b / 255)
+    if s > 0.12:
+        return False
+    return max(r, g, b) < 36 and luminance(r, g, b) < 34
+
+
+def is_light_background(r: int, g: int, b: int) -> bool:
     _, s, v = colorsys.rgb_to_hsv(r / 255, g / 255, b / 255)
     lum = luminance(r, g, b)
-    # black / near-black matte
-    if lum < 32:
-        return True
     # white, light gray, checkerboard (#ccc / #fff)
     if v >= 0.72 and s <= 0.16:
         return True
     if lum > 228 and max(r, g, b) - min(r, g, b) < 22:
         return True
     return False
+
+
+def is_background(r: int, g: int, b: int, a: int) -> bool:
+    if a == 0:
+        return True
+    return is_matte_black(r, g, b) or is_light_background(r, g, b)
 
 
 def flood_background(im: Image.Image) -> Image.Image:
@@ -42,10 +51,10 @@ def flood_background(im: Image.Image) -> Image.Image:
     q: deque[tuple[int, int]] = deque()
 
     def try_seed(x: int, y: int) -> None:
-        if 0 <= x < w and 0 <= y < h and not seen[x][y]:
+        if 0 <= x < w and 0 <= y < h and not seen[y][x]:
             r, g, b, a = px[x, y]
             if is_background(r, g, b, a):
-                seen[x][y] = True
+                seen[y][x] = True
                 q.append((x, y))
 
     for x in range(w):
@@ -60,17 +69,17 @@ def flood_background(im: Image.Image) -> Image.Image:
         r, g, b, _ = px[x, y]
         px[x, y] = (r, g, b, 0)
         for nx, ny in ((x - 1, y), (x + 1, y), (x, y - 1), (x, y + 1)):
-            if 0 <= nx < w and 0 <= ny < h and not seen[nx][ny]:
+            if 0 <= nx < w and 0 <= ny < h and not seen[ny][nx]:
                 nr, ng, nb, na = px[nx, ny]
                 if is_background(nr, ng, nb, na):
-                    seen[nx][ny] = True
+                    seen[ny][nx] = True
                     q.append((nx, ny))
 
     return im
 
 
-def flood_from_transparent(im: Image.Image) -> Image.Image:
-    """Remove interior matte pockets surrounded by artwork."""
+def flood_matte_from_transparent(im: Image.Image) -> Image.Image:
+    """Remove interior black matte pockets (emblem on black); keep wordmark fills."""
     im = im.convert("RGBA")
     w, h = im.size
     px = im.load()
@@ -80,16 +89,16 @@ def flood_from_transparent(im: Image.Image) -> Image.Image:
     for x in range(w):
         for y in range(h):
             if px[x, y][3] == 0:
-                seen[x][y] = True
+                seen[y][x] = True
                 q.append((x, y))
 
     while q:
         x, y = q.popleft()
         for nx, ny in ((x - 1, y), (x + 1, y), (x, y - 1), (x, y + 1)):
-            if 0 <= nx < w and 0 <= ny < h and not seen[nx][ny]:
+            if 0 <= nx < w and 0 <= ny < h and not seen[ny][nx]:
                 r, g, b, a = px[nx, ny]
-                if is_background(r, g, b, a):
-                    seen[nx][ny] = True
+                if is_matte_black(r, g, b):
+                    seen[ny][nx] = True
                     px[nx, ny] = (r, g, b, 0)
                     q.append((nx, ny))
 
@@ -118,10 +127,11 @@ def composite_on_page(im: Image.Image) -> Image.Image:
     return base.convert("RGB")
 
 
-def process(path: Path) -> Image.Image:
+def process(path: Path, *, interior_matte: bool) -> Image.Image:
     im = Image.open(path)
     im = flood_background(im)
-    im = flood_from_transparent(im)
+    if interior_matte:
+        im = flood_matte_from_transparent(im)
     return trim_square(im)
 
 
@@ -129,10 +139,10 @@ def main() -> None:
     small_src = IMG / "smallicon.png"
     logo_src = IMG / "logo.png"
 
-    emblem = process(small_src)
+    emblem = process(small_src, interior_matte=True)
     emblem.save(small_src, optimize=True)
 
-    logo = process(logo_src)
+    logo = process(logo_src, interior_matte=False)
     logo.save(logo_src, optimize=True)
 
     composite_on_page(logo).save(IMG / "logo-hero.png", optimize=True)
