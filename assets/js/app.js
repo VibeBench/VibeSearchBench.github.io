@@ -1072,7 +1072,7 @@ function layoutNodesByLayer(nodeMap, nodeLevels, el, style) {
       node.x = layer * levelSep;
       node.y = (i - (count - 1) / 2) * nodeSpacing;
       node.color = color;
-      node.fixed = false;
+      node.fixed = { x: true, y: true };
     });
   });
 }
@@ -1084,7 +1084,7 @@ function layerLayoutUpdates(nodeMap) {
       x: node.x,
       y: node.y,
       color: node.color,
-      fixed: false,
+      fixed: { x: true, y: true },
     };
   });
 }
@@ -1098,8 +1098,45 @@ function gtEdgeChannel(nodeLevels, levelSep, fromId, toId) {
   return null;
 }
 
-function installGtLayerEdgeOverlay(network, edgeMeta, nodeLevels, levelSep) {
-  function drawCurvedEdges(ctx) {
+function gtModelToDom(network, point) {
+  if (!point || !network) return null;
+  try {
+    return network.canvasToDOM({ x: point.x, y: point.y });
+  } catch (e) {
+    return null;
+  }
+}
+
+function installGtLayerEdgeOverlay(network, el, edgeMeta, nodeLevels, levelSep) {
+  if (!network || !el) return;
+
+  let overlay = el.querySelector("canvas.gt-edge-overlay");
+  if (!overlay) {
+    overlay = document.createElement("canvas");
+    overlay.className = "gt-edge-overlay";
+    overlay.setAttribute("aria-hidden", "true");
+    el.appendChild(overlay);
+  }
+
+  function syncOverlayCanvas() {
+    const w = el.clientWidth;
+    const h = el.clientHeight;
+    if (w < 1 || h < 1) return null;
+    const dpr = window.devicePixelRatio || 1;
+    overlay.width = Math.round(w * dpr);
+    overlay.height = Math.round(h * dpr);
+    overlay.style.width = w + "px";
+    overlay.style.height = h + "px";
+    const ctx = overlay.getContext("2d");
+    if (!ctx) return null;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    return ctx;
+  }
+
+  function paintOverlay() {
+    const ctx = syncOverlayCanvas();
+    if (!ctx) return;
+
     let positions;
     try {
       positions = network.getPositions();
@@ -1107,21 +1144,34 @@ function installGtLayerEdgeOverlay(network, edgeMeta, nodeLevels, levelSep) {
       return;
     }
 
-    ctx.save();
-    ctx.strokeStyle = "#94a3b8";
-    ctx.fillStyle = "#94a3b8";
-    ctx.lineWidth = 1.4;
+    ctx.clearRect(0, 0, el.clientWidth, el.clientHeight);
+    ctx.strokeStyle = "#64748b";
+    ctx.fillStyle = "#64748b";
+    ctx.lineWidth = 2;
 
     edgeMeta.forEach(function (edge) {
-      const from = positions[edge.from];
-      const to = positions[edge.to];
+      const fromModel = positions[edge.from];
+      const toModel = positions[edge.to];
+      if (!fromModel || !toModel) return;
+
+      const from = gtModelToDom(network, fromModel);
+      const to = gtModelToDom(network, toModel);
       if (!from || !to) return;
 
-      const midX = gtEdgeChannel(nodeLevels, levelSep, edge.from, edge.to);
+      const midXModel = gtEdgeChannel(nodeLevels, levelSep, edge.from, edge.to);
+      const midFrom =
+        midXModel != null
+          ? gtModelToDom(network, { x: midXModel, y: fromModel.y })
+          : null;
+      const midTo =
+        midXModel != null
+          ? gtModelToDom(network, { x: midXModel, y: toModel.y })
+          : null;
+
       ctx.beginPath();
-      if (midX != null) {
+      if (midFrom && midTo) {
         ctx.moveTo(from.x, from.y);
-        ctx.bezierCurveTo(midX, from.y, midX, to.y, to.x, to.y);
+        ctx.bezierCurveTo(midFrom.x, midFrom.y, midTo.x, midTo.y, to.x, to.y);
       } else {
         const cx = (from.x + to.x) / 2;
         const cy = (from.y + to.y) / 2;
@@ -1131,8 +1181,8 @@ function installGtLayerEdgeOverlay(network, edgeMeta, nodeLevels, levelSep) {
       ctx.stroke();
 
       const endAngle =
-        midX != null ? 0 : Math.atan2(to.y - from.y, to.x - from.x);
-      const head = 6;
+        midFrom && midTo ? Math.atan2(to.y - midTo.y, to.x - midTo.x) : Math.atan2(to.y - from.y, to.x - from.x);
+      const head = 7;
       ctx.beginPath();
       ctx.moveTo(to.x, to.y);
       ctx.lineTo(
@@ -1146,12 +1196,25 @@ function installGtLayerEdgeOverlay(network, edgeMeta, nodeLevels, levelSep) {
       ctx.closePath();
       ctx.fill();
     });
-
-    ctx.restore();
   }
 
-  network.on("beforeDrawing", drawCurvedEdges);
+  function repaint() {
+    requestAnimationFrame(paintOverlay);
+  }
 
+  network.on("afterDrawing", repaint);
+  network.on("zoom", repaint);
+  network.on("dragging", repaint);
+  network.on("dragEnd", repaint);
+  network.on("resize", repaint);
+  network.on("destroy", function () {
+    if (overlay && overlay.parentNode) overlay.parentNode.removeChild(overlay);
+  });
+
+  repaint();
+}
+
+function installGtLayerRelationLabels(network, edgeMeta, nodeLevels, levelSep) {
   network.on("afterDrawing", function (ctx) {
     let positions;
     try {
@@ -1253,15 +1316,12 @@ function initTripletsGraph(el, triplets, viewer, networkKey, style) {
         id: networkKey + "-e" + i,
         from: h,
         to: tail,
-        label: "",
-        title: rel,
-        arrows: "to",
-        smooth: {
-          enabled: true,
-          type: "cubicBezier",
-          forceDirection: "horizontal",
-          roundness: 0.45,
-        },
+        width: 0,
+        chosen: false,
+        selectionWidth: 0,
+        hoverWidth: 0,
+        color: { opacity: 0 },
+        arrows: { to: { enabled: false } },
       });
     } else {
       edgeList.push({
@@ -1323,11 +1383,19 @@ function initTripletsGraph(el, triplets, viewer, networkKey, style) {
   if (useLayerLayout) {
     installGtLayerEdgeOverlay(
       network,
+      el,
+      layerEdgeMeta,
+      style.nodeLevels,
+      style.levelSeparation || 320
+    );
+    installGtLayerRelationLabels(
+      network,
       layerEdgeMeta,
       style.nodeLevels,
       style.levelSeparation || 320
     );
     scheduleLayerGraphRelayout(network, nodes, nodeMap, style.nodeLevels, el, style);
+    network.redraw();
   } else {
     network.once("stabilizationIterationsDone", function () {
       network.fit({ animation: { duration: 250 } });
