@@ -329,10 +329,12 @@ a:hover {
 }
 
 .hero-stats {
-  display: inline-flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  max-width: 100%;
+  display: flex;
+  width: 100%;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  flex-wrap: nowrap;
   border: 1px solid var(--border);
   border-radius: 10px;
   overflow: hidden;
@@ -342,14 +344,11 @@ a:hover {
 }
 
 .h-stat {
-  padding: 0.85rem 1.15rem;
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 0.85rem 0.5rem;
   border-right: 1px solid var(--border);
-}
-
-@media (min-width: 720px) {
-  .h-stat {
-    padding: 0.85rem 1.35rem;
-  }
+  text-align: center;
 }
 
 .h-stat:last-child {
@@ -364,11 +363,12 @@ a:hover {
 }
 
 .h-stat-l {
-  font-size: 0.68rem;
+  font-size: 0.62rem;
   color: var(--muted);
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   margin-top: 0.25rem;
+  line-height: 1.25;
 }
 
 .hero-cta {
