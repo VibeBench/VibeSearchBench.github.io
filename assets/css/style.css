@@ -235,7 +235,7 @@ a:hover {
 }
 
 .hero {
-  padding: 0.5rem 0 2rem;
+  padding: 10px 0 2rem;
   text-align: center;
   position: relative;
 }
@@ -259,7 +259,7 @@ a:hover {
   flex-direction: column;
   align-items: center;
   gap: 0;
-  margin: -0.5rem 0 0.35rem;
+  margin: 0 0 0.35rem;
 }
 
 .hero-logo {
@@ -975,7 +975,7 @@ tbody tr:hover td {
   }
 
   .hero-brand {
-    margin-top: -0.35rem;
+    margin-top: 0;
   }
 
   .hero-stats {
