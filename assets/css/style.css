@@ -321,7 +321,7 @@ a:hover {
 }
 
 .hero-sub {
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   color: var(--muted);
   line-height: 1.55;
   max-width: 640px;
