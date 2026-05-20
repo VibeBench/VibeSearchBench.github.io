@@ -42,6 +42,7 @@ cd ../VibeSearchBench.github.io && git add -A && git commit -m "Update site" && 
 
 ```bash
 cd /path/to/VibeSearchBench && python3 scripts/build_website_data.py
+python3 scripts/build_final_extractions.py   # full Final extraction graphs (from jsonl response)
 ```
 
 Then commit and push this repository.

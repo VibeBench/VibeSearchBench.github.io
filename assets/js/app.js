@@ -495,8 +495,9 @@ let currentLanguage = "english";
 let currentTaskFile = null;
 const taskCache = {};
 const gtCache = {};
+const extractionCache = {};
 
-const KG_GRAPH_MAX_TRIPLETS = 120;
+const KG_GRAPH_MAX_TRIPLETS = 500;
 const GT_GRAPH_MAX_TRIPLETS = 200;
 const HF_GT_BASE =
   "https://huggingface.co/datasets/VibeSearchBench/VibeSearchBench/resolve/main/";
@@ -759,30 +760,99 @@ function bindGraphFullscreen(wrap, getNetwork) {
   });
 }
 
-function renderKgExtraction(preview) {
-  const triplets = parseKgTriplets(preview);
-  const total = triplets.length;
+function normalizeExtractionTriplets(list) {
+  if (!Array.isArray(list)) return [];
+  return list
+    .map(function (t) {
+      if (!t || t.head == null || t.tail == null) return null;
+      return {
+        head: String(t.head),
+        relation: t.relation != null ? String(t.relation) : "",
+        tail: String(t.tail),
+      };
+    })
+    .filter(Boolean);
+}
+
+function countKgNodes(triplets) {
+  const nodes = new Set();
+  triplets.forEach(function (t) {
+    nodes.add(t.head);
+    nodes.add(t.tail);
+  });
+  return nodes.size;
+}
+
+async function loadFinalExtraction(subset, file, task) {
+  const key = subset + "/" + file;
+  if (extractionCache[key]) return extractionCache[key];
+
+  const urls = [];
+  const seen = {};
+  function addUrl(path) {
+    const u = asset(path);
+    if (!seen[u]) {
+      seen[u] = true;
+      urls.push(u);
+    }
+  }
+  addUrl("data/final_extractions/" + subset + "/" + file);
+  addUrl("data/final_extractions/daily/" + file);
+  addUrl("data/final_extractions/pro/" + file);
+
+  for (let i = 0; i < urls.length; i++) {
+    try {
+      const data = await loadJSON(urls[i]);
+      const triplets = normalizeExtractionTriplets(data.triplets);
+      if (triplets.length) {
+        extractionCache[key] = {
+          triplets: triplets,
+          total: data.total || triplets.length,
+          source: "full",
+        };
+        return extractionCache[key];
+      }
+    } catch (e) {
+      /* try next */
+    }
+  }
+
+  if (task.response_preview) {
+    const triplets = parseKgTriplets(task.response_preview);
+    if (triplets.length) {
+      extractionCache[key] = {
+        triplets: triplets,
+        total: triplets.length,
+        source: "preview",
+      };
+      return extractionCache[key];
+    }
+  }
+  return null;
+}
+
+function renderKgExtraction(extraction) {
+  const triplets = extraction.triplets || [];
+  const total = extraction.total || triplets.length;
   const cap = KG_GRAPH_MAX_TRIPLETS;
   const shown = triplets.slice(0, cap);
+  const nodeCount = countKgNodes(triplets);
 
   if (!total) {
-    return (
-      '<div class="kg-extraction">' +
-      '<p class="kg-note">Could not parse triplets from the preview.</p>' +
-      '<pre class="kg-raw">' +
-      escapeHtml(preview.slice(0, 5000)) +
-      "</pre></div>"
-    );
+    return '<div class="kg-extraction"><p class="kg-note">No final extraction available.</p></div>';
   }
 
   let note = "";
-  if (total > cap) {
+  if (extraction.source === "preview") {
+    note =
+      '<p class="kg-note">Showing truncated preview only. Run <code>python3 scripts/build_final_extractions.py</code> and redeploy for the full graph.</p>';
+  } else if (total > cap) {
     note =
       '<p class="kg-note">Graph shows ' +
       cap +
       " of " +
       total +
-      " triplets (preview may be truncated).</p>";
+      " triplets for performance.</p>";
   }
 
   return (
@@ -799,7 +869,11 @@ function renderKgExtraction(preview) {
     total +
     " triplet" +
     (total !== 1 ? "s" : "") +
-    " · drag nodes to explore</p></div>" +
+    " · " +
+    nodeCount +
+    " node" +
+    (nodeCount !== 1 ? "s" : "") +
+    " · drag to explore</p></div>" +
     '<div class="kg-panel kg-panel-json" data-kg-panel="json" role="tabpanel" hidden>' +
     '<pre class="kg-raw">' +
     escapeHtml(JSON.stringify(shown, null, 2)) +
@@ -1044,8 +1118,9 @@ function renderTurn(turn) {
   return html;
 }
 
-function renderTrajectory(task, subset, file) {
+async function renderTrajectory(task, subset, file) {
   const viewer = document.getElementById("task-viewer");
+  const extraction = await loadFinalExtraction(subset, file, task);
   const m = task.metrics || {};
   const f1 = m.triplet_f1 != null ? (m.triplet_f1 * 100).toFixed(1) + "%" : "—";
   const nf1 = m.node_f1 != null ? (m.node_f1 * 100).toFixed(1) + "%" : "—";
@@ -1087,11 +1162,11 @@ function renderTrajectory(task, subset, file) {
     true
   );
   html += renderTaskAccordionSection("gt", "Ground truth", renderGroundTruthShell(), false);
-  if (task.response_preview) {
+  if (extraction && extraction.triplets.length) {
     html += renderTaskAccordionSection(
       "final",
       "Final extraction",
-      renderKgExtraction(task.response_preview),
+      renderKgExtraction(extraction),
       false
     );
   }
@@ -1103,9 +1178,8 @@ function renderTrajectory(task, subset, file) {
   const qid = task.qid || "";
   loadGroundTruthPanel(viewer, subset, qid, file);
 
-  if (task.response_preview) {
-    const triplets = parseKgTriplets(task.response_preview);
-    if (triplets.length) initKgGraph(viewer, triplets);
+  if (extraction && extraction.triplets.length) {
+    initKgGraph(viewer, extraction.triplets);
     const finalSection = viewer.querySelector('.task-acc-section[data-acc="final"]');
     if (finalSection) setupKgTabs(finalSection);
   }
@@ -1121,7 +1195,7 @@ async function selectTask(subset, file) {
   if (!taskCache[cacheKey]) {
     taskCache[cacheKey] = await loadJSON("data/trajs/" + subset + "/" + file);
   }
-  renderTrajectory(taskCache[cacheKey], subset, file);
+  await renderTrajectory(taskCache[cacheKey], subset, file);
 }
 
 function renderTaskList(filter) {
