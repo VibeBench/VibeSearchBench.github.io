@@ -391,6 +391,7 @@ function setupTasks() {
   const subsetSelect = document.getElementById("subset-select");
   const languageSelect = document.getElementById("language-select");
   const search = document.getElementById("task-search");
+  currentLanguage = languageSelect.value || "english";
 
   function refreshTaskList() {
     currentTaskFile = null;
