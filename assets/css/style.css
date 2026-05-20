@@ -234,8 +234,8 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.35rem;
-  margin-bottom: 0.5rem;
+  gap: 0.25rem;
+  margin-bottom: 0.75rem;
 }
 
 .hero-logo {
@@ -243,7 +243,33 @@ a:hover {
   height: auto;
   object-fit: contain;
   display: block;
-  margin: 0 auto -0.75rem;
+  margin: 0 auto;
+}
+
+.hero-tagline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+  letter-spacing: 0.03em;
+  margin: 0;
+  max-width: 28rem;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.tagline-accent {
+  flex-shrink: 0;
+  width: 1.75rem;
+  height: 2px;
+  border-radius: 1px;
+  background: linear-gradient(90deg, #0d9488, transparent);
+}
+
+.tagline-accent-right {
+  background: linear-gradient(90deg, transparent, var(--accent));
 }
 
 .hero-sub {
