@@ -190,9 +190,9 @@ a:hover {
 }
 
 .hero-logo {
-  width: 96px;
-  height: 96px;
-  margin: 0 auto 1.25rem;
+  width: min(400px, 88vw);
+  height: auto;
+  margin: 0 auto 0.5rem;
   object-fit: contain;
   display: block;
 }
