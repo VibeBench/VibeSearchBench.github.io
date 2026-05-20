@@ -48,6 +48,167 @@ function parseTaskId(qid) {
   return { number: number, title: title, label: number + " " + title };
 }
 
+const TITLE_STOP = new Set([
+  "i", "im", "i'm", "a", "an", "the", "and", "or", "to", "for", "of", "in", "on", "at", "with",
+  "my", "me", "we", "our", "your", "please", "help", "need", "following", "requirements", "all",
+  "that", "meet", "information", "from", "about", "looking", "get", "want", "query", "sort", "out",
+  "list", "first", "second", "referring", "website", "content", "their", "related", "complete", "set",
+  "currently", "been", "have", "has", "are", "is", "am", "be", "been", "being", "was", "were",
+  "tell", "provide", "find", "query", "using", "based", "order",
+]);
+
+const STEP_TOPIC = [
+  ["hotel", "Hotels"],
+  ["port", "Ports"],
+  ["vessel", "Vessels"],
+  ["route", "Routes"],
+  ["equipment", "Equipment"],
+  ["tournament", "Tournaments"],
+  ["university", "Universities"],
+  ["museum", "Museum"],
+  ["movie", "Movies"],
+  ["studio", "Studios"],
+];
+
+function titleWordCount(s) {
+  return s.trim().split(/\s+/).filter(Boolean).length;
+}
+
+function clipTitleWords(s, max) {
+  const words = s.trim().split(/\s+/).filter(Boolean);
+  return words.slice(0, max).join(" ");
+}
+
+function titleCaseWords(s) {
+  return s.split(/\s+/).map(function (w) {
+    if (/^\d{4}$/.test(w)) return w;
+    if (/^[A-Z][a-z]/.test(w) || /^[A-Z]{2,}$/.test(w)) return w;
+    return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase();
+  }).join(" ");
+}
+
+function stripTitleFillers(s) {
+  const skip = new Set(["a", "an", "the", "of", "for", "and", "with", "all", "their", "related", "about"]);
+  return s
+    .split(/\s+/)
+    .filter(function (w) {
+      return !skip.has(w.toLowerCase());
+    })
+    .join(" ");
+}
+
+function topicsFromSteps(question) {
+  const lower = question.toLowerCase();
+  const found = [];
+  STEP_TOPIC.forEach(function (pair) {
+    if (lower.indexOf(pair[0]) !== -1) found.push(pair[1]);
+  });
+  return found;
+}
+
+function mergeTitleParts(parts, max) {
+  const seen = new Set();
+  const words = [];
+  parts.forEach(function (p) {
+    p.split(/\s+/).forEach(function (w) {
+      const key = w.toLowerCase();
+      if (!w || seen.has(key)) return;
+      seen.add(key);
+      words.push(w);
+    });
+  });
+  return clipTitleWords(words.join(" "), max);
+}
+
+function summarizeChineseTitle(lead) {
+  let s = lead.replace(/^(?:我)?(?:想|要|需要|请帮我?)+/, "").trim();
+  s = s.split(/[。；\n：:]/)[0].replace(/如下.*$/, "").trim();
+  if (!s || s.length < 4) return "";
+  const chars = s.replace(/\s/g, "");
+  return chars.length <= 18 ? chars : chars.slice(0, 18);
+}
+
+function summarizeEnglishTitle(question) {
+  let lead = question.split(/\n|…|\.\.\./)[0].trim();
+  lead = lead
+    .replace(/\s*(please help|following requirements|in order|all content|meet my).*$/i, "")
+    .trim();
+
+  const tries = [];
+  const dateM = lead.match(
+    /\b((?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+\d{4})\b/i
+  );
+  let m = lead.match(/planning\s+(?:a\s+)?(\w+(?:\s+\w+){0,2})\s+trip/i);
+  if (m) {
+    const when = dateM ? " " + dateM[1] : "";
+    tries.push(stripTitleFillers(m[1] + " Trip" + when));
+  }
+
+  m = lead.match(/interested in\s+([^,.\n]+)/i);
+  if (m) tries.push(stripTitleFillers(m[1]));
+
+  m = lead.match(/looking for\s+(?:a\s+)?(?:complete set of information about\s+)?([^,.\n]+)/i);
+  if (m) tries.push(stripTitleFillers(m[1].replace(/'s\b/gi, "")));
+
+  m = lead.match(/(?:about|regarding)\s+([A-Z][^,.\n]{2,50})/);
+  if (m) tries.push(stripTitleFillers(m[1].replace(/'s\b/gi, "")));
+
+  m = lead.match(/(?:buy|purchase|find|need)\s+(?:the\s+)?([^,.\n]{6,70})/i);
+  if (m) tries.push(stripTitleFillers(m[1]));
+
+  const site = lead.match(/\b(?:from|on)\s+the\s+(\w+)\s+website\b/i);
+  const stepTopics = topicsFromSteps(question);
+
+  for (let i = 0; i < tries.length; i++) {
+    let phrase = titleCaseWords(clipTitleWords(tries[i], 6));
+    if (site) phrase = mergeTitleParts([site[1], phrase].concat(stepTopics.slice(0, 2)), 6);
+    else if (stepTopics.length && titleWordCount(phrase) < 5) {
+      phrase = mergeTitleParts([phrase].concat(stepTopics), 6);
+    }
+    phrase = titleCaseWords(clipTitleWords(phrase, 6));
+    if (titleWordCount(phrase) >= 3) return phrase;
+  }
+
+  const words = (lead.match(/[A-Za-z0-9][A-Za-z0-9'-]*/g) || []).filter(function (w) {
+    return !TITLE_STOP.has(w.toLowerCase()) && w.length > 1;
+  });
+  const picked = [];
+  words.forEach(function (w) {
+    if (picked.length >= 6) return;
+    if (/^[A-Z]/.test(w) || /^\d/.test(w)) picked.push(w);
+  });
+  words.forEach(function (w) {
+    if (picked.length >= 6) return;
+    if (picked.indexOf(w) === -1) picked.push(w);
+  });
+  let fallback = titleCaseWords(clipTitleWords(picked.join(" "), 6));
+  if (site) fallback = mergeTitleParts([site[1], fallback], 6);
+  if (titleWordCount(fallback) >= 3) return fallback;
+  return "";
+}
+
+function summarizeTaskTitle(task) {
+  if (task.short_title) return String(task.short_title).trim();
+  const q = (task.question || "").trim();
+  const slugTitle = parseTaskId(task.qid).title;
+  if (!q) return slugTitle;
+
+  const lead = q.split(/\n|…|\.\.\./)[0].trim();
+  if (!isEnglishTask(task)) {
+    const zh = summarizeChineseTitle(lead);
+    return zh || slugTitle;
+  }
+
+  const en = summarizeEnglishTitle(q);
+  return en || slugTitle;
+}
+
+function getTaskDisplayTitle(task) {
+  const parsed = parseTaskId(task.qid);
+  const title = summarizeTaskTitle(task);
+  return { number: parsed.number, title: title, label: parsed.number + " " + title };
+}
+
 function isEnglishTask(task) {
   const text = (task.question || "") + " " + (task.qid || "");
   const cjk = (text.match(/[\u4e00-\u9fff]/g) || []).length;
@@ -70,7 +231,7 @@ function sortTasks(tasks) {
 }
 
 function taskSearchText(task) {
-  const p = parseTaskId(task.qid);
+  const p = getTaskDisplayTitle(task);
   return [task.qid, p.number, p.title, p.label, task.question].join(" ").toLowerCase();
 }
 
@@ -269,13 +430,13 @@ function renderTrajectory(task) {
   const turnsHtml = (task.turns || []).map(renderTurn).join("");
 
   let html = "";
-  const parsed = parseTaskId(task.qid);
+  const display = getTaskDisplayTitle(task);
   html += '<header class="task-viewer-header">';
   html +=
     '<h3><span class="task-heading-num">' +
-    escapeHtml(parsed.number) +
+    escapeHtml(display.number) +
     '</span> <span class="task-heading-name">' +
-    escapeHtml(parsed.title) +
+    escapeHtml(display.title) +
     "</span></h3>";
   html +=
     '<p style="font-size:0.82rem;color:var(--muted);margin-bottom:0.5rem">' +
@@ -341,7 +502,7 @@ function renderTaskList(filter) {
   list.innerHTML = tasks
     .map(function (t) {
       const active = t.file === currentTaskFile ? " active" : "";
-      const parsed = parseTaskId(t.qid);
+      const display = getTaskDisplayTitle(t);
       const f1 =
         t.triplet_f1 != null
           ? "<span>F1 " + (t.triplet_f1 * 100).toFixed(0) + "%</span>"
@@ -354,10 +515,10 @@ function renderTaskList(filter) {
         '">' +
         '<div class="task-item-title">' +
         '<span class="task-item-num">' +
-        escapeHtml(parsed.number) +
+        escapeHtml(display.number) +
         "</span>" +
         '<span class="task-item-name">' +
-        escapeHtml(parsed.title) +
+        escapeHtml(display.title) +
         "</span>" +
         "</div>" +
         '<div class="task-item-meta">' +
