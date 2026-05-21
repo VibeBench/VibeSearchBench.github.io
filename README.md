@@ -1,8 +1,59 @@
-# VibeSearchBench Project Page
+<p align="center">
+  <a href="https://vibebench.github.io/VibeSearchBench.github.io/">
+    <img src="assets/img/logo.png" alt="VibeSearchBench" width="220" />
+  </a>
+</p>
 
-Static project website for [VibeSearchBench](https://github.com/VibeBench/VibeSearchBench).
+<h1 align="center">VibeSearchBench</h1>
 
-**Live site:** https://vibebench.github.io/VibeSearchBench.github.io/
+<p align="center"><em>Proactive Search · Evolving Intent · Structured Knowledge</em></p>
+
+<p align="center">
+  <a href="https://vibebench.github.io/VibeSearchBench.github.io/"><img src="https://img.shields.io/badge/🌐-Project_Page-2563eb?style=for-the-badge" alt="Project Page" /></a>
+  <a href="https://vibebench.github.io/VibeSearchBench.github.io/assets/paper.pdf"><img src="https://img.shields.io/badge/📄-Paper-18181b?style=for-the-badge" alt="Paper" /></a>
+  <a href="https://github.com/VibeBench/VibeSearchBench"><img src="https://img.shields.io/badge/💻-Code-18181b?style=for-the-badge" alt="Code" /></a>
+  <a href="https://huggingface.co/datasets/VibeSearchBench/VibeSearchBench"><img src="https://img.shields.io/badge/🤗-Dataset-ffd21e?style=for-the-badge" alt="Dataset" /></a>
+</p>
+
+---
+
+<p align="center">
+  <strong>
+    By far the
+    <span style="color:#dc2626;background:rgba(220,38,38,0.12);padding:0.15em 0.45em;border-radius:5px;font-weight:800;border-bottom:2px solid rgba(220,38,38,0.45)">hardest</span>
+    <span style="color:#15803d;background:rgba(22,163,74,0.12);padding:0.15em 0.45em;border-radius:5px;font-weight:800;border-bottom:2px solid rgba(22,163,74,0.45)">verifiable</span>
+    <span style="color:#7c3aed;background:rgba(124,58,237,0.12);padding:0.15em 0.45em;border-radius:5px;font-weight:800;border-bottom:2px solid rgba(124,58,237,0.45)">long-horizon</span>
+    search benchmark
+  </strong>
+</p>
+
+<p align="center">
+  200 bilingual tasks · proactive search in the wild · persona-driven progressive disclosure · schema-free knowledge graph evaluation
+</p>
+
+<p align="center">
+  <b>200</b> Tasks &nbsp;·&nbsp; <b>20</b> Domains &nbsp;·&nbsp; <b>7</b> Models evaluated &nbsp;·&nbsp; Best triplet F1 <b>30.3</b>
+</p>
+
+---
+
+## What is VibeSearch?
+
+Real users rarely specify full intent upfront. **VibeSearch** captures bidirectional convergence: agents interleave partial results with follow-up questions while users progressively disclose needs. **VibeSearchBench** pairs each task with a persona simulator and evaluates schema-free knowledge graphs via graph matching (Precision / Recall / F1).
+
+| Subset | Description |
+|--------|-------------|
+| **VibeSearch-Pro** | 100 professional research scenarios — literature reviews, market analysis, technical due diligence |
+| **VibeSearch-Daily** | 100 daily-life search tasks — shopping, travel, lifestyle with vague initial queries |
+| **Evaluation** | Progressive-disclosure user simulator, multi-turn tool use (search / visit / code), LLM-as-judge graph matching |
+
+**Explore:** [Leaderboard](https://vibebench.github.io/VibeSearchBench.github.io/leaderboard.html) · [Task trajectories](https://vibebench.github.io/VibeSearchBench.github.io/tasks.html)
+
+---
+
+## Live site
+
+**https://vibebench.github.io/VibeSearchBench.github.io/**
 
 This repo is under the [VibeBench](https://github.com/VibeBench) org, so it is a **project** site (not `vibesearchbench.github.io`, which would require a `VibeSearchBench` GitHub org).
 
@@ -46,3 +97,9 @@ python3 scripts/build_final_extractions.py   # full Final extraction graphs (fro
 ```
 
 Then commit and push this repository.
+
+---
+
+<p align="center">
+  VibeSearchBench · Rednote-Hilab &amp; Unipat AI
+</p>
