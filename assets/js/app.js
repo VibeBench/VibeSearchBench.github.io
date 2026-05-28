@@ -328,6 +328,9 @@ function matchesLanguage(task, lang) {
 
 function sortTasks(tasks) {
   return tasks.slice().sort(function (a, b) {
+    const fa = a.triplet_f1 != null ? a.triplet_f1 : -1;
+    const fb = b.triplet_f1 != null ? b.triplet_f1 : -1;
+    if (fb !== fa) return fb - fa;
     const na = parseInt(parseTaskId(a.qid).number, 10) || 0;
     const nb = parseInt(parseTaskId(b.qid).number, 10) || 0;
     return na - nb;
@@ -337,6 +340,40 @@ function sortTasks(tasks) {
 function taskSearchText(task) {
   const p = getTaskDisplayTitle(task);
   return [task.qid, p.number, p.title, p.label, task.question].join(" ").toLowerCase();
+}
+
+function getSubsetLabel(subset) {
+  const meta = tasksIndex && tasksIndex.subsets && tasksIndex.subsets[subset];
+  return (meta && meta.label) || subset;
+}
+
+function updateSubsetStatus(visibleCount) {
+  const el = document.getElementById("task-subset-status");
+  if (!el) return;
+  const label = getSubsetLabel(currentSubset);
+  const total =
+    tasksIndex &&
+    tasksIndex.subsets &&
+    tasksIndex.subsets[currentSubset] &&
+    tasksIndex.subsets[currentSubset].tasks
+      ? tasksIndex.subsets[currentSubset].tasks.length
+      : 0;
+  el.textContent =
+    label +
+    " · showing " +
+    visibleCount +
+    " of " +
+    total +
+    " tasks (sorted by triplet F1)";
+}
+
+function showTaskViewerLoading(subset) {
+  const viewer = document.getElementById("task-viewer");
+  if (!viewer) return;
+  viewer.innerHTML =
+    '<div class="empty-state">Loading ' +
+    escapeHtml(getSubsetLabel(subset)) +
+    " trajectory…</div>";
 }
 
 const nav = document.getElementById("nav");
@@ -500,6 +537,7 @@ let tasksIndex = null;
 let currentSubset = "pro";
 let currentLanguage = "english";
 let currentTaskFile = null;
+let taskLoadSeq = 0;
 const taskCache = {};
 const gtCache = {};
 const extractionCache = {};
@@ -1232,11 +1270,15 @@ async function renderTrajectory(task, subset, file) {
   const display = getTaskDisplayTitle(task);
   html += '<header class="task-viewer-header">';
   html +=
+    '<div class="task-viewer-headline">' +
     '<h3><span class="task-heading-num">' +
     escapeHtml(display.number) +
     '</span> <span class="task-heading-name">' +
     escapeHtml(display.title) +
-    "</span></h3>";
+    "</span></h3>" +
+    '<span class="task-subset-badge">' +
+    escapeHtml(getSubsetLabel(subset)) +
+    "</span></div>";
   html +=
     '<div class="task-question-preview md-body">' +
     renderMarkdown(task.question || "") +
@@ -1290,6 +1332,7 @@ async function renderTrajectory(task, subset, file) {
 }
 
 async function selectTask(subset, file) {
+  const loadSeq = ++taskLoadSeq;
   currentTaskFile = file;
   document.querySelectorAll(".task-item").forEach((el) => {
     el.classList.toggle("active", el.dataset.file === file);
@@ -1299,6 +1342,7 @@ async function selectTask(subset, file) {
   if (!taskCache[cacheKey]) {
     taskCache[cacheKey] = await loadJSON("data/trajs/" + subset + "/" + file);
   }
+  if (loadSeq !== taskLoadSeq) return;
   await renderTrajectory(taskCache[cacheKey], subset, file);
 }
 
@@ -1307,6 +1351,7 @@ function renderTaskList(filter) {
   const sub = tasksIndex && tasksIndex.subsets && tasksIndex.subsets[currentSubset];
   if (!sub || !sub.tasks || !sub.tasks.length) {
     list.innerHTML = '<p class="empty-state">No tasks loaded.</p>';
+    updateSubsetStatus(0);
     return;
   }
 
@@ -1322,8 +1367,13 @@ function renderTaskList(filter) {
   if (!tasks.length) {
     currentTaskFile = null;
     list.innerHTML = '<p class="empty-state">No tasks match this filter.</p>';
+    updateSubsetStatus(0);
+    showTaskViewerLoading(currentSubset);
     return;
   }
+
+  updateSubsetStatus(tasks.length);
+  list.scrollTop = 0;
 
   list.innerHTML = tasks
     .map(function (t) {
@@ -1378,10 +1428,12 @@ function setupTasks() {
   const subsetSelect = document.getElementById("subset-select");
   const languageSelect = document.getElementById("language-select");
   const search = document.getElementById("task-search");
+  currentSubset = subsetSelect.value || "pro";
   currentLanguage = languageSelect.value || "english";
 
   function refreshTaskList() {
     currentTaskFile = null;
+    showTaskViewerLoading(currentSubset);
     renderTaskList(search.value);
   }
 
