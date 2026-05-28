@@ -917,8 +917,6 @@ async function loadFinalExtraction(subset, file, task) {
     }
   }
   addUrl("data/final_extractions/" + subset + "/" + file);
-  addUrl("data/final_extractions/daily/" + file);
-  addUrl("data/final_extractions/pro/" + file);
 
   for (let i = 0; i < urls.length; i++) {
     try {
@@ -1441,6 +1439,12 @@ function setupTasks() {
     currentSubset = subsetSelect.value;
     Object.keys(taskCache).forEach(function (k) {
       delete taskCache[k];
+    });
+    Object.keys(extractionCache).forEach(function (k) {
+      delete extractionCache[k];
+    });
+    Object.keys(gtCache).forEach(function (k) {
+      delete gtCache[k];
     });
     refreshTaskList();
   });

@@ -8,9 +8,28 @@ import re
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[1]
-TRAJ_DIR = REPO / "data" / "trajs" / "pro"
-JSONL_DIR = REPO / "data" / "trajs" / "claude-opus-4.6_custom_serper_simulated" / "trajs_reextract"
 OUT = REPO / "data" / "final_extractions"
+
+SUBSETS: list[tuple[str, Path, Path]] = [
+    (
+        "pro",
+        REPO / "data" / "trajs" / "pro",
+        REPO
+        / "data"
+        / "trajs"
+        / "claude-opus-4.6_custom_serper_simulated"
+        / "trajs",
+    ),
+    (
+        "daily",
+        REPO / "data" / "trajs" / "daily",
+        REPO
+        / "data"
+        / "trajs"
+        / "claude-opus-4.6_custom_serper_simulated"
+        / "trajs_reextract",
+    ),
+]
 
 
 def parse_triplets_from_response(raw: str) -> list[dict]:
@@ -59,9 +78,9 @@ def _normalize_triplet_list(parsed: list) -> list[dict]:
     ]
 
 
-def jsonl_for_traj(traj_file: str) -> Path | None:
+def jsonl_for_traj(jsonl_dir: Path, traj_file: str) -> Path | None:
     stem = traj_file.replace(".json", "")
-    index = {p.stem: p for p in JSONL_DIR.glob("*.jsonl")}
+    index = {p.stem: p for p in jsonl_dir.glob("*.jsonl")}
     if stem in index:
         return index[stem]
     m = re.match(r"^(task_\d+_)(.+)$", stem, re.I)
@@ -81,17 +100,20 @@ def jsonl_for_traj(traj_file: str) -> Path | None:
     return None
 
 
-def main() -> None:
+def build_subset(subset_name: str, traj_dir: Path, jsonl_dir: Path) -> int:
     ok = 0
-    for traj_path in sorted(TRAJ_DIR.glob("*.json")):
-        jl = jsonl_for_traj(traj_path.name)
+    dest = OUT / subset_name
+    dest.mkdir(parents=True, exist_ok=True)
+
+    for traj_path in sorted(traj_dir.glob("*.json")):
+        jl = jsonl_for_traj(jsonl_dir, traj_path.name)
         if not jl:
-            print("MISSING jsonl", traj_path.name)
+            print("MISSING jsonl", subset_name, traj_path.name)
             continue
         row = json.loads(jl.read_text(encoding="utf-8").splitlines()[0])
         triplets = parse_triplets_from_response(row.get("response") or "")
         if not triplets:
-            print("EMPTY", traj_path.name)
+            print("EMPTY", subset_name, traj_path.name)
             continue
         payload = {
             "qid": row.get("qid") or traj_path.stem,
@@ -99,14 +121,22 @@ def main() -> None:
             "triplets": triplets,
         }
         text = json.dumps(payload, ensure_ascii=False, separators=(",", ":"))
-        for subset in ("pro", "daily"):
-            dest = OUT / subset
-            dest.mkdir(parents=True, exist_ok=True)
-            (dest / traj_path.name).write_text(text, encoding="utf-8")
+        (dest / traj_path.name).write_text(text, encoding="utf-8")
         ok += 1
         nodes = len({t["head"] for t in triplets} | {t["tail"] for t in triplets})
-        print("ok", traj_path.name, len(triplets), "triplets", nodes, "nodes")
-    print("done:", OUT, ok, "tasks")
+        print("ok", subset_name, traj_path.name, len(triplets), "triplets", nodes, "nodes")
+    return ok
+
+
+def main() -> None:
+    total = 0
+    for subset_name, traj_dir, jsonl_dir in SUBSETS:
+        if not traj_dir.is_dir():
+            raise SystemExit(f"Missing trajectory directory: {traj_dir}")
+        if not jsonl_dir.is_dir():
+            raise SystemExit(f"Missing jsonl directory: {jsonl_dir}")
+        total += build_subset(subset_name, traj_dir, jsonl_dir)
+    print("done:", OUT, total, "tasks")
 
 
 if __name__ == "__main__":
