@@ -6,7 +6,7 @@
 
 [![Tasks](https://img.shields.io/badge/tasks-200-blue)](#tasks)
 [![Best F1](https://img.shields.io/badge/best_triplet_F1-30.3-green)](#leaderboard)
-[![Paper](https://img.shields.io/badge/paper-PDF-red)](assets/paper.pdf)
+[![Paper](https://img.shields.io/badge/paper-PDF-red)](https://huggingface.co/papers/2605.27882)
 [![Leaderboard](https://img.shields.io/badge/leaderboard-live-purple)](https://vibebench.github.io/VibeSearchBench.github.io/leaderboard.html)
 [![Code](https://img.shields.io/badge/code-GitHub-18181b)](https://github.com/VibeBench/VibeSearchBench)
 [![Dataset](https://img.shields.io/badge/🤗-Dataset-yellow)](https://huggingface.co/datasets/VibeSearchBench/VibeSearchBench)
@@ -29,7 +29,7 @@ Browse the full leaderboard and individual task trajectories at **[vibebench.git
 * **Frameworks:** ReAct and OpenClaw, evaluated on VibeSearch-Pro and VibeSearch-Daily.
 * **Best reported score:** **30.3** triplet F1 (Claude Opus 4.6, OpenClaw).
 
-**Explore:** [Leaderboard](https://vibebench.github.io/VibeSearchBench.github.io/leaderboard.html) · [Task trajectories](https://vibebench.github.io/VibeSearchBench.github.io/tasks.html) · [Paper](assets/paper.pdf)
+**Explore:** [Leaderboard](https://vibebench.github.io/VibeSearchBench.github.io/leaderboard.html) · [Task trajectories](https://vibebench.github.io/VibeSearchBench.github.io/tasks.html) · [Paper](https://huggingface.co/papers/2605.27882)
 
 ## Tasks
 
