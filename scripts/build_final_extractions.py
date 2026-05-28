@@ -14,11 +14,7 @@ SUBSETS: list[tuple[str, Path, Path]] = [
     (
         "pro",
         REPO / "data" / "trajs" / "pro",
-        REPO
-        / "data"
-        / "trajs"
-        / "claude-opus-4.6_custom_serper_simulated"
-        / "trajs",
+        REPO / "data" / "trajs" / "pro",
     ),
     (
         "daily",
@@ -78,6 +74,17 @@ def _normalize_triplet_list(parsed: list) -> list[dict]:
     ]
 
 
+def load_jsonl_record(path: Path) -> dict:
+    text = path.read_text(encoding="utf-8").strip()
+    if not text:
+        raise ValueError(f"empty jsonl: {path}")
+    first = text.splitlines()[0]
+    try:
+        return json.loads(first)
+    except json.JSONDecodeError:
+        return json.loads("".join(text.splitlines()))
+
+
 def jsonl_for_traj(jsonl_dir: Path, traj_file: str) -> Path | None:
     stem = traj_file.replace(".json", "")
     index = {p.stem: p for p in jsonl_dir.glob("*.jsonl")}
@@ -110,7 +117,7 @@ def build_subset(subset_name: str, traj_dir: Path, jsonl_dir: Path) -> int:
         if not jl:
             print("MISSING jsonl", subset_name, traj_path.name)
             continue
-        row = json.loads(jl.read_text(encoding="utf-8").splitlines()[0])
+        row = load_jsonl_record(jl)
         triplets = parse_triplets_from_response(row.get("response") or "")
         if not triplets:
             print("EMPTY", subset_name, traj_path.name)

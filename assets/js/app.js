@@ -101,10 +101,17 @@ function formatTaskTitle(raw) {
 function parseTaskId(qid) {
   if (!qid) return { number: "", title: "Task", label: "Task" };
   const m = String(qid).match(/^task_(\d+)_(.+)$/i);
-  if (!m) return { number: "", title: formatTaskTitle(qid), label: formatTaskTitle(qid) };
-  const number = m[1];
-  const title = formatTaskTitle(m[2]);
-  return { number: number, title: title, label: number + " " + title };
+  if (m) {
+    const number = m[1];
+    const title = formatTaskTitle(m[2]);
+    return { number: number, title: title, label: number + " " + title };
+  }
+  const numOnly = String(qid).match(/^(\d{1,3})$/);
+  if (numOnly) {
+    const number = numOnly[1].padStart(3, "0");
+    return { number: number, title: "Task", label: number + " Task" };
+  }
+  return { number: "", title: formatTaskTitle(qid), label: formatTaskTitle(qid) };
 }
 
 const TITLE_MAX_WORDS = 6;
@@ -310,7 +317,12 @@ function summarizeTaskTitle(task) {
 function getTaskDisplayTitle(task) {
   const parsed = parseTaskId(task.qid);
   const title = summarizeTaskTitle(task);
-  return { number: parsed.number, title: title, label: parsed.number + " " + title };
+  const number =
+    parsed.number ||
+    (task.file && task.file.match(/^(\d{3})\.json$/i)
+      ? task.file.match(/^(\d{3})\.json$/i)[1]
+      : "");
+  return { number: number, title: title, label: (number ? number + " " : "") + title };
 }
 
 function isEnglishTask(task) {
@@ -702,16 +714,15 @@ function hfDailyGroundTruthFilenames(file) {
 
 function groundTruthJsonUrls(subset, qid, file) {
   const urls = [];
-  const base = file.replace(/\.json$/i, "");
   urls.push(asset("data/ground_truth/" + subset + "/" + file));
-  urls.push(asset("data/ground_truth/" + subset + "/" + base + ".json"));
-  urls.push(asset("data/ground_truth/daily/" + file));
-  urls.push(asset("data/ground_truth/daily/" + base + ".json"));
-  // Official GT JSON for trajectories lives under VibeSearch-Daily on Hugging Face.
-  // Do NOT use VibeSearch-Pro/NNN.json — NNN is HF's own index, not task_XXX in qid.
-  hfDailyGroundTruthFilenames(file).forEach(function (name) {
-    urls.push(HF_GT_BASE + "VibeSearch-Daily/" + encodeURIComponent(name));
-  });
+  if (subset === "pro" && /^\d{3}\.json$/i.test(file)) {
+    urls.push(HF_GT_BASE + "VibeSearch-Pro/" + encodeURIComponent(file));
+  }
+  if (subset === "daily") {
+    hfDailyGroundTruthFilenames(file).forEach(function (name) {
+      urls.push(HF_GT_BASE + "VibeSearch-Daily/" + encodeURIComponent(name));
+    });
+  }
   return urls;
 }
 

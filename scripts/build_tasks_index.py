@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[1]
@@ -32,7 +33,7 @@ def truncate_question(text: str | None, max_len: int = 220) -> str:
 def task_entry(traj_path: Path, data: dict) -> dict:
     metrics = data.get("metrics") or {}
     stats = data.get("stats") or {}
-    return {
+    entry = {
         "qid": data.get("qid") or traj_path.stem.replace("_", " "),
         "file": traj_path.name,
         "question": truncate_question(data.get("question")),
@@ -41,6 +42,20 @@ def task_entry(traj_path: Path, data: dict) -> dict:
         "user_turns": stats.get("user_turns"),
         "tool_calls": stats.get("tool_calls"),
     }
+    if data.get("short_title"):
+        entry["short_title"] = data["short_title"]
+    return entry
+
+
+def task_sort_key(task: dict) -> tuple:
+    f = task.get("file") or ""
+    m = re.match(r"^(\d+)\.json$", f)
+    if m:
+        return (0, int(m.group(1)))
+    m2 = re.match(r"^task_(\d+)_", f, re.I)
+    if m2:
+        return (1, int(m2.group(1)))
+    return (2, f)
 
 
 def build_subset(subset: str) -> dict:
@@ -56,7 +71,7 @@ def build_subset(subset: str) -> dict:
     tasks.sort(
         key=lambda t: (
             -(t.get("triplet_f1") if t.get("triplet_f1") is not None else -1),
-            t["file"],
+            task_sort_key(t),
         )
     )
 

@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import re
 import urllib.error
 import urllib.request
 from pathlib import Path
@@ -16,57 +17,79 @@ HF = "https://huggingface.co/datasets/VibeSearchBench/VibeSearchBench/resolve/ma
 
 
 def hf_daily_filenames(file: str) -> list[str]:
-    """HF Daily uses spaces in the title slug; task_NNN_ prefix keeps underscores."""
-    import re
-
     names: list[str] = []
     seen: set[str] = set()
-    for name in (file,):
-        if name not in seen:
+
+    def add(name: str) -> None:
+        if name and name not in seen:
             seen.add(name)
             names.append(name)
+
+    add(file)
     m = re.match(r"^(task_\d+_)(.+)\.json$", file, re.I)
     if m:
         slug = re.sub(r"_+$", "", m.group(2))
         spaced = m.group(1) + slug.replace("_", " ") + ".json"
-        for name in (spaced, spaced.replace(".json", "\u200c.json")):
-            if name not in seen:
-                seen.add(name)
-                names.append(name)
+        add(spaced)
+        add(spaced.replace(".json", "\u200c.json"))
     return names
 
 
-def fetch_hf_gt(file: str) -> dict | None:
-    for name in hf_daily_filenames(file):
-        url = f"{HF}/VibeSearch-Daily/{quote(name)}"
-        try:
-            with urllib.request.urlopen(url, timeout=60) as resp:
-                data = json.loads(resp.read().decode("utf-8"))
-            if data and (data.get("nodes") or data.get("triples")):
+def hf_pro_filename(file: str) -> str | None:
+    m = re.match(r"^(\d{3})\.json$", file)
+    if m:
+        return f"{m.group(1)}.json"
+    m2 = re.match(r"^task_(\d{3})_", file, re.I)
+    if m2:
+        return f"{m2.group(1)}.json"
+    return None
+
+
+def fetch_hf_json(path: str) -> dict | None:
+    url = f"{HF}/{quote(path, safe='/')}"
+    try:
+        with urllib.request.urlopen(url, timeout=60) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+        if data and (data.get("nodes") or data.get("triples")):
+            return data
+    except urllib.error.HTTPError:
+        return None
+    return None
+
+
+def fetch_gt_for_task(subset: str, file: str) -> dict | None:
+    if subset == "pro":
+        hf_name = hf_pro_filename(file)
+        if hf_name:
+            data = fetch_hf_json(f"VibeSearch-Pro/{hf_name}")
+            if data:
                 return data
-        except urllib.error.HTTPError:
-            continue
+    for name in hf_daily_filenames(file):
+        data = fetch_hf_json(f"VibeSearch-Daily/{name}")
+        if data:
+            return data
     return None
 
 
 def main() -> None:
     index = json.loads(INDEX.read_text(encoding="utf-8"))
-    tasks = index["subsets"]["pro"]["tasks"]
     ok = 0
-    for task in tasks:
-        file = task["file"]
-        data = fetch_hf_gt(file)
-        if not data:
-            print("MISSING", file)
-            continue
-        text = json.dumps(data, ensure_ascii=False, indent=2)
-        for subset in ("pro", "daily"):
+    for subset, meta in index["subsets"].items():
+        for task in meta.get("tasks") or []:
+            file = task["file"]
+            data = fetch_gt_for_task(subset, file)
+            if not data:
+                print("MISSING", subset, file)
+                continue
             dest = OUT / subset
             dest.mkdir(parents=True, exist_ok=True)
-            (dest / file).write_text(text, encoding="utf-8")
-        ok += 1
-        print("ok", file, f"({len(data.get('triples', []))} triples)")
-    print("done:", OUT, f"{ok} files x 2 subsets")
+            (dest / file).write_text(
+                json.dumps(data, ensure_ascii=False, indent=2) + "\n",
+                encoding="utf-8",
+            )
+            ok += 1
+            print("ok", subset, file, f"({len(data.get('triples', []))} triples)")
+    print("done:", OUT, ok, "files")
 
 
 if __name__ == "__main__":
