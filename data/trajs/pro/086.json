@@ -1,9 +1,9 @@
 {
-  "qid": "task_086_一直好奇Docker和Kuber",
+  "qid": "task_086_一直好奇Docker和Kuberne",
   "subset": "pro",
   "sample_idx": 0,
   "question": "我一直好奇 Docker 和 Kubernetes 这套容器生态是怎么从 Linux 内核原生特性一步步发展到今天的。想先从最底层说起——在 Docker 出现之前，Linux 内核里已经有哪些为容器化铺路的机制？最终被视作\"容器技术两大基石\"的是哪两个特性，它们各自解决的是进程隔离还是资源限制问题？\n\n这两个特性里，`cgroups` 是由哪些工程师在哪个机构最先提出的？它和 `namespaces` 分别是在哪个 Linux 内核版本里正式合并进来的？不同类型的 namespace（比如 PID、mount、network 这些）又是分别什么时候加进内核的？\n\n说到 cgroups 的来源，Google 内部好像很早就有了容器化基础设施，他们内部的 Borg 系统是什么时候开始运行的？Borg 的论文第一次公开发表是在哪个会议、哪一年？创立 Kubernetes 项目的那几位工程师是谁、当时在 Google 的哪个团队？Kubernetes 最早的版本是什么时候对外发布的？\n\n不过容器编排并不是从一开始就是 Kubernetes 主导，中间好像有过一段混战期，Docker 自己的编排方案和基于 Apache Mesos 的方案都出现过，它们分别是什么时候推出的、最终是怎么退出主流的？这段竞争期里，CoreOS 的 rkt 和 Docker 在运行时层面的争论又是怎么解决的——OCI（Open Container Initiative）是在哪一年由哪些组织联合发起的，发布的两份规范的名称和版本号分别是什么？\n\n说到标准化，CNCF（云原生计算基金会）是在哪一年、依托哪个基金会成立的？从 CNCF 已达到 Graduated 状态的项目里，哪些属于容器运行时、服务网格、监控观测、镜像仓库、持续交付这几类基础设施？每个毕业项目分别是哪一年毕业的？\n\n最后，在容器运行时这一层，OCI runtime-spec 的参考实现是哪个项目、谁捐献的？Kubernetes 通过什么接口规范对接各种运行时？目前被 Kubernetes 主流发行版采用、且符合 OCI 标准的高级容器运行时有哪些，它们各自背后的主要维护机构是谁？",
-  "short_title": "一直好奇Docker和Kuber",
+  "short_title": "一直好奇Docker和Kuberne",
   "termination": "answer",
   "metrics": {
     "node_precision": null,

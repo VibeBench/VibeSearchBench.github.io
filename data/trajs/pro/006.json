@@ -1,9 +1,9 @@
 {
-  "qid": "task_006_They_Depend_On_Each_Other",
+  "qid": "task_006_Algorithmic_Stablecoin",
   "subset": "pro",
   "sample_idx": 0,
   "question": "I recently read that a whole chain of major institutional collapses hit the crypto world in 2022, apparently starting with an algorithmic stablecoin blowing up. What protocols and tokens were in that stablecoin's ecosystem, and how did they depend on each other? What were the milestone events during the de-pegging process — exactly when did each happen and how much money was at stake? Who were the founding team and early investors? After the stablecoin collapsed, which financial institutions were the first to get dragged down — what business did each of them do, how large was their respective exposure, and what lending and investment relationships existed among them? Then after the first wave of failures, the biggest exchange also ran into trouble — which media outlet first exposed the funding problems between the exchange and its affiliated trading firm, and what specific document did they publish? Where had the exchange's founder and co-founders previously worked, and what were their educational backgrounds? How large was the customer fund gap? What criminal charges did each founder or executive of these collapsed institutions ultimately face — which enforcement and regulatory agencies brought the cases, what were the specific charges, which individuals were arrested abroad, in which countries were they caught, where were they extradited to, and how many years was each sentenced to? Lastly, after all these events, what new crypto-related bills or enforcement actions did the US Congress, SEC, and CFTC each introduce — who sponsored them and when were they passed or took effect? And what regulatory frameworks did the EU and major Asian economies enact, and when did each come into force?",
-  "short_title": "They Depend On Each Other",
+  "short_title": "Algorithmic Stablecoin",
   "termination": "answer",
   "metrics": {
     "node_precision": 0.1277,

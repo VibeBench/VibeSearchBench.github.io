@@ -1,9 +1,9 @@
 {
-  "qid": "task_003_Field_Of_Mergers_And_Acquisitions_And",
+  "qid": "task_003_Mergers_And_Acquisitions",
   "subset": "pro",
   "sample_idx": 0,
   "question": "I am systematically studying the field of mergers and acquisitions and would like your help to conduct an in-depth review across several dimensions. On the theoretical level, between 1965 and 2003, which M&A theories were built on the principal-agent problem as a core premise and formally published in journals such as the Journal of Financial Economics, American Economic Review, Journal of Political Economy, and The Journal of Finance? What are the first authors, co-authors (if any), publication years, and journals for each theory? Regarding historical waves, which theories drove the fourth wave (1981–1989) and the fifth wave (1992–2000)? What were the landmark acquisitions and primary financing instruments of these two waves? For specific cases, what regulatory agencies reviewed the RJR Nabisco leveraged buyout, the AOL–Time Warner merger, the Disney acquisition of Fox, and the Microsoft acquisition of Activision Blizzard, and what were the final conclusions and deal values? On the regulatory level, what are the filing trigger conditions for the HSR Act and the EU Merger Regulation? For valuation, which merger structures are the LBO model, DCF, and synergy valuation respectively suited for? What are the most critical input metrics for each model, and which models were used in these cases? Additionally, which universities or institutions are the core scholars who advanced M&A theory affiliated with? What are the time spans, representative cases, and termination causes for each of the six merger waves?",
-  "short_title": "Field Of Mergers And Acquisitions And",
+  "short_title": "Mergers And Acquisitions",
   "termination": "answer",
   "metrics": {
     "node_precision": 0.0725,

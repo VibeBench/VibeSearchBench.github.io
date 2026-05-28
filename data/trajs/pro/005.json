@@ -1,9 +1,9 @@
 {
-  "qid": "task_005_Topological_Phase_Transitions_And_Topological_Ph",
+  "qid": "task_005_Superconductors",
   "subset": "pro",
   "sample_idx": 0,
   "question": "The 2016 Nobel Prize in Physics was awarded for research on “topological phase transitions and topological phases of matter.” What was the earliest experimental starting point, and after the discovery of the integer quantum Hall effect, how was it theoretically connected to topological mathematics? The fractional quantum Hall effect was also discovered later — under what experimental conditions and by whom, and does the theoretical explanation follow the same framework as the integer case? All these experiments required strong magnetic fields — who first proposed that topologically nontrivial states could be realized without an external magnetic field? How long did it take from theoretical prediction to experimental verification in real materials, and which teams accomplished this? After the 2D topological insulator was verified, who theoretically predicted the 3D version, and what measurement techniques were used to first observe topological surface states in which specific materials? Topological states later expanded to semimetals — who predicted Weyl semimetals and Dirac semimetals, and in what materials were they first experimentally verified? Additionally, how are topological superconductors connected to the search for Majorana fermions? Which teams claimed to observe Majorana zero-mode signals in what systems, and which experiments were later questioned or even retracted?",
-  "short_title": "Topological Phase Transitions And Topological Phases",
+  "short_title": "Superconductors",
   "termination": "answer",
   "metrics": {
     "node_precision": 0.1767,

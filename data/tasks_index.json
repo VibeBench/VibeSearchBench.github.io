@@ -6,14 +6,14 @@
       "demo": false,
       "tasks": [
         {
-          "qid": "task_075_I_Recently_Read_A_Popular_Science",
+          "qid": "task_075_Superconductivity",
           "file": "075.json",
           "question": "I recently read a popular science article about superconductors that mentioned superconductivity was accidentally discovered during liquid helium experiments. I want to understand: Who discovered it, in what year, at wh…",
           "triplet_f1": 0.4123,
           "node_f1": 0.4612,
           "user_turns": 12,
           "tool_calls": 113,
-          "short_title": "I Recently Read A Popular Science"
+          "short_title": "Superconductivity"
         },
         {
           "qid": "task_030_暗物质直接探测实验",
@@ -26,14 +26,14 @@
           "short_title": "暗物质直接探测实验"
         },
         {
-          "qid": "task_094_投资组合管理",
+          "qid": "task_094_投资组合管理相关的内容",
           "file": "094.json",
           "question": "我最近在看投资组合管理相关的内容，想搞清楚现代投资组合理论是怎么从 Markowitz那篇经典论文一步步发展到后来各种多因子模型的。\nMarkowitz 那篇奠基性的论文发表在哪个期刊？哪一年？他在论文里提出的核心框架是什么？当时他在哪个机构任职，或者在哪所大学攻读学位？\n你提到有效前沿之后，在它的基础上，是谁进一步推导出了资本市场线（CML）和资本资产定价模型（CAPM）？这几位科学家的成果各自首次发表在哪个期刊上？哪一年？他们后来…",
           "triplet_f1": 0.3258,
           "node_f1": 0.3552,
           "user_turns": 8,
           "tool_calls": 93,
-          "short_title": "投资组合管理"
+          "short_title": "投资组合管理相关的内容"
         },
         {
           "qid": "task_073_读分布式系统的论文",
@@ -46,14 +46,14 @@
           "short_title": "读分布式系统的论文"
         },
         {
-          "qid": "task_072_About_The_History_Of_Hepatitis_C",
+          "qid": "task_072_Hepatitis_C_Treatment",
           "file": "072.json",
           "question": "I've been reading about the history of hepatitis C treatment and discovered that patients used to need months of interferon injections, but now can be cured with just a few weeks of oral medication. In the transition fr…",
           "triplet_f1": 0.2992,
           "node_f1": 0.362,
           "user_turns": 11,
           "tool_calls": 130,
-          "short_title": "About The History Of Hepatitis C"
+          "short_title": "Hepatitis C Treatment"
         },
         {
           "qid": "task_049_读费马大定理的证明材料",
@@ -96,184 +96,184 @@
           "short_title": "读量子密码学方面的材料"
         },
         {
-          "qid": "task_056_Key_Legislative_Stages_This_Law_Went",
+          "qid": "task_056_Digital_Markets_Act",
           "file": "056.json",
           "question": "I've been researching EU digital platform regulation lately and want to systematically understand the entire journey of the Digital Markets Act (DMA) from inception to implementation. What were the key legislative stage…",
           "triplet_f1": 0.2705,
           "node_f1": 0.3081,
           "user_turns": 12,
           "tool_calls": 152,
-          "short_title": "Key Legislative Stages This Law Went"
+          "short_title": "Digital Markets Act"
         },
         {
-          "qid": "task_069_最近在了解图数据库和知识图谱方面",
+          "qid": "task_069_最近在了解图数据库和知识图谱方面的技",
           "file": "069.json",
           "question": "最近在了解图数据库和知识图谱方面的技术进展，特别想弄清楚图查询语言标准化的来龙去脉。ISO 在推进统一的图查询语言标准方面，目前正式发布和在制定中的标准文件编号分别是什么？每个标准的主编辑（project editor）是谁？这些标准各自对应什么查询范式？\n\n其中我特别好奇的是，在 GQL 标准正式立项之前，各家厂商自己搞的图查询语言中，哪些语言的语法特性被 GQL 直接采纳或显著影响了 GQL 的设计？这些语言最初分别是在哪个产品中…",
           "triplet_f1": 0.2701,
           "node_f1": 0.3137,
           "user_turns": 11,
           "tool_calls": 133,
-          "short_title": "最近在了解图数据库和知识图谱方面"
+          "short_title": "最近在了解图数据库和知识图谱方面的技"
         },
         {
-          "qid": "task_022_最近看到好多新的模型架构说要取",
+          "qid": "task_022_最近看到好多新的模型架构说要取代T",
           "file": "022.json",
           "question": "最近看到好多新的模型架构说要\"取代 Transformer\"的注意力机制，我想彻底搞清楚这些替代方案是怎么一步步演化出来的。\n\n先从稀疏注意力说起吧——从最早的固定模式稀疏（比如滑动窗口、随机采样这些）到后来能自适应选择注意力位置的方案，每个阶段最早提出该稀疏模式的架构分别是什么？各自的稀疏模式在结构上有什么不同？这些架构的第一作者分别是谁，来自哪个机构？\n\n其中线性注意力这条路线我特别好奇。除了最早用核函数近似的那几个工作之外，在\"…",
           "triplet_f1": 0.2632,
           "node_f1": 0.3053,
           "user_turns": 10,
           "tool_calls": 174,
-          "short_title": "最近看到好多新的模型架构说要\"取"
+          "short_title": "最近看到好多新的模型架构说要\"取代T"
         },
         {
-          "qid": "task_036_一下",
+          "qid": "task_036_量子计算领域在实现量子优越性",
           "file": "036.json",
           "question": "想了解一下，近些年来量子计算领域在实现量子优越性方面取得了哪些新的突破与进展？我了解谷歌曾借助 Sycamore 处理器完成过相关演示实验，不过在此之后该领域似乎不断有新成果出现，能否帮忙系统梳理一下整体发展脉络？\n\n先从Google那次实验说起吧——Sycamore当时执行的是什么计算任务？那篇论文发表在哪个期刊上？哪一年？第一作者和通讯作者分别是谁？在Sycamore之前，\"量子优越性\"这个概念最早是谁在哪篇论文中正式提出的？…",
           "triplet_f1": 0.2625,
           "node_f1": 0.2804,
           "user_turns": 12,
           "tool_calls": 171,
-          "short_title": "一下"
+          "short_title": "量子计算领域在实现量子优越性"
         },
         {
-          "qid": "task_052_Been_Following_The_Various_Legal_Frameworks",
+          "qid": "task_052_Cross_Border_Data_Flows",
           "file": "052.json",
           "question": "I've been following the various legal frameworks that countries have been developing around cross-border data flows, and the field seems to be getting increasingly complex. Let's start from the very beginning—in the fie…",
           "triplet_f1": 0.2591,
           "node_f1": 0.2735,
           "user_turns": 9,
           "tool_calls": 142,
-          "short_title": "Been Following The Various Legal Frameworks"
+          "short_title": "Cross Border Data Flows"
         },
         {
-          "qid": "task_009_Epigenetics_Literature_Recently_And_Noticed_That",
+          "qid": "task_009_SWISNF_Chromatin_Remodeling_Complex",
           "file": "009.json",
           "question": "I've been reading the epigenetics literature recently and noticed that the SWI/SNF chromatin remodeling complex has an exceptionally high mutation rate in human cancers, so I want to systematically understand this compl…",
           "triplet_f1": 0.2544,
           "node_f1": 0.2903,
           "user_turns": 8,
           "tool_calls": 149,
-          "short_title": "Epigenetics Literature Recently And Noticed That"
+          "short_title": "SWI/SNF Chromatin Remodeling Complex"
         },
         {
-          "qid": "task_017_Been_Studying_Quantum_Computing_And_Know",
+          "qid": "task_017_Quantum_Error_Correcting_Codes",
           "file": "017.json",
           "question": "I've been studying quantum computing and know that qubits are easily disturbed by noise and need error correction, but I'm not clear on how the field of quantum error-correcting codes first got started. Who first propos…",
           "triplet_f1": 0.2514,
           "node_f1": 0.3025,
           "user_turns": 9,
           "tool_calls": 171,
-          "short_title": "Been Studying Quantum Computing And Know"
+          "short_title": "Quantum Error Correcting Codes"
         },
         {
-          "qid": "task_037_期权定价理论的数学基础",
+          "qid": "task_037_在研究期权定价理论的数学基础",
           "file": "037.json",
           "question": "我在研究期权定价理论的数学基础，Black-Scholes-Merton 模型的推导依赖哪些随机分析的核心定理？这些定理最早分别由谁证明？发表在哪个期刊？哪一年？\n\n其中 BSM 模型本身我特别好奇——Black、Scholes、Merton 三人在 1973 年那两篇奠基论文中各自承担了什么角色？他们的博士导师分别是谁？在哪所大学完成的博士学位？\n\nBSM 之后，为了解决常数波动率假设的缺陷，从 1973 年到 2000 年间学术界…",
           "triplet_f1": 0.2472,
           "node_f1": 0.2967,
           "user_turns": 10,
           "tool_calls": 279,
-          "short_title": "期权定价理论的数学基础"
+          "short_title": "在研究期权定价理论的数学基础"
         },
         {
-          "qid": "task_066_Been_Seriously_Studying_Option_Pricing_Recently",
+          "qid": "task_066_Implied_Volatility_Surface",
           "file": "066.json",
           "question": "I've been seriously studying option pricing recently and came across the concept of the implied volatility surface, and I'm a bit confused about its history and development. How was the Black-Scholes framework originall…",
           "triplet_f1": 0.2461,
           "node_f1": 0.3166,
           "user_turns": 11,
           "tool_calls": 198,
-          "short_title": "Been Seriously Studying Option Pricing Recently"
+          "short_title": "Implied Volatility Surface"
         },
         {
-          "qid": "task_089_一直在想核聚变能源这个话题人",
+          "qid": "task_089_一直在想核聚变能源这个话题人类什",
           "file": "089.json",
           "question": "我最近一直在想核聚变能源这个话题——人类什么时候才能真正用上聚变发电？这件事到底难在哪里？\n聚变发电的物理可行性最早靠什么判据建立起来的？实现聚变点火需要同时满足哪几个物理条件？氘-氚反应为什么是目前最主流的燃料方案，等离子体的磁约束和惯性约束在原理上有什么区别？\n说到磁约束，我听说最早是苏联人用托卡马克装置取得了突破性进展，让整个西方聚变界都转了方向。这个故事具体是怎么展开的？当年苏联的 T-3 实验结果是在哪次国际会议上公布的，后…",
           "triplet_f1": 0.2454,
           "node_f1": 0.3014,
           "user_turns": 11,
           "tool_calls": 102,
-          "short_title": "一直在想核聚变能源这个话题——人"
+          "short_title": "一直在想核聚变能源这个话题——人类什"
         },
         {
-          "qid": "task_002_Interested_In_The_Complete_Story_Of",
+          "qid": "task_002_Gravitational_Wave_Detection",
           "file": "002.json",
           "question": "I'm interested in the complete story of gravitational wave detection and research. Starting from Einstein's theoretical prediction in general relativity, through the long journey of theoretical development and indirect…",
           "triplet_f1": 0.2358,
           "node_f1": 0.2825,
           "user_turns": 20,
           "tool_calls": 274,
-          "short_title": "Interested In The Complete Story Of"
+          "short_title": "Gravitational Wave Detection"
         },
         {
-          "qid": "task_027_About_QCD_Vacuum_Structure_And_Want",
+          "qid": "task_027_QCD_Vacuum",
           "file": "027.json",
           "question": "I've recently been reading about QCD vacuum structure and want to deeply understand what instantons really are. Who first proposed the instanton solution? In which journal was it published? What year? Before them, which…",
           "triplet_f1": 0.2322,
           "node_f1": 0.2607,
           "user_turns": 12,
           "tool_calls": 148,
-          "short_title": "About QCD Vacuum Structure And Want"
+          "short_title": "QCD Vacuum"
         },
         {
-          "qid": "task_071_Jaynes_Paper_On_The_Maximum_Entropy",
+          "qid": "task_071_Quantum_Error_Correcting_Codes",
           "file": "071.json",
           "question": "I've been reading Jaynes' paper on the Maximum Entropy Principle and noticed he connected Shannon's information entropy with the statistical mechanics distributions in thermodynamics. I'd like to systematically understa…",
           "triplet_f1": 0.2312,
           "node_f1": 0.2738,
           "user_turns": 13,
           "tool_calls": 132,
-          "short_title": "Jaynes Paper On The Maximum Entropy"
+          "short_title": "Quantum Error Correcting Codes"
         },
         {
-          "qid": "task_097_About_Alzheimers_Disease_Recently_And_I",
+          "qid": "task_097_Alzheimers_Disease",
           "file": "097.json",
           "question": "I've been reading about Alzheimer's disease recently and I want to understand how this disease actually develops in the brain — there seem to be so many different explanations, some say it's amyloid protein, others say…",
           "triplet_f1": 0.2307,
           "node_f1": 0.2671,
           "user_turns": 11,
           "tool_calls": 78,
-          "short_title": "About Alzheimer's Disease Recently And I"
+          "short_title": "Alzheimer's Disease"
         },
         {
-          "qid": "task_074_程序形式化验证方法论的学术演化脉",
+          "qid": "task_074_程序形式化验证方法论的学术演化脉络",
           "file": "074.json",
           "question": "我最近在研究程序形式化验证方法论的学术演化脉络，想从逻辑基础一直梳理到现代工具链。\n首先是程序正确性证明的逻辑基础。从Floyd的流程图标注方法到Hoare逻辑再到Dijkstra的最弱前置条件演算，这条线上每个阶段的奠基论文分别发表在哪个期刊或会议上？哪一年？各自提出了什么推理规则或演算框架？\n其中Hoare逻辑后来被扩展到能处理指针和堆内存的分离逻辑，这一步跨越很大。从Hoare\n逻辑到分离逻辑之间经历了哪些关键扩展？每个扩展的提…",
           "triplet_f1": 0.2269,
           "node_f1": 0.2839,
           "user_turns": 18,
           "tool_calls": 314,
-          "short_title": "程序形式化验证方法论的学术演化脉"
+          "short_title": "程序形式化验证方法论的学术演化脉络"
         },
         {
-          "qid": "task_078_有种叫CRISPR的基因编辑技术",
+          "qid": "task_078_CRISPR",
           "file": "078.json",
           "question": "我最近看到新闻说有种叫 CRISPR 的基因编辑技术已经有药物被批准了，想弄明白它是怎么从一个实验室里的发现走到能治病这一步的。\n\nCRISPR 最早是在哪里、由谁、通过研究什么对象发现的？从最初在细菌里观察到这个结构，到科学家们确认它是一种适应性免疫机制，经历了哪几个科学突破？每个突破是谁首先报道的、发表在哪个期刊上？\n\n搞清楚了 CRISPR 是什么之后，我特别好奇这个从细菌免疫系统到可以编程的基因剪刀的转化是怎么发生的——有哪几…",
           "triplet_f1": 0.2247,
           "node_f1": 0.2788,
           "user_turns": 10,
           "tool_calls": 115,
-          "short_title": "有种叫CRISPR的基因编辑技术"
+          "short_title": "CRISPR"
         },
         {
-          "qid": "task_026_想深入了解联合国人权条约机构的个",
+          "qid": "task_026_想深入了解联合国人权条约机构的个人来",
           "file": "026.json",
           "question": "我想深入了解联合国人权条约机构的个人来文（individual communications）制度。具体来说，目前有哪些条约机构获得了个人来文管辖权？各自的管辖权来源是什么法律文书？\n\n有了管辖权之后，接下来的问题就是来文能不能被受理。这些委员会适用的受理标准（admissibility criteria）有哪些？哪些标准是所有委员会共通的，哪些是某个委员会特有或解释方式独特的？其中“用尽国内救济”作为最核心的共通标准，各个委员会在实…",
           "triplet_f1": 0.2198,
           "node_f1": 0.2491,
           "user_turns": 9,
           "tool_calls": 106,
-          "short_title": "想深入了解联合国人权条约机构的个"
+          "short_title": "想深入了解联合国人权条约机构的个人来"
         },
         {
-          "qid": "task_028_读一些关于肠道菌群影响免疫系统的",
+          "qid": "task_028_肠道菌群影响免疫系统的文章",
           "file": "028.json",
           "question": "我最近在读一些关于肠道菌群影响免疫系统的文章，发现很多都提到Th17和Treg细胞的平衡问题，但细菌到底是通过什么物质、什么途径来调节这两群细胞的分化方向的？目前已知的主要代谢物类别有哪些？每类代谢物分别由哪些肠道菌属或菌种产生？\n\n说到代谢物，这三大类——短链脂肪酸、次级胆汁酸、色氨酸衍生物——进入宿主免疫细胞后，各自结合的受体是什么？这些受体在肠道固有层的哪些免疫细胞上表达？每个受体下游激活的核心信号通路分别是什么？\n\n其中AhR…",
           "triplet_f1": 0.2185,
           "node_f1": 0.2621,
           "user_turns": 8,
           "tool_calls": 85,
-          "short_title": "读一些关于肠道菌群影响免疫系统的"
+          "short_title": "肠道菌群影响免疫系统的文章"
         },
         {
           "qid": "task_059_分布式数据库的事务处理机制",
@@ -286,204 +286,204 @@
           "short_title": "分布式数据库的事务处理机制"
         },
         {
-          "qid": "task_068_Black_Holes_Evolve_From_A_Purely",
+          "qid": "task_068_Trapped_Surfaces",
           "file": "068.json",
           "question": "How did black holes evolve from a purely mathematical singular solution into a central object connecting gravity, quantum mechanics, and information theory? I want to trace this from the earliest exact solutions. After…",
           "triplet_f1": 0.2139,
           "node_f1": 0.2818,
           "user_turns": 19,
           "tool_calls": 150,
-          "short_title": "Black Holes Evolve From A Purely"
+          "short_title": "Trapped Surfaces"
         },
         {
-          "qid": "task_024_这段时间我在了解投资者的非理性行",
+          "qid": "task_024_这段时间我在了解投资者的非理性行为",
           "file": "024.json",
           "question": "这段时间我在了解投资者的非理性行为，发现前景理论已跳出心理学实验的范畴，被广泛应用到资产定价领域。。我想先搞清楚源头：Kahneman 和 Tversky 最初提出前景理论的那篇论文发表在哪个期刊上？哪一年？后来他们扩展成累积前景理论（CPT），CPT 论文又发在哪里？这两个版本在价值函数和概率权重函数的数学形式上有什么关键区别？同时期还有哪些竞争性的非期望效用理论被提出——比如 Quiggin 的 rank-dependent ut…",
           "triplet_f1": 0.2137,
           "node_f1": 0.2565,
           "user_turns": 12,
           "tool_calls": 223,
-          "short_title": "这段时间我在了解投资者的非理性行"
+          "short_title": "这段时间我在了解投资者的非理性行为"
         },
         {
-          "qid": "task_033_Always_Been_Curious_Whether_State_Actions",
+          "qid": "task_033_Tallinn_Manual",
           "file": "033.json",
           "question": "I've always been curious whether state actions in cyberspace are actually bound by international law, and what kind of rules framework the international community has developed in this area. I know there's something cal…",
           "triplet_f1": 0.2053,
           "node_f1": 0.2577,
           "user_turns": 9,
           "tool_calls": 139,
-          "short_title": "Always Been Curious Whether State Actions"
+          "short_title": "Tallinn Manual"
         },
         {
-          "qid": "task_062_HTTPS_Security_Materials_Recently_And_Want",
+          "qid": "task_062_Global_Web_PKI",
           "file": "062.json",
           "question": "I've been reading HTTPS security materials recently and want to understand the evolution of TLS from the earliest SSL to the current TLS 1.3. Starting from SSL 2.0, in which year was each major protocol version publishe…",
           "triplet_f1": 0.2053,
           "node_f1": 0.25,
           "user_turns": 19,
           "tool_calls": 266,
-          "short_title": "HTTPS Security Materials Recently And Want"
+          "short_title": "Global Web PKI"
         },
         {
-          "qid": "task_001_Worlds_First_CRISPR_Gene_Editing_Therapy",
+          "qid": "task_001_CRISPR_Gene_Editing_Therapy",
           "file": "001.json",
           "question": "I recently saw news that the world's first CRISPR gene editing therapy was approved. How did this technology come about? I know that from the earliest discovery of CRISPR sequences in bacteria to eventually achieving ge…",
           "triplet_f1": 0.2044,
           "node_f1": 0.2428,
           "user_turns": 10,
           "tool_calls": 144,
-          "short_title": "World's First CRISPR Gene Editing Therapy"
+          "short_title": "CRISPR Gene Editing Therapy"
         },
         {
-          "qid": "task_035_关于拓扑量子计算的文章",
+          "qid": "task_035_拓扑量子计算的文章",
           "file": "035.json",
           "question": "我最近在看关于拓扑量子计算的文章，发现Majorana费米子是实现容错量子比特的关键准粒子，我想从头到尾搞清楚这个领域的全貌。\n\n首先从理论源头说起：Majorana费米子最早是谁在什么背景下从理论上预言的？发表在哪个期刊、哪一年？后来Kitaev的一维链模型核心思想是什么，和普通超导体有什么本质区别？在Kitaev链之后，还有哪些理论工作把Majorana零模推广到了二维拓扑超导体系？这些理论方案分别发表在哪些期刊上、哪一年？\n\n然…",
           "triplet_f1": 0.2032,
           "node_f1": 0.2416,
           "user_turns": 15,
           "tool_calls": 213,
-          "short_title": "关于拓扑量子计算的文章"
+          "short_title": "拓扑量子计算的文章"
         },
         {
-          "qid": "task_029_Been_Looking_Into_Internet_Routing_Security",
+          "qid": "task_029_Internet_Routing_Security",
           "file": "029.json",
           "question": "I've been looking into Internet routing security issues recently. I've heard that the BGP protocol has many security vulnerabilities that have caused large-scale traffic hijacking incidents. A security framework called…",
           "triplet_f1": 0.1993,
           "node_f1": 0.2365,
           "user_turns": 13,
           "tool_calls": 246,
-          "short_title": "Been Looking Into Internet Routing Security"
+          "short_title": "Internet Routing Security"
         },
         {
-          "qid": "task_054_Papers_On_OS_Kernel_Design_And",
+          "qid": "task_054_OS_Kernel_Design",
           "file": "054.json",
           "question": "I've been reading papers on OS kernel design and want to systematically trace the evolution of kernel architecture paradigms. Starting from the Multics project in the 1960s, through the birth of Unix, and then to the va…",
           "triplet_f1": 0.199,
           "node_f1": 0.2447,
           "user_turns": 20,
           "tool_calls": 320,
-          "short_title": "Papers On OS Kernel Design And"
+          "short_title": "OS Kernel Design"
         },
         {
-          "qid": "task_013_A_Survey_On_Complexity_Theory_Recently",
+          "qid": "task_013_Interactive_Proof_Systems",
           "file": "013.json",
           "question": "I've been reading a survey on complexity theory recently and I'm particularly interested in the line of development from interactive proof systems to the PCP theorem. From the initial formal definition of interactive pr…",
           "triplet_f1": 0.1971,
           "node_f1": 0.234,
           "user_turns": 10,
           "tool_calls": 249,
-          "short_title": "A Survey On Complexity Theory Recently"
+          "short_title": "Interactive Proof Systems"
         },
         {
-          "qid": "task_063_高能物理实验里用来捕捉粒子的那些",
+          "qid": "task_063_高能物理实验里用来捕捉粒子的那些探测",
           "file": "063.json",
           "question": "高能物理实验里用来捕捉粒子的那些探测器，从最早到现在经历了哪些技术上的重大变化？我想知道径迹探测器从气体探测器到半导体的演化脉络——每一代被大型实验普遍采用的技术分别是什么？各自最早在哪个实验中被大规模使用？是谁主导设计或发明的？\n其中我对LHC上的ATLAS和CMS特别感兴趣。它们的内部径迹系统具体由哪些子层组成？每个子层选用了什么传感器技术？各自的位置分辨率是多少？已知的材料预算数据大概是什么量级？设计各子层时主要受哪些物理需求驱…",
           "triplet_f1": 0.1932,
           "node_f1": 0.2434,
           "user_turns": 8,
           "tool_calls": 102,
-          "short_title": "高能物理实验里用来捕捉粒子的那些"
+          "short_title": "高能物理实验里用来捕捉粒子的那些探测"
         },
         {
-          "qid": "task_005_Topological_Phase_Transitions_And_Topological_Ph",
+          "qid": "task_005_Superconductors",
           "file": "005.json",
           "question": "The 2016 Nobel Prize in Physics was awarded for research on “topological phase transitions and topological phases of matter.” What was the earliest experimental starting point, and after the discovery of the integer qua…",
           "triplet_f1": 0.1925,
           "node_f1": 0.2392,
           "user_turns": 15,
           "tool_calls": 155,
-          "short_title": "Topological Phase Transitions And Topological Phases"
+          "short_title": "Superconductors"
         },
         {
-          "qid": "task_085_最近看新闻说超级细菌越来越难",
+          "qid": "task_085_抗菌药物耐药性的全球行动计划GA",
           "file": "085.json",
           "question": "最近看新闻说「超级细菌」越来越难治了，我想系统了解一下这个问题。世界卫生组织2024年发布了一份《细菌类重点病原体目录》，其中把24种耐药菌按紧迫程度分成三个优先级，关键、高度和中度这三组各自涵盖哪些病原体？医院里最常见的那组缩写ESKAPE的六种菌分别是什么？\n\n细菌主要通过哪四类机制让抗生素失效？其中产生灭活酶这条路里，KPC、NDM-1、OXA-48这三种碳青霉烯酶分别是怎么发现的——每种酶的发现首次被报道的那篇论文发表在哪个期…",
           "triplet_f1": 0.1907,
           "node_f1": 0.2405,
           "user_turns": 15,
           "tool_calls": 141,
-          "short_title": "最近看新闻说「超级细菌」越来越难"
+          "short_title": "抗菌药物耐药性的全球行动计划》（GA"
         },
         {
-          "qid": "task_025_深入了解免疫检查点抑制剂在临床实",
+          "qid": "task_025_深入了解免疫检查点抑制剂在临床实践中",
           "file": "025.json",
           "question": "我最近在深入了解免疫检查点抑制剂在临床实践中遇到的耐药挑战。首先想搞清楚，目前已获得 FDA 批准上市的免疫检查点抑制剂都有哪些？每个药物分别靶向哪个检查点分子？最早获批的适应症是什么？获批年份是哪一年？\n\n其中我特别好奇 CTLA-4 和 PD-1/PD-L1 这两条核心通路——它们在抑制 T 细胞活性的机制上有什么根本区别？各自在 T 细胞活化的哪个阶段发挥作用？最早阐明每条通路免疫抑制功能的里程碑论文分别发表在哪个期刊上？哪一年…",
           "triplet_f1": 0.1905,
           "node_f1": 0.177,
           "user_turns": 18,
           "tool_calls": 223,
-          "short_title": "深入了解免疫检查点抑制剂在临床实"
+          "short_title": "深入了解免疫检查点抑制剂在临床实践中"
         },
         {
-          "qid": "task_014_Rocksdb_Source_Code_Recently_And_Found",
+          "qid": "task_014_LSM_Tree",
           "file": "014.json",
           "question": "I've been reading the RocksDB source code recently and found that its storage engine core is a data structure called LSM-Tree. In which journal was this data structure first published, in what year? Who were the authors…",
           "triplet_f1": 0.1868,
           "node_f1": 0.2087,
           "user_turns": 13,
           "tool_calls": 295,
-          "short_title": "Rocksdb Source Code Recently And Found"
+          "short_title": "LSM Tree"
         },
         {
-          "qid": "task_041_布雷顿森林体系崩溃之后全球汇率制",
+          "qid": "task_041_布雷顿森林体系崩溃之后全球汇率制度",
           "file": "041.json",
           "question": "我最近在研究布雷顿森林体系崩溃之后全球汇率制度的演变，想从制度建立的源头开始理清脉络。当初 1944 年布雷顿森林会议上，Keynes 和 White 各自提出的方案核心分歧在哪里？最终被采纳的制度框架包含哪些关键条款？另外，Triffin 在哪一年、哪篇著作里首次系统阐述了美元储备体系的内在矛盾？\n\n其中 Triffin 困境我特别好奇它从理论预言到现实崩溃的过程。从他提出这个问题到 1971 年尼克松关闭黄金窗口，中间经历了哪些阶…",
           "triplet_f1": 0.1864,
           "node_f1": 0.2234,
           "user_turns": 19,
           "tool_calls": 229,
-          "short_title": "布雷顿森林体系崩溃之后全球汇率制"
+          "short_title": "布雷顿森林体系崩溃之后全球汇率制度"
         },
         {
-          "qid": "task_080_Congressional_Vote_Tallies_That_Year_And",
+          "qid": "task_080_Regulatory_Frameworks",
           "file": "080.json",
           "question": "I've been studying the historical evolution of banking regulation and want to understand how regulatory frameworks were progressively reshaped by crises starting from the Great Depression era. What was the direct backdr…",
           "triplet_f1": 0.1822,
           "node_f1": 0.2297,
           "user_turns": 13,
           "tool_calls": 131,
-          "short_title": "Congressional Vote Tallies That Year And"
+          "short_title": "Regulatory Frameworks"
         },
         {
-          "qid": "task_006_They_Depend_On_Each_Other",
+          "qid": "task_006_Algorithmic_Stablecoin",
           "file": "006.json",
           "question": "I recently read that a whole chain of major institutional collapses hit the crypto world in 2022, apparently starting with an algorithmic stablecoin blowing up. What protocols and tokens were in that stablecoin's ecosys…",
           "triplet_f1": 0.1782,
           "node_f1": 0.2055,
           "user_turns": 18,
           "tool_calls": 297,
-          "short_title": "They Depend On Each Other"
+          "short_title": "Algorithmic Stablecoin"
         },
         {
-          "qid": "task_088_Been_Researching_How_State_Immunity_In",
+          "qid": "task_088_Foreign_Sovereign_Immunities_Act_FSIA",
           "file": "088.json",
           "question": "I've been researching how state immunity in international law evolved from an absolute principle into the current system with various exceptions, and I want to get a comprehensive picture of this evolution.\nFirst, I wan…",
           "triplet_f1": 0.178,
           "node_f1": 0.2011,
           "user_turns": 10,
           "tool_calls": 68,
-          "short_title": "Been Researching How State Immunity In"
+          "short_title": "Foreign Sovereign Immunities Act (FSIA)"
         },
         {
-          "qid": "task_012_Recently_Become_Very_Interested_In_The",
+          "qid": "task_012_Nudge_Theory",
           "file": "012.json",
           "question": "I've recently become very interested in the process by which nudge theory went from an academic concept to formally institutionalized units within governments worldwide. Globally, which were the earliest government beha…",
           "triplet_f1": 0.1728,
           "node_f1": 0.2309,
           "user_turns": 12,
           "tool_calls": 307,
-          "short_title": "Recently Become Very Interested In The"
+          "short_title": "Nudge Theory"
         },
         {
-          "qid": "task_034_想全面了解单细胞测序技术与细胞图",
+          "qid": "task_034_想全面了解单细胞测序技术与细胞图谱领",
           "file": "034.json",
           "question": "我想全面了解单细胞测序技术与细胞图谱领域的发展脉络。首先，从最早实现单个细胞转录组测序的那项工作开始，到后来实现高通量的几个关键平台——每个平台最早发表的论文分别是哪篇？发表在什么期刊？哪一年？第一作者和通讯作者分别是谁？\n\n其中高通量平台之间的技术路线差异我特别好奇：每个平台的核心细胞捕获机制分别基于什么技术路线？单次实验的细胞通量上限大约是多少？每个细胞检测到的基因数中位数大约在什么量级？这些平台各自依赖的关键专利或核心技术组件是…",
           "triplet_f1": 0.1708,
           "node_f1": 0.2042,
           "user_turns": 16,
           "tool_calls": 381,
-          "short_title": "想全面了解单细胞测序技术与细胞图"
+          "short_title": "想全面了解单细胞测序技术与细胞图谱领"
         },
         {
           "qid": "task_047_读衰老相关的文献",
@@ -516,14 +516,14 @@
           "short_title": "关注自主武器的国际法问题"
         },
         {
-          "qid": "task_060_About_Simulating_Condensed_Matter_Physics_With",
+          "qid": "task_060_Quantum_Simulation_Of_Fermi_Gases",
           "file": "060.json",
           "question": "I've been reading about simulating condensed matter physics with ultracold atoms. Could you help me sort out the development of quantum simulation of Fermi gases in optical lattices?\n\nFirst, the theoretical foundations.…",
           "triplet_f1": 0.1564,
           "node_f1": 0.2227,
           "user_turns": 11,
           "tool_calls": 293,
-          "short_title": "About Simulating Condensed Matter Physics With"
+          "short_title": "Quantum Simulation Of Fermi Gases"
         },
         {
           "qid": "task_065_利率建模",
@@ -546,14 +546,14 @@
           "short_title": "阅读量子相变相关的综述文章"
         },
         {
-          "qid": "task_019_A_Review_On_Synaptic_Plasticity_And",
+          "qid": "task_019_Long_Term_Potentiation",
           "file": "019.json",
           "question": "I've been reading a review on synaptic plasticity and memory formation and want to delve deeper into the key molecular steps and structural changes from synaptic-level molecular signaling to the eventual formation of lo…",
           "triplet_f1": 0.1542,
           "node_f1": 0.1498,
           "user_turns": 12,
           "tool_calls": 183,
-          "short_title": "A Review On Synaptic Plasticity And"
+          "short_title": "Long Term Potentiation"
         },
         {
           "qid": "task_091_金融科技这个领域",
@@ -566,114 +566,114 @@
           "short_title": "金融科技这个领域"
         },
         {
-          "qid": "task_020_最近我在钻研机器学习平台里的特征",
+          "qid": "task_020_最近我在钻研机器学习平台里的特征存储",
           "file": "020.json",
           "question": "最近我在钻研机器学习平台里的特征存储系统，想把这一领域自概念提出至今，发展出主流产品的完整脉络梳理清楚。最早提出\"特征存储\"这个概念的是哪个团队？他们发表在什么场合？之后有哪些里程碑式的系统先后出现，每个系统最早的技术报告或论文分别是什么？\n\n其中我对最早的 Uber Michelangelo 特别好奇——它整个 ML 平台的架构里，特征存储模块承担的具体职责是什么？它的在线存储和离线存储分别用了什么底层技术栈？Michelangel…",
           "triplet_f1": 0.1523,
           "node_f1": 0.2087,
           "user_turns": 24,
           "tool_calls": 344,
-          "short_title": "最近我在钻研机器学习平台里的特征"
+          "short_title": "最近我在钻研机器学习平台里的特征存储"
         },
         {
-          "qid": "task_004_Their_Careers_Develop_Afterward",
+          "qid": "task_004_American_Impeachment_System",
           "file": "004.json",
           "question": "I recently saw the U.S. House of Representatives vote to impeach a president but the Senate did not convict. I want to systematically understand the American impeachment system. First, what is the constitutional basis f…",
           "triplet_f1": 0.152,
           "node_f1": 0.1813,
           "user_turns": 18,
           "tool_calls": 174,
-          "short_title": "Their Careers Develop Afterward"
+          "short_title": "American Impeachment System"
         },
         {
-          "qid": "task_015_About_Argentinas_Debt_Default_Recently_And",
+          "qid": "task_015_Sovereign_Debt_Default",
           "file": "015.json",
           "question": "I've been reading about Argentina's debt default recently and realized that the way sovereign nations handle unpaid debts is completely different from corporate bankruptcy — there's no 'international bankruptcy court' t…",
           "triplet_f1": 0.1493,
           "node_f1": 0.1901,
           "user_turns": 10,
           "tool_calls": 112,
-          "short_title": "About Argentina's Debt Default Recently And"
+          "short_title": "Sovereign Debt Default"
         },
         {
-          "qid": "task_011_Been_Following_International_Investment_Arbitrat",
+          "qid": "task_011_International_Investment_Arbitration",
           "file": "011.json",
           "question": "I've been following international investment arbitration where multinational corporations sue host states, and I want to start by understanding the treaty dimension. Among investment treaties signed from the 1960s to th…",
           "triplet_f1": 0.1491,
           "node_f1": 0.2013,
           "user_turns": 18,
           "tool_calls": 299,
-          "short_title": "Been Following International Investment Arbitration Where"
+          "short_title": "International Investment Arbitration"
         },
         {
-          "qid": "task_067_一直在关注WTO改革的新闻",
+          "qid": "task_067_争端解决改革的部分",
           "file": "067.json",
           "question": "我最近一直在关注WTO改革的新闻，感觉整个多边贸易体制好像陷入了某种系统性危机。上诉机构停摆这件事到底是怎么一步步走到今天这个僵局的？从美国最早开始阻挠成员遴选算起，每一位被阻挡的候选人分别是谁提名的、在哪一年被否决？美国每次给出的正式反对理由分别涉及哪些具体法律论点？\n\n面对上诉机构停摆，欧盟牵头建立了一个临时替代机制。这个机制的正式名称是什么？它的法律基础援引的是DSU的哪个具体条款？从启动谈判到正式生效经历了哪些阶段？在每个阶段…",
           "triplet_f1": 0.1488,
           "node_f1": 0.1795,
           "user_turns": 10,
           "tool_calls": 116,
-          "short_title": "一直在关注WTO改革的新闻"
+          "short_title": "争端解决改革的部分"
         },
         {
-          "qid": "task_023_About_EU_Law_Recently_And_Im",
+          "qid": "task_023_Court_Of_Justice_Of_The_European_Union_CJEU",
           "file": "023.json",
           "question": "I've been reading about EU law recently and I'm particularly interested in how the Court of Justice of the European Union (CJEU) gradually transformed the EU from an international organization into a 'quasi-federal' leg…",
           "triplet_f1": 0.1445,
           "node_f1": 0.1855,
           "user_turns": 34,
           "tool_calls": 264,
-          "short_title": "About EU Law Recently And I'm"
+          "short_title": "Court Of Justice Of The European Union (CJEU)"
         },
         {
-          "qid": "task_100_How_Have_Scientists_Inferred_That_Different",
+          "qid": "task_100_Evolutionary_Theory",
           "file": "100.json",
           "question": "How have scientists inferred that different organisms share a common ancestry? How has the evidence supporting this conclusion evolved from 19th-century field observations to modern molecular data, and which type of evi…",
           "triplet_f1": 0.1398,
           "node_f1": 0.1744,
           "user_turns": 10,
           "tool_calls": 103,
-          "short_title": "How Have Scientists Inferred That Different"
+          "short_title": "Evolutionary Theory"
         },
         {
-          "qid": "task_084_Economic_Arguments_Behind_The_Two_Camps",
+          "qid": "task_084_Carbon_Pricing",
           "file": "084.json",
           "question": "I've always found carbon pricing really complex and I want to understand it systematically. Starting from the theoretical roots, what are the economic arguments behind the two camps — those favoring cap-and-trade versus…",
           "triplet_f1": 0.1292,
           "node_f1": 0.16,
           "user_turns": 17,
           "tool_calls": 172,
-          "short_title": "Economic Arguments Behind The Two Camps"
+          "short_title": "Carbon Pricing"
         },
         {
-          "qid": "task_083_It_Actually_Spread_What_System_Vulnerabilities",
+          "qid": "task_083_Buffer_Overflow",
           "file": "083.json",
           "question": "I recently read an article about a worm in 1988 that nearly crashed the entire internet. How did it actually spread, what system vulnerabilities did it exploit, how much damage did it cause, who wrote it, and what legal…",
           "triplet_f1": 0.1278,
           "node_f1": 0.1735,
           "user_turns": 19,
           "tool_calls": 197,
-          "short_title": "It Actually Spread What System Vulnerabilities"
+          "short_title": "Buffer Overflow"
         },
         {
-          "qid": "task_076_Some_Popular_Science_Articles_About_Gut",
+          "qid": "task_076_Gut_Microbiota",
           "file": "076.json",
           "question": "I've been reading some popular science articles about gut microbiota recently, and it feels like the field has changed enormously over the past ten to twenty years. I'm not quite sure how it went from a niche area to be…",
           "triplet_f1": 0.1268,
           "node_f1": 0.1529,
           "user_turns": 18,
           "tool_calls": 236,
-          "short_title": "Some Popular Science Articles About Gut"
+          "short_title": "Gut Microbiota"
         },
         {
-          "qid": "task_040_读关于阿尔茨海默病的文献",
+          "qid": "task_040_阿尔茨海默病的文献",
           "file": "040.json",
           "question": "我最近在读关于阿尔茨海默病的文献，发现Tau蛋白的异常磷酸化似乎是个很复杂的过程，涉及很多不同的激酶通路。从最早在电镜下观察到配对螺旋丝（PHF），到后来分离出 Tau 蛋白、确认 Tau 是 PHF 的主要成分，再到系统鉴定一系列病理性磷酸化位点，这个研究历程中各阶段的首次突破性发现分别是什么？每个发现最早发表在哪个期刊上？是谁作为第一作者或通讯作者完成的？\n\n其中磷酸化位点这块我特别好奇：在已被确认的Tau病理性磷酸化表位中，哪些…",
           "triplet_f1": 0.1267,
           "node_f1": 0.1631,
           "user_turns": 16,
           "tool_calls": 207,
-          "short_title": "读关于阿尔茨海默病的文献"
+          "short_title": "阿尔茨海默病的文献"
         },
         {
           "qid": "task_099_国际货币体系的演变",
@@ -686,44 +686,44 @@
           "short_title": "国际货币体系的演变"
         },
         {
-          "qid": "task_092_Been_Curious_About_The_History_Of",
+          "qid": "task_092_Superconductivity",
           "file": "092.json",
           "question": "I've been curious about the history of superconductors lately, and I want to understand the full arc — from the earliest discovery of zero electrical resistance to the theoretical and material breakthroughs that followe…",
           "triplet_f1": 0.1127,
           "node_f1": 0.1414,
           "user_turns": 18,
           "tool_calls": 169,
-          "short_title": "Been Curious About The History Of"
+          "short_title": "Superconductivity"
         },
         {
-          "qid": "task_031_国际贸易法的一些案例",
+          "qid": "task_031_正常价值计算方法的条款编号是什么其",
           "file": "031.json",
           "question": "我最近在看国际贸易法的一些案例，想了解一下WTO框架下的反倾销争端是怎么一路走过来的。从GATT 1947年第六条开始，到后来的肯尼迪回合、东京回合反倾销守则，再到乌拉圭回合的《反倾销协定》（ADA），每个阶段新引入的核心法律概念分别是什么？每个阶段的文本最终在哪一年通过、由哪次多边贸易谈判产出？\n\n其中我特别好奇的是这些法律概念在WTO争端解决实践中的具体运用。在WTO争端解决机构（DSB）受理的反倾销相关争端中，被申诉方为美国的案…",
           "triplet_f1": 0.1124,
           "node_f1": 0.1591,
           "user_turns": 9,
           "tool_calls": 136,
-          "short_title": "国际贸易法的一些案例"
+          "short_title": "正常价值计算方法的条款编号是什么？其"
         },
         {
-          "qid": "task_007_Been_Self_Studying_Real_Analysis_And",
+          "qid": "task_007_Newton_And_Leibniz",
           "file": "007.json",
           "question": "I've been self-studying real analysis and complex analysis and noticed the theorem names keep cycling through the same few figures—Cauchy, Weierstrass, Riemann. The deeper I go, the more curious I get: what exactly happ…",
           "triplet_f1": 0.1031,
           "node_f1": 0.1297,
           "user_turns": 13,
           "tool_calls": 169,
-          "short_title": "Been Self Studying Real Analysis And"
+          "short_title": "Newton And Leibniz"
         },
         {
-          "qid": "task_061_北极地区目前被主权国家明确提出管",
+          "qid": "task_061_北极地区目前被主权国家明确提出管辖权",
           "file": "061.json",
           "question": "北极地区目前被主权国家明确提出管辖权主张的航道有哪些？以北方海航道和西北航道为例，各自的沿岸国是谁，依据 UNCLOS的哪些具体条款来主张管辖权？穿极航道与前两者的法律性质有何不同？                                                     其中 UNCLOS 第234条这个「冰覆盖区」条款让我特别好奇——这个条款当初在第三次联合国海洋法会议上是怎么被写进去的？哪些国家的谈判代表推动了这一…",
           "triplet_f1": 0.1016,
           "node_f1": 0.1289,
           "user_turns": 9,
           "tool_calls": 142,
-          "short_title": "北极地区目前被主权国家明确提出管"
+          "short_title": "北极地区目前被主权国家明确提出管辖权"
         },
         {
           "qid": "task_081_最近我在看神经退行性疾病的内容",
@@ -746,124 +746,124 @@
           "short_title": "高频交易这个话题"
         },
         {
-          "qid": "task_039_深入研究超标量乱序处理器的微架构",
+          "qid": "task_039_乱序执行调度机制的改进",
           "file": "039.json",
           "question": "我最近在深入研究超标量乱序处理器的微架构演化，想请你帮我系统梳理一下。\n\n首先是乱序执行的学术源头：最初提出动态指令调度的是哪篇论文，发表在哪个期刊或会议、哪一年？从那篇论文到首款真正实现乱序执行的商用处理器，中间经历了多少年？那颗处理器是哪家公司的哪款型号？\n\n其次我特别好奇后续的学术改进。从 1990 年代到 2010 年代，在 ISCA、MICRO、HPCA 三大体系结构顶会上，关于乱序执行调度机制的改进，每个十年里被引用次数最…",
           "triplet_f1": 0.0981,
           "node_f1": 0.1266,
           "user_turns": 14,
           "tool_calls": 369,
-          "short_title": "深入研究超标量乱序处理器的微架构"
+          "short_title": "乱序执行调度机制的改进"
         },
         {
-          "qid": "task_003_Field_Of_Mergers_And_Acquisitions_And",
+          "qid": "task_003_Mergers_And_Acquisitions",
           "file": "003.json",
           "question": "I am systematically studying the field of mergers and acquisitions and would like your help to conduct an in-depth review across several dimensions. On the theoretical level, between 1965 and 2003, which M&A theories we…",
           "triplet_f1": 0.0889,
           "node_f1": 0.1212,
           "user_turns": 18,
           "tool_calls": 376,
-          "short_title": "Field Of Mergers And Acquisitions And"
+          "short_title": "Mergers And Acquisitions"
         },
         {
-          "qid": "task_021_Recently_Been_Learning_About_International_Trial",
+          "qid": "task_021_War_Crimes",
           "file": "021.json",
           "question": "I've recently been learning about international trials for war crimes. I'd like to know how the international community has gradually built the legal framework for prosecuting war crimes from after World War II to the p…",
           "triplet_f1": 0.0864,
           "node_f1": 0.1217,
           "user_turns": 11,
           "tool_calls": 151,
-          "short_title": "Recently Been Learning About International Trials"
+          "short_title": "War Crimes"
         },
         {
-          "qid": "task_090_Recently_Become_Very_Interested_In_The",
+          "qid": "task_090_Statistical_Mechanics",
           "file": "090.json",
           "question": "I've recently become very interested in the evolutionary history of how statistical mechanics went from studying gases to studying complex systems, and I'd like to systematically trace this trajectory.\n\nLet's start with…",
           "triplet_f1": 0.0745,
           "node_f1": 0.103,
           "user_turns": 24,
           "tool_calls": 275,
-          "short_title": "Recently Become Very Interested In The"
+          "short_title": "Statistical Mechanics"
         },
         {
-          "qid": "task_046_Been_Researching_The_Exercise_Patterns_Of",
+          "qid": "task_046_UN_Security_Council_Veto",
           "file": "046.json",
           "question": "I've been researching the exercise patterns of the UN Security Council veto and want to start with the actual records since the end of the Cold War. From 1991 to now, could you help me organize this by decade: what issu…",
           "triplet_f1": 0.0641,
           "node_f1": 0.0987,
           "user_turns": 10,
           "tool_calls": 149,
-          "short_title": "Been Researching The Exercise Patterns Of"
+          "short_title": "UN Security Council Veto"
         },
         {
-          "qid": "task_010_Definition_Of_The_Continental_Shelf_Evolve",
+          "qid": "task_010_Limits_Of_The_Continental_Shelf_CLCS",
           "file": "010.json",
           "question": "I have been studying the provisions of UNCLOS Article 76 on the outer limits of the continental shelf and wish to trace the subject systematically from the perspective of legal evolution. First, how did the definition o…",
           "triplet_f1": 0.0635,
           "node_f1": 0.0818,
           "user_turns": 10,
           "tool_calls": 122,
-          "short_title": "Definition Of The Continental Shelf Evolve"
+          "short_title": "Limits Of The Continental Shelf (CLCS)"
         },
         {
-          "qid": "task_058_Been_Really_Interested_In_Ipsc_Reprogramming",
+          "qid": "task_058_Ipsc_Reprogramming",
           "file": "058.json",
           "question": "I've been really interested in iPSC reprogramming lately — from Shinya Yamanaka's original discovery of reprogramming factors to now, how have the core molecular mechanisms in this field actually evolved? What signaling…",
           "triplet_f1": 0.0499,
           "node_f1": 0.0643,
           "user_turns": 15,
           "tool_calls": 211,
-          "short_title": "Been Really Interested In Ipsc Reprogramming"
+          "short_title": "Ipsc Reprogramming"
         },
         {
-          "qid": "task_018_Recently_Been_Studying_The_Constitutional_Review",
+          "qid": "task_018_Constitutional_Review_Systems",
           "file": "018.json",
           "question": "I have recently been studying the constitutional review systems of various countries, hoping to clarify why different countries have chosen completely different review models, and also to explore the mutual influences a…",
           "triplet_f1": 0.0492,
           "node_f1": 0.0734,
           "user_turns": 16,
           "tool_calls": 328,
-          "short_title": "Recently Been Studying The Constitutional Review"
+          "short_title": "Constitutional Review Systems"
         },
         {
-          "qid": "task_093_I_Recently_Read_About_The_Tumor",
+          "qid": "task_093_Tumor_Microenvironment",
           "file": "093.json",
           "question": "I recently read about the tumor microenvironment and learned that tumors do not exist in isolation but instead form a complex ecosystem together with surrounding cells and structures — what cell types and non-cellular c…",
           "triplet_f1": 0.0412,
           "node_f1": 0.0487,
           "user_turns": 13,
           "tool_calls": 141,
-          "short_title": "I Recently Read About The Tumor"
+          "short_title": "Tumor Microenvironment"
         },
         {
-          "qid": "task_070_About_Bilateral_Investment_Treaties_Lately_And",
+          "qid": "task_070_Group_III_Multilateral_Investment_Court_MIC",
           "file": "070.json",
           "question": "I've been reading about bilateral investment treaties lately, and I've noticed that BITs from different eras vary enormously in their investment protection clauses. I'd like to understand how these treaty standards have…",
           "triplet_f1": 0.0366,
           "node_f1": 0.0482,
           "user_turns": 17,
           "tool_calls": 174,
-          "short_title": "About Bilateral Investment Treaties Lately And"
+          "short_title": "Group III Multilateral Investment Court (MIC)"
         },
         {
-          "qid": "task_095_Main_Criticisms_Scholars_Have_Raised_Against",
+          "qid": "task_095_Industrial_Policy",
           "file": "095.json",
           "question": "I’ve been studying the history of how governments around the world support specific industries and want to understand the theoretical logic behind these policies. What market failures do supporters of industrial policy…",
           "triplet_f1": 0.0253,
           "node_f1": 0.0415,
           "user_turns": 9,
           "tool_calls": 88,
-          "short_title": "Main Criticisms Scholars Have Raised Against"
+          "short_title": "Industrial Policy"
         },
         {
-          "qid": "task_008_Been_Studying_The_Internal_Structure_Of",
+          "qid": "task_008_LLVM_Compiler",
           "file": "008.json",
           "question": "I've been studying the internal structure of the LLVM compiler recently, particularly how its intermediate representation is designed, and to what extent static analysis based on this IR can go. LLVM IR is based on SSA…",
           "triplet_f1": null,
           "node_f1": null,
           "user_turns": 11,
           "tool_calls": 349,
-          "short_title": "Been Studying The Internal Structure Of"
+          "short_title": "LLVM Compiler"
         },
         {
           "qid": "task_016_后量子密码学",
@@ -876,94 +876,94 @@
           "short_title": "后量子密码学"
         },
         {
-          "qid": "task_038_关注难民问题",
+          "qid": "task_038_不驱回的条款具体是第几条除了这部核",
           "file": "038.json",
           "question": "我最近在关注难民问题，想从条约法的源头理清不驱回原则的制度基础。这个原则最早被写入的国际条约是哪一部？起草过程中哪些国家的代表团发挥了主导作用？最终文本中关于不驱回的条款具体是第几条？除了这部核心公约，后来还有哪些全球性条约明确纳入了不驱回条款——每部条约的通过年份和在联合国体系中的编号分别是什么？\n\n其中第33条的第二款规定了例外情形，这个例外条款一直是争议焦点。联合国难民署历任高级专员中，哪几位在任期内发布过正式立场文件或咨询意见…",
           "triplet_f1": null,
           "node_f1": null,
           "user_turns": 14,
           "tool_calls": 237,
-          "short_title": "关注难民问题"
+          "short_title": "不驱回的条款具体是第几条？除了这部核"
         },
         {
-          "qid": "task_043_听说AlphaFold在蛋白质结",
+          "qid": "task_043_听说AlphaFold在蛋白质结构预",
           "file": "043.json",
           "question": "我最近听说 AlphaFold 在蛋白质结构预测上取得了很大突破，好像还跟一个叫 CASP 的比赛有关，能帮我从头梳理一下这个领域是怎么发展起来的吗？\n\n先从 CASP 比赛讲起吧——它从哪一年开始举办的？由谁发起？到现在一共举办了多少届？每届的评估指标有什么变化？在 AlphaFold 出现之前，哪些团队或方法在 CASP 历届比赛中拿过自由建模类别的最高分？\n\n然后我想了解一下更大的方法论图景：从最早的同源建模到后来的从头预测再到…",
           "triplet_f1": null,
           "node_f1": null,
           "user_turns": 12,
           "tool_calls": 248,
-          "short_title": "听说AlphaFold在蛋白质结"
+          "short_title": "听说AlphaFold在蛋白质结构预"
         },
         {
-          "qid": "task_044_最近在研究全球银行业的宏观审慎监",
+          "qid": "task_044_银行业的宏观审慎监管框架",
           "file": "044.json",
           "question": "最近在研究全球银行业的宏观审慎监管框架，想弄清楚从巴塞尔协议最初版本到现在，整个框架经历了哪几个大版本？每个G-SIB 评定方法论里用了哪几大指标类别？每个类别下具体包含哪些子指标？这套方法论从 2011 年首次发布到现在经历了哪几次重大修订，每次修订改了什么？\n\n按照最新框架，被划入最高附加资本档位（bucket 4 及以上）的银行分别是哪几家？各档位（bucket 1 到 bucket 5）的分布情况如何——总部在哪里？附加资本比…",
           "triplet_f1": null,
           "node_f1": null,
           "user_turns": 16,
           "tool_calls": 168,
-          "short_title": "最近在研究全球银行业的宏观审慎监"
+          "short_title": "银行业的宏观审慎监管框架"
         },
         {
-          "qid": "task_045_学Rust的时候发现它的类型系统",
+          "qid": "task_045_学Rust的时候发现它的类型系统特别",
           "file": "045.json",
           "question": "我最近在学 Rust 的时候发现它的类型系统特别复杂，由此想系统了解现代编程语言的类型系统是如何从学术理论一步步演化为工业实践的，以及推动这一进程的关键人物和学术脉络。\n\n从最早的类型论到现在的高级类型特性，在类型理论发展史上，每个被后续系统广泛采纳的理论突破最早是在哪篇论文里被正式提出的？每个突破只要最早发表的那一篇——比如类型推断的算法化、参数多态的形式化、子类型关系的形式化、依赖类型的引入，分别最早发表在哪个期刊或会议上？哪一年…",
           "triplet_f1": null,
           "node_f1": null,
           "user_turns": 12,
           "tool_calls": 365,
-          "short_title": "学Rust的时候发现它的类型系统"
+          "short_title": "学Rust的时候发现它的类型系统特别"
         },
         {
-          "qid": "task_048_微生物怎么通过改造莽草酸途径来生",
+          "qid": "task_048_对微生物怎么通过改造莽草酸途径来生产",
           "file": "048.json",
           "question": "我最近对微生物怎么通过改造莽草酸途径来生产高值芳香族化合物特别感兴趣。从最上游开始，磷酸烯醇式丙酮酸和赤藓糖-4-磷酸到分支酸这条主干途径中，每一步反应分别由什么酶催化？在大肠杆菌和酿酒酵母中对应的基因名各是什么？其中哪些步骤被报道存在内源性反馈抑制？\n\n其中我特别好奇那些存在反馈抑制的限速酶。过去二十年里，针对这些酶的反馈抑制解除，研究者们发展出了哪些点突变策略？每种突变体最早是由哪个研究组在哪一年报道的？发表在什么期刊上？\n\n解除…",
           "triplet_f1": null,
           "node_f1": null,
           "user_turns": 10,
           "tool_calls": 278,
-          "short_title": "微生物怎么通过改造莽草酸途径来生"
+          "short_title": "对微生物怎么通过改造莽草酸途径来生产"
         },
         {
-          "qid": "task_050_读三维流形分类的相关内容",
+          "qid": "task_050_这个纲领从提出到被证明的整个脉络吗",
           "file": "050.json",
           "question": "我最近在读三维流形分类的相关内容，对 Thurston 的几何化纲领特别感兴趣，能帮我从头梳理一下这个纲领从提出到被证明的整个脉络吗？具体来说，在 Thurston 提出几何化猜想之前，三维流形分类领域已经有哪些奠基性的结果——从 Poincaré 猜想的提出，到素分解定理，再到 JSJ 分解定理，每一步最早是由谁证明的、发表在哪一年、论文刊登在哪个期刊上？\n\n其中 Thurston 提出的八类模型几何我特别好奇：这八类几何结构各自对…",
           "triplet_f1": null,
           "node_f1": null,
           "user_turns": 9,
           "tool_calls": 145,
-          "short_title": "读三维流形分类的相关内容"
+          "short_title": "这个纲领从提出到被证明的整个脉络吗？"
         },
         {
-          "qid": "task_057_研读全球价值链核算方法论的文献",
+          "qid": "task_057_价值链核算方法论",
           "file": "057.json",
           "question": "我最近在研读全球价值链核算方法论的文献，发现测度一国在全球生产网络中参与程度的方法经历了好几代演变。从最早的垂直专业化指数到现在的贸易增加值分解框架，每一代方法论的代表性分解框架分别叫什么？各自在测度中间品贸易流动时解决了前一代的哪些具体局限？每个框架引入了什么此前不存在的核算概念或数学分解？\n\n这些分解框架最早各自发表在哪个期刊上？哪一年？其中有从 NBER working paper 到正式发表经历较长时滞的吗？具体时滞是多久？…",
           "triplet_f1": null,
           "node_f1": null,
           "user_turns": 17,
           "tool_calls": 286,
-          "short_title": "研读全球价值链核算方法论的文献"
+          "short_title": "价值链核算方法论"
         },
         {
-          "qid": "task_064_Been_Diving_Deep_Into_The_Tumor",
+          "qid": "task_064_Tumor_Microenvironment",
           "file": "064.json",
           "question": "I've been diving deep into the tumor immunology literature recently and realized that immune suppression within the tumor microenvironment is far more complex than I initially thought — there are extensive cooperative m…",
           "triplet_f1": null,
           "node_f1": null,
           "user_turns": 11,
           "tool_calls": 177,
-          "short_title": "Been Diving Deep Into The Tumor"
+          "short_title": "Tumor Microenvironment"
         },
         {
-          "qid": "task_077_Been_Studying_The_History_Of_Reinforcement",
+          "qid": "task_077_Reinforcement_Learning",
           "file": "077.json",
           "question": "I've been studying the history of reinforcement learning recently, from its mathematical foundations to large model alignment, and I want to organize it systematically. First, can you help me outline the theoretical roo…",
           "triplet_f1": null,
           "node_f1": null,
           "user_turns": 11,
           "tool_calls": 104,
-          "short_title": "Been Studying The History Of Reinforcement"
+          "short_title": "Reinforcement Learning"
         },
         {
           "qid": "task_082_气候谈判的历史演化",
@@ -976,34 +976,34 @@
           "short_title": "气候谈判的历史演化"
         },
         {
-          "qid": "task_086_一直好奇Docker和Kuber",
+          "qid": "task_086_一直好奇Docker和Kuberne",
           "file": "086.json",
           "question": "我一直好奇 Docker 和 Kubernetes 这套容器生态是怎么从 Linux 内核原生特性一步步发展到今天的。想先从最底层说起——在 Docker 出现之前，Linux 内核里已经有哪些为容器化铺路的机制？最终被视作\"容器技术两大基石\"的是哪两个特性，它们各自解决的是进程隔离还是资源限制问题？\n\n这两个特性里，`cgroups` 是由哪些工程师在哪个机构最先提出的？它和 `namespaces` 分别是在哪个 Linux 内核…",
           "triplet_f1": null,
           "node_f1": null,
           "user_turns": 13,
           "tool_calls": 103,
-          "short_title": "一直好奇Docker和Kuber"
+          "short_title": "一直好奇Docker和Kuberne"
         },
         {
-          "qid": "task_096_微观经济学理论的历史演变产生了浓",
+          "qid": "task_096_对微观经济学理论的历史演变产生了浓厚",
           "file": "096.json",
           "question": "我最近对微观经济学理论的历史演变产生了浓厚兴趣，想系统梳理一下这套理论体系是怎么一步步建立起来的。\n\n最开始想了解的是价格是怎么形成的这个最基本问题——古典经济学家和后来的新古典学派在解释商品价格时，核心思路有什么不同？从劳动价值论到均衡价格，经济学家引入了哪些新的分析工具？帕累托改进这个判断资源配置效率的标准，又是在什么理论背景下被正式提出的？\n\n在学习价格理论的过程中，我意识到效用这个概念本身也有一段演变历史。效用到底能不能用数字…",
           "triplet_f1": null,
           "node_f1": null,
           "user_turns": 15,
           "tool_calls": 140,
-          "short_title": "微观经济学理论的历史演变产生了浓"
+          "short_title": "对微观经济学理论的历史演变产生了浓厚"
         },
         {
-          "qid": "task_098_International_Criminal_Court_Come_Into_Being",
+          "qid": "task_098_International_Criminal_Court",
           "file": "098.json",
           "question": "How did the International Criminal Court come into being step by step? I'd like to understand the whole story from start to finish.\nAfter World War II ended, what foundational principles of international criminal law we…",
           "triplet_f1": null,
           "node_f1": null,
           "user_turns": 15,
           "tool_calls": 177,
-          "short_title": "International Criminal Court Come Into Being"
+          "short_title": "International Criminal Court"
         }
       ]
     },

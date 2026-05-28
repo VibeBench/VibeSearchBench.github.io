@@ -1,9 +1,9 @@
 {
-  "qid": "task_002_Interested_In_The_Complete_Story_Of",
+  "qid": "task_002_Gravitational_Wave_Detection",
   "subset": "pro",
   "sample_idx": 0,
   "question": "I'm interested in the complete story of gravitational wave detection and research. Starting from Einstein's theoretical prediction in general relativity, through the long journey of theoretical development and indirect evidence from binary pulsars, to the technological breakthroughs in laser interferometry that made direct detection possible. I want to understand the key detection events like GW150914, GW170817, and GW190521, and what each revealed about black holes, neutron stars, and fundamental physics. I'm also curious about the birth of multi-messenger astronomy, the future of ground-based and space-based detectors like Einstein Telescope, Cosmic Explorer, LISA, TianQin and Taiji, and the scientists who made it all happen, from Weber's early experiments to the Nobel Prize-winning LIGO team.",
-  "short_title": "Interested In The Complete Story Of",
+  "short_title": "Gravitational Wave Detection",
   "termination": "answer",
   "metrics": {
     "node_precision": 0.2038,

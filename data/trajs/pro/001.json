@@ -1,9 +1,9 @@
 {
-  "qid": "task_001_Worlds_First_CRISPR_Gene_Editing_Therapy",
+  "qid": "task_001_CRISPR_Gene_Editing_Therapy",
   "subset": "pro",
   "sample_idx": 0,
   "question": "I recently saw news that the world's first CRISPR gene editing therapy was approved. How did this technology come about? I know that from the earliest discovery of CRISPR sequences in bacteria to eventually achieving gene editing in human cells, many years passed. Can you help me organize the paper evolution timeline? List each paper's title, journal, year, and paper link clearly, and also sort out the progression relationships between papers. Who are the core scientists behind these key papers? Where did each of them get their PhD, who were their advisors, and what institutions are they at now? By the way, have any of these scientists won major awards for CRISPR? I heard there's been a huge dispute over CRISPR patent ownership that went on for years in court. Which parties are involved? When did each side file their applications, how many rounds of review did the court go through, what was decided in each round, and what's the current status? Also help me look at the technology's commercialization and clinical applications: What companies did these scientists go on to found? When was each company established, where is its headquarters, what direction is it pursuing, is it publicly listed, and what's its ticker symbol? What's the specific name of the approved CRISPR drug, what disease does it treat, how exactly does the treatment work, and what are the clinical outcomes? Who co-developed it? In which countries has it been approved? Besides what's already approved, are there any CRISPR therapies in development?",
-  "short_title": "World's First CRISPR Gene Editing Therapy",
+  "short_title": "CRISPR Gene Editing Therapy",
   "termination": "answer",
   "metrics": {
     "node_precision": 0.1556,
