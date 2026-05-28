@@ -843,74 +843,11 @@ function countKgNodes(triplets) {
   return nodes.size;
 }
 
-function analyzeKgComponents(triplets) {
-  const adj = new Map();
-  function touch(id) {
-    if (!adj.has(id)) adj.set(id, new Set());
-  }
-  function link(a, b) {
-    if (!a || !b || a === b) return;
-    touch(a);
-    touch(b);
-    adj.get(a).add(b);
-    adj.get(b).add(a);
-  }
-  triplets.forEach(function (t) {
-    link(t.head, t.tail);
-  });
-
-  const components = [];
-  const seen = new Set();
-  adj.forEach(function (_neighbors, start) {
-    if (seen.has(start)) return;
-    const comp = new Set();
-    const stack = [start];
-    while (stack.length) {
-      const n = stack.pop();
-      if (seen.has(n)) continue;
-      seen.add(n);
-      comp.add(n);
-      const neighbors = adj.get(n);
-      if (!neighbors) continue;
-      neighbors.forEach(function (m) {
-        if (!seen.has(m)) stack.push(m);
-      });
-    }
-    components.push(comp);
-  });
-
-  components.sort(function (a, b) {
-    return b.size - a.size;
-  });
-  const largest = components[0] || new Set();
-  return {
-    componentCount: components.length,
-    largest: largest,
-    largestNodeCount: largest.size,
-    totalNodeCount: seen.size,
-  };
-}
-
-function tripletsInComponent(triplets, nodeSet) {
-  return triplets.filter(function (t) {
-    return nodeSet.has(t.head) && nodeSet.has(t.tail);
-  });
-}
-
-/** Keep only the largest connected cluster so the graph view is not scattered islands. */
 function tripletsForGraphView(triplets, opts) {
   const maxN = (opts && opts.maxTriplets) || KG_GRAPH_MAX_TRIPLETS;
-  const analysis = analyzeKgComponents(triplets);
-  let viewTriplets = triplets;
-  if (analysis.componentCount > 1 && analysis.largest.size) {
-    viewTriplets = tripletsInComponent(triplets, analysis.largest);
-  }
   return {
-    triplets: viewTriplets.slice(0, maxN),
+    triplets: triplets.slice(0, maxN),
     total: triplets.length,
-    analysis: analysis,
-    hiddenComponents: Math.max(0, analysis.componentCount - 1),
-    hiddenNodes: Math.max(0, analysis.totalNodeCount - analysis.largestNodeCount),
   };
 }
 
@@ -976,25 +913,13 @@ function renderKgExtraction(extraction) {
     note =
       '<p class="kg-note">Showing truncated preview only. Run <code>python3 scripts/build_final_extractions.py</code> and redeploy for the full graph.</p>';
   }
-  if (graphView.hiddenComponents > 0) {
-    note +=
-      '<p class="kg-note">Graph shows the <strong>main connected cluster</strong> (' +
-      graphView.analysis.largestNodeCount +
-      " nodes). " +
-      graphView.hiddenComponents +
-      " smaller disconnected group" +
-      (graphView.hiddenComponents !== 1 ? "s" : "") +
-      " (" +
-      graphView.hiddenNodes +
-      " nodes) are hidden — extraction JSON still lists all triplets.</p>";
-  }
   if (total > shown.length && extraction.source !== "preview") {
     note +=
       '<p class="kg-note">Drawing ' +
       shown.length +
       " of " +
       total +
-      " triplets in the main cluster (cap " +
+      " triplets (cap " +
       KG_GRAPH_MAX_TRIPLETS +
       ").</p>";
   }
