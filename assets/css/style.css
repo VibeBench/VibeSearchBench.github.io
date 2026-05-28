@@ -905,6 +905,19 @@ tbody tr:hover td {
   transform: rotate(90deg);
 }
 
+.task-acc-title {
+  flex: 0 0 auto;
+}
+
+.task-acc-subtitle {
+  margin-left: auto;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--muted);
+  font-size: 0.68rem;
+}
+
 .task-acc-body {
   display: none;
   padding: 0 1.15rem 1rem;

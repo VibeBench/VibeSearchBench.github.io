@@ -358,6 +358,13 @@ document.querySelectorAll('.nav-links a[href^="#"]').forEach((link) => {
 });
 
 let leaderboardData = null;
+
+function getTrajectoryModelNote() {
+  const full = leaderboardData && leaderboardData.trajectory_model;
+  if (!full) return "from Claude Opus 4.6";
+  const short = String(full).split("(")[0].trim();
+  return "from " + short;
+}
 let framework = "openclaw";
 let subset = "avg";
 let sortKey = "f1";
@@ -565,7 +572,7 @@ function parseKgTriplets(raw) {
   return out;
 }
 
-function renderTaskAccordionSection(id, title, bodyHtml, open) {
+function renderTaskAccordionSection(id, title, bodyHtml, open, subtitle) {
   return (
     '<section class="task-acc-section' +
     (open ? " is-open" : "") +
@@ -578,7 +585,11 @@ function renderTaskAccordionSection(id, title, bodyHtml, open) {
     '<span class="task-acc-chevron" aria-hidden="true">▸</span>' +
     '<span class="task-acc-title">' +
     escapeHtml(title) +
-    "</span></button>" +
+    "</span>" +
+    (subtitle
+      ? '<span class="task-acc-subtitle">' + escapeHtml(subtitle) + "</span>"
+      : "") +
+    "</button>" +
     '<div class="task-acc-body">' +
     bodyHtml +
     "</div></section>"
@@ -1250,7 +1261,8 @@ async function renderTrajectory(task, subset, file) {
     '<div class="trajectory">' +
       (turnsHtml || '<p class="empty-state">No turns in trajectory.</p>') +
       "</div>",
-    false
+    false,
+    getTrajectoryModelNote()
   );
   html += renderTaskAccordionSection("gt", "Ground truth", renderGroundTruthShell(), true);
   if (extraction && extraction.triplets.length) {
@@ -1258,7 +1270,8 @@ async function renderTrajectory(task, subset, file) {
       "final",
       "Final extraction",
       renderKgExtraction(extraction),
-      true
+      true,
+      getTrajectoryModelNote()
     );
   }
   html += "</div></div>";
@@ -1407,7 +1420,7 @@ async function init() {
   if (!needsLeaderboard && !needsTasks && !needsHero) return;
 
   try {
-    if (needsLeaderboard || needsHero) {
+    if (needsLeaderboard || needsHero || needsTasks) {
       leaderboardData = await loadJSON("data/leaderboard.json");
     }
     if (needsTasks) {
