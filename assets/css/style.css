@@ -131,37 +131,72 @@ a:hover {
   border: none;
   cursor: pointer;
   font-family: inherit;
-  transition: all 0.2s;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.btn-primary {
+.btn-primary,
+.btn-primary:visited {
   background: var(--accent);
   color: #fff;
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-primary:visited:hover {
   background: var(--accent2);
+  color: #fff;
 }
 
-.btn-outline {
+.btn-primary:active,
+.btn-primary:focus {
+  background: var(--accent);
+  color: #fff;
+  outline: none;
+}
+
+.btn-outline,
+.btn-outline:visited {
   background: transparent;
   color: var(--accent);
   border: 1.5px solid var(--accent);
 }
 
-.btn-outline:hover {
+.btn-outline:hover,
+.btn-outline:visited:hover {
   background: rgba(37, 99, 235, 0.06);
+  color: var(--accent);
 }
 
-.btn-ghost {
+.btn-outline:active,
+.btn-outline:focus {
+  background: transparent;
+  color: var(--accent);
+  outline: none;
+}
+
+.btn-ghost,
+.btn-ghost:visited {
   background: var(--surface2);
   color: var(--text);
   border: 1px solid var(--border);
 }
 
-.btn-ghost:hover {
+.btn-ghost:hover,
+.btn-ghost:visited:hover {
   border-color: var(--accent);
   color: var(--accent);
+}
+
+.btn-ghost:active,
+.btn-ghost:focus {
+  background: var(--surface2);
+  color: var(--text);
+  outline: none;
+}
+
+.btn:focus-visible {
+  outline: 2px solid rgba(37, 99, 235, 0.45);
+  outline-offset: 2px;
 }
 
 /* Hero */
