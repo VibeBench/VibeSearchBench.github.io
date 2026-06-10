@@ -293,16 +293,7 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.55rem;
   margin-top: 1.1rem;
-}
-
-.hero-affiliation-label {
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--muted);
 }
 
 .hero-affiliation-logos {
