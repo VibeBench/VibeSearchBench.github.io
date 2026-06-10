@@ -322,11 +322,11 @@ a:hover {
 }
 
 .hero-affiliation-logo-rednote {
-  height: 22px;
+  height: 28px;
 }
 
 .hero-affiliation-logo-unipat {
-  height: 20px;
+  height: 26px;
 }
 
 .hero-affiliation-sep {
@@ -1453,11 +1453,11 @@ tbody tr:hover td {
 
 @media (max-width: 640px) {
   .hero-affiliation-logo-rednote {
-    height: 18px;
+    height: 22px;
   }
 
   .hero-affiliation-logo-unipat {
-    height: 16px;
+    height: 20px;
   }
 
   .hero-affiliation-sep {
