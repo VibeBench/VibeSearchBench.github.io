@@ -414,7 +414,7 @@ function getTrajectoryModelNote() {
   const short = String(full).split("(")[0].trim();
   return "from " + short;
 }
-let framework = "openclaw";
+let framework = "react";
 let subset = "avg";
 let sortKey = "f1";
 let sortDir = -1;
