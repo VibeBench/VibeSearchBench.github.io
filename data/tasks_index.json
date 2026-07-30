@@ -1,0 +1,1918 @@
+{
+  "subsets": {
+    "pro": {
+      "label": "VibeSearch-Pro",
+      "description": "Professional research scenarios",
+      "demo": false,
+      "tasks": [
+        {
+          "qid": "task_075_Superconductivity",
+          "file": "075.json",
+          "question": "I recently read a popular science article about superconductors that mentioned superconductivity was accidentally discovered during liquid helium experiments. I want to understand: Who discovered it, in what year, at wh…",
+          "triplet_f1": 0.4123,
+          "node_f1": 0.4612,
+          "user_turns": 12,
+          "tool_calls": 113,
+          "short_title": "Superconductivity"
+        },
+        {
+          "qid": "task_030_暗物质直接探测实验",
+          "file": "030.json",
+          "question": "我最近对暗物质直接探测实验很感兴趣，目前主流的探测技术路线有哪些？各自的物理原理和代表性实验是什么？\n\n其中液氙TPC这条路线我特别好奇。从最早的双相液氙TPC概念提出到现在吨级规模的实验，这条路线上每一代标志性实验分别是哪个合作组主导的？每个实验的有效靶质量是多少？部署在哪个地下实验室？\n\n说到地下实验室，除了上面提到的那几个，全球还有哪些正在运行暗物质探测实验的深层地下实验室？它们各自的岩石覆盖深度是多少？分别承载了哪些非液氙技术…",
+          "triplet_f1": 0.3536,
+          "node_f1": 0.3647,
+          "user_turns": 10,
+          "tool_calls": 137,
+          "short_title": "暗物质直接探测实验"
+        },
+        {
+          "qid": "task_094_投资组合管理相关的内容",
+          "file": "094.json",
+          "question": "我最近在看投资组合管理相关的内容，想搞清楚现代投资组合理论是怎么从 Markowitz那篇经典论文一步步发展到后来各种多因子模型的。\nMarkowitz 那篇奠基性的论文发表在哪个期刊？哪一年？他在论文里提出的核心框架是什么？当时他在哪个机构任职，或者在哪所大学攻读学位？\n你提到有效前沿之后，在它的基础上，是谁进一步推导出了资本市场线（CML）和资本资产定价模型（CAPM）？这几位科学家的成果各自首次发表在哪个期刊上？哪一年？他们后来…",
+          "triplet_f1": 0.3258,
+          "node_f1": 0.3552,
+          "user_turns": 8,
+          "tool_calls": 93,
+          "short_title": "投资组合管理相关的内容"
+        },
+        {
+          "qid": "task_073_读分布式系统的论文",
+          "file": "073.json",
+          "question": "我最近在读分布式系统的论文，经常碰到\"共识不可能\"这类说法，想从头梳理一下分布式共识这个领域的理论基础和协议演化脉络。\n\n首先是理论根基——在异步系统中共识到底为什么不可能？这个结论最早是谁证明的？发表在哪个期刊上？哪一年？除了这个定理之外，分布式系统理论中还有哪些被广泛引用的不可能性或权衡定理？每个定理的提出者是谁？最早的形式化证明发表在什么会议或期刊上？\n\n其中我特别好奇的是，既然理论说不可能，Lamport的Paxos是怎么绕过…",
+          "triplet_f1": 0.3157,
+          "node_f1": 0.3593,
+          "user_turns": 9,
+          "tool_calls": 156,
+          "short_title": "读分布式系统的论文"
+        },
+        {
+          "qid": "task_072_Hepatitis_C_Treatment",
+          "file": "072.json",
+          "question": "I've been reading about the history of hepatitis C treatment and discovered that patients used to need months of interferon injections, but now can be cured with just a few weeks of oral medication. In the transition fr…",
+          "triplet_f1": 0.2992,
+          "node_f1": 0.362,
+          "user_turns": 11,
+          "tool_calls": 130,
+          "short_title": "Hepatitis C Treatment"
+        },
+        {
+          "qid": "task_049_读费马大定理的证明材料",
+          "file": "049.json",
+          "question": "我最近在读费马大定理的证明材料，发现 Wiles 的证明核心其实是在证明椭圆曲线与模形式之间的一个深刻联系。这个被称为 Shimura-Taniyama 猜想的命题，从最初被提出到最终被完整证明，中间经历了哪些关键阶段？每个阶段的核心推动者分别是谁？最终的完整证明是谁在哪一年完成的、发表在哪个期刊上？\n\n其中我特别好奇的是 Serre 的角色——他提出过哪些与 Galois 表示直接相关的猜想？这些猜想各自的证明状态是什么、由谁证明的…",
+          "triplet_f1": 0.2953,
+          "node_f1": 0.3375,
+          "user_turns": 9,
+          "tool_calls": 144,
+          "short_title": "读费马大定理的证明材料"
+        },
+        {
+          "qid": "task_032_程序验证方面的东西",
+          "file": "032.json",
+          "question": "我最近在看程序验证方面的东西，想了解 separation logic 是怎么从 Hoare logic 一步步发展出来的。从 Hoare logic 到 separation logic 的演化过程中，每个阶段的关键逻辑体系分别叫什么？各自最早发表在哪个会议或期刊上？是哪一年？提出者是谁？\n\n其中 Reynolds 和 O'Hearn 我特别好奇——他们各自的博士导师是谁？在提出 separation logic 之前分别在哪些大学…",
+          "triplet_f1": 0.2908,
+          "node_f1": 0.3554,
+          "user_turns": 10,
+          "tool_calls": 229,
+          "short_title": "程序验证方面的东西"
+        },
+        {
+          "qid": "task_079_美国反垄断法的历史",
+          "file": "079.json",
+          "question": "我最近在研究美国反垄断法的历史，想了解从19世纪末到现代这段演化脉络。1890年国会通过了谢尔曼反托拉斯法，这部法律的第1条和第2条分别针对什么行为、由哪位参议员主导起草、最初在参众两院的投票结果是多少？\n\n说到谢尔曼法，我最好奇的是它第一次被最高法院用来真正拆分一家公司是哪个案子。Standard Oil of New Jersey v. United States这个案件1911年的最高法院判决里，洛克菲勒领导的Standard…",
+          "triplet_f1": 0.2846,
+          "node_f1": 0.3478,
+          "user_turns": 12,
+          "tool_calls": 99,
+          "short_title": "美国反垄断法的历史"
+        },
+        {
+          "qid": "task_053_读量子密码学方面的材料",
+          "file": "053.json",
+          "question": "我最近在读量子密码学方面的材料，对量子密钥分发（QKD）从最早被提出到今天的理论演化脉络特别好奇。BB84协议最早是在哪一年、由谁提出的？发表在什么场合？在BB84之后，还有哪些QKD协议被提出来试图改进它的效率或实用性——比如用了不同编码方式或不同量子态数目的那些？每个协议最早的提出者是谁、哪一年发表的？\n\n其中安全性证明的演化让我特别着迷。我知道BB84的安全性证明经历了好几个阶段——从最早的不完整证明到后来被公认为严格的版本。每…",
+          "triplet_f1": 0.2732,
+          "node_f1": 0.3299,
+          "user_turns": 11,
+          "tool_calls": 272,
+          "short_title": "读量子密码学方面的材料"
+        },
+        {
+          "qid": "task_056_Digital_Markets_Act",
+          "file": "056.json",
+          "question": "I've been researching EU digital platform regulation lately and want to systematically understand the entire journey of the Digital Markets Act (DMA) from inception to implementation. What were the key legislative stage…",
+          "triplet_f1": 0.2705,
+          "node_f1": 0.3081,
+          "user_turns": 12,
+          "tool_calls": 152,
+          "short_title": "Digital Markets Act"
+        },
+        {
+          "qid": "task_069_最近在了解图数据库和知识图谱方面的技",
+          "file": "069.json",
+          "question": "最近在了解图数据库和知识图谱方面的技术进展，特别想弄清楚图查询语言标准化的来龙去脉。ISO 在推进统一的图查询语言标准方面，目前正式发布和在制定中的标准文件编号分别是什么？每个标准的主编辑（project editor）是谁？这些标准各自对应什么查询范式？\n\n其中我特别好奇的是，在 GQL 标准正式立项之前，各家厂商自己搞的图查询语言中，哪些语言的语法特性被 GQL 直接采纳或显著影响了 GQL 的设计？这些语言最初分别是在哪个产品中…",
+          "triplet_f1": 0.2701,
+          "node_f1": 0.3137,
+          "user_turns": 11,
+          "tool_calls": 133,
+          "short_title": "最近在了解图数据库和知识图谱方面的技"
+        },
+        {
+          "qid": "task_022_最近看到好多新的模型架构说要取代T",
+          "file": "022.json",
+          "question": "最近看到好多新的模型架构说要\"取代 Transformer\"的注意力机制，我想彻底搞清楚这些替代方案是怎么一步步演化出来的。\n\n先从稀疏注意力说起吧——从最早的固定模式稀疏（比如滑动窗口、随机采样这些）到后来能自适应选择注意力位置的方案，每个阶段最早提出该稀疏模式的架构分别是什么？各自的稀疏模式在结构上有什么不同？这些架构的第一作者分别是谁，来自哪个机构？\n\n其中线性注意力这条路线我特别好奇。除了最早用核函数近似的那几个工作之外，在\"…",
+          "triplet_f1": 0.2632,
+          "node_f1": 0.3053,
+          "user_turns": 10,
+          "tool_calls": 174,
+          "short_title": "最近看到好多新的模型架构说要\"取代T"
+        },
+        {
+          "qid": "task_036_量子计算领域在实现量子优越性",
+          "file": "036.json",
+          "question": "想了解一下，近些年来量子计算领域在实现量子优越性方面取得了哪些新的突破与进展？我了解谷歌曾借助 Sycamore 处理器完成过相关演示实验，不过在此之后该领域似乎不断有新成果出现，能否帮忙系统梳理一下整体发展脉络？\n\n先从Google那次实验说起吧——Sycamore当时执行的是什么计算任务？那篇论文发表在哪个期刊上？哪一年？第一作者和通讯作者分别是谁？在Sycamore之前，\"量子优越性\"这个概念最早是谁在哪篇论文中正式提出的？…",
+          "triplet_f1": 0.2625,
+          "node_f1": 0.2804,
+          "user_turns": 12,
+          "tool_calls": 171,
+          "short_title": "量子计算领域在实现量子优越性"
+        },
+        {
+          "qid": "task_052_Cross_Border_Data_Flows",
+          "file": "052.json",
+          "question": "I've been following the various legal frameworks that countries have been developing around cross-border data flows, and the field seems to be getting increasingly complex. Let's start from the very beginning—in the fie…",
+          "triplet_f1": 0.2591,
+          "node_f1": 0.2735,
+          "user_turns": 9,
+          "tool_calls": 142,
+          "short_title": "Cross Border Data Flows"
+        },
+        {
+          "qid": "task_009_SWISNF_Chromatin_Remodeling_Complex",
+          "file": "009.json",
+          "question": "I've been reading the epigenetics literature recently and noticed that the SWI/SNF chromatin remodeling complex has an exceptionally high mutation rate in human cancers, so I want to systematically understand this compl…",
+          "triplet_f1": 0.2544,
+          "node_f1": 0.2903,
+          "user_turns": 8,
+          "tool_calls": 149,
+          "short_title": "SWI/SNF Chromatin Remodeling Complex"
+        },
+        {
+          "qid": "task_017_Quantum_Error_Correcting_Codes",
+          "file": "017.json",
+          "question": "I've been studying quantum computing and know that qubits are easily disturbed by noise and need error correction, but I'm not clear on how the field of quantum error-correcting codes first got started. Who first propos…",
+          "triplet_f1": 0.2514,
+          "node_f1": 0.3025,
+          "user_turns": 9,
+          "tool_calls": 171,
+          "short_title": "Quantum Error Correcting Codes"
+        },
+        {
+          "qid": "task_037_在研究期权定价理论的数学基础",
+          "file": "037.json",
+          "question": "我在研究期权定价理论的数学基础，Black-Scholes-Merton 模型的推导依赖哪些随机分析的核心定理？这些定理最早分别由谁证明？发表在哪个期刊？哪一年？\n\n其中 BSM 模型本身我特别好奇——Black、Scholes、Merton 三人在 1973 年那两篇奠基论文中各自承担了什么角色？他们的博士导师分别是谁？在哪所大学完成的博士学位？\n\nBSM 之后，为了解决常数波动率假设的缺陷，从 1973 年到 2000 年间学术界…",
+          "triplet_f1": 0.2472,
+          "node_f1": 0.2967,
+          "user_turns": 10,
+          "tool_calls": 279,
+          "short_title": "在研究期权定价理论的数学基础"
+        },
+        {
+          "qid": "task_066_Implied_Volatility_Surface",
+          "file": "066.json",
+          "question": "I've been seriously studying option pricing recently and came across the concept of the implied volatility surface, and I'm a bit confused about its history and development. How was the Black-Scholes framework originall…",
+          "triplet_f1": 0.2461,
+          "node_f1": 0.3166,
+          "user_turns": 11,
+          "tool_calls": 198,
+          "short_title": "Implied Volatility Surface"
+        },
+        {
+          "qid": "task_089_一直在想核聚变能源这个话题人类什",
+          "file": "089.json",
+          "question": "我最近一直在想核聚变能源这个话题——人类什么时候才能真正用上聚变发电？这件事到底难在哪里？\n聚变发电的物理可行性最早靠什么判据建立起来的？实现聚变点火需要同时满足哪几个物理条件？氘-氚反应为什么是目前最主流的燃料方案，等离子体的磁约束和惯性约束在原理上有什么区别？\n说到磁约束，我听说最早是苏联人用托卡马克装置取得了突破性进展，让整个西方聚变界都转了方向。这个故事具体是怎么展开的？当年苏联的 T-3 实验结果是在哪次国际会议上公布的，后…",
+          "triplet_f1": 0.2454,
+          "node_f1": 0.3014,
+          "user_turns": 11,
+          "tool_calls": 102,
+          "short_title": "一直在想核聚变能源这个话题——人类什"
+        },
+        {
+          "qid": "task_002_Gravitational_Wave_Detection",
+          "file": "002.json",
+          "question": "I'm interested in the complete story of gravitational wave detection and research. Starting from Einstein's theoretical prediction in general relativity, through the long journey of theoretical development and indirect…",
+          "triplet_f1": 0.2358,
+          "node_f1": 0.2825,
+          "user_turns": 20,
+          "tool_calls": 274,
+          "short_title": "Gravitational Wave Detection"
+        },
+        {
+          "qid": "task_027_QCD_Vacuum",
+          "file": "027.json",
+          "question": "I've recently been reading about QCD vacuum structure and want to deeply understand what instantons really are. Who first proposed the instanton solution? In which journal was it published? What year? Before them, which…",
+          "triplet_f1": 0.2322,
+          "node_f1": 0.2607,
+          "user_turns": 12,
+          "tool_calls": 148,
+          "short_title": "QCD Vacuum"
+        },
+        {
+          "qid": "task_071_Quantum_Error_Correcting_Codes",
+          "file": "071.json",
+          "question": "I've been reading Jaynes' paper on the Maximum Entropy Principle and noticed he connected Shannon's information entropy with the statistical mechanics distributions in thermodynamics. I'd like to systematically understa…",
+          "triplet_f1": 0.2312,
+          "node_f1": 0.2738,
+          "user_turns": 13,
+          "tool_calls": 132,
+          "short_title": "Quantum Error Correcting Codes"
+        },
+        {
+          "qid": "task_097_Alzheimers_Disease",
+          "file": "097.json",
+          "question": "I've been reading about Alzheimer's disease recently and I want to understand how this disease actually develops in the brain — there seem to be so many different explanations, some say it's amyloid protein, others say…",
+          "triplet_f1": 0.2307,
+          "node_f1": 0.2671,
+          "user_turns": 11,
+          "tool_calls": 78,
+          "short_title": "Alzheimer's Disease"
+        },
+        {
+          "qid": "task_074_程序形式化验证方法论的学术演化脉络",
+          "file": "074.json",
+          "question": "我最近在研究程序形式化验证方法论的学术演化脉络，想从逻辑基础一直梳理到现代工具链。\n首先是程序正确性证明的逻辑基础。从Floyd的流程图标注方法到Hoare逻辑再到Dijkstra的最弱前置条件演算，这条线上每个阶段的奠基论文分别发表在哪个期刊或会议上？哪一年？各自提出了什么推理规则或演算框架？\n其中Hoare逻辑后来被扩展到能处理指针和堆内存的分离逻辑，这一步跨越很大。从Hoare\n逻辑到分离逻辑之间经历了哪些关键扩展？每个扩展的提…",
+          "triplet_f1": 0.2269,
+          "node_f1": 0.2839,
+          "user_turns": 18,
+          "tool_calls": 314,
+          "short_title": "程序形式化验证方法论的学术演化脉络"
+        },
+        {
+          "qid": "task_078_CRISPR",
+          "file": "078.json",
+          "question": "我最近看到新闻说有种叫 CRISPR 的基因编辑技术已经有药物被批准了，想弄明白它是怎么从一个实验室里的发现走到能治病这一步的。\n\nCRISPR 最早是在哪里、由谁、通过研究什么对象发现的？从最初在细菌里观察到这个结构，到科学家们确认它是一种适应性免疫机制，经历了哪几个科学突破？每个突破是谁首先报道的、发表在哪个期刊上？\n\n搞清楚了 CRISPR 是什么之后，我特别好奇这个从细菌免疫系统到可以编程的基因剪刀的转化是怎么发生的——有哪几…",
+          "triplet_f1": 0.2247,
+          "node_f1": 0.2788,
+          "user_turns": 10,
+          "tool_calls": 115,
+          "short_title": "CRISPR"
+        },
+        {
+          "qid": "task_026_想深入了解联合国人权条约机构的个人来",
+          "file": "026.json",
+          "question": "我想深入了解联合国人权条约机构的个人来文（individual communications）制度。具体来说，目前有哪些条约机构获得了个人来文管辖权？各自的管辖权来源是什么法律文书？\n\n有了管辖权之后，接下来的问题就是来文能不能被受理。这些委员会适用的受理标准（admissibility criteria）有哪些？哪些标准是所有委员会共通的，哪些是某个委员会特有或解释方式独特的？其中“用尽国内救济”作为最核心的共通标准，各个委员会在实…",
+          "triplet_f1": 0.2198,
+          "node_f1": 0.2491,
+          "user_turns": 9,
+          "tool_calls": 106,
+          "short_title": "想深入了解联合国人权条约机构的个人来"
+        },
+        {
+          "qid": "task_028_肠道菌群影响免疫系统的文章",
+          "file": "028.json",
+          "question": "我最近在读一些关于肠道菌群影响免疫系统的文章，发现很多都提到Th17和Treg细胞的平衡问题，但细菌到底是通过什么物质、什么途径来调节这两群细胞的分化方向的？目前已知的主要代谢物类别有哪些？每类代谢物分别由哪些肠道菌属或菌种产生？\n\n说到代谢物，这三大类——短链脂肪酸、次级胆汁酸、色氨酸衍生物——进入宿主免疫细胞后，各自结合的受体是什么？这些受体在肠道固有层的哪些免疫细胞上表达？每个受体下游激活的核心信号通路分别是什么？\n\n其中AhR…",
+          "triplet_f1": 0.2185,
+          "node_f1": 0.2621,
+          "user_turns": 8,
+          "tool_calls": 85,
+          "short_title": "肠道菌群影响免疫系统的文章"
+        },
+        {
+          "qid": "task_059_分布式数据库的事务处理机制",
+          "file": "059.json",
+          "question": "我最近在研究分布式数据库的事务处理机制，想了解从经典并发控制理论到现代工业系统实现的完整演化脉络。从最早的并发控制可串行化理论到现在，中间经历了哪些里程碑式的理论突破？比如两阶段锁协议的可串行化证明、乐观并发控制、多版本并发控制的形式化、可串行化快照隔离、确定性事务模型这些关键能力节点——每个突破最早发表在哪个期刊或会议上？是哪一年？\n\n其中 SSI 和 Calvin 确定性事务模型我特别好奇，这两个分别解决了之前方案的什么核心缺陷？…",
+          "triplet_f1": 0.2154,
+          "node_f1": 0.2607,
+          "user_turns": 9,
+          "tool_calls": 226,
+          "short_title": "分布式数据库的事务处理机制"
+        },
+        {
+          "qid": "task_068_Trapped_Surfaces",
+          "file": "068.json",
+          "question": "How did black holes evolve from a purely mathematical singular solution into a central object connecting gravity, quantum mechanics, and information theory? I want to trace this from the earliest exact solutions. After…",
+          "triplet_f1": 0.2139,
+          "node_f1": 0.2818,
+          "user_turns": 19,
+          "tool_calls": 150,
+          "short_title": "Trapped Surfaces"
+        },
+        {
+          "qid": "task_024_这段时间我在了解投资者的非理性行为",
+          "file": "024.json",
+          "question": "这段时间我在了解投资者的非理性行为，发现前景理论已跳出心理学实验的范畴，被广泛应用到资产定价领域。。我想先搞清楚源头：Kahneman 和 Tversky 最初提出前景理论的那篇论文发表在哪个期刊上？哪一年？后来他们扩展成累积前景理论（CPT），CPT 论文又发在哪里？这两个版本在价值函数和概率权重函数的数学形式上有什么关键区别？同时期还有哪些竞争性的非期望效用理论被提出——比如 Quiggin 的 rank-dependent ut…",
+          "triplet_f1": 0.2137,
+          "node_f1": 0.2565,
+          "user_turns": 12,
+          "tool_calls": 223,
+          "short_title": "这段时间我在了解投资者的非理性行为"
+        },
+        {
+          "qid": "task_033_Tallinn_Manual",
+          "file": "033.json",
+          "question": "I've always been curious whether state actions in cyberspace are actually bound by international law, and what kind of rules framework the international community has developed in this area. I know there's something cal…",
+          "triplet_f1": 0.2053,
+          "node_f1": 0.2577,
+          "user_turns": 9,
+          "tool_calls": 139,
+          "short_title": "Tallinn Manual"
+        },
+        {
+          "qid": "task_062_Global_Web_PKI",
+          "file": "062.json",
+          "question": "I've been reading HTTPS security materials recently and want to understand the evolution of TLS from the earliest SSL to the current TLS 1.3. Starting from SSL 2.0, in which year was each major protocol version publishe…",
+          "triplet_f1": 0.2053,
+          "node_f1": 0.25,
+          "user_turns": 19,
+          "tool_calls": 266,
+          "short_title": "Global Web PKI"
+        },
+        {
+          "qid": "task_001_CRISPR_Gene_Editing_Therapy",
+          "file": "001.json",
+          "question": "I recently saw news that the world's first CRISPR gene editing therapy was approved. How did this technology come about? I know that from the earliest discovery of CRISPR sequences in bacteria to eventually achieving ge…",
+          "triplet_f1": 0.2044,
+          "node_f1": 0.2428,
+          "user_turns": 10,
+          "tool_calls": 144,
+          "short_title": "CRISPR Gene Editing Therapy"
+        },
+        {
+          "qid": "task_035_拓扑量子计算的文章",
+          "file": "035.json",
+          "question": "我最近在看关于拓扑量子计算的文章，发现Majorana费米子是实现容错量子比特的关键准粒子，我想从头到尾搞清楚这个领域的全貌。\n\n首先从理论源头说起：Majorana费米子最早是谁在什么背景下从理论上预言的？发表在哪个期刊、哪一年？后来Kitaev的一维链模型核心思想是什么，和普通超导体有什么本质区别？在Kitaev链之后，还有哪些理论工作把Majorana零模推广到了二维拓扑超导体系？这些理论方案分别发表在哪些期刊上、哪一年？\n\n然…",
+          "triplet_f1": 0.2032,
+          "node_f1": 0.2416,
+          "user_turns": 15,
+          "tool_calls": 213,
+          "short_title": "拓扑量子计算的文章"
+        },
+        {
+          "qid": "task_029_Internet_Routing_Security",
+          "file": "029.json",
+          "question": "I've been looking into Internet routing security issues recently. I've heard that the BGP protocol has many security vulnerabilities that have caused large-scale traffic hijacking incidents. A security framework called…",
+          "triplet_f1": 0.1993,
+          "node_f1": 0.2365,
+          "user_turns": 13,
+          "tool_calls": 246,
+          "short_title": "Internet Routing Security"
+        },
+        {
+          "qid": "task_054_OS_Kernel_Design",
+          "file": "054.json",
+          "question": "I've been reading papers on OS kernel design and want to systematically trace the evolution of kernel architecture paradigms. Starting from the Multics project in the 1960s, through the birth of Unix, and then to the va…",
+          "triplet_f1": 0.199,
+          "node_f1": 0.2447,
+          "user_turns": 20,
+          "tool_calls": 320,
+          "short_title": "OS Kernel Design"
+        },
+        {
+          "qid": "task_013_Interactive_Proof_Systems",
+          "file": "013.json",
+          "question": "I've been reading a survey on complexity theory recently and I'm particularly interested in the line of development from interactive proof systems to the PCP theorem. From the initial formal definition of interactive pr…",
+          "triplet_f1": 0.1971,
+          "node_f1": 0.234,
+          "user_turns": 10,
+          "tool_calls": 249,
+          "short_title": "Interactive Proof Systems"
+        },
+        {
+          "qid": "task_063_高能物理实验里用来捕捉粒子的那些探测",
+          "file": "063.json",
+          "question": "高能物理实验里用来捕捉粒子的那些探测器，从最早到现在经历了哪些技术上的重大变化？我想知道径迹探测器从气体探测器到半导体的演化脉络——每一代被大型实验普遍采用的技术分别是什么？各自最早在哪个实验中被大规模使用？是谁主导设计或发明的？\n其中我对LHC上的ATLAS和CMS特别感兴趣。它们的内部径迹系统具体由哪些子层组成？每个子层选用了什么传感器技术？各自的位置分辨率是多少？已知的材料预算数据大概是什么量级？设计各子层时主要受哪些物理需求驱…",
+          "triplet_f1": 0.1932,
+          "node_f1": 0.2434,
+          "user_turns": 8,
+          "tool_calls": 102,
+          "short_title": "高能物理实验里用来捕捉粒子的那些探测"
+        },
+        {
+          "qid": "task_005_Superconductors",
+          "file": "005.json",
+          "question": "The 2016 Nobel Prize in Physics was awarded for research on “topological phase transitions and topological phases of matter.” What was the earliest experimental starting point, and after the discovery of the integer qua…",
+          "triplet_f1": 0.1925,
+          "node_f1": 0.2392,
+          "user_turns": 15,
+          "tool_calls": 155,
+          "short_title": "Superconductors"
+        },
+        {
+          "qid": "task_085_抗菌药物耐药性的全球行动计划GA",
+          "file": "085.json",
+          "question": "最近看新闻说「超级细菌」越来越难治了，我想系统了解一下这个问题。世界卫生组织2024年发布了一份《细菌类重点病原体目录》，其中把24种耐药菌按紧迫程度分成三个优先级，关键、高度和中度这三组各自涵盖哪些病原体？医院里最常见的那组缩写ESKAPE的六种菌分别是什么？\n\n细菌主要通过哪四类机制让抗生素失效？其中产生灭活酶这条路里，KPC、NDM-1、OXA-48这三种碳青霉烯酶分别是怎么发现的——每种酶的发现首次被报道的那篇论文发表在哪个期…",
+          "triplet_f1": 0.1907,
+          "node_f1": 0.2405,
+          "user_turns": 15,
+          "tool_calls": 141,
+          "short_title": "抗菌药物耐药性的全球行动计划》（GA"
+        },
+        {
+          "qid": "task_025_深入了解免疫检查点抑制剂在临床实践中",
+          "file": "025.json",
+          "question": "我最近在深入了解免疫检查点抑制剂在临床实践中遇到的耐药挑战。首先想搞清楚，目前已获得 FDA 批准上市的免疫检查点抑制剂都有哪些？每个药物分别靶向哪个检查点分子？最早获批的适应症是什么？获批年份是哪一年？\n\n其中我特别好奇 CTLA-4 和 PD-1/PD-L1 这两条核心通路——它们在抑制 T 细胞活性的机制上有什么根本区别？各自在 T 细胞活化的哪个阶段发挥作用？最早阐明每条通路免疫抑制功能的里程碑论文分别发表在哪个期刊上？哪一年…",
+          "triplet_f1": 0.1905,
+          "node_f1": 0.177,
+          "user_turns": 18,
+          "tool_calls": 223,
+          "short_title": "深入了解免疫检查点抑制剂在临床实践中"
+        },
+        {
+          "qid": "task_014_LSM_Tree",
+          "file": "014.json",
+          "question": "I've been reading the RocksDB source code recently and found that its storage engine core is a data structure called LSM-Tree. In which journal was this data structure first published, in what year? Who were the authors…",
+          "triplet_f1": 0.1868,
+          "node_f1": 0.2087,
+          "user_turns": 13,
+          "tool_calls": 295,
+          "short_title": "LSM Tree"
+        },
+        {
+          "qid": "task_041_布雷顿森林体系崩溃之后全球汇率制度",
+          "file": "041.json",
+          "question": "我最近在研究布雷顿森林体系崩溃之后全球汇率制度的演变，想从制度建立的源头开始理清脉络。当初 1944 年布雷顿森林会议上，Keynes 和 White 各自提出的方案核心分歧在哪里？最终被采纳的制度框架包含哪些关键条款？另外，Triffin 在哪一年、哪篇著作里首次系统阐述了美元储备体系的内在矛盾？\n\n其中 Triffin 困境我特别好奇它从理论预言到现实崩溃的过程。从他提出这个问题到 1971 年尼克松关闭黄金窗口，中间经历了哪些阶…",
+          "triplet_f1": 0.1864,
+          "node_f1": 0.2234,
+          "user_turns": 19,
+          "tool_calls": 229,
+          "short_title": "布雷顿森林体系崩溃之后全球汇率制度"
+        },
+        {
+          "qid": "task_080_Regulatory_Frameworks",
+          "file": "080.json",
+          "question": "I've been studying the historical evolution of banking regulation and want to understand how regulatory frameworks were progressively reshaped by crises starting from the Great Depression era. What was the direct backdr…",
+          "triplet_f1": 0.1822,
+          "node_f1": 0.2297,
+          "user_turns": 13,
+          "tool_calls": 131,
+          "short_title": "Regulatory Frameworks"
+        },
+        {
+          "qid": "task_006_Algorithmic_Stablecoin",
+          "file": "006.json",
+          "question": "I recently read that a whole chain of major institutional collapses hit the crypto world in 2022, apparently starting with an algorithmic stablecoin blowing up. What protocols and tokens were in that stablecoin's ecosys…",
+          "triplet_f1": 0.1782,
+          "node_f1": 0.2055,
+          "user_turns": 18,
+          "tool_calls": 297,
+          "short_title": "Algorithmic Stablecoin"
+        },
+        {
+          "qid": "task_088_Foreign_Sovereign_Immunities_Act_FSIA",
+          "file": "088.json",
+          "question": "I've been researching how state immunity in international law evolved from an absolute principle into the current system with various exceptions, and I want to get a comprehensive picture of this evolution.\nFirst, I wan…",
+          "triplet_f1": 0.178,
+          "node_f1": 0.2011,
+          "user_turns": 10,
+          "tool_calls": 68,
+          "short_title": "Foreign Sovereign Immunities Act (FSIA)"
+        },
+        {
+          "qid": "task_012_Nudge_Theory",
+          "file": "012.json",
+          "question": "I've recently become very interested in the process by which nudge theory went from an academic concept to formally institutionalized units within governments worldwide. Globally, which were the earliest government beha…",
+          "triplet_f1": 0.1728,
+          "node_f1": 0.2309,
+          "user_turns": 12,
+          "tool_calls": 307,
+          "short_title": "Nudge Theory"
+        },
+        {
+          "qid": "task_034_想全面了解单细胞测序技术与细胞图谱领",
+          "file": "034.json",
+          "question": "我想全面了解单细胞测序技术与细胞图谱领域的发展脉络。首先，从最早实现单个细胞转录组测序的那项工作开始，到后来实现高通量的几个关键平台——每个平台最早发表的论文分别是哪篇？发表在什么期刊？哪一年？第一作者和通讯作者分别是谁？\n\n其中高通量平台之间的技术路线差异我特别好奇：每个平台的核心细胞捕获机制分别基于什么技术路线？单次实验的细胞通量上限大约是多少？每个细胞检测到的基因数中位数大约在什么量级？这些平台各自依赖的关键专利或核心技术组件是…",
+          "triplet_f1": 0.1708,
+          "node_f1": 0.2042,
+          "user_turns": 16,
+          "tool_calls": 381,
+          "short_title": "想全面了解单细胞测序技术与细胞图谱领"
+        },
+        {
+          "qid": "task_047_读衰老相关的文献",
+          "file": "047.json",
+          "question": "我最近在读衰老相关的文献，看到好多不同的「表观遗传时钟」，它们之间到底有什么区别，各自是怎么被开发出来的？从最早被提出到现在，一共出现过哪些具有里程碑意义的表观遗传时钟？每个时钟或其优化版本的开发者是谁？最早发表在哪个期刊上？哪一年？它们各自用了什么统计或机器学习方法来筛选 CpG 位点？训练时使用的甲基化检测平台分别是 27K、450K 还是 EPIC 阵列？\n\n其中我特别好奇这些时钟选中的 CpG 位点到底有什么生物学意义。比如…",
+          "triplet_f1": 0.1704,
+          "node_f1": 0.1755,
+          "user_turns": 15,
+          "tool_calls": 297,
+          "short_title": "读衰老相关的文献"
+        },
+        {
+          "qid": "task_051_深入读免疫学方向的文献",
+          "file": "051.json",
+          "question": "我最近在深入读免疫学方向的文献，看到 cGAS-STING 这条通路跟很多疾病都有牵连，想请你帮我系统梳理一下。\n\n首先从发现史说起——cGAS 和 STING 这两个蛋白分别是被哪个研究组首次鉴定的？各自首次报道的论文发表在什么期刊上？哪一年？STING 被多个实验室独立发现并有多个别名（TMEM173、MITA、MPYS、ERIS），这些独立发现分别是在什么模式生物或细胞系中做出的？另外，cGAS-DNA 复合物和 STING-c…",
+          "triplet_f1": 0.1665,
+          "node_f1": 0.2058,
+          "user_turns": 11,
+          "tool_calls": 130,
+          "short_title": "深入读免疫学方向的文献"
+        },
+        {
+          "qid": "task_042_关注自主武器的国际法问题",
+          "file": "042.json",
+          "question": "我最近在关注自主武器的国际法问题，听说联合国一直在讨论但没什么进展，到底在哪个框架下讨论的？从哪一年开始的？每年的GGE会议产出了什么文件？参与讨论的缔约国中，哪些提交了正式立场文件主张全面禁止LAWS？哪些明确反对制定具有法律约束力的新文书？\n\n其中「有意义的人类控制」这个概念我特别好奇，它最早是谁在什么场合提出的？除了这个概念，GGE讨论中还有哪些被正式纳入议程的替代性法律概念？每个概念的主要倡导学者分别是谁？这些学者各自的代表性…",
+          "triplet_f1": 0.1615,
+          "node_f1": 0.1976,
+          "user_turns": 9,
+          "tool_calls": 129,
+          "short_title": "关注自主武器的国际法问题"
+        },
+        {
+          "qid": "task_060_Quantum_Simulation_Of_Fermi_Gases",
+          "file": "060.json",
+          "question": "I've been reading about simulating condensed matter physics with ultracold atoms. Could you help me sort out the development of quantum simulation of Fermi gases in optical lattices?\n\nFirst, the theoretical foundations.…",
+          "triplet_f1": 0.1564,
+          "node_f1": 0.2227,
+          "user_turns": 11,
+          "tool_calls": 293,
+          "short_title": "Quantum Simulation Of Fermi Gases"
+        },
+        {
+          "qid": "task_065_利率建模",
+          "file": "065.json",
+          "question": "我最近在研究利率建模，想搞清楚从最早的均衡模型到现在市场上主流用的无套利框架，整个理论是怎么一步步演化过来的。具体来说，在短期利率模型这条线上，从 1970 年代到 2000 年代，每个阶段有哪些被后续研究广泛引用的奠基性模型？各自最早发表在哪个期刊上？哪一年？提出者是谁？\n\n其中仿射期限结构这条支线我特别好奇——从 Duffie-Kan 框架开始，后续衍生出了哪些被学术界视为标准参考的仿射模型族？每个模型的提出者分别在哪个机构任职（…",
+          "triplet_f1": 0.1549,
+          "node_f1": 0.1887,
+          "user_turns": 16,
+          "tool_calls": 344,
+          "short_title": "利率建模"
+        },
+        {
+          "qid": "task_055_阅读量子相变相关的综述文章",
+          "file": "055.json",
+          "question": "我最近在阅读量子相变相关的综述文章，发现这一领域从早期理论框架构建到如今的实验验证，整体发展十分迅速。能否从理论模型、实验验证、前沿方向这几个维度，帮我系统梳理量子相变与量子临界现象的研究发展脉络？\n\n首先是理论框架的演化。从最早把量子效应引入相变理论的工作算起，每个理论阶段的奠基性论文是哪篇？分别发表在什么期刊上、哪一年？每个阶段的提出者是谁？比如量子-经典映射、Hertz-Millis 理论、以及后来把共形场论引入量子临界点分析的…",
+          "triplet_f1": 0.1543,
+          "node_f1": 0.1823,
+          "user_turns": 23,
+          "tool_calls": 366,
+          "short_title": "阅读量子相变相关的综述文章"
+        },
+        {
+          "qid": "task_019_Long_Term_Potentiation",
+          "file": "019.json",
+          "question": "I've been reading a review on synaptic plasticity and memory formation and want to delve deeper into the key molecular steps and structural changes from synaptic-level molecular signaling to the eventual formation of lo…",
+          "triplet_f1": 0.1542,
+          "node_f1": 0.1498,
+          "user_turns": 12,
+          "tool_calls": 183,
+          "short_title": "Long Term Potentiation"
+        },
+        {
+          "qid": "task_091_金融科技这个领域",
+          "file": "091.json",
+          "question": "我最近在研究金融科技这个领域，想了解它是怎么一步一步演化到今天这个样子的。\n\n首先想搞清楚早期那批金融科技公司——比如专注支付网关的那些——是怎么突破传统银行体系的壁垒建立起来的？这些平台的创始人分别是谁，他们分别在哪一年成立公司，最初各自靠什么核心技术或商业模式站稳脚跟？\n\n说到支付，移动支付革命可能是金融科技最显眼的爆发点之一。不同地区走的路子差别挺大：非洲的M-Pesa是依赖手机短信做转账的，中国的微信支付和支付宝又是另一套玩法…",
+          "triplet_f1": 0.1526,
+          "node_f1": 0.2027,
+          "user_turns": 12,
+          "tool_calls": 103,
+          "short_title": "金融科技这个领域"
+        },
+        {
+          "qid": "task_020_最近我在钻研机器学习平台里的特征存储",
+          "file": "020.json",
+          "question": "最近我在钻研机器学习平台里的特征存储系统，想把这一领域自概念提出至今，发展出主流产品的完整脉络梳理清楚。最早提出\"特征存储\"这个概念的是哪个团队？他们发表在什么场合？之后有哪些里程碑式的系统先后出现，每个系统最早的技术报告或论文分别是什么？\n\n其中我对最早的 Uber Michelangelo 特别好奇——它整个 ML 平台的架构里，特征存储模块承担的具体职责是什么？它的在线存储和离线存储分别用了什么底层技术栈？Michelangel…",
+          "triplet_f1": 0.1523,
+          "node_f1": 0.2087,
+          "user_turns": 24,
+          "tool_calls": 344,
+          "short_title": "最近我在钻研机器学习平台里的特征存储"
+        },
+        {
+          "qid": "task_004_American_Impeachment_System",
+          "file": "004.json",
+          "question": "I recently saw the U.S. House of Representatives vote to impeach a president but the Senate did not convict. I want to systematically understand the American impeachment system. First, what is the constitutional basis f…",
+          "triplet_f1": 0.152,
+          "node_f1": 0.1813,
+          "user_turns": 18,
+          "tool_calls": 174,
+          "short_title": "American Impeachment System"
+        },
+        {
+          "qid": "task_015_Sovereign_Debt_Default",
+          "file": "015.json",
+          "question": "I've been reading about Argentina's debt default recently and realized that the way sovereign nations handle unpaid debts is completely different from corporate bankruptcy — there's no 'international bankruptcy court' t…",
+          "triplet_f1": 0.1493,
+          "node_f1": 0.1901,
+          "user_turns": 10,
+          "tool_calls": 112,
+          "short_title": "Sovereign Debt Default"
+        },
+        {
+          "qid": "task_011_International_Investment_Arbitration",
+          "file": "011.json",
+          "question": "I've been following international investment arbitration where multinational corporations sue host states, and I want to start by understanding the treaty dimension. Among investment treaties signed from the 1960s to th…",
+          "triplet_f1": 0.1491,
+          "node_f1": 0.2013,
+          "user_turns": 18,
+          "tool_calls": 299,
+          "short_title": "International Investment Arbitration"
+        },
+        {
+          "qid": "task_067_争端解决改革的部分",
+          "file": "067.json",
+          "question": "我最近一直在关注WTO改革的新闻，感觉整个多边贸易体制好像陷入了某种系统性危机。上诉机构停摆这件事到底是怎么一步步走到今天这个僵局的？从美国最早开始阻挠成员遴选算起，每一位被阻挡的候选人分别是谁提名的、在哪一年被否决？美国每次给出的正式反对理由分别涉及哪些具体法律论点？\n\n面对上诉机构停摆，欧盟牵头建立了一个临时替代机制。这个机制的正式名称是什么？它的法律基础援引的是DSU的哪个具体条款？从启动谈判到正式生效经历了哪些阶段？在每个阶段…",
+          "triplet_f1": 0.1488,
+          "node_f1": 0.1795,
+          "user_turns": 10,
+          "tool_calls": 116,
+          "short_title": "争端解决改革的部分"
+        },
+        {
+          "qid": "task_023_Court_Of_Justice_Of_The_European_Union_CJEU",
+          "file": "023.json",
+          "question": "I've been reading about EU law recently and I'm particularly interested in how the Court of Justice of the European Union (CJEU) gradually transformed the EU from an international organization into a 'quasi-federal' leg…",
+          "triplet_f1": 0.1445,
+          "node_f1": 0.1855,
+          "user_turns": 34,
+          "tool_calls": 264,
+          "short_title": "Court Of Justice Of The European Union (CJEU)"
+        },
+        {
+          "qid": "task_100_Evolutionary_Theory",
+          "file": "100.json",
+          "question": "How have scientists inferred that different organisms share a common ancestry? How has the evidence supporting this conclusion evolved from 19th-century field observations to modern molecular data, and which type of evi…",
+          "triplet_f1": 0.1398,
+          "node_f1": 0.1744,
+          "user_turns": 10,
+          "tool_calls": 103,
+          "short_title": "Evolutionary Theory"
+        },
+        {
+          "qid": "task_084_Carbon_Pricing",
+          "file": "084.json",
+          "question": "I've always found carbon pricing really complex and I want to understand it systematically. Starting from the theoretical roots, what are the economic arguments behind the two camps — those favoring cap-and-trade versus…",
+          "triplet_f1": 0.1292,
+          "node_f1": 0.16,
+          "user_turns": 17,
+          "tool_calls": 172,
+          "short_title": "Carbon Pricing"
+        },
+        {
+          "qid": "task_083_Buffer_Overflow",
+          "file": "083.json",
+          "question": "I recently read an article about a worm in 1988 that nearly crashed the entire internet. How did it actually spread, what system vulnerabilities did it exploit, how much damage did it cause, who wrote it, and what legal…",
+          "triplet_f1": 0.1278,
+          "node_f1": 0.1735,
+          "user_turns": 19,
+          "tool_calls": 197,
+          "short_title": "Buffer Overflow"
+        },
+        {
+          "qid": "task_076_Gut_Microbiota",
+          "file": "076.json",
+          "question": "I've been reading some popular science articles about gut microbiota recently, and it feels like the field has changed enormously over the past ten to twenty years. I'm not quite sure how it went from a niche area to be…",
+          "triplet_f1": 0.1268,
+          "node_f1": 0.1529,
+          "user_turns": 18,
+          "tool_calls": 236,
+          "short_title": "Gut Microbiota"
+        },
+        {
+          "qid": "task_040_阿尔茨海默病的文献",
+          "file": "040.json",
+          "question": "我最近在读关于阿尔茨海默病的文献，发现Tau蛋白的异常磷酸化似乎是个很复杂的过程，涉及很多不同的激酶通路。从最早在电镜下观察到配对螺旋丝（PHF），到后来分离出 Tau 蛋白、确认 Tau 是 PHF 的主要成分，再到系统鉴定一系列病理性磷酸化位点，这个研究历程中各阶段的首次突破性发现分别是什么？每个发现最早发表在哪个期刊上？是谁作为第一作者或通讯作者完成的？\n\n其中磷酸化位点这块我特别好奇：在已被确认的Tau病理性磷酸化表位中，哪些…",
+          "triplet_f1": 0.1267,
+          "node_f1": 0.1631,
+          "user_turns": 16,
+          "tool_calls": 207,
+          "short_title": "阿尔茨海默病的文献"
+        },
+        {
+          "qid": "task_099_国际货币体系的演变",
+          "file": "099.json",
+          "question": "我最近对国际货币体系的演变很感兴趣，想系统梳理一下。最早的固定汇率体系是怎么运作的？各国货币挂钩黄金之后，国际收支失衡是通过什么机制自动修正的？这套机制在哪些结构性条件下会失灵？\n\n我知道这套体系后来中断了，那一战后有没有尝试恢复？恢复的努力最终又为什么没能持续下去？大萧条期间各国的应对方式对后来的体系设计有什么影响？\n\n二战结束前后，各国是怎么协商新的国际货币安排的？谈判中出现了哪些不同方案？最终建立起来的体系由哪些核心机构支撑，汇…",
+          "triplet_f1": 0.117,
+          "node_f1": 0.138,
+          "user_turns": 17,
+          "tool_calls": 161,
+          "short_title": "国际货币体系的演变"
+        },
+        {
+          "qid": "task_092_Superconductivity",
+          "file": "092.json",
+          "question": "I've been curious about the history of superconductors lately, and I want to understand the full arc — from the earliest discovery of zero electrical resistance to the theoretical and material breakthroughs that followe…",
+          "triplet_f1": 0.1127,
+          "node_f1": 0.1414,
+          "user_turns": 18,
+          "tool_calls": 169,
+          "short_title": "Superconductivity"
+        },
+        {
+          "qid": "task_031_正常价值计算方法的条款编号是什么其",
+          "file": "031.json",
+          "question": "我最近在看国际贸易法的一些案例，想了解一下WTO框架下的反倾销争端是怎么一路走过来的。从GATT 1947年第六条开始，到后来的肯尼迪回合、东京回合反倾销守则，再到乌拉圭回合的《反倾销协定》（ADA），每个阶段新引入的核心法律概念分别是什么？每个阶段的文本最终在哪一年通过、由哪次多边贸易谈判产出？\n\n其中我特别好奇的是这些法律概念在WTO争端解决实践中的具体运用。在WTO争端解决机构（DSB）受理的反倾销相关争端中，被申诉方为美国的案…",
+          "triplet_f1": 0.1124,
+          "node_f1": 0.1591,
+          "user_turns": 9,
+          "tool_calls": 136,
+          "short_title": "正常价值计算方法的条款编号是什么？其"
+        },
+        {
+          "qid": "task_007_Newton_And_Leibniz",
+          "file": "007.json",
+          "question": "I've been self-studying real analysis and complex analysis and noticed the theorem names keep cycling through the same few figures—Cauchy, Weierstrass, Riemann. The deeper I go, the more curious I get: what exactly happ…",
+          "triplet_f1": 0.1031,
+          "node_f1": 0.1297,
+          "user_turns": 13,
+          "tool_calls": 169,
+          "short_title": "Newton And Leibniz"
+        },
+        {
+          "qid": "task_061_北极地区目前被主权国家明确提出管辖权",
+          "file": "061.json",
+          "question": "北极地区目前被主权国家明确提出管辖权主张的航道有哪些？以北方海航道和西北航道为例，各自的沿岸国是谁，依据 UNCLOS的哪些具体条款来主张管辖权？穿极航道与前两者的法律性质有何不同？                                                     其中 UNCLOS 第234条这个「冰覆盖区」条款让我特别好奇——这个条款当初在第三次联合国海洋法会议上是怎么被写进去的？哪些国家的谈判代表推动了这一…",
+          "triplet_f1": 0.1016,
+          "node_f1": 0.1289,
+          "user_turns": 9,
+          "tool_calls": 142,
+          "short_title": "北极地区目前被主权国家明确提出管辖权"
+        },
+        {
+          "qid": "task_081_最近我在看神经退行性疾病的内容",
+          "file": "081.json",
+          "question": "最近我在看神经退行性疾病的内容，发现这类疾病里很多都跟蛋白质的异常聚集有关 ，想把几个方向梳理一下。\n最早引起我注意的是朊蛋白病。PrPc 变成 PrPSc这个构象转变是怎么发生的，背后的分子机制是什么？最早提出蛋白质感染性颗粒这一概念的科学家是谁，他在哪个机构做出这项研究，最关键的那篇论文发表在哪个期刊、哪一年？朊蛋白编码基因的名称是什么，常见的致病突变位点又有哪些？请梳理朊病毒研究的科学史，包括 Gajdusek 对 Kuru 病…",
+          "triplet_f1": 0.1014,
+          "node_f1": 0.1174,
+          "user_turns": 13,
+          "tool_calls": 171,
+          "short_title": "最近我在看神经退行性疾病的内容"
+        },
+        {
+          "qid": "task_087_高频交易这个话题",
+          "file": "087.json",
+          "question": "我最近在研究高频交易这个话题，想搞清楚市场微观结构是怎么演化过来的。先从基础问起：传统的做市商制度是怎么运作的，买卖价差是怎么形成的，做市商承担哪些风险来换取价差收入，Glosten-Milgrom模型和Kyle模型分别从什么角度描述了信息不对称对价差的影响？后来市场从specialist制度走向了电子化。NASDAQ最初是什么类型的市场，1997年的订单处理规则和2001年十进制化对价差结构做了什么，ECN是怎么绕开传统做市商实现直…",
+          "triplet_f1": 0.1014,
+          "node_f1": 0.1297,
+          "user_turns": 13,
+          "tool_calls": 187,
+          "short_title": "高频交易这个话题"
+        },
+        {
+          "qid": "task_039_乱序执行调度机制的改进",
+          "file": "039.json",
+          "question": "我最近在深入研究超标量乱序处理器的微架构演化，想请你帮我系统梳理一下。\n\n首先是乱序执行的学术源头：最初提出动态指令调度的是哪篇论文，发表在哪个期刊或会议、哪一年？从那篇论文到首款真正实现乱序执行的商用处理器，中间经历了多少年？那颗处理器是哪家公司的哪款型号？\n\n其次我特别好奇后续的学术改进。从 1990 年代到 2010 年代，在 ISCA、MICRO、HPCA 三大体系结构顶会上，关于乱序执行调度机制的改进，每个十年里被引用次数最…",
+          "triplet_f1": 0.0981,
+          "node_f1": 0.1266,
+          "user_turns": 14,
+          "tool_calls": 369,
+          "short_title": "乱序执行调度机制的改进"
+        },
+        {
+          "qid": "task_003_Mergers_And_Acquisitions",
+          "file": "003.json",
+          "question": "I am systematically studying the field of mergers and acquisitions and would like your help to conduct an in-depth review across several dimensions. On the theoretical level, between 1965 and 2003, which M&A theories we…",
+          "triplet_f1": 0.0889,
+          "node_f1": 0.1212,
+          "user_turns": 18,
+          "tool_calls": 376,
+          "short_title": "Mergers And Acquisitions"
+        },
+        {
+          "qid": "task_021_War_Crimes",
+          "file": "021.json",
+          "question": "I've recently been learning about international trials for war crimes. I'd like to know how the international community has gradually built the legal framework for prosecuting war crimes from after World War II to the p…",
+          "triplet_f1": 0.0864,
+          "node_f1": 0.1217,
+          "user_turns": 11,
+          "tool_calls": 151,
+          "short_title": "War Crimes"
+        },
+        {
+          "qid": "task_090_Statistical_Mechanics",
+          "file": "090.json",
+          "question": "I've recently become very interested in the evolutionary history of how statistical mechanics went from studying gases to studying complex systems, and I'd like to systematically trace this trajectory.\n\nLet's start with…",
+          "triplet_f1": 0.0745,
+          "node_f1": 0.103,
+          "user_turns": 24,
+          "tool_calls": 275,
+          "short_title": "Statistical Mechanics"
+        },
+        {
+          "qid": "task_046_UN_Security_Council_Veto",
+          "file": "046.json",
+          "question": "I've been researching the exercise patterns of the UN Security Council veto and want to start with the actual records since the end of the Cold War. From 1991 to now, could you help me organize this by decade: what issu…",
+          "triplet_f1": 0.0641,
+          "node_f1": 0.0987,
+          "user_turns": 10,
+          "tool_calls": 149,
+          "short_title": "UN Security Council Veto"
+        },
+        {
+          "qid": "task_010_Limits_Of_The_Continental_Shelf_CLCS",
+          "file": "010.json",
+          "question": "I have been studying the provisions of UNCLOS Article 76 on the outer limits of the continental shelf and wish to trace the subject systematically from the perspective of legal evolution. First, how did the definition o…",
+          "triplet_f1": 0.0635,
+          "node_f1": 0.0818,
+          "user_turns": 10,
+          "tool_calls": 122,
+          "short_title": "Limits Of The Continental Shelf (CLCS)"
+        },
+        {
+          "qid": "task_058_Ipsc_Reprogramming",
+          "file": "058.json",
+          "question": "I've been really interested in iPSC reprogramming lately — from Shinya Yamanaka's original discovery of reprogramming factors to now, how have the core molecular mechanisms in this field actually evolved? What signaling…",
+          "triplet_f1": 0.0499,
+          "node_f1": 0.0643,
+          "user_turns": 15,
+          "tool_calls": 211,
+          "short_title": "Ipsc Reprogramming"
+        },
+        {
+          "qid": "task_018_Constitutional_Review_Systems",
+          "file": "018.json",
+          "question": "I have recently been studying the constitutional review systems of various countries, hoping to clarify why different countries have chosen completely different review models, and also to explore the mutual influences a…",
+          "triplet_f1": 0.0492,
+          "node_f1": 0.0734,
+          "user_turns": 16,
+          "tool_calls": 328,
+          "short_title": "Constitutional Review Systems"
+        },
+        {
+          "qid": "task_093_Tumor_Microenvironment",
+          "file": "093.json",
+          "question": "I recently read about the tumor microenvironment and learned that tumors do not exist in isolation but instead form a complex ecosystem together with surrounding cells and structures — what cell types and non-cellular c…",
+          "triplet_f1": 0.0412,
+          "node_f1": 0.0487,
+          "user_turns": 13,
+          "tool_calls": 141,
+          "short_title": "Tumor Microenvironment"
+        },
+        {
+          "qid": "task_070_Group_III_Multilateral_Investment_Court_MIC",
+          "file": "070.json",
+          "question": "I've been reading about bilateral investment treaties lately, and I've noticed that BITs from different eras vary enormously in their investment protection clauses. I'd like to understand how these treaty standards have…",
+          "triplet_f1": 0.0366,
+          "node_f1": 0.0482,
+          "user_turns": 17,
+          "tool_calls": 174,
+          "short_title": "Group III Multilateral Investment Court (MIC)"
+        },
+        {
+          "qid": "task_095_Industrial_Policy",
+          "file": "095.json",
+          "question": "I’ve been studying the history of how governments around the world support specific industries and want to understand the theoretical logic behind these policies. What market failures do supporters of industrial policy…",
+          "triplet_f1": 0.0253,
+          "node_f1": 0.0415,
+          "user_turns": 9,
+          "tool_calls": 88,
+          "short_title": "Industrial Policy"
+        },
+        {
+          "qid": "task_008_LLVM_Compiler",
+          "file": "008.json",
+          "question": "I've been studying the internal structure of the LLVM compiler recently, particularly how its intermediate representation is designed, and to what extent static analysis based on this IR can go. LLVM IR is based on SSA…",
+          "triplet_f1": null,
+          "node_f1": null,
+          "user_turns": 11,
+          "tool_calls": 349,
+          "short_title": "LLVM Compiler"
+        },
+        {
+          "qid": "task_016_后量子密码学",
+          "file": "016.json",
+          "question": "我最近在研究后量子密码学，特别想了解 NIST 的那个标准化竞赛。从 2016 年底发起征集到最终公布标准，整个过程经历了哪几个筛选阶段？每个阶段有多少方案被淘汰？最终被选为标准的算法分别叫什么，各自对应的 FIPS 编号是多少？\n\n其中我特别好奇这些入选算法的技术根基——CRYSTALS-Kyber、CRYSTALS-Dilithium、FALCON、SPHINCS+ 各自基于什么类型的数学难题？每个算法的原始提案团队由哪些机构组成…",
+          "triplet_f1": null,
+          "node_f1": null,
+          "user_turns": 11,
+          "tool_calls": 163,
+          "short_title": "后量子密码学"
+        },
+        {
+          "qid": "task_038_不驱回的条款具体是第几条除了这部核",
+          "file": "038.json",
+          "question": "我最近在关注难民问题，想从条约法的源头理清不驱回原则的制度基础。这个原则最早被写入的国际条约是哪一部？起草过程中哪些国家的代表团发挥了主导作用？最终文本中关于不驱回的条款具体是第几条？除了这部核心公约，后来还有哪些全球性条约明确纳入了不驱回条款——每部条约的通过年份和在联合国体系中的编号分别是什么？\n\n其中第33条的第二款规定了例外情形，这个例外条款一直是争议焦点。联合国难民署历任高级专员中，哪几位在任期内发布过正式立场文件或咨询意见…",
+          "triplet_f1": null,
+          "node_f1": null,
+          "user_turns": 14,
+          "tool_calls": 237,
+          "short_title": "不驱回的条款具体是第几条？除了这部核"
+        },
+        {
+          "qid": "task_043_听说AlphaFold在蛋白质结构预",
+          "file": "043.json",
+          "question": "我最近听说 AlphaFold 在蛋白质结构预测上取得了很大突破，好像还跟一个叫 CASP 的比赛有关，能帮我从头梳理一下这个领域是怎么发展起来的吗？\n\n先从 CASP 比赛讲起吧——它从哪一年开始举办的？由谁发起？到现在一共举办了多少届？每届的评估指标有什么变化？在 AlphaFold 出现之前，哪些团队或方法在 CASP 历届比赛中拿过自由建模类别的最高分？\n\n然后我想了解一下更大的方法论图景：从最早的同源建模到后来的从头预测再到…",
+          "triplet_f1": null,
+          "node_f1": null,
+          "user_turns": 12,
+          "tool_calls": 248,
+          "short_title": "听说AlphaFold在蛋白质结构预"
+        },
+        {
+          "qid": "task_044_银行业的宏观审慎监管框架",
+          "file": "044.json",
+          "question": "最近在研究全球银行业的宏观审慎监管框架，想弄清楚从巴塞尔协议最初版本到现在，整个框架经历了哪几个大版本？每个G-SIB 评定方法论里用了哪几大指标类别？每个类别下具体包含哪些子指标？这套方法论从 2011 年首次发布到现在经历了哪几次重大修订，每次修订改了什么？\n\n按照最新框架，被划入最高附加资本档位（bucket 4 及以上）的银行分别是哪几家？各档位（bucket 1 到 bucket 5）的分布情况如何——总部在哪里？附加资本比…",
+          "triplet_f1": null,
+          "node_f1": null,
+          "user_turns": 16,
+          "tool_calls": 168,
+          "short_title": "银行业的宏观审慎监管框架"
+        },
+        {
+          "qid": "task_045_学Rust的时候发现它的类型系统特别",
+          "file": "045.json",
+          "question": "我最近在学 Rust 的时候发现它的类型系统特别复杂，由此想系统了解现代编程语言的类型系统是如何从学术理论一步步演化为工业实践的，以及推动这一进程的关键人物和学术脉络。\n\n从最早的类型论到现在的高级类型特性，在类型理论发展史上，每个被后续系统广泛采纳的理论突破最早是在哪篇论文里被正式提出的？每个突破只要最早发表的那一篇——比如类型推断的算法化、参数多态的形式化、子类型关系的形式化、依赖类型的引入，分别最早发表在哪个期刊或会议上？哪一年…",
+          "triplet_f1": null,
+          "node_f1": null,
+          "user_turns": 12,
+          "tool_calls": 365,
+          "short_title": "学Rust的时候发现它的类型系统特别"
+        },
+        {
+          "qid": "task_048_对微生物怎么通过改造莽草酸途径来生产",
+          "file": "048.json",
+          "question": "我最近对微生物怎么通过改造莽草酸途径来生产高值芳香族化合物特别感兴趣。从最上游开始，磷酸烯醇式丙酮酸和赤藓糖-4-磷酸到分支酸这条主干途径中，每一步反应分别由什么酶催化？在大肠杆菌和酿酒酵母中对应的基因名各是什么？其中哪些步骤被报道存在内源性反馈抑制？\n\n其中我特别好奇那些存在反馈抑制的限速酶。过去二十年里，针对这些酶的反馈抑制解除，研究者们发展出了哪些点突变策略？每种突变体最早是由哪个研究组在哪一年报道的？发表在什么期刊上？\n\n解除…",
+          "triplet_f1": null,
+          "node_f1": null,
+          "user_turns": 10,
+          "tool_calls": 278,
+          "short_title": "对微生物怎么通过改造莽草酸途径来生产"
+        },
+        {
+          "qid": "task_050_这个纲领从提出到被证明的整个脉络吗",
+          "file": "050.json",
+          "question": "我最近在读三维流形分类的相关内容，对 Thurston 的几何化纲领特别感兴趣，能帮我从头梳理一下这个纲领从提出到被证明的整个脉络吗？具体来说，在 Thurston 提出几何化猜想之前，三维流形分类领域已经有哪些奠基性的结果——从 Poincaré 猜想的提出，到素分解定理，再到 JSJ 分解定理，每一步最早是由谁证明的、发表在哪一年、论文刊登在哪个期刊上？\n\n其中 Thurston 提出的八类模型几何我特别好奇：这八类几何结构各自对…",
+          "triplet_f1": null,
+          "node_f1": null,
+          "user_turns": 9,
+          "tool_calls": 145,
+          "short_title": "这个纲领从提出到被证明的整个脉络吗？"
+        },
+        {
+          "qid": "task_057_价值链核算方法论",
+          "file": "057.json",
+          "question": "我最近在研读全球价值链核算方法论的文献，发现测度一国在全球生产网络中参与程度的方法经历了好几代演变。从最早的垂直专业化指数到现在的贸易增加值分解框架，每一代方法论的代表性分解框架分别叫什么？各自在测度中间品贸易流动时解决了前一代的哪些具体局限？每个框架引入了什么此前不存在的核算概念或数学分解？\n\n这些分解框架最早各自发表在哪个期刊上？哪一年？其中有从 NBER working paper 到正式发表经历较长时滞的吗？具体时滞是多久？…",
+          "triplet_f1": null,
+          "node_f1": null,
+          "user_turns": 17,
+          "tool_calls": 286,
+          "short_title": "价值链核算方法论"
+        },
+        {
+          "qid": "task_064_Tumor_Microenvironment",
+          "file": "064.json",
+          "question": "I've been diving deep into the tumor immunology literature recently and realized that immune suppression within the tumor microenvironment is far more complex than I initially thought — there are extensive cooperative m…",
+          "triplet_f1": null,
+          "node_f1": null,
+          "user_turns": 11,
+          "tool_calls": 177,
+          "short_title": "Tumor Microenvironment"
+        },
+        {
+          "qid": "task_077_Reinforcement_Learning",
+          "file": "077.json",
+          "question": "I've been studying the history of reinforcement learning recently, from its mathematical foundations to large model alignment, and I want to organize it systematically. First, can you help me outline the theoretical roo…",
+          "triplet_f1": null,
+          "node_f1": null,
+          "user_turns": 11,
+          "tool_calls": 104,
+          "short_title": "Reinforcement Learning"
+        },
+        {
+          "qid": "task_082_气候谈判的历史演化",
+          "file": "082.json",
+          "question": "我最近在研究气候谈判的历史演化，想系统梳理从科学共识到国际法律框架建立这条路是怎么走通的。1988年IPCC成立之前，气候科学和政治决策基本是两条平行线，是什么事件把它们连在一起的？汉森在国会证词里的核心主张是什么，1988年同年召开的多伦多大气变化会议向各国政府发出了什么政策呼吁，当时国际社会最先做出回应的是哪两个机构？IPCC发布的第一份评估报告是哪年出版的，核心结论是什么，对后续谈判起了什么直接推动作用？\nUNFCCC是这个体系…",
+          "triplet_f1": null,
+          "node_f1": null,
+          "user_turns": 11,
+          "tool_calls": 87,
+          "short_title": "气候谈判的历史演化"
+        },
+        {
+          "qid": "task_086_一直好奇Docker和Kuberne",
+          "file": "086.json",
+          "question": "我一直好奇 Docker 和 Kubernetes 这套容器生态是怎么从 Linux 内核原生特性一步步发展到今天的。想先从最底层说起——在 Docker 出现之前，Linux 内核里已经有哪些为容器化铺路的机制？最终被视作\"容器技术两大基石\"的是哪两个特性，它们各自解决的是进程隔离还是资源限制问题？\n\n这两个特性里，`cgroups` 是由哪些工程师在哪个机构最先提出的？它和 `namespaces` 分别是在哪个 Linux 内核…",
+          "triplet_f1": null,
+          "node_f1": null,
+          "user_turns": 13,
+          "tool_calls": 103,
+          "short_title": "一直好奇Docker和Kuberne"
+        },
+        {
+          "qid": "task_096_对微观经济学理论的历史演变产生了浓厚",
+          "file": "096.json",
+          "question": "我最近对微观经济学理论的历史演变产生了浓厚兴趣，想系统梳理一下这套理论体系是怎么一步步建立起来的。\n\n最开始想了解的是价格是怎么形成的这个最基本问题——古典经济学家和后来的新古典学派在解释商品价格时，核心思路有什么不同？从劳动价值论到均衡价格，经济学家引入了哪些新的分析工具？帕累托改进这个判断资源配置效率的标准，又是在什么理论背景下被正式提出的？\n\n在学习价格理论的过程中，我意识到效用这个概念本身也有一段演变历史。效用到底能不能用数字…",
+          "triplet_f1": null,
+          "node_f1": null,
+          "user_turns": 15,
+          "tool_calls": 140,
+          "short_title": "对微观经济学理论的历史演变产生了浓厚"
+        },
+        {
+          "qid": "task_098_International_Criminal_Court",
+          "file": "098.json",
+          "question": "How did the International Criminal Court come into being step by step? I'd like to understand the whole story from start to finish.\nAfter World War II ended, what foundational principles of international criminal law we…",
+          "triplet_f1": null,
+          "node_f1": null,
+          "user_turns": 15,
+          "tool_calls": 177,
+          "short_title": "International Criminal Court"
+        }
+      ]
+    },
+    "daily": {
+      "label": "VibeSearch-Daily",
+      "description": "Daily-life scenarios",
+      "demo": false,
+      "tasks": [
+        {
+          "qid": "task_085_USNationalParks",
+          "file": "task_085_USNationalParks.json",
+          "question": "I'd like to get information about US national parks that meets all my following requirements and filters, please follow the steps below to return the complete matching data:\nFirst, start with the official NPS 2025 visit…",
+          "triplet_f1": 0.755,
+          "node_f1": 0.7808,
+          "user_turns": 10,
+          "tool_calls": 83
+        },
+        {
+          "qid": "task_012_hospital",
+          "file": "task_012_hospital.json",
+          "question": "我想要查询的相关信息如下：\n1. 2026QS大学排行榜前200名的内地高校都有哪些？\n2. 上述这些高校中建有直属附属医院的，分别列出这些直属附属医院的名称、所在城市，同时说明这些医院是否为公立三级甲等医院；再从中筛选出明确设有国家临床重点专科的医院，进一步找出其中国家临床重点专科涵盖脑科的医院。\n3. 上述筛选出的国家临床重点专科涵盖脑科的医院，对应的脑科相关国家临床重点专科的现任科室主任是谁？这些主任是否是博士生导师？分别任职于…",
+          "triplet_f1": 0.745,
+          "node_f1": 0.6762,
+          "user_turns": 9,
+          "tool_calls": 189
+        },
+        {
+          "qid": "task_008_Oscar-winning movie",
+          "file": "task_008_Oscar-winning_movie.json",
+          "question": "我现在有一系列相关的信息需求，请帮我按要求查询整理：\n1. 首先获取1980-2020年期间所有颁发过奥斯卡最佳导演奖的届次，以及每一届对应的具体颁奖时间；\n2. 统计上述每一届奥斯卡最佳导演获奖者在获奖当天的年龄，同时区分出这些获奖者的获奖执导作品中哪些属于非跨国电影；\n3. 针对以上获奖执导作品中的跨国电影，请先给出每部的首周票房数据，再筛选出其中首周票房大于35万美元的作品，在这些作品里找出同时获得了当届奥斯卡最佳影片奖的电影；…",
+          "triplet_f1": 0.6795,
+          "node_f1": 0.7672,
+          "user_turns": 13,
+          "tool_calls": 231
+        },
+        {
+          "qid": "task_082_Disney Movie",
+          "file": "task_082_Disney_Movie.json",
+          "question": "I'm looking for a complete set of information about Disney's film studios and their related animated works, all content needs to meet the following requirements and constraints:\nFirst, list all active film studios that…",
+          "triplet_f1": 0.6431,
+          "node_f1": 0.6704,
+          "user_turns": 11,
+          "tool_calls": 90
+        },
+        {
+          "qid": "task_037_tennis tournaments",
+          "file": "task_037_tennis_tournaments.json",
+          "question": "I've recently gotten interested in tennis because of Zheng Qinwen, and I'm a high school student in the United States currently in SoHo, New York looking to buy tennis equipment. I need the following information:\n1. Fir…",
+          "triplet_f1": 0.631,
+          "node_f1": 0.6957,
+          "user_turns": 12,
+          "tool_calls": 118
+        },
+        {
+          "qid": "task_026_homedrink",
+          "file": "task_026_homedrink.json",
+          "question": "我计划采购2025年FBIF Wow食品创新奖相关的获奖饮品，请帮我查询相关信息并按以下所有条件层层筛选，给出对应的结果：\n首先，请先列出2025年FBIF Wow食品创新奖中的所有饮品相关奖项，再从获奖饮品里排除奶粉等固体饮品，筛选出所有获奖的液体饮品以及对应的获奖机构；\n接下来请列出这些液体饮品对应的品牌、品牌全球归属公司、产品研发公司，仅保留品牌归属于中国公司的国产产品；\n然后请从这些国产饮品里，筛选出保质期小于等于6个月、且执…",
+          "triplet_f1": 0.6241,
+          "node_f1": 0.6129,
+          "user_turns": 13,
+          "tool_calls": 366
+        },
+        {
+          "qid": "task_002_concert",
+          "file": "task_002_concert.json",
+          "question": "我想查询一系列和2025年鸟巢演唱会相关的信息，具体需求如下：\n1. 先帮我统计2025年国庆节前鸟巢一共举办了多少场演唱会，列出所有这些演唱会的举办歌手/组合分别是谁；\n2. 上述演唱会里有不少开了多场，帮我筛选出其中有嘉宾合唱的场次，告诉我每一场次的嘉宾都合唱了哪些歌曲；\n3. 除了上述合唱相关的信息外，再帮我查下这些演唱会在鸟巢举办的最后一个场次里，返场前的压轴曲目是什么，我喜欢经典老歌，麻烦只保留其中所属专辑是2018年以前发…",
+          "triplet_f1": 0.6161,
+          "node_f1": 0.6351,
+          "user_turns": 12,
+          "tool_calls": 159
+        },
+        {
+          "qid": "task_016_furniture select",
+          "file": "task_016_furniture_select.json",
+          "question": "I'm planning to buy new IKEA furniture for my living room and bedroom, and I'm only referencing the IKEA products mentioned in the two Kelsey Mulvey articles on the House Beautiful website: *8 IKEA Bedroom Essentials De…",
+          "triplet_f1": 0.567,
+          "node_f1": 0.7043,
+          "user_turns": 10,
+          "tool_calls": 235
+        },
+        {
+          "qid": "task_028_Fragrance",
+          "file": "task_028_Fragrance.json",
+          "question": "I've heard that the Fragrance Foundation Awards are known as the \"Oscars of the perfume industry\", and I need to get a full set of relevant information that meets all the following requirements:\n\nFirst, pull all winners…",
+          "triplet_f1": 0.563,
+          "node_f1": 0.6023,
+          "user_turns": 13,
+          "tool_calls": 253
+        },
+        {
+          "qid": "task_006_Marvel",
+          "file": "task_006_Marvel.json",
+          "question": "I need you to help me look up the following information strictly following all the constraints I specify, and present the results clearly matching the required information granularity:\n1. First, pull the full list of su…",
+          "triplet_f1": 0.5609,
+          "node_f1": 0.5483,
+          "user_turns": 8,
+          "tool_calls": 204
+        },
+        {
+          "qid": "task_075_MBA",
+          "file": "task_075_MBA.json",
+          "question": "我本科毕业7年，目前在上海互联网大厂担任产品经理，计划报考国内在职MBA硕士，需要查询满足以下全部筛选条件的院校及相关详细信息：\n### 筛选条件\n1. 院校需同时持有EQUIS、AMBA、AACSB三项国际认证，且三项认证截至2026年1月1日均处于有效期内；\n2. 院校2026年1月在任的院长，其博士毕业院校需位列2026年QS世界大学排名前400名以内；\n3. 院校所在地属于江浙沪地区；\n4. 院校2026年开设的非全日制MBA…",
+          "triplet_f1": 0.5553,
+          "node_f1": 0.7065,
+          "user_turns": 12,
+          "tool_calls": 280
+        },
+        {
+          "qid": "task_058_BankSelection",
+          "file": "task_058_BankSelection.json",
+          "question": "我需要你帮我按如下要求筛选银行并输出对应信息，所有时间节点、筛选条件请严格遵守：\n首先第一步筛选：找出截至2024年12月底已经在中国A股上市、且总市值大于1000亿的银行，先提供这些银行2024年年底的净利润（单位为亿元），以及它们2024年末的第一大股东名称，再从中筛选出第一大股东为中央国有或者地方国有性质的银行，排除掉第一大股东是民营和外资企业的银行。\n第二步对第一步筛选出的银行继续筛选：查询这些银行截至2026年4月之前上一次…",
+          "triplet_f1": 0.5459,
+          "node_f1": 0.4851,
+          "user_turns": 12,
+          "tool_calls": 264
+        },
+        {
+          "qid": "task_036_NBA",
+          "file": "task_036_NBA.json",
+          "question": "My husband and I are planning a trip to the United States where we want to watch NBA games, and I need you to help me sort out all the relevant information I need for this trip following the filters and requirements bel…",
+          "triplet_f1": 0.5444,
+          "node_f1": 0.6372,
+          "user_turns": 12,
+          "tool_calls": 120
+        },
+        {
+          "qid": "task_005_LOL",
+          "file": "task_005_LOL.json",
+          "question": "我现在想要查询2026年之前英雄联盟MSI和S赛的相关信息，具体需求如下：\n1. 首先筛选出所有LPL战队晋级了总决赛的届次，列出每届决赛的对阵双方战队，同时统计LPL在这些赛事中拿过冠军的总次数。\n2. 针对上面筛选出的所有届次，分别给出每届的冠军战队、亚军战队；同时给出每届夺冠战队的主教练姓名，以及这些主教练加入和离开对应夺冠战队的时间；另外还要列出每届赛事的FMVP选手。\n3. 针对上面筛选出的赛事中的S赛部分，补充查询以下内容…",
+          "triplet_f1": 0.5426,
+          "node_f1": 0.6387,
+          "user_turns": 11,
+          "tool_calls": 225
+        },
+        {
+          "qid": "task_086_Early PRC Commemorative Special Stamps",
+          "file": "task_086_Early_PRC_Commemorative_Special_Stamps.json",
+          "question": "我想了解建国30年最佳邮票这个新中国首次全国性邮票评选活动的相关信息，请按以下要求整理结果：\n1. 首先列出本次评选所有获奖的邮票系列，同步标注每套邮票的发行日期、印制机构；\n2. 从中筛选出印制机构在北京的获奖邮票套票，同步标注这些北京的印制机构的具体地址，方便我这周有空去参观；再从这些北京印刷厂印制的套票里，进一步筛选出单套包含邮票枚数≤5的套票，这类套票适合收藏我需要重点关注；\n3. 针对上述筛选出的枚数≤5的北京厂印制套票，请…",
+          "triplet_f1": 0.5382,
+          "node_f1": 0.6002,
+          "user_turns": 12,
+          "tool_calls": 160
+        },
+        {
+          "qid": "task_062_Bedding",
+          "file": "task_062_Bedding.json",
+          "question": "I live in Washington, USA and am planning to purchase bedding, and I trust the authority of the Good Housekeeping 2026 Bedding Awards, so I need the following relevant information:\n1. First, list all winning products of…",
+          "triplet_f1": 0.5256,
+          "node_f1": 0.5405,
+          "user_turns": 10,
+          "tool_calls": 87
+        },
+        {
+          "qid": "task_081_AJ",
+          "file": "task_081_AJ.json",
+          "question": "I need all relevant information about mainline Air Jordan signature models, please provide them according to the following requirements:\nFirst, list out every mainline Air Jordan signature model, and tell me each model'…",
+          "triplet_f1": 0.5083,
+          "node_f1": 0.5675,
+          "user_turns": 13,
+          "tool_calls": 234
+        },
+        {
+          "qid": "task_077_baseball cap‌",
+          "file": "task_077_baseball_cap_.json",
+          "question": "I need to find a whole set of information related to the 2025 Major League Baseball American League, please return the results in structured entity-relationship triples matching the granularity of the reference knowledg…",
+          "triplet_f1": 0.4885,
+          "node_f1": 0.6055,
+          "user_turns": 12,
+          "tool_calls": 131
+        },
+        {
+          "qid": "task_041_university selection",
+          "file": "task_041_university_selection.json",
+          "question": "我是2026年参加四川高考的物理类考生，需要查询以下升学相关信息，请按要求给出完整结果：\n一、请先筛选出2025年本部面向四川物理类考生录取分数线在590分以上的所有985大学，每所大学需对应给出2026年QS排名、所在城市信息；\n二、在上述筛选出的985大学范围内，找出所在地不在东北、西北地区，同时开设了口腔医学专业，且该专业第四轮学科评级为B+及以上、设有5+3一体化培养学制的学校，列出符合要求的学校名单及对应口腔医学专业的相关信…",
+          "triplet_f1": 0.4823,
+          "node_f1": 0.6693,
+          "user_turns": 13,
+          "tool_calls": 75
+        },
+        {
+          "qid": "task_083_Musical",
+          "file": "task_083_Musical.json",
+          "question": "我现在想了解关于中国音乐剧的一系列相关信息，具体需求如下：\n1. 首先请告知截至2026年4月，按剧目原始语言来源划分的中国音乐剧市场两大阵营的名称，分类规则为：原始语言为中文的剧目属于“国产音乐剧”，原始语言为非中文（包含英语、法语、德语、西班牙语、意大利语）的剧目属于“进口音乐剧”。\n2. 请筛选出同时满足以下所有条件的音乐剧：①属于上述两大阵营、且入选2023年或2024年演艺大世界音乐剧风云榜年度优秀音乐剧榜单；②2024年1…",
+          "triplet_f1": 0.4789,
+          "node_f1": 0.525,
+          "user_turns": 12,
+          "tool_calls": 297
+        },
+        {
+          "qid": "task_015_ClimbMountains",
+          "file": "task_015_ClimbMountains.json",
+          "question": "我想查询相关旅游信息，具体要求如下：\n1. 先基于截至2026年4月的《UNESCO世界遗产名录》，筛选出属于中国的自然遗产、文化与自然双重遗产，我只看两类纳入时间的遗产：2000年以前被纳入的经典遗产，以及2010-2025年被纳入的较新的遗产，请标注每处符合要求的遗产的具体纳入年份。\n2. 在上述筛选出的遗产对应的下属景区里，再帮我筛选出符合所有以下条件的景区：是国家5A级旅游景区、适合爬山、景区内最高峰海拔大于1800米，列出所…",
+          "triplet_f1": 0.4739,
+          "node_f1": 0.5289,
+          "user_turns": 11,
+          "tool_calls": 96
+        },
+        {
+          "qid": "task_010_csgo",
+          "file": "task_010_csgo.json",
+          "question": "I'm looking for information related to the four major CS:GO tournament series officially recognized by HLTV (Major, Intel Extreme Masters/IEM, BLAST Premier, ESL Pro League) for the period from 2021 to the first half of…",
+          "triplet_f1": 0.472,
+          "node_f1": 0.5537,
+          "user_turns": 10,
+          "tool_calls": 280
+        },
+        {
+          "qid": "task_078_SocialInsurance",
+          "file": "task_078_SocialInsurance.json",
+          "question": "我是全日制本科往届毕业生，户口在老家、毕业1年没有工作单位，打算去2025年第一财经发布的“新一线城市魅力排行榜”中排名前10的城市做自由职业，需要缴纳灵活就业社保，请你帮我按照以下规则逐步筛选城市，并提供对应信息：\n1. 先筛选出截至2026年4月1日，缴纳灵活就业社保没有户籍限制的城市，同时列出这些城市2025年的GDP数据；\n2. 对上述筛选出的城市，查询2026年4月当地灵活就业养老保险、医保缴费所依据的省平均或市平均月工资，…",
+          "triplet_f1": 0.4406,
+          "node_f1": 0.5072,
+          "user_turns": 13,
+          "tool_calls": 211
+        },
+        {
+          "qid": "task_097_Game music",
+          "file": "task_097_Game_music.json",
+          "question": "I'm looking for all the following information related to Metacritic's 16th annual game publisher ranking, please provide the complete content that meets all the requirements below:\n1. First, list all 28 top-ranked game…",
+          "triplet_f1": 0.4237,
+          "node_f1": 0.5516,
+          "user_turns": 11,
+          "tool_calls": 336
+        },
+        {
+          "qid": "task_095_shizhuangzhou",
+          "file": "task_095_shizhuangzhou.json",
+          "question": "I want to get all relevant information about the top 10 best show brands rated by Monocle magazine at the Milan Fall/Winter 2026 womenswear fashion shows, covering the following details:\n- First, for each of these 10 br…",
+          "triplet_f1": 0.4154,
+          "node_f1": 0.5055,
+          "user_turns": 9,
+          "tool_calls": 160
+        },
+        {
+          "qid": "task_038_Game Selection",
+          "file": "task_038_Game_Selection.json",
+          "question": "I'm looking to buy and play new games released in 2025, so please help me filter out games that meet all of the following requirements first, then provide me with all the relevant details I need for each qualifying game…",
+          "triplet_f1": 0.4138,
+          "node_f1": 0.4201,
+          "user_turns": 12,
+          "tool_calls": 134
+        },
+        {
+          "qid": "task_022_airline",
+          "file": "task_022_airline.json",
+          "question": "我正在做环球旅行的规划，想要挑选合适的航空公司，请帮我查询以下相关信息：\n1. 首先请告诉我世界三大航空联盟分别叫什么名字，以及每一个联盟的创始年份是哪一年；\n2. 请列出这三大航空联盟各自的全部成员航司，以及每一家成员航司所属的国家；\n3. 我这次想体验欧洲航司的头等舱，麻烦帮我筛选出同时满足以下所有条件的航司，同时给出它们在SKYTRAX 2025年世界最佳头等舱航空公司榜单里的实际排名：\n   ① 属于欧洲航司\n   ② 位列S…",
+          "triplet_f1": 0.4077,
+          "node_f1": 0.5907,
+          "user_turns": 10,
+          "tool_calls": 49
+        },
+        {
+          "qid": "task_018_tubuluxian",
+          "file": "task_018_tubuluxian.json",
+          "question": "I would like to look up information related to the world's top 10 trekking routes featured in Lonely Planet's *Best Treks in the World* article, and I need all the following details as required:\n1. First, list all sover…",
+          "triplet_f1": 0.4006,
+          "node_f1": 0.4201,
+          "user_turns": 16,
+          "tool_calls": 223
+        },
+        {
+          "qid": "task_049_Mobile Phone Parameters and Buying Guide",
+          "file": "task_049_Mobile_Phone_Parameters_and_Buying_Guide.json",
+          "question": "I want to buy a mobile phone, so please provide me with all the following information counted as of the first quarter of 2026:\n- First, tell me the top 5 global smartphone brands by shipment volume, and for each of thes…",
+          "triplet_f1": 0.3915,
+          "node_f1": 0.4399,
+          "user_turns": 10,
+          "tool_calls": 187
+        },
+        {
+          "qid": "task_024_TeaCulture",
+          "file": "task_024_TeaCulture.json",
+          "question": "我现在需要筛选合适的茶叶作为送客户的备选，请帮我按照以下要求查询对应的所有信息：\n1. 先筛选出2024年中国茶叶出口量超过4000吨的所有省份，同时给出这些省份2024年的干毛茶产量数据。\n2. 在上述筛选出的省份范围内，查询截至2025年底拥有的国家级非遗制茶技艺，要求这些技艺必须有1960年之前出生的老非遗传承人。\n3. 筛选出上述符合要求的国家级非遗制茶技艺的所在地级市中，2024年茶园面积超过10万亩的所有地级市。\n4. 查…",
+          "triplet_f1": 0.3882,
+          "node_f1": 0.4326,
+          "user_turns": 16,
+          "tool_calls": 346
+        },
+        {
+          "qid": "task_034_Camera Selection",
+          "file": "task_034_Camera_Selection.json",
+          "question": "我最近准备买相机挑合适的镜头，需要你帮我整理以下完整信息：\n1. 首先请提供友都八喜2025年最畅销的20款可换镜头榜单（是否带防抖均可），每款镜头需同步标注对应的重量、滤镜口径以及所属品牌；\n2. 针对上述上榜镜头的所有所属品牌，先完成筛选：仅保留「在开展某一项多元化衍生业务的当年，同步研发、推出过相机产品」的品牌。再针对筛选后的品牌，分别说明其是否只单独做镜头，若不是，请列出该品牌全部的多元化衍生业务体系内容，以及每一项衍生业务的…",
+          "triplet_f1": 0.3849,
+          "node_f1": 0.4056,
+          "user_turns": 10,
+          "tool_calls": 164
+        },
+        {
+          "qid": "task_063_BakingEssentials",
+          "file": "task_063_BakingEssentials.json",
+          "question": "I'm a total kitchen newbie, and I just watched a YouTube video from Ali's Kitchen about making caramel crust puffs that I really want to try making. I need all the following information sorted clearly, matching the actu…",
+          "triplet_f1": 0.3838,
+          "node_f1": 0.3964,
+          "user_turns": 13,
+          "tool_calls": 148
+        },
+        {
+          "qid": "task_096_Tropical Fish",
+          "file": "task_096_Tropical_Fish.json",
+          "question": "I'm currently studying tropical fish and have learned about 8 ornamental fish supplier exhibitors at Interzoo 2026: Aquazone Indonesia, BP Aquatic Group, LEOPARD AQUATIC INDONESIA, Miracle Pets - Sri Lanka, Na Discus, S…",
+          "triplet_f1": 0.3823,
+          "node_f1": 0.3473,
+          "user_turns": 10,
+          "tool_calls": 188
+        },
+        {
+          "qid": "task_087_vinyl record collection",
+          "file": "task_087_vinyl_record_collection.json",
+          "question": "I just bought a record player and want to collect some vinyl records, so I'm looking for the following complete information:\nFirst, give me the full list of records that made it onto IFPI's 2025 Global Vinyl Top 20, and…",
+          "triplet_f1": 0.377,
+          "node_f1": 0.383,
+          "user_turns": 9,
+          "tool_calls": 172
+        },
+        {
+          "qid": "task_044_NutritionalSupplements",
+          "file": "task_044_NutritionalSupplements.json",
+          "question": "我想查询相关信息，所有查询的基础范围是QYResearch发布的《2026年全球运动和健身营养补充剂行业总体规模、主要企业国内外市场占有率及排名》报告中提到的运动营养补充剂生产厂商，具体要求如下：\n首先先对厂商做筛选：只保留满足上市要求的厂商，也就是厂商本体或者其母公司是1990年之后上市、截至2026年4月没有退市的，需要先列出这些符合要求的厂商的注册地所属国家，以及对应上市主体的上市交易所、上市年份；\n接着在上述符合上市要求的厂商…",
+          "triplet_f1": 0.3703,
+          "node_f1": 0.3569,
+          "user_turns": 15,
+          "tool_calls": 184
+        },
+        {
+          "qid": "task_073_Dental implant",
+          "file": "task_073_Dental_implant.json",
+          "question": "I'm planning to get dental implants this year, and I need to find information that fully meets all my following requirements:\nFirst, please filter out eligible dental implant brands that satisfy all the below conditions…",
+          "triplet_f1": 0.3699,
+          "node_f1": 0.4167,
+          "user_turns": 11,
+          "tool_calls": 180
+        },
+        {
+          "qid": "task_088_Choosing Climbing Shoes",
+          "file": "task_088_Choosing_Climbing_Shoes.json",
+          "question": "I've recently gotten interested in climbing and would like to learn about the following aspects. Please clearly list the corresponding relationships between all items:\n1. What categories are there if climbing walls are…",
+          "triplet_f1": 0.3669,
+          "node_f1": 0.5672,
+          "user_turns": 10,
+          "tool_calls": 120
+        },
+        {
+          "qid": "task_042_Shanghai Michelin Restaurant",
+          "file": "task_042_Shanghai_Michelin_Restaurant.json",
+          "question": "我需要找符合以下全部条件的上海餐厅，同时获取对应的相关信息：\n首先是餐厅的筛选规则：\n1. 2021—2025年期间连续纳入《米其林指南》，且评级为一星及以上；\n2. 主营菜式为粤菜或者创新菜；\n3. 2026年时，餐厅的驻店总厨（行政主厨）拥有过海外（含港澳台）米其林星级餐厅的正式厨务工作经历；\n4. 不属于酒店旗下，且2026年仍然处于营业状态。\n\n需要获取的这些餐厅的信息如下：\n1. 餐厅的具体地址；\n2. 餐厅首家门店的正式开…",
+          "triplet_f1": 0.3554,
+          "node_f1": 0.3797,
+          "user_turns": 14,
+          "tool_calls": 281
+        },
+        {
+          "qid": "task_045_Oil or electric vehicles",
+          "file": "task_045_Oil_or_electric_vehicles.json",
+          "question": "我想查询2026年第一季度我国汽车市场的相关信息，具体需求如下：\n1. 请先列出该时段我国汽车市场的主要车辆动力类型，将这些动力类型按电车、油车两大类别归类，明确分别属于两类的具体动力类型；同时说明电车和油车中哪些动力类型可享受限行、限购相关优惠政策，另外请对应整理所有上述动力类型对应的驱动方式、补能方式，一一对应清晰呈现。\n2. 请统计除FCEV之外的所有电车类动力类型，各自在2026年第一季度的国内累计销量TOP3的车型，同步提供…",
+          "triplet_f1": 0.3423,
+          "node_f1": 0.3263,
+          "user_turns": 10,
+          "tool_calls": 81
+        },
+        {
+          "qid": "task_009_POP MART",
+          "file": "task_009_POP_MART.json",
+          "question": "我超级喜欢泡泡玛特，麻烦帮我查询以下相关信息，所有信息的统计截止时间均为2026年4月哦：\n首先帮我筛选出截止2026年4月已经出品、且在泡泡玛特官网上在售的非日本设计师设计的所有IP，针对每个符合要求的IP，先告诉我两个信息：一是它的设计来源，是个人设计师设计的话麻烦说清楚设计师是谁，如果是品牌公司授权合作的话麻烦说清楚授权方是哪家；二是这个IP在泡泡玛特的首发年份是哪一年。\n然后针对这些筛选出来的IP，麻烦再告诉我泡泡玛特为每个I…",
+          "triplet_f1": 0.3396,
+          "node_f1": 0.391,
+          "user_turns": 16,
+          "tool_calls": 253
+        },
+        {
+          "qid": "task_014_Shanghai Art Exhibition",
+          "file": "task_014_Shanghai_Art_Exhibition.json",
+          "question": "我需要查询以下信息，麻烦按照要求筛选后输出对应的内容：\n首先，先帮我筛选符合要求的上海美术馆：必须是截至2025年12月底上海官方认证的星级美术馆，而且所在的行政区内至少要有两家星级美术馆，那种一个区只有一家的就不用列出来了，另外这些美术馆还要是2026年3月正常营业的，麻烦把这些符合要求的美术馆名称、所在行政区还有对应的周日开馆时间都列出来。\n其次，针对上面筛选出来的这些美术馆，帮我找它们2025年展出的艺术家个展，只要展期完全在2…",
+          "triplet_f1": 0.3185,
+          "node_f1": 0.3372,
+          "user_turns": 13,
+          "tool_calls": 105
+        },
+        {
+          "qid": "task_027_city",
+          "file": "task_027_city.json",
+          "question": "我打算去经济比较发达的地方旅游，需要你帮我查询整理以下信息：\n首先，请列出IMF公布的2024年世界GDP排名前20位的主权国家，标注每个国家的2024年GDP数值以及所属的大洲，并且筛选出其中拥有UNESCO世界遗产的国家；\n接下来，针对这些筛选出的国家，请从它们的政府官网的“国家概况”或者“首都介绍”页面查询确认每个国家法律规定的正式首都叫什么；\n然后，帮我整理这些首都里入选了UNESCO世界遗产名录的地标建筑都有哪些，以及对应的…",
+          "triplet_f1": 0.3177,
+          "node_f1": 0.3708,
+          "user_turns": 11,
+          "tool_calls": 196
+        },
+        {
+          "qid": "task_040_Computer",
+          "file": "task_040_Computer.json",
+          "question": "我最近想换一张显卡用来装配我的电脑，首先请帮我筛选出2024到2026年这三年新出的、正式发布的消费级台式机显卡，要求这些显卡在Steam平台的玩家占比高于0.25%，并提供这些符合条件的显卡的具体信息，包括功耗、价格等内容。\n我现在重点考虑RTX 5060这款显卡，麻烦帮我提供它的相关信息：一是它的出品公司和各项基本信息；二是截至2026年它在Steam平台的存量占比情况；三是它的代工厂所在地、量产时间、所属公司等和成品质量相关的基…",
+          "triplet_f1": 0.3174,
+          "node_f1": 0.3446,
+          "user_turns": 13,
+          "tool_calls": 162
+        },
+        {
+          "qid": "task_079_Public Property",
+          "file": "task_079_Public_Property.json",
+          "question": "我想要了解截止到2026年3月成都武侯区和青羊区推出的保租房相关信息，请帮我按要求整理结果：\n首先先筛选出直线距离5公里内有三甲医院的保租房房源，先告诉我这些房源各自的首次配租房租标准和首次出租的物业费标准；\n针对每一套符合筛选条件的房源，再补充以下信息：\n1. 它直线距离5公里内的所有三级综合医院具体是哪些，这些医院里有哪些心脏方面的重点专科；\n2. 它直线距离2公里内最近的地铁站叫什么名字，能乘坐哪几条线路，从房子到这个地铁站步行…",
+          "triplet_f1": 0.31,
+          "node_f1": 0.3296,
+          "user_turns": 16,
+          "tool_calls": 263
+        },
+        {
+          "qid": "task_072_Hospitals in Changsha",
+          "file": "task_072_Hospitals_in_Changsha.json",
+          "question": "我想要查询截至2026年4月的以下所有相关信息，请按要求整理输出：\n一、首先筛选符合条件的医院科室：长沙市芙蓉区、岳麓区的三甲综合医院消化内科中，有主任医师同时承担研究生培养（硕导/博导）的科室，请先列出这些科室对应的医院信息，同时提供这些科室的以下基础信息：\n1. 科室所属医院最近的地铁站是哪个；\n2. 医院是否有停车场，小车停车24小时封顶多少钱；\n3. 该消化内科科室的营业时间。\n二、针对上述筛选出的科室，请进一步筛选符合要求的…",
+          "triplet_f1": 0.305,
+          "node_f1": 0.2606,
+          "user_turns": 25,
+          "tool_calls": 301
+        },
+        {
+          "qid": "task_004_British universities",
+          "file": "task_004_British_universities.json",
+          "question": "我是一名经济学本科生，计划2026年秋季出国留学申请全日制研究生，之后还想继续深造读PHD，听说英国治安不是很好，所以麻烦帮我按照以下要求完成筛选并提供对应信息：\n首先，先确定初选学校范围：仅限英格兰和苏格兰地区、2026年QS世界大学排名全球前150的院校。\n接下来从这些学校里筛选符合要求的专业，需要同时满足：\n1. 专业以经济学为核心，包含Business Economics或者Corporate Finance方向的课程；\n2.…",
+          "triplet_f1": 0.3012,
+          "node_f1": 0.3794,
+          "user_turns": 12,
+          "tool_calls": 229
+        },
+        {
+          "qid": "task_057_Baijiu brand and sales destination selection",
+          "file": "task_057_Baijiu_brand_and_sales_destination_selection.json",
+          "question": "我需要你帮我查询满足以下所有要求的信息，最终结果请以知识图谱三元组的形式呈现：\n1. 首先筛选出2025年前三季度国产白酒营业额TOP10的品牌，筛选前提为品牌的下属系列所含产品数大于7，同时收集这些品牌的核心信息：同比增长率、前三季度营收、成立时间、产地、执行标准、资质背景。\n2. 针对上述筛选出的TOP10品牌，提取它们2025年前三季度营业额最高的酒款的产品信息，仅保留度数不高于52度的酒款，每个符合要求的单品需明确标注：品牌归…",
+          "triplet_f1": 0.2978,
+          "node_f1": 0.3327,
+          "user_turns": 18,
+          "tool_calls": 311
+        },
+        {
+          "qid": "task_051_OPT",
+          "file": "task_051_OPT.json",
+          "question": "我是持F-1 OPT身份、已经在美国工作3年的纳税人，需要基于2026年最新的OPT税收政策咨询报税相关问题，请按照F-1 OPT联邦报税规则的标准信息粒度为我解答以下内容：\n1. 首先请筛选出要求提交Form 8843和Form 1040-NR的报税身份，分别说明这些身份的免税期限、应纳税收入范围等相关规定；\n2. 我目前是未婚的Resident Alien（居民外国人），年收入为32200美元，请问我应该选择哪种报税身份？\n3.…",
+          "triplet_f1": 0.2953,
+          "node_f1": 0.3262,
+          "user_turns": 24,
+          "tool_calls": 141
+        },
+        {
+          "qid": "task_094_shipin",
+          "file": "task_094_shipin.json",
+          "question": "我有以下需求麻烦一并查询处理：\n1. 首先请查询入选《2026年CNPP寿司行业十大品牌榜中榜名录》的所有品牌，依次列出每个品牌的排名、所属母公司、中国境内工商注册运营主体全称，再从中筛选出母公司注册地在日本的品牌。\n2. 针对上述筛选出的母公司注册地在日本的寿司品牌，请分别列出它们长期固定在售、常规菜单不下架的经典常驻寿司品项，每个品项对应的主食材鱼种，以及这些寿司所用的鱼食材取自对应鱼种的鱼身哪个部位。\n3. 同时请补充上述这些日…",
+          "triplet_f1": 0.2868,
+          "node_f1": 0.3144,
+          "user_turns": 11,
+          "tool_calls": 118
+        },
+        {
+          "qid": "task_055_Pet sports",
+          "file": "task_055_Pet_sports.json",
+          "question": "I'm planning to raise a dog that fits my frequent outdoor sports activities, so I need the following information referenced from official sources including AKC and RKC official breed introduction pages and AKC official…",
+          "triplet_f1": 0.2797,
+          "node_f1": 0.458,
+          "user_turns": 7,
+          "tool_calls": 88
+        },
+        {
+          "qid": "task_017_museum",
+          "file": "task_017_museum.json",
+          "question": "I'm a cultural enthusiast planning to travel to Europe during the summer vacation, please help me gather all the following information that meets the requirements:\nFirst, extract the top 50 museums from The Art Newspape…",
+          "triplet_f1": 0.2667,
+          "node_f1": 0.2062,
+          "user_turns": 22,
+          "tool_calls": 238
+        },
+        {
+          "qid": "task_059_Sunscreen",
+          "file": "task_059_Sunscreen.json",
+          "question": "我是一名经常需要参与户外活动的导游，肤质比较敏感，最近夏天快到了想要选购合适的防晒产品，麻烦你帮我整理符合以下所有要求的相关信息，不要遗漏任何内容：\n1. 首先筛选新浪财经发布的2025年防晒化妆品销售榜单TOP10中，母公司总部在国外的品牌，且这些母公司的创立时长至少有50年，请先列出这些上榜品牌对应的母公司名称、母公司的创立年份。\n2. 请列出上述符合要求的上榜品牌旗下所有SPF50及以上的防晒化妆品，每款产品需要明确标注它的防晒…",
+          "triplet_f1": 0.2662,
+          "node_f1": 0.3307,
+          "user_turns": 19,
+          "tool_calls": 290
+        },
+        {
+          "qid": "task_061_Spain Travel",
+          "file": "task_061_Spain_Travel.json",
+          "question": "I'm a recent college graduate with savings who is currently traveling in the Eixample (Eisimple) district of Barcelona, Spain, and I'm highly interested in Antoni Gaudi's architecture. I have confirmed that there are 7…",
+          "triplet_f1": 0.2605,
+          "node_f1": 0.4129,
+          "user_turns": 9,
+          "tool_calls": 158
+        },
+        {
+          "qid": "task_025_Western mythology",
+          "file": "task_025_Western_mythology.json",
+          "question": "我特别喜欢希腊神话的故事，但是一直分不清里面的人物，还有相关的神话事件和现实对应的打卡点，现在有一系列相关需求麻烦你帮忙解答：\n1. 首先请帮我列出所有的奥林匹斯主神，分别给出每位主神的父母、罗马名、象征物信息。\n2. 其次请梳理出希腊神话里所有满足「有两个及以上主神参与、最终导致战争一方遭到彻底的物理毁灭」的战争，针对每一场战争，列出全部的局势反转转折点，每个转折点需要标注清楚对应的参与主神、用到的关键手段/道具，以及这些道具的来源…",
+          "triplet_f1": 0.2591,
+          "node_f1": 0.3137,
+          "user_turns": 8,
+          "tool_calls": 53
+        },
+        {
+          "qid": "task_011_donghua",
+          "file": "task_011_donghua.json",
+          "question": "我现在有找动画行业工作和找动画作品观看的相关需求，麻烦帮我整理以下信息：\n首先，我想到知名动漫公司工作，先帮我列出所有作品数量大于5部的中国动画公司；另外麻烦告诉我这些公司里，作品中历史题材占比最高的是哪一家；我更想去成熟的公司发展，所以也请从上面这些作品数大于5部的中国动画公司里，筛选出2000年之前就创立的公司名单。\n接下来，麻烦告诉我上面提到的所有作品数大于5部的中国动画公司，总部分别在哪些城市。\n然后，这些公司里总部设在北京和…",
+          "triplet_f1": 0.2567,
+          "node_f1": 0.3256,
+          "user_turns": 18,
+          "tool_calls": 183
+        },
+        {
+          "qid": "task_084_youlun",
+          "file": "task_084_youlun.json",
+          "question": "I'm planning a cruise trip with my friends in May 2026, and I'm referring to information from the Gangwaze website, please help me sort out all the information that meets my following requirements in order:\n1. First, fi…",
+          "triplet_f1": 0.2387,
+          "node_f1": 0.3223,
+          "user_turns": 16,
+          "tool_calls": 148
+        },
+        {
+          "qid": "task_071_erjijiangzao",
+          "file": "task_071_erjijiangzao.json",
+          "question": "I have a series of needs related to over-ear headphones, could you provide the relevant information as required below?\nFirst, tell me all the 13 brands selected as the world's best over-ear headphone brands by My New Mi…",
+          "triplet_f1": 0.2368,
+          "node_f1": 0.4146,
+          "user_turns": 10,
+          "tool_calls": 149
+        },
+        {
+          "qid": "task_020_Pet",
+          "file": "task_020_Pet.json",
+          "question": "我最近打算养一只狗，想了解一系列相关信息，麻烦帮我整理清楚：\n首先，我听说CKU把犬只分成了不同的品质等级，麻烦告诉我具体有哪些等级，每个等级需要满足什么认证条件？\n其次，这里面的冠军级还有没有进一步的细分，比如中国区冠军这类，各个细分的冠军之间是怎么进行等级区分、晋升的，对应的要求分别是什么？\n然后，目前CKU冠军登录展示里，每一种冠军细分分类下登录排在前三的犬种分别是什么？麻烦同时标注这些犬种分别属于大型犬、中型犬、小型犬还是中大…",
+          "triplet_f1": 0.2359,
+          "node_f1": 0.2841,
+          "user_turns": 8,
+          "tool_calls": 70
+        },
+        {
+          "qid": "task_035_F1",
+          "file": "task_035_F1.json",
+          "question": "I've been following Formula 1 quite a lot lately, and I'd like to get the following related information, with all details provided at the same granularity as the standard F1 team knowledge graph entries:\n- First, give m…",
+          "triplet_f1": 0.23,
+          "node_f1": 0.2694,
+          "user_turns": 10,
+          "tool_calls": 70
+        },
+        {
+          "qid": "task_021_Jewelry brand",
+          "file": "task_021_Jewelry_brand.json",
+          "question": "我准备在母亲节挑选珠宝作为礼物，相关需求如下，请你整理提供所有符合条件的信息：\n1. 先给出「奢侈珠宝&腕表品牌中国活力榜2025」的TOP10上榜品牌完整名单，再从中筛选出2023年1月之前就已经在成都IFS或成都远洋太古里开设了线下门店的品牌。\n2. 从上述筛选出的品牌里，找出它们2026年1-3月发布或上市的包含项链的系列，要求这些系列的相关款式可以在VOGUE、ELLE、时尚芭莎、时尚COSMO、嘉人这五大时尚杂志上查到相关报…",
+          "triplet_f1": 0.2264,
+          "node_f1": 0.2467,
+          "user_turns": 15,
+          "tool_calls": 318
+        },
+        {
+          "qid": "task_076_baby formula",
+          "file": "task_076_baby_formula.json",
+          "question": "I'm in Europe looking to buy infant formula for babies aged 0-6 months, and I only consider legitimate brands sold in the EU market that comply with EU regulations. Please help me collect the following complete informat…",
+          "triplet_f1": 0.2208,
+          "node_f1": 0.2545,
+          "user_turns": 17,
+          "tool_calls": 359
+        },
+        {
+          "qid": "task_090_huaban",
+          "file": "task_090_huaban.json",
+          "question": "I want to systematically get a complete set of information about the professional competition system of competitive skateboarding, all based on the official definitions and certified lists from the World Skate official…",
+          "triplet_f1": 0.2163,
+          "node_f1": 0.2344,
+          "user_turns": 10,
+          "tool_calls": 137
+        },
+        {
+          "qid": "task_047_chongwu",
+          "file": "task_047_chongwu.json",
+          "question": "I live in Los Angeles, USA, and I'm planning to keep a parrot. As of June 2025, I first want to know which small-bodied parrot species can be legally purchased and kept by private individuals, with the additional requir…",
+          "triplet_f1": 0.2131,
+          "node_f1": 0.247,
+          "user_turns": 15,
+          "tool_calls": 142
+        },
+        {
+          "qid": "task_069_pet travel",
+          "file": "task_069_pet_travel.json",
+          "question": "我打算带自家狗狗去外地自驾旅游，需要查询以下全部相关信息，请按对应的信息层级清晰呈现，不要遗漏任何约束要求：\n1. 请提供截止到2026年4月1日，上海、北京、成都、杭州、广州这五个城市的宠物出行或养犬管理地方性法规，每部法规需要明确标注发布/日常执法主管部门、公共场所携犬外出相关规定、犬只体型/体重限制条款、牵引绳佩戴相关要求。\n2. 结合上述法规中允许携犬进入的场所范围，再对照大众点评的店铺介绍信息，筛选出截止2026年4月20日…",
+          "triplet_f1": 0.2095,
+          "node_f1": 0.2442,
+          "user_turns": 11,
+          "tool_calls": 142
+        },
+        {
+          "qid": "task_033_aesthetic medicine",
+          "file": "task_033_aesthetic_medicine.json",
+          "question": "I want to choose a country with a developed medical aesthetics industry to receive treatment, so please provide me with all the following relevant 2024 data as required:\n1. First, identify the top 3 countries in Europe…",
+          "triplet_f1": 0.2077,
+          "node_f1": 0.1881,
+          "user_turns": 13,
+          "tool_calls": 162
+        },
+        {
+          "qid": "task_007_allergy",
+          "file": "task_007_allergy.json",
+          "question": "我想咨询春季相关过敏性疾病的一系列问题，麻烦详细解答：\n1. 我一到春天就频繁打喷嚏、流鼻涕，有时还会眼睛发痒、起红疹，请问这些都是过敏的表现吗？除此之外春季高发的过敏性疾病还有哪些典型症状？\n2. 鼻子、眼睛、皮肤出现的这些过敏不适症状，分别对应哪些具体的过敏性疾病？请明确区分哪些症状属于过敏性鼻炎、哪些属于荨麻疹、哪些属于过敏性结膜炎。\n3. 如果已经基本能判断患上了上述这些过敏性疾病，应该怎么治疗？用药的时候是更适合先用口服药，…",
+          "triplet_f1": 0.1964,
+          "node_f1": 0.2012,
+          "user_turns": 11,
+          "tool_calls": 56
+        },
+        {
+          "qid": "task_065_kuaiji",
+          "file": "task_065_kuaiji.json",
+          "question": "I need the following information about the US CPA exam and related prep resources, with all results presented in line with the structure of the provided knowledge graph triples, matching the exact information granularit…",
+          "triplet_f1": 0.1857,
+          "node_f1": 0.2528,
+          "user_turns": 11,
+          "tool_calls": 174
+        },
+        {
+          "qid": "task_054_GreenCard",
+          "file": "task_054_GreenCard.json",
+          "question": "我是一名没有国外亲属的中国高中生，未来打算入籍美国，需要查询以下全部相关信息，请按要求整理输出：\n1. 首先从美国公民及移民服务局（USCIS）官网上梳理所有我符合申请要求的美国绿卡获得途径的一级分类，以及每个一级分类对应的下属子类；同时列出职业移民各子类2023到2025财年的中国大陆申请人排期天数，以及各子类是否需要雇主担保或者PERM永久劳工证。\n2. 我已经确认后续会准备EB-3的PERM申请，请帮我筛选2025财年PERM申…",
+          "triplet_f1": 0.1847,
+          "node_f1": 0.2669,
+          "user_turns": 12,
+          "tool_calls": 174
+        },
+        {
+          "qid": "task_023_House",
+          "file": "task_023_House.json",
+          "question": "我马上要去贵阳工作，打算在贵阳买房，麻烦帮我查询以下所有相关信息：\n1. 贵阳市所有的管辖区域有哪些？请分别列明其下辖区、下辖县、代管的县级市；\n2. 贵阳目前一共有多少条地铁线路？\n3. 请帮我筛选出贵阳所有符合以下全部条件的在售楼盘：楼盘距离最近的地铁站点小于1千米，楼盘周边1500米范围内有二级及以上等级医院或者三甲医院，楼盘周边有公办中小学；\n4. 针对上述筛选出来的每一个符合条件的楼盘，请分别提供如下详细信息：\n   ① 该…",
+          "triplet_f1": 0.1835,
+          "node_f1": 0.2021,
+          "user_turns": 19,
+          "tool_calls": 235
+        },
+        {
+          "qid": "task_039_VR",
+          "file": "task_039_VR.json",
+          "question": "I need a complete VR game selection and equipment configuration reference that meets all the following requirements, with information provided at the specified detailed granularity:\nFirst, retrieve the top 10 ranked VR…",
+          "triplet_f1": 0.1829,
+          "node_f1": 0.2338,
+          "user_turns": 16,
+          "tool_calls": 240
+        },
+        {
+          "qid": "task_050_meizhaung",
+          "file": "task_050_meizhaung.json",
+          "question": "I want to buy well-received skincare products that can fix the fine lines and dullness on my skin, please help me find all the relevant information strictly following these rules, with results presented at the same gran…",
+          "triplet_f1": 0.1778,
+          "node_f1": 0.2712,
+          "user_turns": 17,
+          "tool_calls": 231
+        },
+        {
+          "qid": "task_074_Overseas Michelin-starred restaurants",
+          "file": "task_074_Overseas_Michelin-starred_restaurants.json",
+          "question": "I need the following information, with all results adhering strictly to the stated time limits and filter criteria, and output as standard knowledge graph triples (subject-predicate-object) consistent with the informati…",
+          "triplet_f1": 0.1777,
+          "node_f1": 0.1721,
+          "user_turns": 13,
+          "tool_calls": 257
+        },
+        {
+          "qid": "task_030_opera",
+          "file": "task_030_opera.json",
+          "question": "我是一名戏曲爱好者，目前正在撰写一份戏曲相关的报告，需要获取以下相关信息，请按照对应知识图谱三元组的结构呈现所有结果：\n1. 首先请告知中国传统五大戏曲剧种具体有哪些，同时从这五大剧种中完成两项筛选：一是筛选出经典剧目中历史题材占比最高的剧种，二是筛选出所有起源地为北方的剧种。\n2. 针对上述筛选出的起源地为北方的剧种，请列出其符合以下要求的经典代表剧目：在非遗网项目介绍中被列为代表性剧目，或是获得过文华大奖、国家舞台艺术精品工程十大…",
+          "triplet_f1": 0.1697,
+          "node_f1": 0.1963,
+          "user_turns": 23,
+          "tool_calls": 328
+        },
+        {
+          "qid": "task_056_Cook",
+          "file": "task_056_Cook.json",
+          "question": "我最近刚开始学做饭，想找美食综艺参考学习，麻烦你帮我查询整理以下信息：\n1. 先列出所有2015年到2025年之间，在湖南卫视、广东卫视、浙江卫视、江苏卫视这四个电视台播出过或者正在播出的、有调味料产品赞助的美食类综艺节目；\n2. 对应每一档上述符合要求的综艺，列出它所有冠名或赞助的厨具品牌、调味料品牌；\n3. 对应上面提到的所有调味料品牌，分别列出这些品牌旗下的有机调味料产品都有哪些；\n4. 最后对应每一款有机调味料产品，分别说明它…",
+          "triplet_f1": 0.1689,
+          "node_f1": 0.2106,
+          "user_turns": 15,
+          "tool_calls": 218
+        },
+        {
+          "qid": "task_093_coffee",
+          "file": "task_093_coffee.json",
+          "question": "I'm planning to partner with a friend to open a coffee shop, but neither of us is familiar with this field, so I need the following information for reference, all relevant data should be as of 2026:\nFirst, please screen…",
+          "triplet_f1": 0.168,
+          "node_f1": 0.1653,
+          "user_turns": 16,
+          "tool_calls": 215
+        },
+        {
+          "qid": "task_001_liquid foundation",
+          "file": "task_001_liquid_foundation.json",
+          "question": "我是一名正在学习化妆的在校学生，想要挑选适合自己的粉底液，我的全部需求如下：\n1. 首先筛选符合以下要求的粉底液品牌：同时登上2025年全年淘宝粉底液销量排行榜前20、2025年全年抖音粉底液销量排行榜前20，且品牌所属公司为亚洲公司、公司成立时间在2020年及以前，请列出这些品牌对应的所属公司，以及各公司分别属于哪个国家。\n2. 从上述符合要求的品牌中，筛选2026年4月对应品牌官方旗舰店在售的正装粉底液，我是油皮，需要满足：带有哑…",
+          "triplet_f1": 0.1671,
+          "node_f1": 0.1817,
+          "user_turns": 11,
+          "tool_calls": 89
+        },
+        {
+          "qid": "task_070_Ergonomic chair",
+          "file": "task_070_Ergonomic_chair.json",
+          "question": "我想基于CNPP十大品牌网公布的人体工学椅十大品牌相关信息，获取以下内容：\n1. 首先筛选出十大品牌中公司总部位于中国长三角的品牌，再列出这些品牌下同时满足「2025-2026年在售、通过BIFMA或国标人体工学认证、售价在1000-5000元区间」的所有主力型号，同时说明每款型号的全部调节功能，尤其要明确座高、座深、腰托、头枕、后仰、扶手这六项功能的具体支持情况。\n2. 给出全部十大上榜品牌对应的公司总部具体地址，以及其中国产品牌的…",
+          "triplet_f1": 0.1539,
+          "node_f1": 0.195,
+          "user_turns": 13,
+          "tool_calls": 173
+        },
+        {
+          "qid": "task_098_yinger",
+          "file": "task_098_yinger.json",
+          "question": "My child is 8 months old and weighs 7.5 kg, I need to buy suitable foreign basic baby travel gear, please help me sort out all the following relevant information completely, covering every required detail:\n- First, find…",
+          "triplet_f1": 0.1443,
+          "node_f1": 0.1344,
+          "user_turns": 17,
+          "tool_calls": 451
+        },
+        {
+          "qid": "task_092_succulent",
+          "file": "task_092_succulent.json",
+          "question": "我想要了解十二卷属相关的一系列信息，麻烦参考给出的知识图谱三元组结构（实体-关系-属性值）为我整理输出对应内容，具体需求如下：\n1. 首先请说明十二卷属的主要品种群有哪些，每个品种群对应的所属叶系、分布省区、典型识别特征分别是什么；同时列出各品种群下包含的具体品种，每个品种的鉴别维度、推荐花器、易发病虫害分别是什么；另外针对每个易发病虫害，列出对应的具体防治方法，以及每种防治方法的类型、施用时机、有效成分或操作要点。\n2. 单独筛选出…",
+          "triplet_f1": 0.129,
+          "node_f1": 0.1767,
+          "user_turns": 11,
+          "tool_calls": 71
+        },
+        {
+          "qid": "task_029_Career Planning",
+          "file": "task_029_Career_Planning.json",
+          "question": "我想要查询一系列和人社部新职业相关的信息，麻烦你整理成清晰的内容给我，具体要求如下：\n首先，请你先列出2025到2026年国家人社部公布的所有新职业，以及每一个新职业对应的职业编码，并且先筛掉其中不能获得执业证书的职业，只保留可以获得执业证书的这些新职业范围；\n接下来，针对刚才筛选出的这些新职业，分别找出每个职业对应的市场招聘发布量排在前1到2位的核心岗位，同时给出这些核心岗位在一线或者新一线城市的平均薪酬以及薪酬区间；之后再从这些核…",
+          "triplet_f1": 0.126,
+          "node_f1": 0.1659,
+          "user_turns": 11,
+          "tool_calls": 138
+        },
+        {
+          "qid": "task_031_Mental Health",
+          "file": "task_031_Mental_Health.json",
+          "question": "我需要查询以下和上海地区精神疾病诊疗、抑郁症就诊相关的全部信息，请所有信息对应所属主体清晰呈现，不要混淆：\n1. 首先筛选上海市内全部满足以下条件的三甲及以上医院：设有独立的精神疾病相关科室、开设有精神疾病相关专病门诊、药费支持医保报销。请列出所有符合条件的医院，同步提供每家医院的所在地区、其精神疾病相关科室在复旦版中国医院专科声誉排行榜上的排名。\n2. 针对上述筛选出的每家医院，请明确列出其设置的精神疾病相关独立科室的具体名称，以及…",
+          "triplet_f1": 0.123,
+          "node_f1": 0.1338,
+          "user_turns": 20,
+          "tool_calls": 251
+        },
+        {
+          "qid": "task_043_GamePlotGuide",
+          "file": "task_043_GamePlotGuide.json",
+          "question": "我最近迷上了剧情游戏，刚玩完《黑神话悟空》，现在想了解满足以下所有筛选条件的其他剧情驱动型游戏的相关信息：筛选条件为2020年至今发布、在Metacritic或IGN上评分高于75分、至少具备2个独立结局。麻烦帮我整理这些游戏的下列内容：\n1. 每款符合条件的游戏的基础信息：游戏名称、对应的开发商、上线年份；\n2. 每款游戏官方给出的、用来构建玩家代入感的核心叙事机制分别有哪些；\n3. 每款游戏的攻略流程中，直接决定结局走向的关键转折…",
+          "triplet_f1": 0.1196,
+          "node_f1": 0.1834,
+          "user_turns": 10,
+          "tool_calls": 173
+        },
+        {
+          "qid": "task_032_petcare",
+          "file": "task_032_petcare.json",
+          "question": "I want to learn about pet infectious disease prevention measures (excluding daily care measures) for my dogs and cats, and I need all the following information structured at the granularity matching the corresponding st…",
+          "triplet_f1": 0.1163,
+          "node_f1": 0.1848,
+          "user_turns": 12,
+          "tool_calls": 132
+        },
+        {
+          "qid": "task_003_Maldives vacation",
+          "file": "task_003_Maldives_vacation.json",
+          "question": "我想要找符合所有以下要求的马尔代夫酒店，同时请提供符合条件的酒店的相关详细信息：\n### 筛选条件\n1. 酒店所在的环礁，从Velana国际机场乘坐快艇或者水上飞机前往的行程时间在50分钟以内，且酒店本身符合2026年国际五星级酒店认证标准；\n2. 根据2026年官方发布的信息，酒店所在的岛屿没有登岛年龄限制，同时酒店的客房数量超过75间；\n3. 酒店可提供上岛后的一价全包套餐；\n4. 浮潜相关要求：酒店附近的潜水点在2026年国际浮…",
+          "triplet_f1": 0.114,
+          "node_f1": 0.1512,
+          "user_turns": 19,
+          "tool_calls": 357
+        },
+        {
+          "qid": "task_067_Perming agent and coloring agent",
+          "file": "task_067_Perming_agent_and_coloring_agent.json",
+          "question": "1. First, list all legal compliant categories for household hair dyes and perming/straightening agents under the official regulations of the US FDA and EU cosmetics laws, according to the regulatory classification frame…",
+          "triplet_f1": 0.107,
+          "node_f1": 0.1625,
+          "user_turns": 5,
+          "tool_calls": 80
+        },
+        {
+          "qid": "task_048_company",
+          "file": "task_048_company.json",
+          "question": "我是一名本科计算机专业的应届毕业生，我的需求如下：\n1. 请先筛选出2025年《财富》中国企业500强榜单排名前50、不属于国企和央企、且在上海和北京有正在招聘的校招岗位的公司，列出这些公司的名称、成立年份以及法定代表人。\n2. 从上述筛选出的公司里，再筛选出成立时间在1990年之后的公司，以这些公司的官方公告为准，列出它们2026年3月1日至3月31日期间的所有在招职位类型。\n3. 请列出上述符合所有条件的公司所招聘的技术类、数据类…",
+          "triplet_f1": 0.1025,
+          "node_f1": 0.2182,
+          "user_turns": 11,
+          "tool_calls": 134
+        },
+        {
+          "qid": "task_068_xinfangzhuangxiu",
+          "file": "task_068_xinfangzhuangxiu.json",
+          "question": "I'm planning a whole-house interior renovation project in the U.S., and I need a complete, detailed guide covering every stage of the project from pre-planning to post-completion acceptance, structured to align with U.S…",
+          "triplet_f1": 0.0989,
+          "node_f1": 0.1021,
+          "user_turns": 18,
+          "tool_calls": 307
+        },
+        {
+          "qid": "task_013_Phone",
+          "file": "task_013_Phone.json",
+          "question": "My charger just broke, so I want to do thorough research on Qi2 magnetic wireless chargers sold between 2024 and 2025 to make a smart and safe purchase. Please provide me with all the information that meets my following…",
+          "triplet_f1": 0.0786,
+          "node_f1": 0.1328,
+          "user_turns": 13,
+          "tool_calls": 294
+        },
+        {
+          "qid": "task_099_Maternal Health",
+          "file": "task_099_Maternal_Health.json",
+          "question": "I want to learn pregnancy-related knowledge to better take care of my pregnant wife, and I need the following information clearly organized:\nFirst, tell me how many stages pregnancy can be divided into, including the sp…",
+          "triplet_f1": 0.0773,
+          "node_f1": 0.1036,
+          "user_turns": 10,
+          "tool_calls": 117
+        },
+        {
+          "qid": "task_052_Japan",
+          "file": "task_052_Japan.json",
+          "question": "I'm planning a trip to Japan's Kansai region, and I need to get all the following information to arrange my itinerary:\nFirst, tell me which prefectures are part of the Kansai region, and confirm if these prefectures hav…",
+          "triplet_f1": 0.0695,
+          "node_f1": 0.0808,
+          "user_turns": 20,
+          "tool_calls": 312
+        },
+        {
+          "qid": "task_100_muying",
+          "file": "task_100_muying.json",
+          "question": "I need comprehensive information about postpartum recovery, with the output presented following the structured granularity of evidence-based guideline knowledge triples, covering the following content:\n1. First, based o…",
+          "triplet_f1": 0.0655,
+          "node_f1": 0.0817,
+          "user_turns": 12,
+          "tool_calls": 127
+        },
+        {
+          "qid": "task_066_paoxie",
+          "file": "task_066_paoxie.json",
+          "question": "I'm planning to buy cushioning running shoes recently, and I need the following relevant information organized clearly:\n1. First, based on the running shoe material classification framework issued by the American Colleg…",
+          "triplet_f1": 0.0646,
+          "node_f1": 0.0878,
+          "user_turns": 20,
+          "tool_calls": 300
+        },
+        {
+          "qid": "task_019_Camping Gear",
+          "file": "task_019_Camping_Gear.json",
+          "question": "我想查询以下相关信息，麻烦按照要求筛选后输出对应内容：\n1. 先筛选2023年度亚洲户外装备大奖参选露营类的品牌，列出这些品牌对应的所属公司全称，筛选出公司总部位于中国的户外品牌。\n2. 从上述国产品牌的参选产品中，挑选适合三人去草原看星星使用的帐篷、睡袋、防潮垫三类产品，重量需满足：帐篷重量大于15kg、小于40kg，睡袋重量超过1kg，防潮垫重量小于200g，请列出符合重量要求的睡袋、防潮垫的具体产品名称及对应重量。\n3. 针对上…",
+          "triplet_f1": 0.0612,
+          "node_f1": 0.0973,
+          "user_turns": 19,
+          "tool_calls": 339
+        },
+        {
+          "qid": "task_089_chonglangban",
+          "file": "task_089_chonglangban.json",
+          "question": "I'm a 75kg intermediate surfer planning to go surfing at 1–1.5m beach breaks in Spain, and I need a full surfboard selection guide that covers all the following information, with relevant data taken from ISA official ed…",
+          "triplet_f1": 0.0575,
+          "node_f1": 0.0906,
+          "user_turns": 18,
+          "tool_calls": 271
+        },
+        {
+          "qid": "task_080_Hotel Selection and Comparison",
+          "file": "task_080_Hotel_Selection_and_Comparison.json",
+          "question": "I'm planning a 10-day trip to Bali, during which I will go out to sea to watch dolphins, visit volcanoes and waterfalls, and experience wellness treatments. I need you to help me filter eligible Bali hotels and relevant…",
+          "triplet_f1": 0.0527,
+          "node_f1": 0.0769,
+          "user_turns": 10,
+          "tool_calls": 152
+        },
+        {
+          "qid": "task_064_Myopia",
+          "file": "task_064_Myopia.json",
+          "question": "I'm a myopia patient who has had trouble seeing clearly in daily life for many years, so I want to systematically learn all relevant information about formal, scientific clinical myopia treatment, and I hope you can ans…",
+          "triplet_f1": 0.0488,
+          "node_f1": 0.0794,
+          "user_turns": 15,
+          "tool_calls": 118
+        },
+        {
+          "qid": "task_046_qichebaoxian",
+          "file": "task_046_qichebaoxian.json",
+          "question": "I'm a UK car owner whose car insurance policy is due for renewal soon, and I'm looking to switch to a new insurance provider. I need the following information that strictly meets my requirements:\n1. First, list all insu…",
+          "triplet_f1": 0.0439,
+          "node_f1": 0.0752,
+          "user_turns": 11,
+          "tool_calls": 273
+        },
+        {
+          "qid": "task_053_Chengdu",
+          "file": "task_053_Chengdu.json",
+          "question": "我2026年五一打算去成都游玩，出发前想整理一份符合要求的餐馆清单，请你帮我查询以下信息：\n首先先帮我筛选符合条件的餐馆范围：需包含2025年获评米其林星级的成都餐厅、2025年大众点评成都必吃榜前十的成都餐厅，且这些餐厅都要满足从成都东站出发地铁直达无需换乘的条件。\n针对筛选出的这些餐厅，请帮我同步查询以下信息：\n1. 各餐厅截至2026年4月15日是否正常营业，对应的营业时段分别是什么；\n2. 各餐厅分别属于成都哪个行政区，其中位…",
+          "triplet_f1": 0.0296,
+          "node_f1": 0.0586,
+          "user_turns": 22,
+          "tool_calls": 161
+        },
+        {
+          "qid": "task_060_skin",
+          "file": "task_060_skin.json",
+          "question": "我是一名医学生，现在想要了解一系列皮肤病相关的专业内容，麻烦帮我整理输出：\n首先，皮肤病总体可以分为哪些病种？\n其次，我最近在学习过敏性皮肤病相关知识，请帮我筛选出其中高发病率、且可使用外用药物治疗的疾病，同时给出这些疾病对应的ICD-11编号，以及各自的临床症状；\n另外我还需要了解湿疹相关的详细信息：包括湿疹的发病病因有哪些？患者患上湿疹后有哪些可用的治疗方案？其中外用药物治疗的具体方案是什么，对应的具体用法、用量分别是多少？\n最后…",
+          "triplet_f1": 0.0149,
+          "node_f1": 0.0167,
+          "user_turns": 10,
+          "tool_calls": 65
+        },
+        {
+          "qid": "task_091_Furniture greening",
+          "file": "task_091_Furniture_greening.json",
+          "question": "I'm looking to get some foliage plants for my new home, and I need all the following related information organized clearly following the attached organic foliage plant pest control knowledge graph triple format, making…",
+          "triplet_f1": 0.0134,
+          "node_f1": 0.0253,
+          "user_turns": 3,
+          "tool_calls": 7
+        }
+      ]
+    }
+  }
+}

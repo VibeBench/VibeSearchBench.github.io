@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      (function () {
+        var repo = "/VibeSearchBench.github.io";
+        var path = location.pathname;
+        var href;
+        if (location.hostname.endsWith("github.io") && path.indexOf(repo) === 0) {
+          href = repo + "/";
+        } else if (path.endsWith("/")) {
+          href = "./";
+        } else {
+          var last = path.slice(path.lastIndexOf("/") + 1);
+          href = last.indexOf(".") >= 0 ? path.slice(0, path.lastIndexOf("/") + 1) : path + "/";
+        }
+        var base = document.createElement("base");
+        base.href = href;
+        document.head.insertBefore(base, document.head.firstChild);
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VibeSearchBench — Benchmarking Long-horizon Proactive Search in the Wild</title>
+    <meta
+      name="description"
+      content="VibeSearchBench evaluates LLM agents on vague, multi-turn proactive search with schema-free knowledge graph matching."
+    />
+    <link rel="icon" type="image/png" href="assets/img/smallicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <nav class="nav" id="nav">
+      <div class="container nav-inner">
+        <a class="logo" href="index.html">
+          <img src="assets/img/smallicon.png" alt="" width="32" height="32" />
+          VibeSearchBench
+        </a>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="leaderboard.html">Leaderboard</a></li>
+          <li><a href="tasks.html">Tasks</a></li>
+          <li><a href="https://huggingface.co/papers/2605.27882" target="_blank" rel="noopener">Paper</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a class="btn btn-ghost" href="https://github.com/VibeBench/VibeSearchBench" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn btn-primary" href="https://huggingface.co/datasets/VibeSearchBench/VibeSearchBench" target="_blank" rel="noopener">Dataset</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="page" id="top">
+      <section class="hero">
+        <div class="container hero-inner">
+          <div class="hero-brand">
+            <img
+              class="hero-logo"
+              src="assets/img/logo.png"
+              alt=""
+              width="250"
+              height="242"
+            />
+            <h1 class="hero-title">
+              <span class="title-vibe">Vibe</span><span class="title-search">Search</span><span class="title-bench">Bench</span>
+            </h1>
+            <p class="hero-tagline">
+              <span class="tagline-accent" aria-hidden="true"></span>
+              Proactive Search · Evolving Intent · Structured Knowledge
+              <span class="tagline-accent tagline-accent-right" aria-hidden="true"></span>
+            </p>
+            <div class="hero-affiliation">
+              <div class="hero-affiliation-logos">
+                <a
+                  class="hero-affiliation-link"
+                  href="https://studio.dots.ai/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    class="hero-affiliation-logo hero-affiliation-logo-rednote"
+                    src="assets/img/logo-rednote.png"
+                    alt="Rednote Hilab"
+                    width="667"
+                    height="174"
+                  />
+                </a>
+                <span class="hero-affiliation-sep" aria-hidden="true">&</span>
+                <a
+                  class="hero-affiliation-link"
+                  href="https://unipat.ai/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    class="hero-affiliation-logo hero-affiliation-logo-unipat"
+                    src="assets/img/logo-unipat.png"
+                    alt="Unipat AI"
+                    width="3072"
+                    height="800"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="hero-stats">
+            <div class="h-stat">
+              <div class="h-stat-n">200</div>
+              <div class="h-stat-l">Tasks</div>
+            </div>
+            <div class="h-stat">
+              <div class="h-stat-n">20</div>
+              <div class="h-stat-l">Domains</div>
+            </div>
+            <div class="h-stat">
+              <div class="h-stat-n" id="hero-user-turns">—</div>
+              <div class="h-stat-l">Avg user turns</div>
+            </div>
+            <div class="h-stat">
+              <div class="h-stat-n" id="hero-tool-turns">—</div>
+              <div class="h-stat-l">Avg tool turns</div>
+            </div>
+            <div class="h-stat">
+              <div class="h-stat-n" id="hero-best-f1">—</div>
+              <div class="h-stat-l">Best F1</div>
+            </div>
+          </div>
+          <p class="hero-sub">
+            <strong class="hero-sub-em"
+              >By far the
+              <span class="hero-sub-kw hero-sub-kw-hardest">hardest</span>
+              <span class="hero-sub-kw hero-sub-kw-verifiable">verifiable</span>
+              <span class="hero-sub-kw hero-sub-kw-horizon">long-horizon</span>
+              search benchmark</strong
+            >
+            — 200 bilingual tasks benchmarking proactive search in the wild with persona-driven
+            progressive disclosure and schema-free knowledge graph evaluation.
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="leaderboard.html">View Leaderboard</a>
+            <a class="btn btn-outline" href="tasks.html">Explore Trajectories</a>
+            <a class="btn btn-ghost" href="https://huggingface.co/papers/2605.27882" target="_blank" rel="noopener">Read Paper</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="section-title">What is <span>VibeSearch</span>?</h2>
+            <p class="section-sub">
+              Real users rarely specify full intent upfront. VibeSearch captures bidirectional
+              convergence: agents interleave partial results with follow-up questions while users
+              progressively disclose needs. VibeSearchBench pairs each task with a persona simulator
+              and evaluates schema-free knowledge graphs via graph matching (Precision / Recall / F1).
+            </p>
+          </div>
+          <div class="hl-grid">
+            <article class="card hl-card">
+              <h3>VibeSearch-Pro</h3>
+              <p>
+                100 professional research scenarios — literature reviews, market analysis, technical
+                due diligence across specialized domains.
+              </p>
+              <span class="tag">Professional</span>
+            </article>
+            <article class="card hl-card">
+              <h3>VibeSearch-Daily</h3>
+              <p>
+                100 daily-life search tasks — shopping, travel, lifestyle decisions with vague initial
+                queries and evolving preferences.
+              </p>
+              <span class="tag">Daily-life</span>
+            </article>
+            <article class="card hl-card">
+              <h3>Evaluation</h3>
+              <p>
+                Progressive-disclosure user simulator, multi-turn tool use (search / visit / code),
+                and LLM-as-judge graph matching on predicted vs. ground-truth triples.
+              </p>
+              <span class="tag">Graph F1</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>
+          VibeSearchBench · Rednote-Hilab &amp; Unipat AI ·
+          <a href="https://github.com/VibeBench/VibeSearchBench">Code</a> ·
+          <a href="https://huggingface.co/datasets/VibeSearchBench/VibeSearchBench">Data</a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>

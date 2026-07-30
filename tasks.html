@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      (function () {
+        var repo = "/VibeSearchBench.github.io";
+        var path = location.pathname;
+        var href;
+        if (location.hostname.endsWith("github.io") && path.indexOf(repo) === 0) {
+          href = repo + "/";
+        } else if (path.endsWith("/")) {
+          href = "./";
+        } else {
+          var last = path.slice(path.lastIndexOf("/") + 1);
+          href = last.indexOf(".") >= 0 ? path.slice(0, path.lastIndexOf("/") + 1) : path + "/";
+        }
+        var base = document.createElement("base");
+        base.href = href;
+        document.head.insertBefore(base, document.head.firstChild);
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tasks — VibeSearchBench</title>
+    <meta
+      name="description"
+      content="Browse VibeSearchBench multi-turn agent trajectories and tool use."
+    />
+    <link rel="icon" type="image/png" href="assets/img/smallicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/vis-network@9.1.9/styles/vis-network.min.css"
+    />
+  </head>
+  <body>
+    <nav class="nav" id="nav">
+      <div class="container nav-inner">
+        <a class="logo" href="index.html">
+          <img src="assets/img/smallicon.png" alt="" width="32" height="32" />
+          VibeSearchBench
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="leaderboard.html">Leaderboard</a></li>
+          <li><a href="tasks.html" class="active">Tasks</a></li>
+          <li><a href="https://huggingface.co/papers/2605.27882" target="_blank" rel="noopener">Paper</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a class="btn btn-ghost" href="https://github.com/VibeBench/VibeSearchBench" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn btn-primary" href="https://huggingface.co/datasets/VibeSearchBench/VibeSearchBench" target="_blank" rel="noopener">Dataset</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="page page-sub page-tasks" id="top">
+      <section class="section page-sub-main">
+        <div class="container">
+          <header class="page-intro-block">
+            <h1 class="page-intro-title">Task <span>Visualization</span></h1>
+            <p class="section-sub page-intro-sub">
+              Multi-turn trajectories with user simulation, tool calls (search / visit / python), and KG extraction.
+              Trajectories and final extractions shown here are from Claude Opus 4.6.
+            </p>
+          </header>
+
+          <div id="demo-banner" class="demo-banner" hidden></div>
+
+          <div class="tasks-layout">
+            <aside class="task-sidebar">
+              <div class="task-filters">
+                <label class="task-filter-field">
+                  <span class="task-filter-label">Subset</span>
+                  <select id="subset-select">
+                    <option value="pro">VibeSearch-Pro</option>
+                    <option value="daily">VibeSearch-Daily</option>
+                  </select>
+                </label>
+                <label class="task-filter-field">
+                  <span class="task-filter-label">Language</span>
+                  <select id="language-select">
+                    <option value="english" selected>English</option>
+                    <option value="chinese">中文 Chinese</option>
+                    <option value="all">All</option>
+                  </select>
+                </label>
+                <label class="task-filter-field">
+                  <span class="task-filter-label">Search</span>
+                  <input
+                    type="search"
+                    id="task-search"
+                    placeholder="Filter by keyword…"
+                    autocomplete="off"
+                  />
+                </label>
+              </div>
+              <p class="task-subset-status" id="task-subset-status" aria-live="polite"></p>
+              <div class="task-list" id="task-list" role="listbox" aria-label="Tasks"></div>
+            </aside>
+            <article class="task-viewer" id="task-viewer">
+              <div class="empty-state">Select a task to view its trajectory.</div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>
+          VibeSearchBench · Rednote-Hilab &amp; Unipat AI ·
+          <a href="https://github.com/VibeBench/VibeSearchBench">Code</a> ·
+          <a href="https://huggingface.co/datasets/VibeSearchBench/VibeSearchBench">Data</a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.9/dist/purify.min.js"></script>
+    <script src="assets/js/app.js?v=pro-trajs"></script>
+  </body>
+</html>

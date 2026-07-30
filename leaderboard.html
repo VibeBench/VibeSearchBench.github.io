@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      (function () {
+        var repo = "/VibeSearchBench.github.io";
+        var path = location.pathname;
+        var href;
+        if (location.hostname.endsWith("github.io") && path.indexOf(repo) === 0) {
+          href = repo + "/";
+        } else if (path.endsWith("/")) {
+          href = "./";
+        } else {
+          var last = path.slice(path.lastIndexOf("/") + 1);
+          href = last.indexOf(".") >= 0 ? path.slice(0, path.lastIndexOf("/") + 1) : path + "/";
+        }
+        var base = document.createElement("base");
+        base.href = href;
+        document.head.insertBefore(base, document.head.firstChild);
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leaderboard — VibeSearchBench</title>
+    <meta
+      name="description"
+      content="VibeSearchBench model rankings and interaction statistics."
+    />
+    <link rel="icon" type="image/png" href="assets/img/smallicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <nav class="nav" id="nav">
+      <div class="container nav-inner">
+        <a class="logo" href="index.html">
+          <img src="assets/img/smallicon.png" alt="" width="32" height="32" />
+          VibeSearchBench
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="leaderboard.html" class="active">Leaderboard</a></li>
+          <li><a href="tasks.html">Tasks</a></li>
+          <li><a href="https://huggingface.co/papers/2605.27882" target="_blank" rel="noopener">Paper</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a class="btn btn-ghost" href="https://github.com/VibeBench/VibeSearchBench" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn btn-primary" href="https://huggingface.co/datasets/VibeSearchBench/VibeSearchBench" target="_blank" rel="noopener">Dataset</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="page page-sub" id="top">
+      <section class="section page-sub-main">
+        <div class="container">
+          <header class="page-intro-block">
+            <h1 class="page-intro-title"><span>Leaderboard</span></h1>
+            <p class="section-sub page-intro-sub" id="lb-subtitle">
+              Triplet F1 on VibeSearchBench (Table 3). Toggle framework and subset; click column headers to sort.
+            </p>
+          </header>
+
+          <div class="card">
+            <div class="lb-toolbar">
+              <div class="tab-bar" id="framework-tabs">
+                <button type="button" class="tab-btn active" data-framework="react">ReAct</button>
+                <button type="button" class="tab-btn" data-framework="openclaw">OpenClaw</button>
+              </div>
+              <div class="tab-bar" id="subset-tabs">
+                <button type="button" class="tab-btn active" data-subset="avg">Average</button>
+                <button type="button" class="tab-btn" data-subset="pro">Pro</button>
+                <button type="button" class="tab-btn" data-subset="daily">Daily</button>
+              </div>
+            </div>
+            <div class="table-wrap">
+              <table id="leaderboard-table">
+                <thead>
+                  <tr>
+                    <th data-sort="rank">#</th>
+                    <th data-sort="name">Model</th>
+                    <th data-sort="f1">F1 ↑</th>
+                    <th data-sort="p">Precision</th>
+                    <th data-sort="r">Recall</th>
+                  </tr>
+                </thead>
+                <tbody id="leaderboard-body"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 class="card-section-title">Interaction statistics</h3>
+            <div class="table-wrap">
+              <table id="interaction-table">
+                <thead>
+                  <tr>
+                    <th>Model</th>
+                    <th># Asst turns</th>
+                    <th># User turns</th>
+                    <th>Asst / User</th>
+                    <th># Compact</th>
+                  </tr>
+                </thead>
+                <tbody id="interaction-body"></tbody>
+              </table>
+            </div>
+            <p class="section-sub card-footnote">
+              Trajectory visualizations on the
+              <a href="tasks.html">Tasks</a> page use <span id="traj-model-label">—</span>.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>
+          VibeSearchBench · Rednote-Hilab &amp; Unipat AI ·
+          <a href="https://github.com/VibeBench/VibeSearchBench">Code</a> ·
+          <a href="https://huggingface.co/datasets/VibeSearchBench/VibeSearchBench">Data</a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>

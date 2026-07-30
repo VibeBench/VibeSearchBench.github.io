@@ -1,0 +1,988 @@
+{
+  "qid": "task_035_F1",
+  "subset": "daily",
+  "sample_idx": 1,
+  "question": "I've been following Formula 1 quite a lot lately, and I'd like to get the following related information, with all details provided at the same granularity as the standard F1 team knowledge graph entries:\n- First, give me a full list of all current teams on the F1 grid, and mark which of these teams have had a #1 Constructors' Champion driver drive for them either currently or in the past. For every one of these current F1 teams, also provide their specific headquarters location, founding year, the country they represent, their iconic team colours, and their official car numbers.\n- Next, for Red Bull Racing specifically, share the details of its team principal and technical director: include each of their nationalities, professional backgrounds, their start dates in their respective roles at the team, and how many team championships they have won during their tenure at Red Bull Racing. Also, tell me who Red Bull Racing's title sponsor, technical sponsors, apparel sponsor, and all other major sponsors are for the 2026 season.\n- I also want to know all F1 teams (both past and present) that Laurent Mekies has worked for.\n- Finally, please tell me who Scuderia Ferrari's number one driver is.",
+  "termination": "answer",
+  "metrics": {
+    "node_precision": 0.1979,
+    "node_recall": 0.4218,
+    "node_f1": 0.2694,
+    "triplet_precision": 0.1909,
+    "triplet_recall": 0.2891,
+    "triplet_f1": 0.23
+  },
+  "stats": {
+    "user_turns": 10,
+    "assistant_turns": 48,
+    "tool_calls": 70
+  },
+  "response_preview": "```json\n[\n  {\"head\": \"McLaren\", \"relation\": \"is on\", \"tail\": \"2025 F1 grid\"},\n  {\"head\": \"Mercedes\", \"relation\": \"is on\", \"tail\": \"2025 F1 grid\"},\n  {\"head\": \"Red Bull Racing\", \"relation\": \"is on\", \"tail\": \"2025 F1 grid\"},\n  {\"head\": \"Scuderia Ferrari\", \"relation\": \"is on\", \"tail\": \"2025 F1 grid\"},\n  {\"head\": \"Williams\", \"relation\": \"is on\", \"tail\": \"2025 F1 grid\"},\n  {\"head\": \"Racing Bulls\", \"relation\": \"is on\", \"tail\": \"2025 F1 grid\"},\n  {\"head\": \"Aston Martin\", \"relation\": \"is on\", \"tail\": \"2025 F1 grid\"},\n  {\"head\": \"Alpine\", \"relation\": \"is on\", \"tail\": \"2025 F1 grid\"},\n  {\"head\": \"Haas F1 Team\", \"relation\": \"is on\", \"tail\": \"2025 F1 grid\"},\n  {\"head\": \"Kick Sauber\", \"relation\": \"is on\", \"tail\": \"2025 F1 grid\"},\n  {\"head\": \"McLaren\", \"relation\": \"2025 driver\", \"tail\": \"Lando Norris\"},\n  {\"head\": \"McLaren\", \"relation\": \"2025 driver\", \"tail\": \"Oscar Piastri\"},\n  {\"head\": \"Mercedes\", \"relation\": \"2025 driver\", \"tail\": \"George Russell\"},\n  {\"head\": \"Mercedes\", \"relation\": \"2025 driver\", \"tail\": \"Kimi Antonelli\"},\n  {\"head\": \"Red Bull Racing\", \"relation\": \"2025 driver (all rounds)\", \"tail\": \"Max Verstappen\"},\n  {\"head\": \"Red Bull Racing\", \"relation\": \"2025 driver (Rounds 1–2)\", \"tail\": \"Liam Lawson\"},\n  {\"head\": \"Red Bull Racing\", \"relation\": \"2025 driver (Rounds 3–24)\", \"tail\": \"Yuki Tsunoda\"},\n  {\"head\": \"Scuderia Ferrari\", \"relation\": \"2025 driver\", \"tail\": \"Charles Leclerc\"},\n  {\"head\": \"Scuderia Ferrari\", \"relation\": \"2025 driver\", \"tail\": \"Lewis Hamilton\"},\n  {\"head\": \"\n\n… [18650 chars truncated]",
+  "turns": [
+    {
+      "type": "user",
+      "content": "I've been getting really into Formula 1 lately, can you help me with some questions I have about F1 teams, their key staff and drivers?"
+    },
+    {
+      "type": "assistant",
+      "thinking": "The user is interested in Formula 1 and has questions about F1 teams, key staff, and drivers. Let me do some initial research to get the latest information about the current F1 season, and then I can help answer their specific questions.",
+      "content": "That's awesome — Formula 1 is such a thrilling sport! I'd love to help you out. Let me grab some up-to-date information on the current F1 teams, drivers, and key personnel so I'm ready to answer your questions accurately.",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_011zEzPMzQnxcTVs3N23Lj9b",
+          "name": "search",
+          "args": {
+            "query": "Formula 1 2025 teams drivers and team principals",
+            "topn": 10
+          },
+          "result": "A Google search for 'Formula 1 2025 teams drivers and team principals' found 10 results:\n\n## Web Results\n\n0. [Who are the 2025 F1 team principals? | Formula 1®](https://www.formula1.com/en/latest/article/who-are-the-2025-f1-team-principals.2GSAsHzQG3pHubcnxBOV8t)\nDate published: Jan 23, 2025\nHere is all you need to know about the 2025 team principals for each squad, with the full list at the bottom of the page.\n\n1. [The 2025 F1 Principals For Each Team - Forbes](https://www.forbes.com/sites/yaraelshebiny/2025/05/07/who-are-the-f1-team-principals-for-each-team-in-2025/)\nDate published: May 7, 2025\n2025 F1 Team Principals · 1. Mercedes: Toto Wolff · 2. Red Bull: Laurent Mekies · 3. Ferrari: Fred Vasseur · 4. McLaren: Andrea Stella · 5. Aston ...\n\n2. [F1 Racing Teams 2026 - Ferrari, Mercedes, Red Bull and more](https://www.formula1.com/en/teams)\nF1 Teams 2026 ; Mercedes. George Russell ; Ferrari. Charles Leclerc ; McLaren. Lando Norris ; Haas F1 Team. Esteban Ocon ; Alpine. Pierre Gasly ...\n\n3. [2025 Formula One World Championship - Wikipedia](https://en.wikipedia.org/wiki/2025_Formula_One_World_Championship)\nEach team unveiled its car liveries for the season while its drivers and team principals were interviewed in front of a live audience. Additionally, other ...\n\n4. [F1 team bosses choose their top 10 drivers of 2025 - Reddit](https://www.reddit.com/r/formula1/comments/1pyj31w/f1_team_bosses_choose_their_top_10_drivers_of_2025/)\nDate published: Dec 29, 2025\nOnly 8 team principals participated, missing Red Bull and Ferrari. I wonder if they'll release the points tally this year like the other years.\n\n5. [Meet The Team Bosses! - YouTube](https://www.youtube.com/watch?v=INEnJWb-xi8)\nDate published: Apr 8, 2025\n... ask an F1 driver! | F1 Unpacked. Sky Sports F1•1.6M views · 17:30 · Go to channel FORMULA 1 · Meet The 2025 Formula 1 Drivers! FORMULA 1•2.4M ...\n\n6. [How team bosses, drivers, Motorsport and fans ranked the top 10 F1 ...](https://www.motorsport.com/f1/news/top-10-drivers-f1-2025/10787584/)\nDate published: Jan 4, 2026\nTop 10 2025 F1 drivers ; 1st, Netherlands Verstappen, Netherlands Verstappen ; 2nd, United Kingdom Norris, United Kingdom Norris ; 3rd, Australia ...\n\n7. [2025 TEAMS' STANDINGS - F1](https://www.formula1.com/en/results/2025/team)\nPos. Team, Pts. 1, McLaren, 833. 2, Mercedes, 469. 3, Red Bull Racing, 451. 4, Ferrari, 398. 5, Williams, 137\n\n… [658 chars truncated]"
+        },
+        {
+          "id": "toolu_vrtx_01BBPvcgeGmx7o3FrqjNDtUk",
+          "name": "search",
+          "args": {
+            "query": "F1 2025 season current standings teams",
+            "source": "news",
+            "topn": 5
+          },
+          "result": "A Google search for 'F1 2025 season current standings teams' found 5 results:\n\n## Web Results\n\n0. [2025 TEAMS' STANDINGS - F1](https://www.formula1.com/en/results/2025/team)\nPos. Team, Pts. 1, McLaren, 833. 2, Mercedes, 469. 3, Red Bull Racing, 451. 4, Ferrari, 398. 5, Williams, 137. 6, Racing Bulls, 92. 7, Aston Martin, 89.\n\n1. [2025 DRIVERS' STANDINGS - F1](https://www.formula1.com/en/results/2025/drivers)\nPos. Driver, Nationality, Team, Pts. 1, Lando NorrisNOR, GBR, McLaren, 423. 2, Max VerstappenVER, NED, Red Bull Racing, 421. 3, Oscar PiastriPIA, AUS ...\n\n2. [2025 Formula One World Championship - Wikipedia](https://en.wikipedia.org/wiki/2025_Formula_One_World_Championship)\nLando Norris won his first World Drivers' Championship, driving for McLaren-Mercedes. · Defending champion Max Verstappen finished runner-up by two points, ...\n\n3. [Formula 1 2025 results and standings for top drivers and teams](https://www.motorsport.com/f1/standings/2025/)\nDrivers ; 11, Germany N. Hulkenberg Sauber, 51 ; 12, France I. Hadjar Red Bull Racing, 51 ; 13, United Kingdom O. Bearman Haas F1 Team, 41 ; 14, New Zealand L.\n\n4. [F1 driver standings 2025 - RacingNews365](https://racingnews365.com/f1/standings/2025/drivers)\nF1 driver standings 2025 ; 15. nzl. Liam Lawson · Racing Bulls ; 16. can. Lance Stroll · Aston Martin ; 17. jpn. Yuki Tsunoda · Red Bull ; 18. fra. Pierre Gasly."
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "content": "Great, I've got a solid overview of the current F1 landscape! Here's a quick snapshot of what I found:\n\n### 🏎️ 2025 F1 Season Overview\n\n**Constructors' Standings (2025):**\n1. **McLaren** — 833 pts\n2. **Mercedes** — 469 pts\n3. **Red Bull Racing** — 451 pts\n4. **Ferrari** — 398 pts\n5. **Williams** — 137 pts\n6. **Racing Bulls** — 92 pts\n7. **Aston Martin** — 89 pts\n\n**Drivers' Championship:**\n- **Lando Norris** (McLaren) won the 2025 WDC with 423 pts\n- **Max Verstappen** (Red Bull) was runner-up by just 2 points (421 pts)\n\n**Some Notable Team Principals:**\n- **McLaren** — Andrea Stella\n- **Mercedes** — Toto Wolff\n- **Red Bull** — Laurent Mekies\n- **Ferrari** — Fred Vasseur\n- **Aston Martin** — Andy Cowell\n\n---\n\nNow, go ahead and fire away with your questions! Whether it's about:\n- 🏁 Specific teams, their history, or structure\n- 👤 Drivers (current or past)\n- 🔧 Team principals and key technical staff\n- 📊 Standings, stats, or records\n- 🔄 Recent driver/team changes\n\nI'm ready to dig in and find answers for you! What would you like to know?"
+    },
+    {
+      "type": "user",
+      "content": "First off, could you tell me all the teams that are currently on the F1 grid?"
+    },
+    {
+      "type": "assistant",
+      "thinking": "The user wants to know all the current F1 teams on the grid. From my earlier search, I have some information, but let me get the complete and current list. The 2025 season has already concluded based on the standings, and it looks like the official F1 site is already showing 2026 info. Let me get the full list of all 10 teams.\n\nFrom the search results I already have, I can see:\n1. McLaren\n2. Mercedes\n3. Red Bull Racing\n4. Ferrari\n5. Williams\n6. Racing Bulls\n7. Aston Martin\n8. Haas\n9. Alpine\n10. Sauber\n\nBut let me verify this is complete and accurate for the current grid. The standings showed 7 teams, but there should be 10. Let me search for the complete list.",
+      "content": "Let me pull up the complete list of all 10 teams currently on the F1 grid for you!",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_017G5NDRJosfC75EnUxMEaND",
+          "name": "visit",
+          "args": {
+            "url": [
+              "https://www.formula1.com/en/results/2025/team"
+            ],
+            "goal": "Get the full list of all 10 F1 teams in the 2025 constructors' standings"
+          },
+          "result": "The useful information in https://www.formula1.com/en/results/2025/team for user goal Get the full list of all 10 F1 teams in the 2025 constructors' standings as follows:\n\nEvidence in page:\n2025 TEAMS' STANDINGS\n\nNewsVideosThe state of play at FerrariF1 Clash updated for 2026 with new featuresBettingMiami Grand Prix betting guide and latest oddsUnlockedInside the extreme approach of Newey's Aston Martin design\n\n11:35\n\nF1 Stars vs. Tiny Cars - who will be our remote-control champion?\n\n11:32\n\nIsack Hadjar talks with Lawrence Barretto on his rise through the Red Bull ranks\n\nMore newsMore videos\n\nSummary:\nThe provided webpage content does not include the full list of 10 F1 teams in the 2025 constructors' standings. While the headline '2025 TEAMS' STANDINGS' suggests the information is available, the actual standings or team list is not present in the visible content. The page instead features related news items, videos, and previews about teams like Ferrari, Aston Martin, and Red Bull, but no structured or complete 2025 constructors' standings are displayed.\n"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01HDUpqKXVkptrzH2kGaQDup",
+          "name": "search",
+          "args": {
+            "query": "F1 2025 all 10 teams complete list constructors standings",
+            "topn": 5
+          },
+          "result": "A Google search for 'F1 2025 all 10 teams complete list constructors standings' found 5 results:\n\n## Web Results\n\n0. [2025 F1 Constructors Championship Standings](https://www.formulaonehistory.com/results/2025-f1-constructors-championship-standings/)\n2025 F1 Constructors Championship Standings ; 1, McLaren Mercedes, 833 ; 2, Mercedes, 469 ; 3, Red Bull Racing Honda RBPT, 451 ; 4, Ferrari, 398.\n\n1. [2025 Formula One World Championship - Wikipedia](https://en.wikipedia.org/wiki/2025_Formula_One_World_Championship)\nEntries ; France · BWT Alpine F1 Team · Alpine-Renault ; United Kingdom. Aston Martin Aramco F1 Team · Aston Martin Aramco-Mercedes ; Italy. Scuderia Ferrari HP ...\n\n2. [The final Constructors' standings for the 2025 F1 season! - Facebook](https://www.facebook.com/SportskeedaF1/posts/the-final-constructors-standings-for-the-2025-f1-season-/1378155454321375/)\nDate published: Dec 7, 2025\nHere are the current F1-2025 Constructors' Championship standings after the Hungarian Grand Prix: - 1. McLaren: 559 points - 2. Ferrari: 260 ...\n\n3. [F1 constructor standings 2025 - RacingNews365](https://racingnews365.com/f1/standings/2025/teams)\nF1 constructor standings 2025 ; 5. Williams. esp. Carlos Sainz. tha. Alexander Albon ; 6. Racing Bulls. fra. Isack Hadjar. nzl. Liam Lawson ; 7. Aston Martin. esp.\n\n4. [2025 F1 World Drivers and Constructors Championship standings ...](https://www.reddit.com/r/formula1/comments/1kpll6w/2025_f1_world_drivers_and_constructors/)\nDate published: May 18, 2025\n2025 F1 World Drivers and Constructors Championship standings following the Emilia-Romagna Grand Prix. Statistics."
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_014ZsRKnB8wq5FVSy7cDKrfX",
+          "name": "visit",
+          "args": {
+            "url": [
+              "https://www.formulaonehistory.com/results/2025-f1-constructors-championship-standings/"
+            ],
+            "goal": "Get the complete list of all 10 F1 teams in the 2025 constructors' standings with their full names"
+          },
+          "result": "The useful information in https://www.formulaonehistory.com/results/2025-f1-constructors-championship-standings/ for user goal Get the complete list of all 10 F1 teams in the 2025 constructors' standings with their full names as follows:\n\nEvidence in page:\nMcLaren sealed the 2025 Constructors’ Championship with six races still to go, wrapping it up at the 2025 Singapore Grand Prix after a strong result from Lando Norris and Oscar Piastri. The win guaranteed their dominance in the current era, coming off the back of their 2024 triumph, which had already ended a 26-year drought since their previous constructors’ title in 1998.\n\nThis 2025 success made it back-to-back Constructors’ Championships for McLaren, a historic return to when the team boasted multiple titles through the 1980s and early 1990s. It was the first time since 1991 that they had successfully defended a Constructors’ crown.\n\nSummary:\nThe provided webpage content confirms McLaren as the 2025 Formula 1 Constructors' Champion, having secured the title with six races remaining after a strong performance at the Singapore Grand Prix. This marks their second consecutive Constructors' Championship, following their 2024 victory, and represents the first time since 1991 that McLaren has successfully defended the title. However, the content does not include the complete list of all 10 F1 teams in the 2025 constructors' standings with their full names.\n"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01N67dfzsn3cir9M4Ymbr9Pn",
+          "name": "visit",
+          "args": {
+            "url": [
+              "https://racingnews365.com/f1/standings/2025/teams"
+            ],
+            "goal": "Get the complete list of all 10 F1 teams in the 2025 constructors' standings"
+          },
+          "result": "The useful information in https://racingnews365.com/f1/standings/2025/teams for user goal Get the complete list of all 10 F1 teams in the 2025 constructors' standings as follows:\n\nEvidence in page:\nThe provided webpage content does not include the complete list of all 10 F1 teams in the 2025 constructors' standings. Instead, it features a series of news headlines related to F1, such as Max Verstappen's potential move to Formula E, Red Bull's situation, F1 championship concerns, FIA statements on engine rules, and team-related stories involving McLaren, Ferrari, and Red Bull. However, no explicit list of the 2025 constructors' teams is present in the text.\n\nSummary:\nThe webpage content does not contain the complete list of the 10 F1 teams in the 2025 constructors' standings. While it includes various news items about teams like Red Bull, McLaren, and Ferrari, as well as regulatory updates from the FIA, it lacks any direct reference to the full roster of teams participating in the 2025 season.\n"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_011twjeG5eHFLegog9ePuEAr",
+          "name": "visit",
+          "args": {
+            "url": [
+              "https://en.wikipedia.org/wiki/2025_Formula_One_World_Championship"
+            ],
+            "goal": "Get the complete list of all 10 F1 teams (constructors) and their drivers for the 2025 season"
+          },
+          "result": "The useful information in https://en.wikipedia.org/wiki/2025_Formula_One_World_Championship for user goal Get the complete list of all 10 F1 teams (constructors) and their drivers for the 2025 season as follows:\n\nEvidence in page:\nEntrant                                   Constructor                    Chassis        Power unit                    Race drivers\n                                                                                                                      No.   Driver name         Rounds\n BWT Alpine F1 Team[5]                    Alpine-Renault                 A525[6]        Renault E-Tech RE25[7]        7      Jack Doohan        1–6\n                                                                                                                      43     Franco Colapinto   7–24\n                                                                                                                      10     Pierre Gasly       All\n Aston Martin Aramco F1 Team[8]           Aston Martin Aramco-Mercedes   AMR25[9]       Mercedes-AMG F1 M16[10][11]   14     Fernando Alonso    All\n                                                                                                                      18     Lance Stroll       All[a]\n Scuderia Ferrari HP[13]                  Ferrari                        SF-25[14]      Ferrari 066/15[7]             16     Charles Leclerc    All\n                                                                                                                      44     Lewis Hamilton     All\n MoneyGram Haas F1 Team[15]               Haas-Ferrari                   VF-25[16]      Ferrari 066/15[17]            31     Esteban Ocon       All\n                                                                                                                      87     Oliver Bearman     All\n Stake F1 Team Kick Sauber[18][b]         Kick Sauber-Ferrari            C45[21]        Ferrari 066/15[22][23]        5     Gabriel Bortoleto   All\n                                                                                                                      27     Nico Hülkenberg    All\n McLaren Formula 1 Team                   McLaren-Mercedes               MCL39[24]      Mercedes-AMG F1 M16[25]       4      Lando Norris       All\n                                                                                                           \n\n… [2336 chars truncated]"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "content": "Here are all **10 teams** currently on the F1 grid for the 2025 season:\n\n| # | Team | Drivers |\n|---|------|---------|\n| 1 | **McLaren** | Lando Norris & Oscar Piastri |\n| 2 | **Mercedes** | George Russell & Kimi Antonelli |\n| 3 | **Red Bull Racing** | Max Verstappen & Yuki Tsunoda |\n| 4 | **Ferrari** | Charles Leclerc & Lewis Hamilton |\n| 5 | **Williams** | Alexander Albon & Carlos Sainz Jr. |\n| 6 | **Racing Bulls** (formerly AlphaTauri) | Isack Hadjar & Liam Lawson |\n| 7 | **Aston Martin** | Fernando Alonso & Lance Stroll |\n| 8 | **Alpine** | Pierre Gasly & Franco Colapinto |\n| 9 | **Haas** | Esteban Ocon & Oliver Bearman |\n| 10 | **Kick Sauber** | Nico Hülkenberg & Gabriel Bortoleto |\n\nA few interesting notes:\n- **Yuki Tsunoda** and **Liam Lawson** actually swapped between Red Bull and Racing Bulls during the season.\n- **Jack Doohan** started the year at Alpine but was replaced by **Franco Colapinto** from Round 7 onwards.\n- **McLaren** dominated the Constructors' Championship, clinching it with six races to spare!\n\nWhat else would you like to know? 😊"
+    },
+    {
+      "type": "user",
+      "content": "Great, now for each of these current teams, can you mark which ones have had a #1 Constructors' Champion driver drive for them either right now or at any point in the past? Also, I need a few more key details for every current team too: where their headquarters is located, what year they were founded, the country they officially represent, their iconic team colors, and their official car numbers."
+    },
+    {
+      "type": "assistant",
+      "thinking": "The user wants a comprehensive breakdown for each of the 10 current F1 teams with:\n1. Whether a #1 Constructors' Champion driver has ever driven for them (past or present)\n2. Headquarters location\n3. Year founded\n4. Country they represent\n5. Iconic team colors\n6. Official car numbers\n\nWait, I need to clarify what they mean by \"#1 Constructors' Champion driver.\" This is a bit ambiguous. They might mean:\n- A World Drivers' Champion (someone who has won the WDC)\n- Or specifically something about Constructors' Champions\n\nI think they mean World Drivers' Champions - drivers who have won the Formula 1 World Drivers' Championship. Let me search for this information for each team.\n\n\nI'm interpreting this as asking whether each team has ever had a World Drivers' Champion on their roster, so I'll need to compile the history of championship winners and match them against the current teams.",
+      "content": "That's a big request — let me gather all the details for each of the 10 teams! I'll research their histories, headquarters, founding years, and whether any World Drivers' Champions have ever raced for them.",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01YSDMvmow4tjixby7iGcUAt",
+          "name": "search",
+          "args": {
+            "query": "McLaren F1 team headquarters founded year country car numbers 2025",
+            "topn": 5
+          },
+          "result": "A Google search for 'McLaren F1 team headquarters founded year country car numbers 2025' found 5 results:\n\n## Web Results\n\n0. [McLaren - Wikipedia](https://en.wikipedia.org/wiki/McLaren)\nFounded by Bruce McLaren in 1963, the team won its first Grand Prix at the 1968 Belgian Grand Prix, and took its first Formula One championships in 1974.\n\n1. [The numbers behind McLaren's 2025 Constructors' Championship win](https://www.mclaren.com/racing/formula-1/2025/the-numbers-behind-mclarens-2025-constructors-championship-win/)\nDate published: Oct 8, 2025\nAlongside the 12 victories, McLaren drivers have taken 10 second places and six third places. This is already a McLaren record, beating the 25 ...\n\n2. [All the 2025 F1 driver numbers confirmed in full](https://www.formula1.com/en/latest/article/all-the-2025-f1-driver-numbers-confirmed-in-full.MQatOGQ4HR0i8kg4lPkP4)\nDate published: Jan 10, 2025\nBelow are the full confirmed numbers for the 2025 F1 grid, including for the rookies as they embark on their first full Formula 1 seasons.\n\n3. [McLaren has become the first Formula 1 team to reveal its 2025 car ...](https://www.facebook.com/PTVCSports/posts/mclaren-has-become-the-first-formula-1-team-to-reveal-its-2025-car-the-mcl39-wit/1057452879759997/)\nDate published: Feb 13, 2025\nMcLaren has become the first Formula 1 team to reveal its 2025 car, the MCL39, with Lando Norris and Oscar Piastri completing a shakedown at Silverstone.\n\n4. [McLaren F1 - Wikipedia](https://en.wikipedia.org/wiki/McLaren_F1)\nProduction began in 1992 and ended in 1998; in all, 106 cars were manufactured, with some variations in the design. Although not originally designed as a race ..."
+        },
+        {
+          "id": "toolu_vrtx_01AmLZCvGqv3XLPUuqjfX9UZ",
+          "name": "search",
+          "args": {
+            "query": "Mercedes F1 team headquarters founded year country car numbers 2025",
+            "topn": 5
+          },
+          "result": "A Google search for 'Mercedes F1 team headquarters founded year country car numbers 2025' found 5 results:\n\n## Web Results\n\n0. [Mercedes-Benz in Formula One - Wikipedia](https://en.wikipedia.org/wiki/Mercedes-Benz_in_Formula_One)\nMercedes-Benz, a German automotive brand of the Mercedes-Benz Group, has been involved in Formula One as both team owner and engine manufacturer for various ...\n\n1. [Brackley Headquarters - Mercedes-AMG PETRONAS F1 Team](https://www.mercedesamgf1.com/team/location/brackley)\nThis state-of-the-art centre in Brackley is home to the Mercedes-AMG PETRONAS Formula One Team, providing cutting-edge facilities to produce world-leading cars.\n\n2. [Mercedes – F1 Racing Team – Russell, Antonelli](https://www.formula1.com/en/teams/mercedes)\nMercedes' modern F1 revival started with the creation of a works squad for 2010 - the platform for a meteoric rise up the Grand Prix order.\n\n3. [Mercedes-AMG PETRONAS F1 Team](https://www.mercedesamgf1.com/team)\nThe Mercedes-AMG PETRONAS Formula One Team, based across Technology Centres at Brackley and Brixworth in the United Kingdom, brings together more than 1,000 ...\n\n4. [Everything You Need to Know About 2025 F1 season - Mercedes F1](https://www.mercedesamgf1.com/news/f1-2025-everything-you-need-to-know)\nDate published: Mar 6, 2025\nFrom new rules and new racers, to Sprints and everything in between. For all the important details about F1 2025, we've got you covered."
+        },
+        {
+          "id": "toolu_vrtx_01PUftFhBcx5QeA6ThXJcv56",
+          "name": "search",
+          "args": {
+            "query": "Red Bull Racing F1 team headquarters founded year country car numbers 2025",
+            "topn": 5
+          },
+          "result": "A Google search for 'Red Bull Racing F1 team headquarters founded year country car numbers 2025' found 5 results:\n\n## Web Results\n\n0. [Red Bull Racing - Wikipedia](https://en.wikipedia.org/wiki/Red_Bull_Racing)\nIt is one of two Formula One teams owned by conglomerate Red Bull GmbH, the other being Racing Bulls. The Red Bull Racing team was managed by Christian Horner ...\n\n1. [Red Bull – F1 Racing Team – Verstappen, Hadjar](https://www.formula1.com/en/teams/red-bull-racing)\nRed Bull were no strangers to F1 - as sponsors - prior to formally entering as a works team in 2004. Nonetheless, the scale of their success over the ...\n\n2. [2025 Red Bull Racing Car unveil: Design and drivers](https://www.redbull.com/us-en/oracle-red-bull-racing-2025-car-launch)\nDate published: Feb 19, 2025\n1. Oracle Red Bull Racing take center stage · 2. Team: Oracle Red Bull Racing RB21 · 3. Visa Cash App Racing Bulls F1 Team play to the crowd · 4.\n\n3. [About Us | Oracle Red Bull Racing Formula 1 Team](https://www.redbullracing.com/int-en/about)\nFrom its inception in 2005, Red Bull Racing has grown from being Formula One's biggest disruptive forces to become one of the most successful teams in the ...\n\n4. [Red Bull Racing: F1 drivers, cars, engines, stats & facts](https://www.f1-fansite.com/f1-teams/red-bull-racing/)\nDate published: Apr 10, 2026\nSee all Red Bull F1 stats & facts: ✔️Check out race wins, drivers, titles, photos, cars & history of the famous Austrian racing energy drink ..."
+        },
+        {
+          "id": "toolu_vrtx_01Bj3W8pJTZQm5uiKqZotkAf",
+          "name": "search",
+          "args": {
+            "query": "Ferrari F1 team headquarters founded year country car numbers 2025",
+            "topn": 5
+          },
+          "result": "A Google search for 'Ferrari F1 team headquarters founded year country car numbers 2025' found 5 results:\n\n## Web Results\n\n0. [Scuderia Ferrari - Wikipedia](https://en.wikipedia.org/wiki/Scuderia_Ferrari)\nThe team was founded by Enzo Ferrari in 1929, initially to race cars produced by Alfa Romeo. By 1947, Ferrari had begun building its own cars. Among its ...\n\n1. [2025 | History of Scuderia Ferrari Formula 1](https://www.ferrari.com/en-EN/formula1/year-2025)\nThe 2025 season represented a year of transition and preparation for Scuderia Ferrari HP, as the team laid the foundations for a new technical and sporting ...\n\n2. [The family tree of F1's 11 teams and how they came to be](https://www.formula1.com/en/latest/article/the-family-tree-f1-11-teams-and-how-they-came-to-be.2QBA1PPMf0bC8mp2xxqZeq)\nDate published: Mar 1, 2026\nWith 11 teams on the grid for the first time in a decade, F1.com explores the origins of every squad. Mar 01, 2026 10:04am UTC.\n\n3. [What is the founding date of Scuderia Ferrari? - Facebook](https://www.facebook.com/groups/FullRaces/posts/1532815897356316/)\nDate published: Nov 16, 2024\nOn November 16, 1929, exactly 95 years ago, the Scuderia Ferrari racing team was founded.\n\n4. [16 November 1929: the foundation of Scuderia Ferrari](https://www.ferrari.com/en-EN/magazine/articles/foundation-scuderia-ferrari-formula-one-team)\nDate published: Feb 11, 2019\nScuderia Ferrari, founded to buy Alfa Romeo racing cars and take part in the races on the national sports calendar and in the calendar of the 'Associazione ..."
+        },
+        {
+          "id": "toolu_vrtx_01S8BxvSnLUbzEH7t5AXLy9P",
+          "name": "search",
+          "args": {
+            "query": "Williams F1 team headquarters founded year country car numbers 2025",
+            "topn": 5
+          },
+          "result": "A Google search for 'Williams F1 team headquarters founded year country car numbers 2025' found 5 results:\n\n## Web Results\n\n0. [Williams Racing](https://en.wikipedia.org/wiki/Williams_Racing)\nIt was founded by Frank Williams and Patrick Head. The team was formed in 1977 after Frank Williams's earlier unsuccessful F1 operation, Frank Williams Racing ...\n\n1. [Grove: The home of Atlassian Williams F1 Team](https://www.williamsf1.com/articles/8b059f3c-a18b-4d32-8334-f277c45e9082/grove-the-home-of-atlassian-williams-f1-team?srsltid=AfmBOoqFwAqLcwQ0YJ73qLD5zu5yk-u9ZoZOB-UeK01bAFX7hu-k_EnD)\nAtlassian Williams F1 Team has called Oxfordshire home since our inaugural 1977 campaign. From car design and build to team logistics, everything starts ...\n\n2. [Where is Atlassian Williams Racing Located?](https://www.williamsf1.com/articles/5ea6d258-b32d-4bd4-974e-e66c520b7ade/where-is-atlassian-williams-racing-located?srsltid=AfmBOorsoyKjYcaWQnQmPmrSBCIHhkPiMyTq5S5ruoFwGHPPxqIbHTQH)\nOur factory is in Grove, a village around 20 kilometres (12 miles) south-west of Oxford. It's here that our race cars are built, maintained, and prepared for ...\n\n3. [48 years since Williams entered F1 as a constructor, and ...](https://www.facebook.com/Formula1/posts/48-years-since-williams-entered-f1-as-a-constructor-and-so-many-liveries-later-/1192932313051659/)\nDate published: Feb, 2026\nFrancis Owen Garbett Williams CBE 16 April 1942 – 28 November 2021 was a British businessman, racing car driver, and the founder of the Williams ...\n\n4. [Atlassian Williams Racing Unveils Its 2025 Formula 1 ...](https://www.williamsf1.com/articles/8576c1c3-5ef0-44f3-bc6f-7e2b0073599f/atlassian-williams-racing-unveils-its-2025-formula-1-livery-and-celebrates-new-title-partner?srsltid=AfmBOoqiPREAj4CMkMNx7mb3eAwCvKWUGlJK8fe85h5Z27ZVL_b_XP3c)\nLive at the O2 tonight, Atlassian Williams Racing launched the 2025 season livery which will adorn the FW47, driven by two of the grid's most formidable ..."
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_019XmNaryVrTTZwxtqpYp517",
+          "name": "search",
+          "args": {
+            "query": "Racing Bulls F1 team headquarters founded year history AlphaTauri Toro Rosso",
+            "topn": 5
+          },
+          "result": "A Google search for 'Racing Bulls F1 team headquarters founded year history AlphaTauri Toro Rosso' found 5 results:\n\n## Web Results\n\n0. [Racing Bulls - Wikipedia](https://en.wikipedia.org/wiki/Racing_Bulls)\nRacing history · Toro Rosso era (2006 - 2019) and AlphaTauri era (2020-2023) · Works Honda RBPT engines (2024–2025) · Ford-badged RBPT engines (2026 onwards).\n\n1. [Scuderia Toro Rosso - Wikipedia](https://en.wikipedia.org/wiki/Scuderia_Toro_Rosso)\nThe team was established after Paul Stoddart sold his remaining interest in the Minardi team at the end of 2005 to Red Bull's owner, Dietrich Mateschitz, and ...\n\n2. [AlphaTauri | F1 Team | Team History & Info](https://www.formulaonehistory.com/teams/alphatauri/)\nThe team first entered Formula One in 1985 as Minardi and was acquired by Red Bull in 2006. In September 2019, the team announced its intention to change its ...\n\n3. [Toro Rosso, AlphaTauri, RB and Racing Bulls F1 drivers - RaceFans](https://www.racefans.net/f1-information/f1-teams/scuderia-toro-rosso/toro-rosso-alphatauri-rb-f1-drivers/)\nHere is a list of every driver who started an F1 race for Red Bull's junior team. It was originally known as Toro Rosso, then rebranded as AlphaTauri in 2020.\n\n4. [Scuderia Toro Rosso / AlphaTauri / Racing Bulls • Team History & Info](https://www.motorsportmagazine.com/database/teams/scuderia-toro-rosso-alphatauri/)\nFor the 2025 season, the team formerly known as AlphaTauri and then rebranded to RB in 2024 underwent another name change to “Racing Bulls,” officially dropping ..."
+        },
+        {
+          "id": "toolu_vrtx_018VGb5mT3Q8JewveHsjchtL",
+          "name": "search",
+          "args": {
+            "query": "Aston Martin F1 team headquarters founded year Silverstone history",
+            "topn": 5
+          },
+          "result": "A Google search for 'Aston Martin F1 team headquarters founded year Silverstone history' found 5 results:\n\n## Web Results\n\n0. [Aston Martin in Formula One](https://en.wikipedia.org/wiki/Aston_Martin_in_Formula_One)\nThe team is headquartered in Silverstone and has previously raced under various different names, starting with Jordan Grand Prix in 1991. Contents. 1 History.\n\n1. [Heritage](https://www.astonmartinf1.com/en-GB/heritage)\nAt the start of the 1920s, the dream of Grand Prix racing in Europe came true when co-founder Lionel Martin was introduced to Count Louis Zborowski.\n\n2. [Aston Martin at 110](https://www.astonmartin.com/en-gb/our-world/brand-stories/aston-martin-at-110)\nFast-forward to 1950. Silverstone hosted the first ever Formula One Grand Prix, and by then, Aston Martin was already a global name. The DB3S (1953) ...\n\n3. [Inside the new Aston Martin Aramco Formula 1 Team factory](https://www.raceteq.com/articles/2025/01/inside-aston-martin-aramco-formula-1-team-factory)\nDate published: Jan 28, 2025\nAston Martin was using a factory that was built by Jordan in 1991 and then used by Midland, Spyker, Force India, and Racing Point - spawning ...\n\n4. [[Aston Martin Aramco F1 Team] How it started vs how it's ...](https://www.reddit.com/r/formula1/comments/1i8tb0s/aston_martin_aramco_f1_team_how_it_started_vs_how/)\nDate published: 2025\nAston Martin F1 team headquarters details. Aston Martin F1 ... Walked past the Aston Martin factory on the way out of Silverstone last year."
+        },
+        {
+          "id": "toolu_vrtx_01RozkcKUJmyzmxNuyAxEJ42",
+          "name": "search",
+          "args": {
+            "query": "Alpine F1 team headquarters founded year Enstone history",
+            "topn": 5
+          },
+          "result": "A Google search for 'Alpine F1 team headquarters founded year Enstone history' found 5 results:\n\n## Web Results\n\n0. [Alpine F1 Team - Wikipedia](https://en.wikipedia.org/wiki/Alpine_F1_Team)\nThe team is based in Enstone, Oxfordshire, England and competes with a French licence. The team currently fields Pierre Gasly and Franco Colapinto as ...\n\n1. [Team Enstone - Wikipedia](https://en.wikipedia.org/wiki/Team_Enstone)\n\"Team Enstone\" is the colloquial name for a Formula One team based in Enstone, Oxfordshire, which has won seven Formula One World Championships.\n\n2. [Alpine | F1 Team | Team History & Info](https://www.formulaonehistory.com/teams/alpine/)\nApline F1 Team debuted in F1 in 2021 and was formerly named Renault F1 Team. The team are based at Enstone in the United Kingdom.\n\n3. [F1 Origins | Alpine's French Heritage - YouTube](https://www.youtube.com/watch?v=1nyyLhoj-bc)\nDate published: Oct 12, 2023\nAn idea born in France, a team based in England, this is the story of how Alpine came to be in F1! For more F1® videos, visit https://www.\n\n4. [Team Enstone History Question : r/AlpineF1Team - Reddit](https://www.reddit.com/r/AlpineF1Team/comments/1lm7rwu/team_enstone_history_question/)\nDate published: Jun 27, 2025\nEven though they started out as Toleman in 1981. All the other teams on the grid, who had multiple ownership and name changes have their ..."
+        },
+        {
+          "id": "toolu_vrtx_01EoLD4aQAxwUapJJG236C8m",
+          "name": "search",
+          "args": {
+            "query": "Haas F1 team headquarters founded year country car numbers",
+            "topn": 5
+          },
+          "result": "A Google search for 'Haas F1 team headquarters founded year country car numbers' found 5 results:\n\n## Web Results\n\n0. [Haas F1 Team - Wikipedia](https://en.wikipedia.org/wiki/Haas_F1_Team)\nHaas is headquartered in Kannapolis, North Carolina, United States, 31 mi (50 km) from Charlotte, alongside sister team and NASCAR entrant Haas Factory Team, ...\n\n1. [Team Haas - Wikipedia](https://en.wikipedia.org/wiki/Team_Haas)\nTeam Haas may refer to: Haas Lola (1984–1987): U.S.-based Formula One team owned by Carl Haas with FORCE-designed Lola-built cars sponsored by Beatrice ...\n\n2. [Haas | F1 Team | Team History & Info](https://www.formulaonehistory.com/teams/haas/)\nHaas has been a part of F1 since 2016. It was founded by the industrialist Gene Haas and is headquartered in the United States.\n\n3. [Haas - RaceFans](https://www.racefans.net/f1-information/f1-teams/haas/)\nGene Haas first announced his plans to enter a Formula 1 team in 2014. He was granted an entry for the 2016 season, making Haas F1 Team the first new outfit ...\n\n4. [Haas Formula 1 Team • Team History & Info | Motorsport Database](https://www.motorsportmagazine.com/database/teams/haas-formula-1-team/)\nOriginally a sponsor of Hendrick Motorsports, Gene Haas formed his own NASCAR team (Haas CNC Racing) in 2003. He enticed Tony Stewart to join six years later as ..."
+        },
+        {
+          "id": "toolu_vrtx_01DXMoGFg8pyPQM2RhpmR2Ts",
+          "name": "search",
+          "args": {
+            "query": "Kick Sauber F1 team headquarters founded year Switzerland history",
+            "topn": 5
+          },
+          "result": "A Google search for 'Kick Sauber F1 team headquarters founded year Switzerland history' found 5 results:\n\n## Web Results\n\n0. [Sauber Motorsport - Wikipedia](https://en.wikipedia.org/wiki/Sauber_Motorsport)\nSauber Motorsport AG was a Swiss motorsport engineering company and race team. Founded by Peter Sauber as PP Sauber AG in 1970, the team produced sports ...\n\n1. [Sauber | F1 Team | Team History & Info](https://www.formulaonehistory.com/teams/sauber/)\nA Swiss motorsport engineering firm, Sauber Motorsport, was established in 1970 by Peter Sauber. The team were initially involved in hill climbing and the World ...\n\n2. [Sauber | Formula 1 Wiki | Fandom](https://f1.fandom.com/wiki/Sauber)\nStake F1 Team Kick Sauber was a Swiss Formula One team. Founded in 1970 by Peter Sauber, the team entered F1 in 1993 and experienced a moderate amount of ...\n\n3. [32 years of the Sauber F1 Team: Time for one last dance](https://www.dive-bomb.com/article/32-years-of-the-sauber-f1-team-it-s-time-for-one-last-dance)\nDate published: Jan 27, 2025\nFounded in 1970 by former electrician and driver Peter Sauber, the team's early years were an obscure experience in the Swiss motorsport scene.\n\n4. [F1 Origins | The Story Of Sauber - YouTube](https://www.youtube.com/watch?v=efmKN2UzDsQ)\nDate published: Oct 27, 2022\nThe Swiss-based team have nurtured the careers of some of F1's most talented drivers, have a well-earned reputation for routinely punching ..."
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01PFa2BsQZ7pqEVi4pyoCwUW",
+          "name": "visit",
+          "args": {
+            "url": [
+              "https://en.wikipedia.org/wiki/Racing_Bulls",
+              "https://en.wikipedia.org/wiki/Alpine_F1_Team",
+              "https://en.wikipedia.org/wiki/Haas_F1_Team"
+            ],
+            "goal": "Get details about each team: headquarters location, year founded/entered F1, country they represent, team colors, and list of World Drivers' Champions who have driven for them"
+          },
+          "result": "The useful information in https://en.wikipedia.org/wiki/Racing_Bulls for user goal Get details about each team: headquarters location, year founded/entered F1, country they represent, team colors, and list of World Drivers' Champions who have driven for them as follows:\n\nEvidence in page:\nRacing Bulls S.p.A., competing as Visa Cash App Racing Bulls Formula One Team (shortened to Racing Bulls[8] or VCARB), is an Italian Formula One racing team and constructor that has been competing since the 2024 season. It is one of two Formula One constructors owned by Austrian conglomerate Red Bull GmbH, the other being Red Bull Racing. The team is based in Faenza and has a base in Milton Keynes near its sister team.[9]\n\nKnown as Scuderia Toro Rosso from 2006 to 2019 and Scuderia AlphaTauri from 2020 to 2023, the team was rebranded to RB for the 2024 season,[10] and then switched to Racing Bulls in 2025.[11][12]\n\nThe team traces its roots to Minardi, which competed in Formula One from 1985 to 2005, before being bought by Red Bull in 2006 to become the junior team to Red Bull Racing.\n\nSummary:\nRacing Bulls, officially known as Visa Cash App Racing Bulls Formula One Team, is an Italian Formula One team based in Faenza, Italy, with a secondary base in Milton Keynes, England. The team entered Formula One in 2024 as the successor to Scuderia AlphaTauri, which itself evolved from Scuderia Toro Rosso (founded in 2006). The team's lineage traces back to Minardi, which competed from 1985 to 2005. Racing Bulls represents Italy in Formula One. The team has not yet won a World Drivers' Championship, and no World Drivers' Champion has driven for Racing Bulls as of the 2026 season.\n\n=======\nThe useful information in https://en.wikipedia.org/wiki/Alpine_F1_Team for user goal Get details about each team: headquarters location, year founded/entered F1, country they represent, team colors, and list of World Drivers' Champions who have driven for them as follows:\n\nSummary:\n{\n  \"evidence\": \"Alpine F1 Team\\n\\nFrench-owned Formula One racing team\\n\\nFull name            BWT Alpine Formula One Team[1]\\nBase                  * Enstone, Oxfordshire, England (Chassis design and\\n                        assembly)\\n                      * Viry-Châtillon, France (Power unit; 2021–2025)[2][3]\\nTeam principal(s)     * Flavio Briatore (Team Principal)[4]\\n                      * Steve Nielsen (Managing \n\n… [19515 chars truncated]"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01UKpg5qmGmFxvugqWDJx5LD",
+          "name": "visit",
+          "args": {
+            "url": [
+              "https://en.wikipedia.org/wiki/Sauber_Motorsport",
+              "https://en.wikipedia.org/wiki/Red_Bull_Racing",
+              "https://en.wikipedia.org/wiki/Aston_Martin_in_Formula_One"
+            ],
+            "goal": "Get details: headquarters location, year founded/entered F1, country they represent, team colors, and list of World Drivers' Champions who have driven for them at any point"
+          },
+          "result": "The useful information in https://en.wikipedia.org/wiki/Sauber_Motorsport for user goal Get details: headquarters location, year founded/entered F1, country they represent, team colors, and list of World Drivers' Champions who have driven for them at any point as follows:\n\nEvidence in page:\nHeadquarters: Hinwil, canton of Zürich, Switzerland\nYear founded: 15 May 1970\nYear entered F1: 1993\nCountry they represent: Switzerland\nTeam colors: The new livery, unveiled in Valencia on 17 January 2006, was the traditional BMW M blue and white with red flashes. (This refers to the BMW Sauber era; earlier and later eras had different liveries, including grey, red, and the 2024-2025 Stake F1 Team Kick Sauber livery with red, black, and yellow elements.)\nWorld Drivers' Champions who have driven for them: The text states that Sauber has not won a World Drivers' Championship. The team's only race victory came in the 2008 Canadian Grand Prix with Robert Kubica, and the team's best results were second in the 2007 World Constructors' Championship. No driver who competed for Sauber has ever won the Formula One World Drivers' Championship.\n\nSummary:\nSauber Motorsport is headquartered in Hinwil, canton of Zürich, Switzerland, and was founded on 15 May 1970. The team entered Formula One in 1993 and represents Switzerland. Their team colors have varied over time: the BMW Sauber era featured the traditional BMW M blue and white with red flashes; earlier and later periods saw different liveries, including grey and the red, black, and yellow scheme used by Stake F1 Team Kick Sauber in 2024–2025. Despite fielding notable drivers such as Robert Kubica, who won the 2008 Canadian Grand Prix, and achieving a best finish of second in the 2007 Constructors' Championship, Sauber has never won a World Drivers' Championship. No driver who competed for Sauber has ever claimed the Formula One World Drivers' Championship title.\n\n=======\nThe useful information in https://en.wikipedia.org/wiki/Red_Bull_Racing for user goal Get details: headquarters location, year founded/entered F1, country they represent, team colors, and list of World Drivers' Champions who have driven for them at any point as follows:\n\nEvidence in page:\nHeadquarters: Milton Keynes, Buckinghamshire, England\nYear founded/entered F1: 2005 (first entry at the 2005 Australian Grand Prix)\nCountry they represent: England (based in Engla\n\n… [3260 chars truncated]"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_011kginWkNd6sEoqNYCFqJ3o",
+          "name": "search",
+          "args": {
+            "query": "World Drivers Champions who drove for McLaren F1 all time list",
+            "topn": 5
+          },
+          "result": "A Google search for 'World Drivers Champions who drove for McLaren F1 all time list' found 5 results:\n\n## Web Results\n\n0. [Honours - McLaren](https://www.mclaren.com/racing/heritage/honours/)\nDate published: Dec 7, 2025\n1974. Emerson Fittipaldi (All), Denny Hulme (All), Mike Hailwood (1-11), David Hobbs (12-13), Jochen Mass (14-15). M23 ; 1984. Niki Lauda, Alain ...\n\n1. [McLaren Trophies: Drivers' World Championship ​](https://www.mclaren.com/racing/heritage/trophies/mclaren-trophies-drivers-world-championship-2008/)\nDate published: Mar 22, 2024\nFormula 1 Drivers' Championships. 1974. Emerson Fittipaldi. M23. 1976. James Hunt. M23. 1984. Niki Lauda. MP4/2. 1985. Alain Prost. MP4/2B.\n\n2. [List of Formula One World Drivers' Champions - Wikipedia](https://en.wikipedia.org/wiki/List_of_Formula_One_World_Drivers%27_Champions)\nThe title has been won by drivers from Scuderia Ferrari 15 times between 9 drivers, more than any other team, followed by McLaren with 13 titles between 8 ...\n\n3. [Every McLaren World Champion Driver](https://www.facebook.com/groups/220047001347956/posts/25855525367373434/)\nDate published: Dec 7, 2025\nAyrton Senna, one of the greatest Formula 1 drivers of all time, won all three of his world championships (1988, 1990, 1991) driving for McLaren ...\n\n4. [Who has won the F1 title for McLaren? Every driver champion from ...](https://www.motorsportmagazine.com/articles/single-seaters/f1/who-has-won-the-f1-title-for-mclaren-every-driver-champion/)\nDate published: Dec 7, 2025\nLando Norris has become McLaren's first F1 world champion for 17 years – here's who's done it before for the famous team."
+        },
+        {
+          "id": "toolu_vrtx_013N8YFw7hHJEe4fwjm7EMsu",
+          "name": "search",
+          "args": {
+            "query": "World Drivers Champions who drove for Mercedes F1 all time list",
+            "topn": 5
+          },
+          "result": "A Google search for 'World Drivers Champions who drove for Mercedes F1 all time list' found 5 results:\n\n## Web Results\n\n0. [List of Formula One World Drivers' Champions - Wikipedia](https://en.wikipedia.org/wiki/List_of_Formula_One_World_Drivers%27_Champions)\n... Mercedes. Juan Manuel Fangio won the World Drivers' Championship five times with Alfa Romeo, Maserati, Mercedes and Ferrari. He held the record from 1955 ...\n\n1. [Mercedes-Benz in Formula One - Wikipedia](https://en.wikipedia.org/wiki/Mercedes-Benz_in_Formula_One)\nTwelve Constructors' and fourteen Drivers' Championships have been won with Mercedes-Benz engines.\n\n2. [Only 5 drivers have won a race driving for Mercedes Benz : r/formula1](https://www.reddit.com/r/formula1/comments/wnzljz/only_5_drivers_have_won_a_race_driving_for/)\nDate published: Aug 14, 2022\nJuan Manual Fangio: 5x WC, 24 GP wins, 8 with Mercedes · Stirling Moss: 16 GP wins, 1 with Mercedes · Nico Rosberg: 2016 F1 Champion, 23 wins, all ...\n\n3. [Mercedes' Top 10 F1 & Grand Prix Drivers of All Time - YouTube](https://www.youtube.com/watch?v=T9cM2lJ6OjU)\nDate published: Jan 26, 2023\n... World War. From Lewis Hamilton to Stirling Moss, Valtteri Bottas, Juan Manuel Fangio and more, we take a look at the top 10 Mercedes drivers ...\n\n4. [Legends of motorsport: the history of F1 at Mercedes-Benz](https://www.mercedes-benz.com.au/passengercars/brand/mercedes-me-magazine/performance/articles/legends-of-motorsport-history-of-f1.html?srsltid=AfmBOoqFIa_iEdD4REB1ls8n8gVnl36y9hT1ij3JGDcpcnMMthRW7t7R)\nFrom Juan Manuel Fangio to Lewis Hamilton, Mercedes-Benz has nurtured some of the greatest driving talents F1 has ever seen."
+        },
+        {
+          "id": "toolu_vrtx_01Fk2DngfodXcQ87ES1Q9PCf",
+          "name": "search",
+          "args": {
+            "query": "World Drivers Champions who drove for Ferrari F1 all time list",
+            "topn": 5
+          },
+          "result": "A Google search for 'World Drivers Champions who drove for Ferrari F1 all time list' found 5 results:\n\n## Web Results\n\n0. [Every Formula 1 driver who won a race for Ferrari since 1951](https://rossoautomobili.com/blogs/magazine/every-formula-1-driver-who-won-a-race-for-ferrari)\nDate published: Nov 20, 2025\nJuan Manuel Fangio, Luigi Musso, Giancarlo Baghetti, Mario Andretti, Nigel Mansell, Kimi Räikkönen and Fernando Alonso all won on their first ...\n\n1. [All the winners of the World Drivers Championship with Ferrari (from ...](https://www.reddit.com/r/formula1/comments/1e2fin9/all_the_winners_of_the_world_drivers_championship/)\nDate published: Jul 13, 2024\nAnd considering how many times Ferrari has fumbled, 15 WDCs is all they have to show for their 75 year history in F1.\n\n2. [Scuderia Ferrari History](https://www.ferrari.com/en-EN/formula1/history)\nThe journey begins ; 2007. Kimi Räikkönen ; 2000 - 2001 - 2002 - 2003 - 2004. Michael Schumacher.\n\n3. [List of Formula One World Drivers' Champions - Wikipedia](https://en.wikipedia.org/wiki/List_of_Formula_One_World_Drivers%27_Champions)\nJuan Manuel Fangio won the World Drivers' Championship five times with Alfa Romeo, Maserati, Mercedes and Ferrari. He held the record from 1955 until 2003 ...\n\n4. [Ferrari drivers and their world championship titles - Facebook](https://www.facebook.com/groups/559439304090309/posts/7627189747315194/)\nDate published: Feb 3, 2024\nEveryone dreams of becoming a FERRARI driver ❤️ 18 WDC's in one picture ❤️‍ Ferrari drivers and their achievements discussed among F1 fans."
+        },
+        {
+          "id": "toolu_vrtx_01GymLkPLs2URpismBcGFvCg",
+          "name": "search",
+          "args": {
+            "query": "World Drivers Champions who drove for Williams F1 all time list",
+            "topn": 5
+          },
+          "result": "A Google search for 'World Drivers Champions who drove for Williams F1 all time list' found 5 results:\n\n## Web Results\n\n0. [5 world champions who wore Williams colours Here's a look at the ...](https://www.facebook.com/SportskeedaF1/posts/5-world-champions-who-wore-williams-colours-heres-a-look-at-the-title-winners-wh/1412631154207138/)\nDate published: Jan 20, 2026\nJones/K. Rosberg/Piquet/Mansell/Prost/Hill/Villeneuve are the W.D.C.'s for Williams.Other W.D.C.'s who drove for Williams at one stage ...\n\n1. [Every driver to win a World Championship with Williams - GPblog](https://www.gpblog.com/en/general/every-driver-to-win-a-world-championship-with-williams.html)\nDate published: Jul 30, 2024\nWilliams are a historic team, and their drivers won the world title on seven occasions. GPblog lists you the occasions where a Williams driver was crowned ...\n\n2. [7 Drivers, who won Williams Racing, 7 Driver Championships. - Reddit](https://www.reddit.com/r/formula1/comments/im2f5d/7_drivers_who_won_williams_racing_7_driver/)\nDate published: Sep 3, 2020\nFour of the seven left Williams at the end of their title winning season (Piquet, Mansell, Prost, Hill).\n\n3. [Williams | F1 Team | Team History & Info](https://www.formulaonehistory.com/teams/williams/)\nWilliams Drivers' Champions ; Nigel Mansell · British · 1992 ; Alain Prost · French · 1993 ; Damon Hill · British · 1996 ; Jacques Villeneuve · Canadian · 1997 ...\n\n4. [Williams - Year by Year | Formula 1®](https://www.formula1.com/en/information/williams-year-by-year.6wHlJglT3USpmIbETtAYzW)\nDamon Hill wins the drivers' championship for Williams and the team take their eighth constructors' title. Damon Hill, Grand Prix of France, Magny-Cours, 28 ..."
+        },
+        {
+          "id": "toolu_vrtx_01X5ka1fHiHLeZH7ofLLMJ2B",
+          "name": "search",
+          "args": {
+            "query": "World Drivers Champions who drove for Alpine Renault Benetton Toleman F1 history",
+            "topn": 5
+          },
+          "result": "A Google search for 'World Drivers Champions who drove for Alpine Renault Benetton Toleman F1 history' found 5 results:\n\n## Web Results\n\n0. [Benetton Formula - Wikipedia](https://en.wikipedia.org/wiki/Benetton_Formula)\nRacing history · BMW (1986) and Ford (1987–1994) era · Renault works era (1995–1997) · Mecachrome-assembled Supertec era (1998–2000) · Renault ownership (2000–2001).\n\n1. [From Toleman, to Benetton, to Renault, to Lotus and now Alpine ...](https://www.facebook.com/groups/formulaonefans/posts/8613388858777390/)\nDate published: Oct 16, 2024\nName the 10 best drivers to drove for the Enstone based team Except Senna, Schumacher, Alonso, these are obvious.\n\n2. [Team History: Alpine - The Fastest Sector](https://thefastestsector.com/2025/03/06/team-history-alpine/)\nDate published: Mar 6, 2025\nJenson Button, who later became a World Champion, drove for Benetton in 2001 before moving on to success elsewhere. Robert Kubica also had a ...\n\n3. [Toleman | F1 Team | Team History & Info](https://www.formulaonehistory.com/teams/toleman/)\nAyrton Senna: Arguably the most famous driver to have emerged from the Toleman team, Senna drove for them during the 1984 season. His performances in this ...\n\n4. [Toleman - Wikipedia](https://en.wikipedia.org/wiki/Toleman)\nIt participated in Formula One between 1981 and 1985, competing in 70 Grands Prix. Today, it is best known for giving Ayrton Senna his Formula One debut."
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01CbU7jRG6du2rNnFvjkJuUV",
+          "name": "visit",
+          "args": {
+            "url": [
+              "https://www.formula1.com/en/latest/article/all-the-2025-f1-driver-numbers-confirmed-in-full.MQatOGQ4HR0i8kg4lPkP4"
+            ],
+            "goal": "Get the complete list of all 2025 F1 driver numbers for every team"
+          },
+          "result": "The useful information in https://www.formula1.com/en/latest/article/all-the-2025-f1-driver-numbers-confirmed-in-full.MQatOGQ4HR0i8kg4lPkP4 for user goal Get the complete list of all 2025 F1 driver numbers for every team as follows:\n\nEvidence in page:\nThe full list of driver numbers for the 2025 F1 grid\nBelow are the full confirmed numbers for the 2025 F1 grid, including for the rookies as they embark on their first full Formula 1 seasons…\n\nAlpine\n\nAston Martin\n\nFerrari\n\nHaas\n\nKick Sauber\n\nMcLaren\n\nMercedes\n\nRacing Bulls\n\nRed Bull\n\nWilliams\n\nSummary:\nThe complete list of confirmed 2025 F1 driver numbers across all teams — Alpine, Aston Martin, Ferrari, Haas, Kick Sauber, McLaren, Mercedes, Racing Bulls, Red Bull, and Williams — has been released. This includes the numbers for all drivers, featuring several rookies making their first full seasons in Formula 1. While the specific driver-number pairings are not detailed in this excerpt, the full list is available in the original article, with each driver retaining their chosen number for their career, in line with F1's long-standing numbering rules.\n"
+        },
+        {
+          "id": "toolu_vrtx_011vgZPTYfDFFtpV22bSBL6p",
+          "name": "visit",
+          "args": {
+            "url": [
+              "https://www.mclaren.com/racing/heritage/honours/"
+            ],
+            "goal": "Get the complete list of all World Drivers' Champions who drove for McLaren"
+          },
+          "result": "The useful information in https://www.mclaren.com/racing/heritage/honours/ for user goal Get the complete list of all World Drivers' Champions who drove for McLaren as follows:\n\nEvidence in page:\nFormula 1 Drivers' Championships\n1974                               Emerson Fittipaldi   M23\n1976                               James Hunt           M23\n1984                               Niki Lauda           MP4/2\n1985                               Alain Prost          MP4/2B\n1986                               Alain Prost          MP4/2C\n1988                               Ayrton Senna         MP4/4\n1989                               Alain Prost          MP4/5\n1990                               Ayrton Senna         MP4/5B\n1991                               Ayrton Senna         MP4/6\n1998                               Mika Häkkinen        MP4-13\n1999                               Mika Häkkinen        MP4-14\n2008                               Lewis Hamilton       MP4-23\n2025                               Lando Norris         MCL39\n\nSummary:\nThe complete list of World Drivers' Champions who drove for McLaren includes: Emerson Fittipaldi (1974), James Hunt (1976), Niki Lauda (1984), Alain Prost (1985, 1986, 1989), Ayrton Senna (1988, 1990, 1991), Mika Häkkinen (1998, 1999), Lewis Hamilton (2008), and Lando Norris (2025).\n"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_019eUMhkntiPuS8ArTN6NWRJ",
+          "name": "search",
+          "args": {
+            "query": "World Drivers Champions who drove for Aston Martin Jordan Force India Racing Point F1",
+            "topn": 5
+          },
+          "result": "A Google search for 'World Drivers Champions who drove for Aston Martin Jordan Force India Racing Point F1' found 5 results:\n\n## Web Results\n\n0. [Racing Point F1 Team - Wikipedia](https://en.wikipedia.org/wiki/Racing_Point_F1_Team)\nThe team's drivers for the 2020 season were Sergio Pérez and Lance Stroll. The team rebranded to Aston Martin for the 2021 Formula One season. The Racing Point ...\n\n1. [Every Jordan/Force India/Racing Point F1 driver ranked - The Race](https://www.the-race.com/formula-1/every-jordan-force-india-racing-point-f1-driver-ranked/)\nDate published: Apr 11, 2021\nEvery Jordan/Force India/Racing Point F1 driver ranked · 40 Ivan Capelli · 39 Marco Apicella · 38 Aguri Suzuki · 37 Emanuele Naspetti · 36 Zsolt ...\n\n2. [Every Jordan / Force India / Racing Point F1 driver ranked ... - Reddit](https://www.reddit.com/r/formula1/comments/mrq274/the_race_every_jordan_force_india_racing_point_f1/)\nDate published: Apr 15, 2021\nArguably the best achievement by a driver for this team during tenure at the team is Frentzens P3 in the 1999 drivers championship.\n\n3. [Racing Point | F1 Team | Team History & Info](https://www.formulaonehistory.com/teams/racing-point/)\nJordan enjoyed relative success in the late 1990s and early 2000s, with a highlight in 1999 when the team secured two race wins and clinched 3rd place in the ...\n\n4. [TEAM GUIDE: Aston Martin's complex F1 roots – and how they're ...](https://www.formula1.com/en/latest/article/team-guide-aston-martins-complex-f1-roots-and-how-theyre-aiming-to-fulfil.465QgZKQ9XcBDcD54VT4xR)\nDate published: Jan 26, 2023\nDouble world champion Fernando Alonso joins Aston Martin ... Force India entered into administration in 2018 and became Racing Point Force India ..."
+        },
+        {
+          "id": "toolu_vrtx_01Mh5C8GoT6BaoXMjMAnDbVf",
+          "name": "search",
+          "args": {
+            "query": "World Drivers Champions who drove for Sauber BMW Sauber F1 history",
+            "topn": 5
+          },
+          "result": "A Google search for 'World Drivers Champions who drove for Sauber BMW Sauber F1 history' found 5 results:\n\n## Web Results\n\n0. [Sauber Motorsport - Wikipedia](https://en.wikipedia.org/wiki/Sauber_Motorsport)\n... World Champion Jacques Villeneuve. Two former Sauber drivers drove for the new BMW Sauber team in 2006: Nick Heidfeld who was a Sauber driver from 2001 to ...\n\n1. [Kick Sauber - Year by Year | Formula 1®](https://www.formula1.com/en/information/kick-sauber-year-by-year.JoWXFc6oEcNk5ozeiPxG5)\nEverything you need to know about Kick Sauber's F1 history from 1993 on. Follow your favourite Kick Sauber drivers through the years and celebrate top moments.\n\n2. [List of Formula One World Drivers' Champions - Wikipedia](https://en.wikipedia.org/wiki/List_of_Formula_One_World_Drivers%27_Champions)\nMichael Schumacher and Lewis Hamilton hold the record for the most World Drivers' championships—seven—trailed by Juan Manuel Fangio with five. ... Schumacher ...\n\n3. [BMW Sauber F1 team: Drivers, Wiki, Cars, Stats & facts profile](https://www.f1-fansite.com/f1-teams/bmw-sauber-f1-information-statistics/)\nDate published: Oct 14, 2024\nSee all BMW Sauber F1 Team info: drivers, team wiki & F1 stats: ✓ Find out everything about this team that only scored 1 victory and pole ...\n\n4. [BMW Sauber | Formula 1 Wiki | Fandom](https://f1.fandom.com/wiki/BMW_Sauber)\nBMW Sauber ; Base. Hinwil, Switzerland ; Notable Staff. Mike Krack · Willy Rampf · Peter Sauber · Mario Theissen ; Notable Drivers. Flag of Germany Nick Heidfeld"
+        },
+        {
+          "id": "toolu_vrtx_01GqGNAgfwPyommikd5TMn95",
+          "name": "search",
+          "args": {
+            "query": "Sebastian Vettel Aston Martin Racing Bulls Toro Rosso world champion drove for",
+            "topn": 5
+          },
+          "result": "A Google search for 'Sebastian Vettel Aston Martin Racing Bulls Toro Rosso world champion drove for' found 5 results:\n\n## Web Results\n\n0. [Sebastian Vettel - Wikipedia](https://en.wikipedia.org/wiki/Sebastian_Vettel)\nVettel won four Formula One World Drivers' Championship titles, which he won consecutively from 2010 to 2013 with Red Bull, and remains the youngest-ever World ...\n\n1. [Sebastian Vettel, we are so sorry! Which driver drove for both these ...](https://www.instagram.com/reel/DR6_bBuEQFs/)\nDate published: Dec 6, 2025\n... Toro Rosso Red Bull Ferrari and Aston Martin accumulating 53 Grand Prix victories. In 2026 Vettel has been active in the World Endurance ...\n\n2. [Sebastian Vettel | Formula 1®](https://www.formula1.com/en/information/drivers-hall-of-fame-sebastian-vettel.GBy6vPkxKOKUV89QOhZe5)\nAs a 17-year-old schoolboy he won an unprecedented 18 of 20 races to dominate the German Formula BMW championship. At 18 he distinguished himself testing a BMW ...\n\n3. [September 14 2008, the day Sebastian Vettel shocked the F1 world ...](https://www.facebook.com/MotorSport1924/posts/september-14-2008-the-day-sebastian-vettel-shocked-the-f1-world-by-taking-his-an/1331096549026872/)\nDate published: Sep 14, 2025\nIn his time as a Grand Prix driver, he raced for BMW Sauber, Toro Rosso, Red Bull, Ferrari, Aston Martin. At the wet Italian Grand Prix, Vettel ...\n\n4. [Sebastian Vettel | Four-time F1 World Champion | Red Bull](https://racingnews365.com/drivers/sebastian-vettel)\nFour-time F1 World Champion Sebastian Vettel enters into his second season with Aston Martin in 2022, off the back of finishing 12th in the previous year's ..."
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01PQiKUmXWbfgWMj9LvT1hbq",
+          "name": "search",
+          "args": {
+            "query": "Kimi Raikkonen Sauber F1 drove for which teams career",
+            "topn": 5
+          },
+          "result": "A Google search for 'Kimi Raikkonen Sauber F1 drove for which teams career' found 5 results:\n\n## Web Results\n\n0. [Kimi Räikkönen](https://en.wikipedia.org/wiki/Kimi_R%C3%A4ikk%C3%B6nen)\nHe dominated the 2000 British Formula Renault Championship with Manor, prompting Sauber to sign him in Formula One for 2001. Following several points finishes ...\n\n1. [Kimi Raikkonen | Formula 1®](https://www.formula1.com/en/information/drivers-hall-of-fame-kimi-raikkonen.4Ykdt9U76gWO40cNbjaMXf)\nIn a career spanning nearly half his lifetime and driving for five different teams he scored 21 wins, 103 podiums, 18 poles, 46 fastest laps and a world ...\n\n2. [Kimi Raikkonen Races, Wins and Teams | F1 Driver - F1 History](https://www.formulaonehistory.com/drivers/kimi-raikkonen/)\nBorn on 17 October 1979 in Finland, Räikkönen began his F1 career with the Sauber-Petronas team in 2001, after just 23 car races in other series.\n\n3. [Kimi Räikkönen: See F1 Stats, Age, Height, Bio, Wins, Titles](https://www.f1-fansite.com/f1-drivers/kimi-raikkonen/)\nKimi Raikkonen driving his Sauber C20 at Monaco for the first time (2001) ... The Finnish driver who already is the oldest driver of the grid with 39 signed a two ...\n\n4. [A bit of perspective on how long Kimi Räikkönen's career ...](https://www.reddit.com/r/formula1/comments/kuhrby/a_bit_of_perspective_on_how_long_kimi_r%C3%A4ikk%C3%B6nens/)\nDate published: 2021\nHe was part of 4 (/5?) different teams over the course of his career; Sauber/Alfa Romeo, McLaren, Ferrari and Lotus. He has 21 race wins, the ..."
+        },
+        {
+          "id": "toolu_vrtx_01Ds41Lis6oRPtPQdz4RZZUf",
+          "name": "search",
+          "args": {
+            "query": "Fernando Alonso world champion drove for which F1 teams career history",
+            "topn": 3
+          },
+          "result": "A Google search for 'Fernando Alonso world champion drove for which F1 teams career history' found 3 results:\n\n## Web Results\n\n0. [Fernando Alonso - Wikipedia](https://en.wikipedia.org/wiki/Fernando_Alonso)\nFernando Alonso Díaz is a Spanish racing driver who competes in Formula One for Aston Martin. Alonso has won two Formula One World Drivers' Championship ...\n\n1. [Fernando Alonso | Formula 1®](https://www.formula1.com/en/information/drivers-hall-of-fame-fernando-alonso.2Ig4mBh2FaPMgAMjI0bBF9)\nThe 28th Formula 1 World Drivers' Champion was at the time the youngest ever. Just 24 years old, Fernando Alonso also led the Renault team to the 2005 ...\n\n2. [Every F1 car Fernando Alonso has driven throughout his career](https://www.reddit.com/r/formula1/comments/14fj4ip/every_f1_car_fernando_alonso_has_driven/)\nDate published: Jun 21, 2023\n[F1] Longevity of a legend. Fernando Alonso will race into an unparalleled 24th season at the pinnacle of motorsport · r/formula1 - [F1] ..."
+        },
+        {
+          "id": "toolu_vrtx_01VMqL9MESA83cbaWDToaHm6",
+          "name": "search",
+          "args": {
+            "query": "Mercedes F1 World Drivers Champions Lewis Hamilton Nico Rosberg Fangio list",
+            "topn": 3
+          },
+          "result": "A Google search for 'Mercedes F1 World Drivers Champions Lewis Hamilton Nico Rosberg Fangio list' found 3 results:\n\n## Web Results\n\n0. [List of Formula One World Drivers' Champions - Wikipedia](https://en.wikipedia.org/wiki/List_of_Formula_One_World_Drivers%27_Champions)\nMichael Schumacher and Lewis Hamilton hold the record for the most World Drivers' championships—seven—trailed by Juan Manuel Fangio with five.\n\n1. [F1® World Champions List (1950-2026) | Full Driver History](https://www.senategrandprix.com/F1-World-Driver-Champion)\nA List Of Every F1® World Driver Champion Ever ; 2016, Nico Rosberg, Mercedes ; 2017, Lewis Hamilton, Mercedes ; 2018, Lewis Hamilton, Mercedes ; 2019, Lewis ...\n\n2. [All-time F1 drivers' and constructors' championship winners - ESPN](https://www.espn.com/auto/story/_/id/42230928/all-f1-drivers-constructors-championship-winners)\nDate published: Dec 7, 2025\nCheck out F1 drivers' and constructors' world champions ... 2019: Lewis Hamilton. 2018: Lewis Hamilton. 2017: Lewis Hamilton. 2016: Nico Rosberg."
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_017jQAtWn4VX23uzZoCg5e63",
+          "name": "visit",
+          "args": {
+            "url": [
+              "https://en.wikipedia.org/wiki/List_of_Formula_One_World_Drivers%27_Champions"
+            ],
+            "goal": "Get the complete list of all F1 World Drivers' Champions and the teams they won with, from 1950 to 2025"
+          },
+          "result": "The useful information in https://en.wikipedia.org/wiki/List_of_Formula_One_World_Drivers%27_Champions for user goal Get the complete list of all F1 World Drivers' Champions and the teams they won with, from 1950 to 2025 as follows:\n\nEvidence in page:\nThe complete list of all F1 World Drivers' Champions and the teams they won with, from 1950 to 2025, is provided in the 'By season' table and the 'By driver' section of the webpage. The table includes the season, driver, age, constructor, chassis, engine, tyres, poles, wins, podiums, fastest laps, points, percentage of points, when the title was clinched, number of rounds remaining, margin, and percentage margin. The 'By driver' section lists each driver and the seasons they won the title. The current champion as of 2025 is Lando Norris, driving for McLaren, who won the 2025 title. The full list spans from Giuseppe Farina (1950) to Lando Norris (2025), with champions from 35 different drivers across 76 titles. The data also includes details on constructors such as Ferrari (15 titles), McLaren (13), Mercedes (9), Red Bull Racing (8), Williams (7), and others. The list confirms that the 2025 champion, Lando Norris, drove for McLaren with a Mercedes engine and Pirelli tyres.\n\nSummary:\nThe complete list of Formula One World Drivers' Champions from 1950 to 2025 includes 35 drivers who have won a total of 76 titles. The first champion was Giuseppe Farina in 1950, driving for Alfa Romeo. The most recent champion is Lando Norris, who won the 2025 title with McLaren, using a Mercedes engine and Pirelli tyres. Michael Schumacher and Lewis Hamilton each hold the record for most championships with seven titles, followed by Juan Manuel Fangio with five. Ferrari leads in constructor titles with 15, achieved by nine different drivers, while McLaren has 13 titles with eight drivers. Notable champions include Sebastian Vettel (Red Bull, 2010–2013), Max Verstappen (Red Bull, 2021–2024), and Lewis Hamilton (Mercedes, 2014–2020). The list also highlights records such as Schumacher’s five consecutive titles (2000–2004), Vettel as the youngest champion (23 years, 134 days in 2010), and Fangio as the oldest (46 years, 41 days in 1957). All data is sourced from the official FIA records and the detailed season-by-season table provided in the document.\n"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01QFZSjN67ox9GspfCXstVtg",
+          "name": "search",
+          "args": {
+            "query": "\"world champion\" drove for \"Racing Bulls\" OR \"Toro Rosso\" OR \"AlphaTauri\" OR \"Minardi\" F1",
+            "topn": 5
+          },
+          "result": "A Google search for '\"world champion\" drove for \"Racing Bulls\" OR \"Toro Rosso\" OR \"AlphaTauri\" OR \"Minardi\" F1' found 5 results:\n\n## Web Results\n\n0. [Minardi - Wikipedia](https://en.wikipedia.org/wiki/Minardi)\nFormer Minardi drivers include double World Champion Fernando Alonso, Grand ... ^ \"Say hello to AlphaTauri, F1's latest style icons\". Red Bull. 11 ...\n\n1. [On this day in 2006, Red Bull took over Minardi, and Toro Rosso ...](https://www.facebook.com/planetf1com/posts/on-this-day-in-2006-red-bull-took-over-minardi-and-toro-rosso-was-born/1259515249538915/)\nDate published: Nov 1, 2025\nA Toro Rosso, with Minardi DNA coursing through its veins, driven ... F1 anymore Maybe Ford buy Red Bull and Minardi family buy back Racing Bulls?\n\n2. [Racing Bulls' 5 greatest moments in Formula 1 | GRR - Goodwood](https://www.goodwood.com/grr/f1/racing-bulls-5-greatest-moments-in-formula-1/)\nDate published: Jun 18, 2025\n... Toro Rosso, then AlphaTauri, Visa CashApp RB and finally Racing Bulls. ... Minardi was renamed Scuderia Toro Rosso, but not before besotted ...\n\n3. [Can someone explain the difference between Red Bull Racing and ...](https://www.reddit.com/r/formula1/comments/cb98d3/can_someone_explain_the_difference_between_red/)\nDate published: Jul 10, 2019\nThe reason they're Italian is because Toro Rosso was Minardi prior to 2006, when they were bought by Red Bull.\n\n4. [John Surtees | Formula 1®](https://www.formula1.com/en/information/drivers-hall-of-fame-john-surtees.7a0aXDMmG4DZeRFpzeN4vz)\nRacing Bulls · Red Bull Racing · Williams · All Teams ... 13th May 1966: British world champion motorcyclist and racing driver John Surtees at Silverstone."
+        },
+        {
+          "id": "toolu_vrtx_011K9Xy42XYRVxEY1oGU4J3e",
+          "name": "search",
+          "args": {
+            "query": "Haas F1 team has any world drivers champion ever driven for them",
+            "topn": 5
+          },
+          "result": "A Google search for 'Haas F1 team has any world drivers champion ever driven for them' found 5 results:\n\n## Web Results\n\n0. [Haas F1 Team - Wikipedia](https://en.wikipedia.org/wiki/Haas_F1_Team)\nHaas Formula LLC, competing as TGR Haas F1 Team, is an American-licensed Formula One (F1) racing team established by NASCAR Cup Series team owner Gene Haas ...\n\n1. [Haas | F1 Team | Team History & Info](https://www.formulaonehistory.com/teams/haas/)\nIn the past, Haas has also depended on Ferrari for its reserve drivers. Antonio Giovinazzi did two FP1 sessions for the team as a Ferrari reserve driver, and ...\n\n2. [Haas | About, History, Best Drivers & More! - GP Motorsports Tickets](https://www.gpmotorsportstickets.com/formula-1/constructors/haas/)\nHaas's Notable Achievements · Haas f1 car. Haas F1 Team entered the Formula One World Championship in 2016, becoming the first American-led F1 team in 30 years.\n\n3. [Haas F1 Team: All Drivers, Cars, Podiums, Stats & Facts](https://www.f1-fansite.com/f1-teams/haas-f1-team-information-statistics/)\nDate published: Mar 29, 2026\nThe first race they ever drove in Formula 1 was a fabulous one. ... team and placing Haas in fifth place in the World Constructors' Championship.\n\n4. [Is it even possible for Haas to ever win a race? : r/formula1 - Reddit](https://www.reddit.com/r/formula1/comments/wb7usn/is_it_even_possible_for_haas_to_ever_win_a_race/)\nDate published: Jul 29, 2022\nI assumed they had never won a race, but I was surprised to see that they've never even had a podium. So do you guys think it's possible they even get a podium ..."
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01QVDSeyNfrUpfyHygiUhhQ3",
+          "name": "search",
+          "args": {
+            "query": "Sebastian Vettel Toro Rosso BMW Sauber career F1 teams",
+            "topn": 3
+          },
+          "result": "A Google search for 'Sebastian Vettel Toro Rosso BMW Sauber career F1 teams' found 3 results:\n\n## Web Results\n\n0. [Sebastian Vettel - Wikipedia](https://en.wikipedia.org/wiki/Sebastian_Vettel)\nFormula One World Championship career. Nationality · Germany German. Active years, 2007–2022. Teams, BMW Sauber, Toro Rosso, Red Bull, Ferrari, Aston Martin.\n\n1. [Sebastian Vettel | Formula 1®](https://www.formula1.com/en/information/drivers-hall-of-fame-sebastian-vettel.GBy6vPkxKOKUV89QOhZe5)\nAt 18 he distinguished himself testing a BMW Williams F1 car. At 19 he became a test driver for the BMW Sauber F1 team, underlining his commitment to the cause ...\n\n2. [Sebastian Vettel Races, Wins and Teams - Drivers - F1 History](https://www.formulaonehistory.com/drivers/sebastian-vettel/)\nSebastian Vettel Formula One World Championship career ; BMW Sauber, Toro Rosso, Red Bull, Ferrari, Aston Martin · 300 (299 starts) · 4 (2010, 2011, 2012, 2013)."
+        },
+        {
+          "id": "toolu_vrtx_015ewonAt9YVaAGHRVnyRmbq",
+          "name": "search",
+          "args": {
+            "query": "Kimi Raikkonen Sauber Alfa Romeo drove for world champion",
+            "topn": 3
+          },
+          "result": "A Google search for 'Kimi Raikkonen Sauber Alfa Romeo drove for world champion' found 3 results:\n\n## Web Results\n\n0. [Sauber and Alfa Romeo in the 2019 F1 World Championship as Alfa ...](https://www.museoalfaromeo.com/en-us/news/Pages/SauberandAlfaRomeo.aspx)\n... World Champion Kimi Räikkönen and the young Italian Antonio Giovinazzi driving for Alfa Romeo Racing, formerly referred to as the Alfa Romeo Sauber F1 Team.\n\n1. [KIMI RÄIKKÖNEN: ALFA'S TOP MAN - YouTube](https://www.youtube.com/watch?v=xArakDZtgl0)\nDate published: Mar 8, 2019\n... Alfa Romeo Racing's Kimi Räikkönen. Alfa Romeo Racing, the Italian-branded Swiss team previously known as Sauber, pulled ... World Champion Kimi ...\n\n2. [Kimi Räikkönen On Alfa Romeo Racing: \"I don't see any reason why ...](https://www.reddit.com/r/formula1/comments/ane5be/kimi_r%C3%A4ikk%C3%B6nen_on_alfa_romeo_racing_i_dont_see/)\nDate published: Feb 5, 2019\nWhy did Kimi Raikkonen race with sauber for 3 years after Ferrari seeing as he didn't seem to care or enjoy racing in formula one anymore? ... r/ ..."
+        },
+        {
+          "id": "toolu_vrtx_01XbqEko2bYY986AxnkrevY3",
+          "name": "search",
+          "args": {
+            "query": "Jacques Villeneuve drove for Sauber BMW Sauber F1",
+            "topn": 3
+          },
+          "result": "A Google search for 'Jacques Villeneuve drove for Sauber BMW Sauber F1' found 3 results:\n\n## Web Results\n\n0. [Jacques Villeneuve has left BMW Sauber - Racing Comments Archive](https://forums.autosport.com/topic/89324-jacques-villeneuve-has-left-bmw-sauber/)\nJacques Villeneuve has left BMW Sauber. The move to BAR damaged his career. His knockback to Renault a few years later doomed it.\n\n1. [BMW Sauber F1 team driver, Jacques Villeneuve checks out the one ...](https://www.press.bmwgroup.com/usa/photo/detail/P0026916/?forceSitePreference=MOBILE)\nBMW Sauber F1 team driver, Jacques Villeneuve checks out the one of the BMW supplied Safety Course Cars for the Australian Grand Prix (03/2006)\n\n2. [BMW Sauber F1.06 - Wikipedia](https://en.wikipedia.org/wiki/BMW_Sauber_F1.06)\nIt was driven by German Nick Heidfeld, who joined from Williams, and Canadian Jacques Villeneuve, who had spent one season with Sauber before it was bought by ..."
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_0134WECqmUWX9VyE7dW8H1ff",
+          "name": "search",
+          "args": {
+            "query": "Fernando Alonso Minardi F1 career teams list",
+            "topn": 3
+          },
+          "result": "A Google search for 'Fernando Alonso Minardi F1 career teams list' found 3 results:\n\n## Web Results\n\n0. [Fernando Alonso | Formula 1 statistics Wiki - Fandom](https://f1stats.fandom.com/wiki/Fernando_Alonso)\nHe joined McLaren in 2007, before returning to Renault for two seasons in 2008 and 2009, and in 2010, he joined Scuderia Ferrari. Nicknamed El Nano, a typical ...\n\n1. [Minardi | F1 Team | Team History & Info](https://www.formulaonehistory.com/teams/minardi/)\nThe Minadri F1 Team raced in Formula 1 between 1985 and 2005, winning 38 championship points and fielding drivers like Fernando Alonso.\n\n2. [Every F1 car Fernando Alonso has driven throughout his career](https://www.reddit.com/r/formula1/comments/14fj4ip/every_f1_car_fernando_alonso_has_driven/)\nDate published: Jun 21, 2023\nPersonally I'd rank the 2014 cars' looks like this ... 1- Mercedes ... 2- RB ... 3- Ferrari ... 4- Force India ... 5- Williams ... 6- Marussia ... 7- McLaren."
+        },
+        {
+          "id": "toolu_vrtx_011hzNEoBZHvpNdnqwLcNSPx",
+          "name": "search",
+          "args": {
+            "query": "F1 2025 team colors livery all teams Alpine Haas Sauber Racing Bulls",
+            "topn": 5
+          },
+          "result": "A Google search for 'F1 2025 team colors livery all teams Alpine Haas Sauber Racing Bulls' found 5 results:\n\n## Web Results\n\n0. [Every 2025 F1 car livery after their spectacular F1 75 Live unveilings](https://www.formula1.com/en/latest/article/in-photos-every-2025-f1-car-livery-after-their-spectacular-f1-75-live.2BZTh37ifdxAASqub3X1HK)\nDate published: Feb 19, 2025\nHaas' colours of white, black and red feature on their new design for 2025 as white features more prominently than last year's affair. The team ...\n\n1. [F1 2025 Hex Codes : r/formula1 - Reddit](https://www.reddit.com/r/formula1/comments/1ixh2fp/f1_2025_hex_codes/)\nDate published: Feb 24, 2025\nAlpine : Pink (#F282B4) ; Haas : Red (#EB0A1E) ; Sauber : (#53FC18) ; Racing Bulls : White (#FFFFFF).\n\n2. [IN PICTURES – All the special liveries for the 2025 season](https://www.autohebdof1.com/news/f1/in-pictures-all-the-special-liveries-for-the-2025-season.html)\nDate published: Nov 19, 2025\nThe 2025 F1 season was full of special liveries. And it's not over yet! · Haas \"Sakura\" · Red Bull \"Honda\" · Sauber \"Miami\" · Ferrari \"HP\" · Racing ...\n\n3. [These Are All Ten Formula 1 Teams' Liveries for the 2025 Season](https://www.hagerty.com/media/motorsports/these-are-all-ten-formula-1-teams-liveries-for-the-2025-season/)\nDate published: Feb 21, 2025\nAll ten Formula 1 teams revealed their 2025 season paint schemes this week during the sport's 75th-anniversary celebrations in London's 02 Arena.\n\n4. [Check out teams' special liveries for the Las Vegas GP - F1](https://www.formula1.com/en/latest/article/gallery-check-out-williams-sauber-racing-bulls-and-alpines-special-liveries.18JjRoB0eTKr0PoaxDWENe)\nDate published: Nov 18, 2025\nElsewhere, Alpine are going pink again for the final stages of the 2025 season, with some vibrant panels – similar to the livery change made in ..."
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_019HqMKYoraVHtmkohCmoyTM",
+          "name": "visit",
+          "args": {
+            "url": [
+              "https://www.hagerty.com/media/motorsports/these-are-all-ten-formula-1-teams-liveries-for-the-2025-season/"
+            ],
+            "goal": "Get the team colors/livery descriptions for all 10 F1 teams in 2025"
+          },
+          "result": "The useful information in https://www.hagerty.com/media/motorsports/these-are-all-ten-formula-1-teams-liveries-for-the-2025-season/ for user goal Get the team colors/livery descriptions for all 10 F1 teams in 2025 as follows:\n\nEvidence in page:\n['McLaren MCL39\\nDriven by: Lando Norris and Oscar Piastri\\nThis is basically the same Papaya Orange-based livery that the reigning constructors’ champ ran last year. The multi-color wheel covers echoing the Google Chrome logo is still one of the neatest livery ideas on the grid.', 'Red Bull RB21\\nDriven by: Max Verstappen and Liam Lawson\\nThe charging bull on the engine cover remains a great looking and thematically clever design, but the overall livery is getting a bit long in the tooth. With the team’s constructors’ title streak broken last year, 2025 would have been a perfect time for a more comprehensive redesign, but alas.', 'Ferrari SF-25\\nDriven by: Lewis Hamilton and Charles Leclerc\\nSo many teams opt for a “black-plus-manufacturer-color” paint job, but Ferrari has brightened up its look by adding blocks of bright white into this year’s design, which recalls the Scuderia’s earlier looks from the 1970s and ’80s.', 'Mercedes-AMG F1 W16\\nDriven by: George Russell and Kimi Antonelli\\nMercedes also brightened up its look for 2025, with a prominent silver nose that recalls the Silver Arrows of yore, and a smattering of three-pointed stars strewn across the engine cover. The rest of the car retains the sinister black-and-carbon look from last year, but the overall package isn’t so evil looking this time around.', 'Aston Martin AMR25\\nDriven by: Fernando Alonso and Lance Stroll\\nThe elegant yellow beltline stripe from last year’s car has been split apart in the 2025 scheme, which makes the sidepod area look a bit disjointed. Still, it’s hard to hate on the Aston green-and-silver-pairing on the intake—we just wish the design highlighted that classic pairing more prominently.', 'BWT Alpine A525\\nDriven by: Pierre Gasly and Jack Doohan\\nThis is one of our favorite redesigns of the lot; nothing pops against carbon fiber curves like bright pink and metallic blue, and the 2025 version of the BWT-sponsored car cleans up last year’s livery with more defined chunks of color and simple but strong shapes. It may be an also-ran team, but it’s one of the best looking mid-fielders out there.', 'Haas VF-25\\nDriven by: Esteban Ocon \n\n… [2849 chars truncated]"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "content": "Now let me compile everything into a comprehensive answer.",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_017emzuoJhwkMV3TcdYgctoj",
+          "name": "python",
+          "args": {
+            "code": "\n# Just organizing the research into a clear summary\nteams_info = \"\"\"\nCOMPLETE 2025 F1 TEAMS OVERVIEW\n================================\n\n1. McLAREN\n   - Founded: 1963 (by Bruce McLaren)\n   - HQ: Woking, Surrey, England\n   - Country: United Kingdom 🇬🇧\n   - Colors: Papaya Orange & Black\n   - Car Numbers: #4 Lando Norris, #81 Oscar Piastri\n   - WDC Winners who drove for them: ✅ YES\n     Emerson Fittipaldi, James Hunt, Niki Lauda, Alain Prost, \n     Ayrton Senna, Mika Häkkinen, Lewis Hamilton, \n     Kimi Räikkönen, Lando Norris\n\n2. MERCEDES\n   - Founded: 2010 (as modern works team; historic involvement from 1954)\n   - HQ: Brackley, Northamptonshire, England\n   - Country: Germany 🇩🇪\n   - Colors: Silver & Black (\"Silver Arrows\")\n   - Car Numbers: #63 George Russell, #12 Kimi Antonelli\n   - WDC Winners who drove for them: ✅ YES\n     Juan Manuel Fangio, Lewis Hamilton, Nico Rosberg,\n     (also: Michael Schumacher drove for them 2010-2012, \n     though he won his titles at Benetton/Ferrari)\n\n3. RED BULL RACING\n   - Founded: 2005\n   - HQ: Milton Keynes, Buckinghamshire, England\n   - Country: Austria 🇦🇹\n   - Colors: Dark Blue, Red & Yellow\n   - Car Numbers: #1 Max Verstappen, #22 Yuki Tsunoda\n   - WDC Winners who drove for them: ✅ YES\n     Sebastian Vettel (4x WDC with RBR), Max Verstappen (4x WDC with RBR)\n\n4. FERRARI\n   - Founded: 1929 (by Enzo Ferrari; F1 from 1950)\n   - HQ: Maranello, Modena, Italy\n   - Country: Italy 🇮🇹\n   - Colors: Red (Rosso Corsa) & Black\n   - Car Numbers: #16 Charles Leclerc, #44 Lewis Hamilton\n   - WDC Winners who drove for them: ✅ YES\n     Alberto Ascari, Juan Manuel Fangio, Mike Hawthorn, Phil Hill,\n     John Surtees, Niki Lauda, Jody Scheckter, Michael Schumacher,\n     Kimi Räikkönen, Fernando Alonso, Sebastian Vettel, Lewis Hamilton\n\n5. WILLIAMS\n   - Founded: 1977 (by Frank Williams & Patrick Head)\n   - HQ: Grove, Oxfordshire, England\n   - Country: United Kingdom 🇬🇧\n   - Colors: Blue & White\n   - Car Numbers: #23 Alexander Albon, #55 Carlos Sainz Jr.\n   - WDC Winners who drove for them: ✅ YES\n     Alan Jones, Keke Rosberg, Nelson Piquet, Nigel Mansell,\n     Alain Prost, Damon Hill, Jacques Villeneuve\n\n6. RACING BULLS (formerly Toro Rosso / AlphaTauri)\n   - Founded: 2006 (as Toro Rosso; roots to Minardi 1985)\n   - HQ: Faenza, Italy (+ Milton Keynes base)\n   - Country: Italy 🇮🇹\n   - Colors: White & Blue\n   - Car Numbers: #6 Isack Hadjar, #30 Liam Lawson\n   - WDC Winners who drove for them: ✅ YES\n     Sebastian Vettel (drove for Toro Rosso 2007-2008)\n     Fernando Alonso (drove for Minardi in 2001, predecessor team)\n\n7. ASTON MARTIN\n   - Founded: 2021 (as Aston Martin; roots to Jordan GP 1991)\n   - HQ: Silverstone, Northamptonshire, England\n   - Country: United Kingdom 🇬🇧\n   - Colors: British Racing Green & Black\n   - Car Numbers: #14 Fernando Alonso, #18 Lance Stroll\n   - WDC Winners who drove for them: ✅ YES\n     Sebastian Vettel (drove for Aston Martin 2021-2022)\n     Fernando Alonso (2023-present)\n\n8. ALPINE (formerly Renault / Benetton / Toleman)\n   - Founded: 2021 (as Alpine; roots to Toleman 1981)\n   - HQ: Enstone, Oxfordshire, England\n   - Country: France 🇫🇷\n   - Colors: Pink & Blue (BWT livery)\n   - Car Numbers: #10 Pierre Gasly, #43 Franco Colapinto\n   - WDC Winners who drove for them: ✅ YES\n     Michael Schumacher (Benetton 1994-1995)\n     Fernando Alonso (Renault 2005-2006)\n     Ayrton Senna (Toleman 1984)\n     Kimi Räikkönen (Lotus 2012-2013)\n\n9. HAAS\n   - Founded: 2016 (by Gene Haas)\n   - HQ: Kannapolis, North Carolina, USA (+ Banbury, England)\n   - Country: United States 🇺🇸\n   - Colors: White, Red & Black\n   - Car Numbers: #31 Esteban Ocon, #87 Oliver Bearman\n   - WDC Winners who drove for them: ❌ NO\n     No World Drivers' Champion has ever driven for Haas.\n\n10. KICK SAUBER\n   - Founded: 1970 (by Peter Sauber; F1 from 1993)\n   - HQ: Hinwil, Zürich, Switzerland\n   - Country: Switzerland 🇨🇭\n   - Colors: Green & Black\n   - Car Numbers: #27 Nico Hülkenberg, #5 Gabriel Bortoleto\n   - WDC Winners who drove for them: ✅ YES\n     Kimi Räikkönen (Sauber 2001, Alfa Romeo/Sauber 2019-2021)\n     Sebastian Vettel (BMW Sauber 2007)\n     Jacques Villeneuve (Sauber 2005, BMW Sauber 2006)\n\"\"\"\nprint(teams_info)\n"
+          },
+          "result": "stdout:\n\nCOMPLETE 2025 F1 TEAMS OVERVIEW\n================================\n\n1. McLAREN\n   - Founded: 1963 (by Bruce McLaren)\n   - HQ: Woking, Surrey, England\n   - Country: United Kingdom 🇬🇧\n   - Colors: Papaya Orange & Black\n   - Car Numbers: #4 Lando Norris, #81 Oscar Piastri\n   - WDC Winners who drove for them: ✅ YES\n     Emerson Fittipaldi, James Hunt, Niki Lauda, Alain Prost, \n     Ayrton Senna, Mika Häkkinen, Lewis Hamilton, \n     Kimi Räikkönen, Lando Norris\n\n2. MERCEDES\n   - Founded: 2010 (as modern works team; historic involvement from 1954)\n   - HQ: Brackley, Northamptonshire, England\n   - Country: Germany 🇩🇪\n   - Colors: Silver & Black (\"Silver Arrows\")\n   - Car Numbers: #63 George Russell, #12 Kimi Antonelli\n   - WDC Winners who drove for them: ✅ YES\n     Juan Manuel Fangio, Lewis Hamilton, Nico Rosberg,\n     (also: Michael Schumacher drove for them 2010-2012, \n     though he won his titles at Benetton/Ferrari)\n\n3. RED BULL RACING\n   - Founded: 2005\n   - HQ: Milton Keynes, Buckinghamshire, England\n   - Country: Austria 🇦🇹\n   - Colors: Dark Blue, Red & Yellow\n   - Car Numbers: #1 Max Verstappen, #22 Yuki Tsunoda\n   - WDC Winners who drove for them: ✅ YES\n     Sebastian Vettel (4x WDC with RBR), Max Verstappen (4x WDC with RBR)\n\n4. FERRARI\n   - Founded: 1929 (by Enzo Ferrari; F1 from 1950)\n   - HQ: Maranello, Modena, Italy\n   - Country: Italy 🇮🇹\n   - Colors: Red (Rosso Corsa) & Black\n   - Car Numbers: #16 Charles Leclerc, #44 Lewis Hamilton\n   - WDC Winners who drove for them: ✅ YES\n     Alberto Ascari, Juan Manuel Fangio, Mike Hawthorn, Phil Hill,\n     John Surtees, Niki Lauda, Jody Scheckter, Michael Schumacher,\n     Kimi Räikkönen, Fernando Alonso, Sebastian Vettel, Lewis Hamilton\n\n5. WILLIAMS\n   - Founded: 1977 (by Frank Williams & Patrick Head)\n   - HQ: Grove, Oxfordshire, England\n   - Country: United Kingdom 🇬🇧\n   - Colors: Blue & White\n   - Car Numbers: #23 Alexander Albon, #55 Carlos Sainz Jr.\n   - WDC Winners who drove for them: ✅ YES\n     Alan Jones, Keke Rosberg, Nelson Piquet, Nigel Mansell,\n     Alain Prost, Damon Hill, Jacques Villeneuve\n\n6. RACING BULLS (formerly Toro Rosso / AlphaTauri)\n   - Founded: 2006 (as Toro Rosso; roots to Minardi 1985)\n   - HQ: Faenza, Italy (+ Milton Keynes base)\n   - Country: Italy 🇮🇹\n   - Colors: White & Blue\n   - Car Numbers: #6 Isack Hadjar, #30 Liam Lawson\n   - WDC Winners who drove for them: ✅ YES\n     \n\n… [1717 chars truncated]"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "content": "Here's the full breakdown for all 10 teams! 🏁\n\n---\n\n### 1. 🟠 McLaren\n| Detail | Info |\n|--------|------|\n| **Founded** | 1963 (by Bruce McLaren) |\n| **HQ** | Woking, Surrey, England |\n| **Country** | 🇬🇧 United Kingdom |\n| **Colors** | Papaya Orange & Black |\n| **Car Numbers** | #4 Norris, #81 Piastri |\n| **WDC drove for them?** | ✅ **YES** — Emerson Fittipaldi, James Hunt, Niki Lauda, Alain Prost, Ayrton Senna, Mika Häkkinen, Kimi Räikkönen, Lewis Hamilton, Lando Norris |\n\n### 2. ⬜ Mercedes\n| Detail | Info |\n|--------|------|\n| **Founded** | 2010 (modern works team; roots to 1954) |\n| **HQ** | Brackley, Northamptonshire, England |\n| **Country** | 🇩🇪 Germany |\n| **Colors** | Silver & Black (\"Silver Arrows\") |\n| **Car Numbers** | #63 Russell, #12 Antonelli |\n| **WDC drove for them?** | ✅ **YES** — Juan Manuel Fangio, Michael Schumacher, Nico Rosberg, Lewis Hamilton |\n\n### 3. 🔵 Red Bull Racing\n| Detail | Info |\n|--------|------|\n| **Founded** | 2005 |\n| **HQ** | Milton Keynes, Buckinghamshire, England |\n| **Country** | 🇦🇹 Austria |\n| **Colors** | Dark Blue, Red & Yellow |\n| **Car Numbers** | #1 Verstappen, #22 Tsunoda |\n| **WDC drove for them?** | ✅ **YES** — Sebastian Vettel (4x WDC), Max Verstappen (4x WDC) |\n\n### 4. 🔴 Ferrari\n| Detail | Info |\n|--------|------|\n| **Founded** | 1929 (F1 since 1950) |\n| **HQ** | Maranello, Modena, Italy |\n| **Country** | 🇮🇹 Italy |\n| **Colors** | Rosso Corsa (Red) & Black |\n| **Car Numbers** | #16 Leclerc, #44 Hamilton |\n| **WDC drove for them?** | ✅ **YES** — Alberto Ascari, Juan Manuel Fangio, Mike Hawthorn, Phil Hill, John Surtees, Niki Lauda, Jody Scheckter, Michael Schumacher, Kimi Räikkönen, Fernando Alonso, Sebastian Vettel, Lewis Hamilton |\n\n### 5. 🔵 Williams\n| Detail | Info |\n|--------|------|\n| **Founded** | 1977 (by Frank Williams & Patrick Head) |\n| **HQ** | Grove, Oxfordshire, England |\n| **Country** | 🇬🇧 United Kingdom |\n| **Colors** | Blue & White |\n| **Car Numbers** | #23 Albon, #55 Sainz Jr. |\n| **WDC drove for them?** | ✅ **YES** — Alan Jones, Keke Rosberg, Nelson Piquet, Nigel Mansell, Alain Prost, Damon Hill, Jacques Villeneuve |\n\n### 6. ⚪ Racing Bulls\n| Detail | Info |\n|--------|------|\n| **Founded** | 2006 as Toro Rosso (roots to Minardi, 1985) |\n| **HQ** | Faenza, Italy (+ Milton Keynes base) |\n| **Country** | 🇮🇹 Italy |\n| **Colors** | White & Blue |\n| **Car Numbers** | #6 Hadjar, #30 Lawson |\n| **WDC dr\n\n… [2270 chars truncated]"
+    },
+    {
+      "type": "user",
+      "content": "Perfect, that's exactly the general team info I needed. Now I want to look specifically at Red Bull Racing. Can you tell me who their team principal and technical director are first?"
+    },
+    {
+      "type": "assistant",
+      "thinking": "The user wants to know about Red Bull Racing's current team principal and technical director. From my earlier search, I saw that Laurent Mekies was listed as Red Bull's team principal in the Forbes article. But wait, Laurent Mekies was actually associated with AlphaTauri/Racing Bulls. Let me verify this. Actually, Christian Horner was the long-time team principal of Red Bull Racing. Let me search for the current situation.",
+      "content": "Great question! Let me look up the latest on Red Bull Racing's leadership, as there have been some changes recently.",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01KqReTfwmpyzZLPWAxVgKt6",
+          "name": "search",
+          "args": {
+            "query": "Red Bull Racing team principal 2025 current",
+            "topn": 5
+          },
+          "result": "A Google search for 'Red Bull Racing team principal 2025 current' found 5 results:\n\n## Web Results\n\n0. [Who Is Laurent Mekies? Meet Red Bull Racing's new team boss](https://www.redbull.com/us-en/laurent-mekies-career-profile)\nDate published: Jul 9, 2025\nOracle Red Bull Racing has appointed Laurent Mekies as the new team principal ... Laurent Mekies, Team Principal of Visa Cash App Racing Bulls ...\n\n1. [Meet The New Team Principal and CEO of Oracle Red Bull Racing!](https://www.youtube.com/watch?v=ZI3QZxqTvcM)\nDate published: Jul 14, 2025\nHear from Oracle Red Bull Racing's new CEO and Team Principal, Laurent Mekies, on making childhood racing dreams a reality, the privilege of ...\n\n2. [Laurent Mekies' first interview as Red Bull Team Principal! | F1 2025](https://www.reddit.com/r/formula1/comments/1ly1i5l/laurent_mekies_first_interview_as_red_bull_team/)\nDate published: Jul 12, 2025\nThis is a 3D simulation of the potential new rear wing from Red Bull. Notice the difference with Ferrari one. ... r/RedBullRacing - This is a 3D ...\n\n3. [How Laurent Mekies has improved Red Bull since joining as F1 ...](https://www.reddit.com/r/formula1/comments/1niaav9/how_laurent_mekies_has_improved_red_bull_since/)\nDate published: Sep 16, 2025\nThis is a 3D simulation of the potential new rear wing from Red Bull. Notice the difference with Ferrari one. r/RedBullRacing.\n\n4. [Red Bull boss Laurent Mekies has seen it all in F1, but remains a ...](https://www.nytimes.com/athletic/6900409/2025/12/22/red-bull-f1-team-boss-laurent-mekies/)\nDate published: Dec 22, 2025\nThe 48-year-old has only been warming that seat since July, when he was drafted in from Red Bull's sister team, Racing Bulls, to replace ..."
+        },
+        {
+          "id": "toolu_vrtx_0124UXfJttjvCxTXyyB7m8FZ",
+          "name": "search",
+          "args": {
+            "query": "Red Bull Racing technical director 2025 current",
+            "topn": 5
+          },
+          "result": "A Google search for 'Red Bull Racing technical director 2025 current' found 5 results:\n\n## Web Results\n\n0. [Oracle Red Bull Racing Strengthens Technical Leadership Team](https://www.redbullracing.com/int-en/oracle-red-bull-racing-technical-leadership-changes)\nDate published: Apr 17, 2026\n... Technical Director Pierre Wache. Ben joined the Red Bull family from BMW-Sauber in 2014, first as Deputy Technical Director at Scuderia Toro ...\n\n1. [Red Bull reshuffles technical department amid F1 woes, key ... - ESPN](https://www.espn.com/f1/story/_/id/48510888/red-bull-reshuffles-technical-department-amid-f1-woes-key-departures)\nDate published: Apr 17, 2026\nRed Bull has announced the appointment of a senior engineer from its junior team Racing Bulls as part of an internal reshuffle of its ...\n\n2. [Red Bull announce organisational changes to strengthen technical ...](https://www.formula1.com/en/latest/article/red-bull-announce-organisational-changes-to-strengthen-technical-leadership-team.3tKGNlzXP3dKmyvHvfuxaA)\nDate published: Apr 17, 2026\n... Technical Director at Racing Bulls. “These changes support the ... Bull RacingCheck out the latest Red Bull Racing products in the F1 Store.\n\n3. [Red Bull announce series of organisational changes - Facebook](https://www.facebook.com/Formula1/posts/red-bull-have-announced-a-series-of-organisational-changes-within-their-technica/1253858993625657/)\nDate published: Apr 17, 2026\nAnd the best part: our beloved Hannah Schmitz will now take over as Red Bull's Head of Strategy. UPD. Will will remain with the Bulls in 2025, ...\n\n4. [Meet The Team - Red Bull Advanced Technologies](https://www.redbulladvancedtechnologies.com/meet-the-team/)\nDate published: Aug 5, 2025\nJODY EGGINTON, ENGINEERING DIRECTOR. Jody joined Red Bull Advanced Technologies from Racing Bulls in April 2025, having been with the Faenza ..."
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_015uUD7KeZfGkRgMrghZmK9L",
+          "name": "visit",
+          "args": {
+            "url": [
+              "https://www.redbull.com/us-en/laurent-mekies-career-profile"
+            ],
+            "goal": "Get details about Laurent Mekies becoming Red Bull Racing team principal - when, why, and who he replaced"
+          },
+          "result": "The useful information in https://www.redbull.com/us-en/laurent-mekies-career-profile for user goal Get details about Laurent Mekies becoming Red Bull Racing team principal - when, why, and who he replaced as follows:\n\nSummary:\nThe webpage could not be accessed.\n"
+        },
+        {
+          "id": "toolu_vrtx_01MhkXCi6baGUzNEQWh97uMd",
+          "name": "search",
+          "args": {
+            "query": "Red Bull Racing Pierre Waché technical director 2025 role",
+            "topn": 5
+          },
+          "result": "A Google search for 'Red Bull Racing Pierre Waché technical director 2025 role' found 5 results:\n\n## Web Results\n\n0. [Pierre Waché | Technical Director - Red Bull Racing](https://www.redbullracing.com/int-en/team/pierre-wache)\nPierre has been a member of our senior technical group since joining Red Bull Racing in 2013. He holds a PhD in fluid mechanics after studying at the ...\n\n1. [Oracle Red Bull Racing Strengthens Technical Leadership Team](https://www.redbullracing.com/int-en/oracle-red-bull-racing-technical-leadership-changes)\nDate published: Apr 17, 2026\n... Technical Director Pierre Wache. Ben joined the Red Bull family from BMW-Sauber in 2014, first as Deputy Technical Director at Scuderia Toro ...\n\n2. [Red Bull Technical Director Pierre Wache on the Podium at Monza](https://www.reddit.com/r/F1Technical/comments/1nc4dvg/red_bull_technical_director_pierre_wache_on_the/)\nDate published: Sep 9, 2025\nOverview of Pierre Wache's role at Red Bull. Innovative technologies changing F1 racing. Impact of aerodynamics on car performance. How hybrid ...\n\n3. [Red Bull announce organisational changes to strengthen technical ...](https://www.formula1.com/en/latest/article/red-bull-announce-organisational-changes-to-strengthen-technical-leadership-team.3tKGNlzXP3dKmyvHvfuxaA)\nDate published: Apr 17, 2026\n... Head of Vehicle Performance at Ferrari and Deputy Technical Director at Racing Bulls. ... Red Bull Racing products in the F1 Store.SHOP NOW ...\n\n4. [Pierre Wache - Red Bull Racing & Red Bull Technology | LinkedIn](https://uk.linkedin.com/in/pierre-wache-bb7a07b8)\nExperience: Red Bull Racing & Red Bull Technology · Education: Institut national polytechnique de Lorraine · Location: Greater Oxford Area · 500+ ..."
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01GHCN7tKdxmhWLLcMaiQfQ5",
+          "name": "search",
+          "args": {
+            "query": "Christian Horner left Red Bull Racing 2025 why replaced Laurent Mekies",
+            "topn": 5
+          },
+          "result": "A Google search for 'Christian Horner left Red Bull Racing 2025 why replaced Laurent Mekies' found 5 results:\n\n## Web Results\n\n0. [Red Bull management didn't tell me why they replaced Horner](https://www.racefans.net/2025/07/25/red-bull-management-didnt-tell-me-why-they-replaced-horner-mekies/)\nDate published: Jul 25, 2025\nLaurent Mekies, Red Bull, Spa-Francorchamps, 2025. Red Bull management didn't tell me why they replaced Horner – Mekies ... Racing Bulls and ...\n\n1. [Christian Horner has now officially left Red Bull here's how his ...](https://www.reddit.com/r/MaxVerstappen33/comments/1noh9i4/christian_horner_has_now_officially_left_red_bull/)\nDate published: Sep 23, 2025\nChristian Horner sacked from Red Bull. Laurent Mekies (Racing Bulls TP) replacing. r/Fauxmoi - Christian Horner sacked from Red Bull. Laurent ...\n\n2. [The key questions after Horner leaves his role as Red Bull Team ...](https://www.formula1.com/en/latest/article/analysis-the-key-questions-after-horner-leaves-his-role-as-red-bull-team.3iQnI27VWRiMQy83OX0b3j)\nDate published: Jul 9, 2025\nMekies got the nod to replace him, having impressed Red Bull with the way he has led sister outfit Racing Bulls since the start of last year.\n\n3. [Laurent Mekies admits challenge awaits for Red Bull - ESPN](https://www.espn.com/f1/story/_/id/45715278/christian-horner-exit-laurent-mekies-admits-challenge-awaits-red-bull)\nDate published: Jul 11, 2025\nNew Red Bull boss Laurent Mekies said it felt \"a bit unreal\" to replace Christian Horner and has emphasised the challenge facing him and the ...\n\n4. [Laurent Mekies: Red Bull team principal says Christian Horner can't ...](https://www.skysports.com/f1/news/12433/13401511/laurent-mekies-red-bull-team-principal-says-christian-horner-cant-be-replaced-like-sir-alex-ferguson-at-manchester-united)\nDate published: Jul 26, 2025\nMekies, who was team principal at Racing Bulls, says he was asked to replace Horner a \"few hours\" before Red Bull announced the sacking of the ..."
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01UFH7RZYM8KVTLALrEtkpH7",
+          "name": "search",
+          "args": {
+            "query": "Adrian Newey left Red Bull Racing 2024 2025 chief technical officer",
+            "topn": 5
+          },
+          "result": "A Google search for 'Adrian Newey left Red Bull Racing 2024 2025 chief technical officer' found 5 results:\n\n## Web Results\n\n0. [Adrian Newey To Leave Red Bull After 19 Years](https://www.redbullracing.com/int-en/adrian-newey-to-leave-red-bull-in-2025)\nDate published: May 1, 2024\n... Newey will leave the Red Bull Technology Group in the first quarter of 2025. ... Oracle Red Bull Racing Chief Technical Officer Adrian Newey said ...\n\n1. [Adrian Newey: Red Bull chief technical officer and pioneering ... - CNN](https://www.cnn.com/2024/05/01/sport/adrian-newey-to-leave-red-bull-2025-f1-spt-intl)\nDate published: May 1, 2024\nRed Bull's pioneering engineer and Chief Technical Officer Adrian Newey is set to leave the outfit in the first quarter of 2025.\n\n2. [Adrian Newey to leave Red Bull after 19 years as F1 chief technical ...](https://www.nytimes.com/athletic/5463051/2024/05/01/adrian-newey-red-bull-f1/)\nDate published: May 28, 2024\nAdrian Newey, Red Bull's Formula One chief technical officer, will leave the team next spring after 19 years.\n\n3. [The Team announces that Chief Technical Officer Adrian Newey will ...](https://www.facebook.com/redbullracing/posts/the-team-announces-that-chief-technical-officer-adrian-newey-will-leave-the-red-/842806834549242/)\nDate published: May 1, 2024\nAfter much speculation, Red Bull has announced that its Chief Technical Officer Adrian Newey will leave the team in the first quarter of 2025.\n\n4. [Adrian Newey: Ferrari approach F1 designer after Red Bull confirm ...](https://www.skysports.com/f1/news/12433/13126279/adrian-newey-red-bull-confirm-exit-of-chief-technical-officer-in-early-2025)\nDate published: May 2, 2024\nAdrian Newey will leave Red Bull in the first quarter of 2025 and will immediately cease technical collaborations with the Red Bull Formula One ..."
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "content": "Here's what I found about Red Bull Racing's current key leadership:\n\n---\n\n### 🏎️ Red Bull Racing — Key Staff\n\n#### **Team Principal: Laurent Mekies**\n- **Appointed:** July 2025\n- **Background:** Mekies was previously the Team Principal at sister team **Racing Bulls** (formerly AlphaTauri/RB), where he had impressed Red Bull's management with his leadership.\n- **Who he replaced:** He replaced **Christian Horner**, who had been Red Bull's team principal since the team's inception in 2005. Horner was **sacked** by Red Bull in July 2025 after nearly two decades in the role. Mekies was reportedly asked to take over just a few hours before the announcement.\n\n#### **Technical Director: Pierre Waché**\n- **Role:** Technical Director (has been part of Red Bull Racing's senior technical group since joining in 2013)\n- **Background:** Holds a PhD in fluid mechanics. He has been a key figure in the technical leadership, especially since the departure of the legendary **Adrian Newey**.\n\n#### Notable Departure: **Adrian Newey**\n- Red Bull's iconic **Chief Technical Officer**, widely regarded as the greatest F1 car designer of all time, **left Red Bull in early 2025** after 19 years with the team. He subsequently joined **Aston Martin**. His departure was a massive blow to Red Bull's technical capability.\n\n---\n\nSo in short: **Laurent Mekies** is the Team Principal and **Pierre Waché** is the Technical Director. It's been a period of significant change at the top for Red Bull! Would you like to know more about any of these figures, or anything else about the team?"
+    },
+    {
+      "type": "user",
+      "content": "I need each of their nationalities, their full professional backgrounds, the exact date they started in their respective roles at Red Bull, and how many team championships they've won while working in those roles at the team."
+    },
+    {
+      "type": "assistant",
+      "thinking": "The user wants detailed information about Laurent Mekies and Pierre Waché at Red Bull Racing:\n1. Nationalities\n2. Full professional backgrounds\n3. Exact date they started in their respective roles at Red Bull\n4. How many team championships (Constructors' Championships) they've won while in those roles at Red Bull\n\nLet me search for this information.",
+      "content": "Let me dig into the detailed backgrounds for both Laurent Mekies and Pierre Waché.",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01PXymUPhp2VqhNtyyHgKGnV",
+          "name": "search",
+          "args": {
+            "query": "Laurent Mekies nationality biography career background before Red Bull",
+            "topn": 5
+          },
+          "result": "A Google search for 'Laurent Mekies nationality biography career background before Red Bull' found 5 results:\n\n## Web Results\n\n0. [TIMELINE: Laurent Mekies' journey from engineer to Red Bull boss](https://www.formula1.com/en/latest/article/timeline-laurent-mekies-journey-from-engineer-to-red-bull-boss.1F6Gsb5mEQcLLDp7P3TIYi)\nDate published: Jul 9, 2025\nBorn on April 28, 1977 in Tours, France, Mekies was a motorsport fan from an early age and soon became keen to pursue a career in the sport.\n\n1. [Who Is Laurent Mekies? Meet Red Bull Racing's new team boss](https://www.redbull.com/us-en/laurent-mekies-career-profile)\nDate published: Jul 9, 2025\nBorn on April 28, 1977, in Tours, France, Laurent Mekies has built a career defined by quiet determination and technical excellence. He ...\n\n2. [Laurent Mekies - Liquipedia Formula 1 Wiki](https://liquipedia.net/formula1/Laurent_Mekies)\nDate published: Aug 27, 2025\nLaurent Mekies (born April 28, 1977) is a French engineer who is the Team Principal for Red Bull Racing.\n\n3. [Laurent Mekies: A Journey Through the Pits and Beyond - FanAmp](https://www.fanamp.com/pe/laurent-mekies)\nLaurent Mekies, born in 1977, is a distinguished French engineer currently serving as the assistant team principal and race director for Scuderia Ferrari ...\n\n4. [Who is Laurent Mekies? Meet Red Bull Racing's new F1 team ...](https://www.sportingnews.com/us/formula-1/news/laurent-mekies-red-bull-racing-new-team-principal-ceo/55a77f9e1966c930832fc66e)\nDate published: Jul 24, 2025\nLaurent Mekies age. Mekies was born on April 28, 1977. · Laurent Mekies nationality, birthplace. Mekies was born in Tours, France. · Laurent ..."
+        },
+        {
+          "id": "toolu_vrtx_01Vk9v7JUdz97hq9qfqoS6gk",
+          "name": "search",
+          "args": {
+            "query": "Pierre Waché nationality biography career background technical director Red Bull Racing",
+            "topn": 5
+          },
+          "result": "A Google search for 'Pierre Waché nationality biography career background technical director Red Bull Racing' found 5 results:\n\n## Web Results\n\n0. [Who Is Pierre Waché? | Get To Know Our Team - YouTube](https://www.youtube.com/watch?v=RG159OoaXGU)\nDate published: Feb 24, 2026\nIn our latest Get To Know presented by @AvaTradeTV, meet Technical Director at Oracle Red Bull Racing, Pierre Waché ... history of the ...\n\n1. [Pierre Waché - Liquipedia Formula 1 Wiki](https://liquipedia.net/formula1/Pierre_Wach%C3%A9)\nDate published: Aug 27, 2025\nRBR(Technical Director). Pierre Waché (born December 10, 1974) is a French Engineer who is the Technical Director for Red Bull Racing.\n\n2. [Pierre Waché | Technical Director - Red Bull Racing](https://www.redbullracing.com/int-en/team/pierre-wache)\nPierre has been a member of our senior technical group since joining Red Bull Racing in 2013. He holds a PhD in fluid mechanics after studying at the ...\n\n3. [A very happy birthday to Red Bull's Pierre Wache today. Born ...](https://www.facebook.com/f1history1950/posts/a-very-happy-birthday-to-red-bulls-pierre-wache-today-born-onthisday-10-december/122268064670023233/)\nDate published: Dec 9, 2025\nWith a background in engineering and a focus on aerodynamics and vehicle dynamics, Wache had been instrumental in Red Bull's on-track successes.\n\n4. [Get To Know: Pierre Waché - Red Bull Racing](https://www.redbullracing.com/int-en/videos/get-to-know-pierre-wache)\nDate published: Feb 24, 2026\nGet To Know: Pierre Waché · Celebrating American Car Culture with our fans · Girls On Track · What It Takes: Pit Stop Practice · Talking Bull reacts ..."
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_0152GH9gdm95im9wMXuHq3hf",
+          "name": "visit",
+          "args": {
+            "url": [
+              "https://www.formula1.com/en/latest/article/timeline-laurent-mekies-journey-from-engineer-to-red-bull-boss.1F6Gsb5mEQcLLDp7P3TIYi",
+              "https://liquipedia.net/formula1/Laurent_Mekies"
+            ],
+            "goal": "Get Laurent Mekies' full professional career history, nationality, exact dates of roles, and any championships won"
+          },
+          "result": "The useful information in https://www.formula1.com/en/latest/article/timeline-laurent-mekies-journey-from-engineer-to-red-bull-boss.1F6Gsb5mEQcLLDp7P3TIYi for user goal Get Laurent Mekies' full professional career history, nationality, exact dates of roles, and any championships won as follows:\n\nEvidence in page:\nBorn on April 28, 1977 in Tours, France, Mekies was a motorsport fan from an early age and soon became keen to pursue a career in the sport. The Frenchman went on to graduate in mechanical engineering from the ESTACA School in Paris, which saw him spend his final year at Loughborough University in the UK.\n\nFrom there Mekies became an engine engineer for the Asiatech team in Formula 3, before progressing to F1 with Arrows in 2001.\n\nOne year on, he joined Minardi as a race engineer and remained a part of the Faenza-based outfit for several years.\n\nMekies was promoted to Chief Engineer when the squad became Toro Rosso in 2006 and later became Head of Vehicle Performance, a role that saw him manage six departments all focused on car performance.\n\nIn 2014, Mekies departed Toro Rosso and joined the FIA as Safety Director, looking after safety and medical matters across the governing body’s championships. Three years later, he also took on the role of F1 Deputy Race Director alongside his other duties.\n\nMekies went on to switch to Ferrari in 2018, having been appointed as Sporting Director. His stint with the Scuderia saw him additionally take on the position of Head of Track and Performance Area in 2019, while in 2021 he became Racing Director.\n\nDuring his time with the team, Ferrari scored seven race wins – but a new challenge was on the horizon for Mekies…\n\nMidway through the 2023 season, it was confirmed that Mekies had parted ways with Ferrari prior to replacing the retiring Franz Tost as Team Principal at the then-called AlphaTauri team for 2024, meaning that he would return to the Faenza-based squad that he spent much of his early F1 career with.\n\nMekies’ appointment came as part of a restructure that saw Peter Bayer arrive as CEO, Tim Goss join as Racing Director and Alan Permane join in the position of Chief Technical Officer. And while the team faced a tricky start to 2024 in their new identity of RB, signs of progress started to appear as the campaign went on.\n\nThere were some hiccups along the way – including some regrets over the handling of D\n\n… [4882 chars truncated]"
+        },
+        {
+          "id": "toolu_vrtx_01NeR2GNXyZQfiCbXJAjJBnX",
+          "name": "visit",
+          "args": {
+            "url": [
+              "https://liquipedia.net/formula1/Pierre_Wach%C3%A9",
+              "https://www.redbullracing.com/int-en/team/pierre-wache"
+            ],
+            "goal": "Get Pierre Waché's full professional career history, nationality, exact dates of roles at Red Bull, and any championships won"
+          },
+          "result": "The useful information in https://liquipedia.net/formula1/Pierre_Wach%C3%A9 for user goal Get Pierre Waché's full professional career history, nationality, exact dates of roles at Red Bull, and any championships won as follows:\n\nEvidence in page:\nPierre Waché (born December 10, 1974) is a French Engineer who is the Technical Director for Red Bull Racing.\n\nPierre studied in the National Polytechnic Institute of Lorraine in Nancy, France where he earned a doctorate in Fluid Dynamics specialising in Bio-Mechanical Engineering in 2000 as well as studying at Georgia Tech in Atlanta, United States.\n\nHis first job was for Michelin working as an engineer in their Formula One program looking at the interaction between tires and tracks depending on conditions. At the end of 2006 Michelin left Formula One, causing him to join BMW Sauber as a performance engineer in Vehicle Dynamics working predominantly with tires and suspension.\n\nAfter the disband of BMW Sauber, he replaced Loïc Serra as the Head of Vehicle performance at Sauber - where he stayed 2 years. After a good season for Sauber in 2012 proviving his ability, he joined Red Bull Racing in 2013 as the Chief Performance Engineer. After 5 years of success with Red Bull Racing he was promoted to Technical Director in 2018 working directly with Adrian Newey, the Chief Technology Officer.\n\nSummary:\nPierre Waché, a French national born on December 10, 1974, is a Technical Director at Red Bull Racing. He earned a doctorate in Fluid Dynamics with a specialization in Bio-Mechanical Engineering from the National Polytechnic Institute of Lorraine in Nancy, France, in 2000, and also studied at Georgia Tech in Atlanta, United States. His professional career began at Michelin in Formula One, where he worked on tire-track interaction. After Michelin’s exit from F1 in 2006, he joined BMW Sauber as a performance engineer in Vehicle Dynamics, focusing on tires and suspension. Following the disbandment of BMW Sauber, he became Head of Vehicle Performance at Sauber, serving for two years. After a strong performance in 2012, he joined Red Bull Racing in 2013 as Chief Performance Engineer. He was promoted to Technical Director in 2018 and has held this role since, working closely with Chief Technology Officer Adrian Newey. There is no mention of any championships won by Pierre Waché personally.\n\n=======\nThe useful information in https\n\n… [849 chars truncated]"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01VHmPeoYVEoRGUdJ5wLLvsb",
+          "name": "search",
+          "args": {
+            "query": "Pierre Waché Red Bull Racing promoted technical director exact date 2018",
+            "topn": 5
+          },
+          "result": "A Google search for 'Pierre Waché Red Bull Racing promoted technical director exact date 2018' found 5 results:\n\n## Web Results\n\n0. [Pierre Waché - Wikipedia](https://en.wikipedia.org/wiki/Pierre_Wach%C3%A9)\nPierre Waché (born 10 December 1974) is a French Formula One engineer. He is the technical director at the Red Bull Racing Formula One team.\n\n1. [Formula 1 News: Red Bull extends Dr. Pierre Wache through 2028](https://www.autoracing1.com/pl/425482/formula-1-news-red-bull-extends-dr-pierre-wache-through-2028/)\nDate published: May 7, 2024\nRed Bull technical director Dr. Pierre Wache has committed his Formula 1 future to the Milton Keynes-based team after signing a Salary increase contract ...\n\n2. [Red Bull confirms technical reshuffle as Laurent Mekies lands key ...](https://www.facebook.com/ThisIsFormula1/posts/-red-bull-confirms-technical-reshuffle-as-laurent-mekies-lands-key-new-signing-l/1475756211013298/)\nDate published: Apr 17, 2026\n... Racing Bulls, where he was deputy technical director. ... GP Lambiase has been promoted to head of racing in a Red Bull staff restructure.\n\n3. [Pierre Wache's position in Red Bull under the scanner as RB22 ...](https://www.sportskeeda.com/f1/news-pierre-wache-s-position-red-bull-scanner-rb22-struggles-impress-reports)\nDate published: Apr 6, 2026\nRed Bull Racing had extended Technical Director Pierre Wache's contract in May 2025, which reportedly runs until the end of 2028. But less than ...\n\n4. [[Autosport] “the technical team under him, led by Pierre Wache, is ...](https://www.reddit.com/r/formula1/comments/1cgrjdj/autosport_the_technical_team_under_him_led_by/)\nDate published: Apr 30, 2024\nr/RedBullRacing - [Update] Red Bull Racing Technical Director, Waché confirmed that. 684. 208. While this is unfortunate for kunal, but the ..."
+        },
+        {
+          "id": "toolu_vrtx_01GKh51Ds2UmPqoLUuSAK7Uh",
+          "name": "search",
+          "args": {
+            "query": "Red Bull Racing constructors championship wins 2018 2019 2020 2021 2022 2023 2024 2025",
+            "topn": 5
+          },
+          "result": "A Google search for 'Red Bull Racing constructors championship wins 2018 2019 2020 2021 2022 2023 2024 2025' found 5 results:\n\n## Web Results\n\n0. [Red Bull Racing - Wikipedia](https://en.wikipedia.org/wiki/Red_Bull_Racing)\nIt is one of two Formula One teams owned by conglomerate Red Bull GmbH, the other being Racing Bulls. The Red Bull Racing team was managed by Christian Horner ...\n\n1. [Red Bull Racing - Year by Year | Formula 1®](https://www.formula1.com/en/information/red-bull-racing-year-by-year.5gsBMoMf3DhOSBOJ8Cx8Bi)\nEverything you need to know about Red Bull's F1 history from 2005 on. Follow your favourite Red Bull drivers through the years and celebrate top moments.\n\n2. [20 Years, 417 Races, 6 Constructors' Championships, 8 Drivers ...](https://www.facebook.com/redbullracing/posts/20-years-417-races-6-constructors-championships-8-drivers-championships-thank-yo/1303814118448509/)\nDate published: Dec 9, 2025\nFact 8 of the 20 drivers in 2022 season have driven for RedBull #F1 #redbullracing #redbullracingf1 · No photo description available. Ghøšt MB ...\n\n3. [List of Formula One World Constructors' Champions - Wikipedia](https://en.wikipedia.org/wiki/List_of_Formula_One_World_Constructors%27_Champions)\nThe Red Bull Racing RB19 is the most dominant car to win a World Constructors' Championship, winning 21 of 22 Grands Prix across the 2023 season. McLaren ...\n\n4. [Red Bull - Wins - STATS F1](https://www.statsf1.com/en/red-bull/victoire.aspx)\nRed Bull. Wins. n, Year, Grand Prix, Circuit, N°, Driver, Chassis, Engine, Tyre. 130 ... Drivers · Constructors · Engines · Tyres · Nations · Circuits · Diary ..."
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01EnJFKid3F3uQ3vwf9ryGBy",
+          "name": "visit",
+          "args": {
+            "url": [
+              "https://en.wikipedia.org/wiki/Pierre_Wach%C3%A9"
+            ],
+            "goal": "Get Pierre Waché's complete career history with exact dates, when he joined Red Bull, when he became Technical Director, and championships won at Red Bull"
+          },
+          "result": "The useful information in https://en.wikipedia.org/wiki/Pierre_Wach%C3%A9 for user goal Get Pierre Waché's complete career history with exact dates, when he joined Red Bull, when he became Technical Director, and championships won at Red Bull as follows:\n\nEvidence in page:\nWaché earned a doctorate in fluid dynamics from the National Polytechnic Institute of Lorraine, specialising in bio-mechanical engineering. After graduating, he began working in 2001 for the global tyre manufacturer Michelin in their Formula One programme, and was an engineer that was responsible for the interaction between tyres and track conditions for Formula One cars.[1] At the end of 2006, Michelin left Formula One as a tire supplier, which resulted in Waché being recruited by BMW Sauber as a performance engineer, working with tyres and suspension.[2] In 2009, BMW announced that it would leave Formula One, which resulted in Waché replacing Loïc Serra as the head of vehicle performance for Sauber.[3] In 2013, he moved to Red Bull Racing and become the chief engineer with a focus on vehicle performance; six months later, he was appointed to succeed Mark Ellis as performance director.[4] In 2018, he took on the role of technical director being responsible for the design and production of the car, second only to Adrian Newey.[5][6] Following Newey's departure for Aston Martin in 2025, Waché is now responsible for the design and production of all subsequent Red Bull challengers with the RB21 being the first post-Newey designed car and the first car to be designed by him who is overseeing all aspects of the car since Newey's departure and the first Red Bull car to not be designed by Newey since the RB2.\n\nSummary:\nPierre Waché began his Formula One career in 2001 with Michelin, where he worked on tyre and track interaction. After Michelin's exit at the end of 2006, he joined BMW Sauber as a performance engineer. In 2009, following BMW's departure from Formula One, he became head of vehicle performance at Sauber. In 2013, Waché moved to Red Bull Racing as chief engineer for vehicle performance, and six months later was appointed performance director. In March 2018, he was named Technical Director at Red Bull Racing, a role in which he was second only to Adrian Newey. Following Newey's departure to Aston Martin in 2025, Waché assumed full responsibility for the design and production of Red Bul\n\n… [204 chars truncated]"
+        },
+        {
+          "id": "toolu_vrtx_01S1cKj6pJoNHM1BG2e5BXHu",
+          "name": "visit",
+          "args": {
+            "url": [
+              "https://en.wikipedia.org/wiki/Red_Bull_Racing"
+            ],
+            "goal": "Get the list of all Constructors' Championships won by Red Bull Racing and in which years"
+          },
+          "result": "The useful information in https://en.wikipedia.org/wiki/Red_Bull_Racing for user goal Get the list of all Constructors' Championships won by Red Bull Racing and in which years as follows:\n\nEvidence in page:\nConstructors' Championships\n6 (2010, 2011, 2012, 2013, 2022, 2023)\n\nSummary:\nRed Bull Racing has won the Formula One Constructors' Championship six times, in the years 2010, 2011, 2012, 2013, 2022, and 2023.\n"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_014zMN5s3No8zmgurtXH12Qx",
+          "name": "search",
+          "args": {
+            "query": "Pierre Waché \"technical director\" Red Bull exact date appointed March 2018",
+            "topn": 5
+          },
+          "result": "A Google search for 'Pierre Waché \"technical director\" Red Bull exact date appointed March 2018' found 5 results:\n\n## Web Results\n\n0. [Red Bull confirms technical reshuffle as Laurent Mekies lands key ...](https://www.facebook.com/ThisIsFormula1/posts/-red-bull-confirms-technical-reshuffle-as-laurent-mekies-lands-key-new-signing-l/1475756211013298/)\nDate published: Apr 17, 2026\nBen Waterhouse has been promoted to chief performance and design engineer, reporting to technical director Pierre Waché. — Andrea Landi, joining ...\n\n1. [Newey steps down as technical director at RBR : r/formula1 - Reddit](https://www.reddit.com/r/formula1/comments/83eo08/newey_steps_down_as_technical_director_at_rbr/)\nDate published: Mar 10, 2018\nPierre Wache has been promoted to the newly created role of technical director of Red Bull in a move the team calls \"part of the evolution\" of ...\n\n2. [Wheatley or Waché [or Berger] to replace Horner as Red Bull boss?](https://www.grandprix247.com/formula-1-news/wache-wheatley-or-berger-to-replace-horner-as-red-bull-f1-boss)\nDate published: Feb 16, 2024\nThe top candidates are likely to be Technical Director Pierre Waché or Sporting Director Jonathan Wheatley. And why not throw in Gerhard Berger ...\n\n3. [Red Bull has announced a change in leadership structure: - Facebook](https://www.facebook.com/planetf1com/posts/red-bull-has-announced-a-change-in-leadership-structure-ben-waterhouse-will-step/1395575999266172/)\nDate published: Apr 17, 2026\nRed Bull's Late Push for F1 Constructors' Runner-Up Spot Red Bull's Technical Director, Pierre Waché, confirmed new upgrades are coming to boost ...\n\n4. [Formula 1 teams - 2026 season - Sportmonks](https://www.sportmonks.com/formula-one-api/formula-1-2026-teams/)\nTechnical Director: Pierre Waché Power Unit: Red Bull Ford Powertrains Championships: 6 Constructors' (2010-2013, 2024-2025), 7 Drivers' (2010-2013, 2021 ..."
+        },
+        {
+          "id": "toolu_vrtx_01AeRQp5pn26X44km9GCjXse",
+          "name": "search",
+          "args": {
+            "query": "Laurent Mekies Red Bull Racing CEO team principal exact start date July 2025",
+            "topn": 5
+          },
+          "result": "A Google search for 'Laurent Mekies Red Bull Racing CEO team principal exact start date July 2025' found 5 results:\n\n## Web Results\n\n0. [| F1 | Mekies: “Red Bull now pays for the 2025 world run-up, but it ...](https://www.facebook.com/ThisIsFormula1/posts/-f1-mekies-red-bull-now-pays-for-the-2025-world-run-up-but-it-was-the-right-choi/1465119552076964/)\nDate published: Apr 4, 2026\nA bizarre spectacle with runaway bulls, terrified engineers, and team bosses in “airplane mode.” Red Bull has become one of those cars you look ...\n\n1. [winning. ​ Laurent Mekies, CEO and Team Principal of Oracle Red ...](https://www.facebook.com/TAGHeuer/posts/theres-only-one-brief-winning-laurent-mekies-ceo-and-team-principal-of-oracle-re/1353725909894631/)\nDate published: Mar 7, 2026\nLaurent Mekies, CEO and Team Principal of Oracle Red Bull Racing ... Red Bull F1 Fans. Formula Reports󰞋Jul 9, 2025󰞋󱟠. 󳄫. Following ...\n\n2. [[Red Bull Racing] The Team can confirm that Laurent Mekies has ...](https://www.reddit.com/r/formula1/comments/1lvnrbo/red_bull_racing_the_team_can_confirm_that_laurent/)\nDate published: Jul 9, 2025\n[Red Bull Racing] The Team can confirm that Laurent Mekies has been appointed to the role of CEO and Team Principal of the Team with immediate ...\n\n3. [Who Is Laurent Mekies? Meet Red Bull Racing's new team boss](https://www.redbull.com/us-en/laurent-mekies-career-profile)\nDate published: Jul 9, 2025\nNow midway through the 2025 season, Laurent Mekies has officially begun his new role as CEO and Team Principal of Oracle Red Bull Racing, ...\n\n4. [TIMELINE: Laurent Mekies' journey from engineer to Red Bull boss](https://www.formula1.com/en/latest/article/timeline-laurent-mekies-journey-from-engineer-to-red-bull-boss.1F6Gsb5mEQcLLDp7P3TIYi)\nDate published: Jul 9, 2025\n... Mekies became Team Principal at the Racing Bulls outfit in 2024. Step up to Red Bull. There was plenty to keep Mekies busy at the start of 2025 ..."
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "content": "Now I have all the details. Let me compile everything clearly.",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_018m9sGPhpBrxJnZYURcHejN",
+          "name": "python",
+          "args": {
+            "code": "\ninfo = \"\"\"\nKey findings:\n\nLAURENT MEKIES - CEO & Team Principal\n- Nationality: French\n- Born: April 28, 1977, Tours, France\n- Started at Red Bull Racing: July 9, 2025 (\"with immediate effect\")\n- Constructors' Championships won while in role at RBR: 0\n\nPIERRE WACHÉ - Technical Director  \n- Nationality: French\n- Born: December 10, 1974\n- Joined Red Bull Racing: 2013 (as Chief Engineer / Vehicle Performance)\n- Promoted to Technical Director: ~March 10, 2018\n- Red Bull's Constructors' Championships: 2010, 2011, 2012, 2013, 2022, 2023\n- Championships won while Technical Director (2018 onwards): 2 (2022, 2023)\n\"\"\"\nprint(info)\n"
+          },
+          "result": "stdout:\n\nKey findings:\n\nLAURENT MEKIES - CEO & Team Principal\n- Nationality: French\n- Born: April 28, 1977, Tours, France\n- Started at Red Bull Racing: July 9, 2025 (\"with immediate effect\")\n- Constructors' Championships won while in role at RBR: 0\n\nPIERRE WACHÉ - Technical Director  \n- Nationality: French\n- Born: December 10, 1974\n- Joined Red Bull Racing: 2013 (as Chief Engineer / Vehicle Performance)\n- Promoted to Technical Director: ~March 10, 2018\n- Red Bull's Constructors' Championships: 2010, 2011, 2012, 2013, 2022, 2023\n- Championships won while Technical Director (2018 onwards): 2 (2022, 2023)"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "content": "Here's the deep dive on both men:\n\n---\n\n## 🇫🇷 Laurent Mekies — CEO & Team Principal\n\n| Detail | Info |\n|--------|------|\n| **Nationality** | French |\n| **Role start date at Red Bull Racing** | **July 9, 2025** (appointed \"with immediate effect\" following Christian Horner's sacking) |\n| **Constructors' Championships won in this role** | **0** (Red Bull finished 3rd in the 2025 Constructors' standings) |\n\n### Full Career Background:\n1. **2000–2001** — Started as an engine engineer for **Asiatech** in Formula 3\n2. **2001** — Moved to F1 with **Arrows**\n3. **2002–2005** — Joined **Minardi** as a race engineer (worked with Mark Webber, Justin Wilson, Zsolt Baumgartner, Christijan Albers)\n4. **2006–2013** — Promoted to **Chief Engineer** when Minardi became **Scuderia Toro Rosso**; later became **Head of Vehicle Performance**\n5. **2014–2017** — Joined the **FIA** as **Safety Director**; also became **F1 Deputy Race Director** in 2017\n6. **Sept 2018** — Joined **Ferrari** as **Sporting Director**\n7. **2019** — Became **Head of Track and Performance Area** at Ferrari\n8. **Jan 2021** — Promoted to **Deputy Team Principal & Racing Director** at Ferrari\n9. **July 2023** — Departed Ferrari\n10. **2024** — Became **Team Principal** of **Racing Bulls** (formerly AlphaTauri)\n11. **July 9, 2025** — Appointed **CEO & Team Principal of Red Bull Racing**\n\n---\n\n## 🇫🇷 Pierre Waché — Technical Director\n\n| Detail | Info |\n|--------|------|\n| **Nationality** | French |\n| **Role start date at Red Bull Racing** | Joined Red Bull in **2013**; promoted to **Technical Director** on approximately **March 10, 2018** |\n| **Constructors' Championships won as Technical Director** | **2** (2022, 2023) |\n\n### Full Career Background:\n1. **2001–2006** — Engineer at **Michelin's F1 programme**, specializing in tyre-track interaction\n2. **2007–2008** — Joined **BMW Sauber** as a performance engineer (Vehicle Dynamics — tyres & suspension) after Michelin's exit from F1\n3. **2009–2012** — Following BMW's departure, became **Head of Vehicle Performance** at **Sauber**, replacing Loïc Serra\n4. **2013** — Joined **Red Bull Racing** as **Chief Engineer** (vehicle performance); promoted to **Performance Director** six months later\n5. **March 2018** — Promoted to **Technical Director**, working alongside Chief Technical Officer **Adrian Newey**\n6. **2025–present** — Following Adrian Newey's departure to As\n\n… [699 chars truncated]"
+    },
+    {
+      "type": "user",
+      "content": "Awesome, that's super helpful. Now another question about Red Bull Racing: can you tell me who their sponsors are for the 2026 season? I need their title sponsor, all their technical sponsors, their apparel sponsor, and all other major sponsors they have that year."
+    },
+    {
+      "type": "assistant",
+      "thinking": "The user wants to know about Red Bull Racing's sponsors for the 2026 season. Let me search for this information.",
+      "content": "Great question! Let me research Red Bull Racing's 2026 sponsorship lineup in detail.",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01KsmbBxnDwW9DTnSPApNe9b",
+          "name": "search",
+          "args": {
+            "query": "Red Bull Racing 2026 sponsors title sponsor technical sponsors list",
+            "topn": 10
+          },
+          "result": "A Google search for 'Red Bull Racing 2026 sponsors title sponsor technical sponsors list' found 9 results:\n\n## Web Results\n\n0. [Sponsors change from 2025 to 2026 : r/RedBullRacing - Reddit](https://www.reddit.com/r/RedBullRacing/comments/1q7ixlo/sponsors_change_from_2025_to_2026/)\nDate published: Jan 8, 2026\nRed Bull Racing sponsors for 2026. Red Bull sponsorship details. Oracle as a sponsor for Red Bull Racing. Top moments in Red Bull Racing history.\n\n1. [Our Partners | Oracle Red Bull Racing Formula 1 Team](https://www.redbullracing.com/int-en/partners)\nTECHNICAL PARTNERS TECHNICAL PARTNERS TECHNICAL PARTNERS TECHNICAL PARTNERS. Technical Partners. Oracle · 1Password · Ansys · AT&T · DMG MORI · Esso · Hexagon.\n\n2. [Here are the official sponsors and partners of Oracle Red Bull ...](https://www.facebook.com/officialsportskhabri/posts/here-are-the-official-sponsors-and-partners-of-oracle-red-bull-racing-for-the-20/1526973616105486/)\nDate published: Mar 11, 2026\nRed Bull chose to partner with Ford for 2026 instead of Porsche. - Despite dominating sportscar endurance racing and Le Mans, Porsche has ...\n\n3. [Biggest F1 team sponsors: Red Bull top mega F1 rich list ahead of ...](https://racingnews365.com/biggest-f1-team-sponsors-red-bull-top-mega-f1-rich-list-ahead-of-ferrari)\nDate published: Mar 1, 2026\nTop five biggest title sponsors in 2026 F1 season ; Red Bull, Oracle, 110 million ; Ferrari, HP, 100 million ; McLaren, Mastercard, 90 million.\n\n4. [| Biggest F1 team sponsors: Red Bull top mega F1 rich list ahead of ...](https://www.instagram.com/p/DVYdudyDTCv/)\nDate published: Mar 2, 2026\n— Oracle has been Red Bull's main title sponsor since 2022, contributing to the team's success with three Drivers' world championships and two ...\n\n5. [Red Bull has secured the most lucrative title sponsorship deal for the ...](https://x.com/ThisIsFormu1a1/status/2028351519758958850)\nDate published: Mar 2, 2026\n— Red Bull has secured the most lucrative title sponsorship deal for the 2026 F1 season, partnering with Oracle for $110 million annually. This ...\n\n6. [F1 2026: List of partners/sponsors for each of 11 teams - Pit Debrief](https://www.pitdebrief.com/post/f1-2026-list-of-partners-sponsors-for-each-of-11-teams/)\nDate published: Mar 3, 2026\nWith 2026 F1 season days away, we have compiled a full list of the sponsors that joined or left teams from last year to the current \n\n… [599 chars truncated]"
+        },
+        {
+          "id": "toolu_vrtx_01TThauKGDqxM8zrASa21RAx",
+          "name": "search",
+          "args": {
+            "query": "Oracle Red Bull Racing 2026 season partners sponsors apparel",
+            "topn": 10
+          },
+          "result": "A Google search for 'Oracle Red Bull Racing 2026 season partners sponsors apparel' found 10 results:\n\n## Web Results\n\n0. [Oracle Red Bull Racing 2026 Team Set Up T-Shirt - F1 Store](https://f1store.formula1.com/en/red-bull-racing/oracle-red-bull-racing-2026-team-set-up-t-shirt/t-10647505+p-359958682015900+z-9-4199540299)\nRed Bull Racing unveiled its 2026 Formula 1 teamwear with a bold, modern design that blends cutting-edge performance and timeless style. RED BULL CLOSE UP 2.\n\n1. [Our Partners | Oracle Red Bull Racing Formula 1 Team](https://www.redbullracing.com/int-en/partners)\nValued network of partners spanning an array of categories including apparel, entertainment, fintech and many more.\n\n2. [Oracle Red Bull Racing 2026 Collection - Castore](https://castore.com/collections/oracle-red-bull-racing-2026-replica-collection)\nIntroducing the Castore x Oracle Red Bull Racing 2026 Collection ... ORACLE RED BULL RACING 2026 FANWEAR NOW LIVE | SHOP NOW. KLARNA AVAILABLE AT CHECKOUT ...\n\n3. [Red Bull fans! The 2026 team collection has landed Celebrate the ...](https://www.instagram.com/p/DTvsCYzCKXl/)\nDate published: Jan 20, 2026\nThe 2026 Red Bull F1 Racing Suit is built for those who move with fearless speed — inspired by the championship energy of Max Verstappen and the ...\n\n4. [Crew Sweatshirt - Visa Cash App Racing Bulls](https://www.visacashapprb.com/int-en/inside-our-2026-team-kit)\nThe 2026 kit draws from contemporary streetwear design, focusing on silhouette, layering and versatility. This approach allows the same garments to work ...\n\n5. [Formula 1 News: 2026 Oracle Red Bull Racing Team Kit](https://www.autoracing1.com/pl/469594/formula-1-news-2026-oracle-red-bull-racing-team-kit/)\nDate published: Jan 16, 2026\nExplore the Oracle Red Bull Racing Team Kit for 2026, featuring innovative designs and bold blue hues for F1 fans.\n\n6. [Oracle Red Bull Racing on Instagram: \"New fits for 2026 loading ...](https://www.instagram.com/reel/DTfRdZKDF0B/)\nDate published: Jan 14, 2026\nThe official Oracle Red Bull Racing x Castore 2026 hoodie has landed, featuring the iconic new Ford partnership. Engineered for the track, ...\n\n7. [Sponsors change from 2025 to 2026 : r/RedBullRacing - Reddit](https://www.reddit.com/r/RedBullRacing/comments/1q7ixlo/sponsors_change_from_2025_to_2026/)\nDate published: Jan 8, 2026\nPhilips and Castore seemed to lower their sponsorship level if y\n\n… [739 chars truncated]"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_014MZGoUaFb7x3oRXjozCX9C",
+          "name": "visit",
+          "args": {
+            "url": [
+              "https://www.redbullracing.com/int-en/partners",
+              "https://www.pitdebrief.com/post/f1-2026-list-of-partners-sponsors-for-each-of-11-teams/"
+            ],
+            "goal": "Get the complete categorized list of all Red Bull Racing sponsors and partners for 2026: title sponsor, technical partners, apparel, and all other sponsors"
+          },
+          "result": "The useful information in https://www.redbullracing.com/int-en/partners for user goal Get the complete categorized list of all Red Bull Racing sponsors and partners for 2026: title sponsor, technical partners, apparel, and all other sponsors as follows:\n\nEvidence in page:\nTitle Partner\n\n© Getty Images\n\nOracleTogether with Oracle, Oracle Red Bull Racing is building better fan experiences and improving performance on and off the track.\nLearn More\n\nTEAM PARTNERS TEAM PARTNERS TEAM PARTNERS TEAM PARTNERS\n\nTeam Partners\nTeam PartnersValued network of partners spanning an array of categories including apparel, entertainment, fintech and many more.\n\nTECHNICAL PARTNERS TECHNICAL PARTNERS TECHNICAL PARTNERS TECHNICAL PARTNERS\n\nTechnical Partners\nTechnical PartnersPartners, who as part of their agreement, provide a service or product that we use to improve performance on track or throughout the business.\n\nSummary:\nThe title sponsor for Oracle Red Bull Racing in 2026 is Oracle, as highlighted by their partnership focused on enhancing fan experiences and performance on and off the track. Team Partners include a diverse network across apparel, entertainment, fintech, and other sectors, though specific names are not listed. Technical Partners are those providing services or products that directly support performance on the track and within the business operations, but no individual partners are named in the provided content.\n\n=======\nThe useful information in https://www.pitdebrief.com/post/f1-2026-list-of-partners-sponsors-for-each-of-11-teams/ for user goal Get the complete categorized list of all Red Bull Racing sponsors and partners for 2026: title sponsor, technical partners, apparel, and all other sponsors as follows:\n\nEvidence in page:\nRed Bull: \nDeparted within last 12 months: Honda, Gold Standard, CDW, Patron\nJoined for F1 2026: DAMAC Properties, Clear, Ford\nCurrent Partners: Oracle, Tag Heuer, Rauch, Pirelli, Mobil 1, Esso, Siemens, AT&T, Hexagon, DMG Mori, Ansys, PWR, Armor All, Castore, New Era, Hard Rock International, ROKT, Sparco, Visa, Heineken, Gate.io, 1Password, Yeti, Maui Jim, Ava Trade, Pepe Jeans, Philips, neat, mophie, Athletic Propulsion Labs, Carlyle, DAMAC Properties, Clear, Ford\n\nSummary:\nRed Bull Racing's 2026 sponsor and partner lineup includes several key categories: DAMAC Properties and Clear are new additions for 2026, with Ford joining as \n\n… [550 chars truncated]"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01S8sqjHbi3LsyMgUB6sJevj",
+          "name": "visit",
+          "args": {
+            "url": [
+              "https://www.reddit.com/r/RedBullRacing/comments/1q7ixlo/sponsors_change_from_2025_to_2026/"
+            ],
+            "goal": "Get detailed information about Red Bull Racing's 2026 sponsor categories and any changes from 2025"
+          },
+          "result": "The useful information in https://www.reddit.com/r/RedBullRacing/comments/1q7ixlo/sponsors_change_from_2025_to_2026/ for user goal Get detailed information about Red Bull Racing's 2026 sponsor categories and any changes from 2025 as follows:\n\nEvidence in page:\n['Castore have Red Bull, Haas and Alpine', 'McLaren have Puma', 'Puma have Aston Martin, McLaren and Ferrari', 'Tommy Hilfiger have Cadillac', 'Hugo have Racing Bulls', 'Williams have New Era', 'CDW, Gold Standard, and Patron left and Honda gets swapped for Ford', \"Honda 'changed' to Ford\", \"Mobile racing fuels 'changed' to just Mobile\", 'They lost Gold standard, Patron and CDW as sponsors', 'I wish someone else made they’re clothing . Castore feels like poor quality compared to puma', 'ItzMichaelHD • 1/11/2026, 12:45:32 PM • ↑15: I’m so annoyed castore get all the F1 clothing deals. They make horrendous quality clothing.', 'Icy_Sir_5720 • 1/8/2026, 6:28:43 PM • ↑36: I wish someone else made they’re clothing . Castore feels like poor quality compared to puma', 'The_Locals • 1/8/2026, 7:23:51 PM • ↑3: It’s awful. They’re notorious in football for making crap jerseys as well.', 'TheCloney • 1/9/2026, 1:42:58 AM • ↑4: Pepe Jeans is right there.....it infuriates me every time I see it, go back to them and fuck off Castore.']\n\nSummary:\nRed Bull Racing's 2026 sponsorship structure features Castore as their official clothing sponsor, continuing from 2025. However, significant changes occurred: Castore retained Red Bull, Haas, and Alpine as clients, but McLaren transitioned from Castore to Puma for 2026. Additionally, Red Bull lost three sponsors—CDW, Gold Standard, and Patron—and saw Honda replaced by Ford as their engine supplier. The team also experienced a rebranding of Mobile Racing Fuels to just Mobile. There is widespread criticism of Castore's apparel quality, with fans expressing dissatisfaction compared to alternatives like Puma, Nike, or Pepe Jeans, and speculation that Nike may target Red Bull if they re-enter F1 in 2027.\n"
+        },
+        {
+          "id": "toolu_vrtx_01QDewUtqhV2HrqaUnjmsPWw",
+          "name": "visit",
+          "args": {
+            "url": [
+              "https://www.facebook.com/officialsportskhabri/posts/here-are-the-official-sponsors-and-partners-of-oracle-red-bull-racing-for-the-20/1526973616105486/"
+            ],
+            "goal": "Get the full categorized list of Red Bull Racing 2026 sponsors"
+          },
+          "result": "The useful information in https://www.facebook.com/officialsportskhabri/posts/here-are-the-official-sponsors-and-partners-of-oracle-red-bull-racing-for-the-20/1526973616105486/ for user goal Get the full categorized list of Red Bull Racing 2026 sponsors as follows:\n\nEvidence in page:\nSportsKhabri - Here are the official sponsors and partners...\n\nBrowser ini tidak didukung\n\nGunakan aplikasi Facebook\n\nketuk untuk menggunakan browser yang didukung\n\nChrome   Firefox   Edge   Samsung\n\nSummary:\nThe provided webpage content from SportsKhabri appears to be incomplete or corrupted, as it only displays a message about unsupported browsers and a prompt to use the Facebook app or supported browsers (Chrome, Firefox, Edge, Samsung). There is no mention of Red Bull Racing 2026 sponsors or any related information. Therefore, no full categorized list of Red Bull Racing 2026 sponsors can be extracted from this content.\n"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_016HMQaLRMC7ZAuqR6PG1WGJ",
+          "name": "search",
+          "args": {
+            "query": "Red Bull Racing 2026 official partners full list categories team partners technical partners",
+            "topn": 5
+          },
+          "result": "A Google search for 'Red Bull Racing 2026 official partners full list categories team partners technical partners' found 5 results:\n\n## Web Results\n\n0. [Our Partners | Oracle Red Bull Racing Formula 1 Team](https://www.redbullracing.com/int-en/partners)\nPartners, who as part of their agreement, provide a service or product that we use to improve performance on track or throughout the business. Oracle Red Bull ...\n\n1. [Red Bull Racing Formula 1 Sponsors: sponsorship portfolio analysis](https://rtrsports.com/en/blog/red-bull-racing-f1-sponsors/)\nDate published: Mar 27, 2026\nVisa appears on the RB22 and is also the title sponsor of the sister team, Visa Cash App Racing Bulls. Which new sponsors has Red Bull Racing ...\n\n2. [Here are the official sponsors and partners of Oracle Red Bull ...](https://www.facebook.com/officialsportskhabri/posts/here-are-the-official-sponsors-and-partners-of-oracle-red-bull-racing-for-the-20/1526973616105486/)\nDate published: Mar 11, 2026\nThis is how the engine suppliers for the #F1 in 2026 look like ➡RedBull y Racing Bulls : Redbull Ford Powertrains ➡Audi : Audi ➡Mercedes, ...\n\n3. [F1 2026: List of partners/sponsors for each of 11 teams - Pit Debrief](https://www.pitdebrief.com/post/f1-2026-list-of-partners-sponsors-for-each-of-11-teams/)\nDate published: Mar 3, 2026\n... teams publish full list of their official sponsors on their website. ... Racing Bulls Red Bull Racing Sponsor Williams. Post navigation.\n\n4. [Sponsors change from 2025 to 2026 : r/RedBullRacing - Reddit](https://www.reddit.com/r/RedBullRacing/comments/1q7ixlo/sponsors_change_from_2025_to_2026/)\nDate published: Jan 8, 2026\nr/formula1 - Red Bull serve up tasty treat with new official F1 partnership with ... Racing Bulls team wear for 2026 season. (Photos: @ ..."
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01HwZUupMafcSuiaDsXEiNUv",
+          "name": "visit",
+          "args": {
+            "url": [
+              "https://rtrsports.com/en/blog/red-bull-racing-f1-sponsors/"
+            ],
+            "goal": "Get the complete categorized list of all Red Bull Racing 2026 sponsors broken down by category: title sponsor, team partners, technical partners, apparel partner, and all other sponsors"
+          },
+          "result": "The useful information in https://rtrsports.com/en/blog/red-bull-racing-f1-sponsors/ for user goal Get the complete categorized list of all Red Bull Racing 2026 sponsors broken down by category: title sponsor, team partners, technical partners, apparel partner, and all other sponsors as follows:\n\nEvidence in page:\nTitle Partner\n * Oracle — Cloud Infrastructure & Enterprise Technology\n\nPower Unit Partner\n * Ford — Automotive & Hybrid Technology\n\nTeam Partners\nRed Bull Racing’s team partner roster spans apparel, fintech, hospitality, lifestyle, real estate and technology — a deliberate diversification that maximises the team’s commercial reach across industry verticals and global markets.\n\n * Armor All® — Car Care Products\n * Athletic Propulsion Labs — Athletic Footwear\n * AvaTrade — Online Trading & Finance\n * Carlyle — Global Investment Management\n * Castore — Technical Sportswear & Apparel\n * DAMAC Properties — Luxury Real Estate Development\n * Gate — Cryptocurrency Exchange\n * Hard Rock — Hospitality & Entertainment\n * Heineken — Beer & Alcoholic Beverages\n * Indeed — Employment Platform & HR Technology (new in 2026)\n * Maui Jim — Sunglasses & Optics\n * mophie — Mobile Charging & Accessories\n * New Era — Headwear & Lifestyle Accessories\n * Pepe Jeans — Fashion & Lifestyle Clothing\n * Philips Professional Displays — LED & Professional Display Solutions\n * Rauch — Juice & Non-Alcoholic Beverages\n * Rokt — E-Commerce Technology & MarTech\n * TAG Heuer — Luxury Watchmaking & Official Timekeeper\n * Visa — Digital Payment Services (renewed through 2030)\n * YETI — Outdoor Lifestyle & Thermal Products\n\nTechnical Partners\nRed Bull Racing’s technical partner network is arguably the most strategically coherent section of the entire portfolio. Every partner in this tier contributes a product or service directly integrated into the team’s engineering or operational performance — making these relationships as much about competitive advantage as commercial visibility.\n\n * 1Password — Digital Security & Credential Management\n * Ansys — Engineering Simulation & CAE Software\n * AT&T — Connectivity & Networking Solutions\n * DMG MORI — CNC Machine Tools & Manufacturing\n * Esso — High-Performance Fuels\n * Hexagon — Industrial Metrology & Design Software\n * Mobil 1 — High-Performance Lubricants\n * Neat — Video Conferencing & Collaboration Hardware\n * Oracle — Cloud Infrastructur\n\n… [1033 chars truncated]"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "content": "I found a comprehensive breakdown! Here's the full 2026 sponsorship portfolio for **Oracle Red Bull Racing**:\n\n---\n\n## 🏆 Title Partner\n| Sponsor | Industry |\n|---------|----------|\n| **Oracle** | Cloud Infrastructure & Enterprise Technology (~$110M/year) |\n\n---\n\n## ⚙️ Power Unit Partner\n| Sponsor | Industry |\n|---------|----------|\n| **Ford** | Automotive & Hybrid Technology *(new for 2026, replacing Honda)* |\n\n---\n\n## 🔧 Technical Partners\nThese partners provide products/services directly integrated into the team's engineering or operations:\n\n| Sponsor | Industry |\n|---------|----------|\n| **1Password** | Digital Security & Credential Management |\n| **Ansys** | Engineering Simulation & CAE Software |\n| **AT&T** | Connectivity & Networking Solutions |\n| **DMG MORI** | CNC Machine Tools & Manufacturing |\n| **Esso** | High-Performance Fuels |\n| **Hexagon** | Industrial Metrology & Design Software |\n| **Mobil 1** | High-Performance Lubricants |\n| **Neat** | Video Conferencing & Collaboration Hardware |\n| **Oracle** | Cloud Infrastructure *(also Title Partner)* |\n| **PWR** | Advanced Cooling Systems |\n| **Siemens** | Industrial Software & PLM Solutions |\n| **Sparco** | Technical Racewear & Motorsport Safety |\n\n---\n\n## 👕 Apparel Partner\n| Sponsor | Role |\n|---------|------|\n| **Castore** | Official Technical Sportswear & Apparel |\n\n---\n\n## 🤝 Team Partners (Other Major Sponsors)\nA broad portfolio spanning lifestyle, finance, hospitality, fashion, and tech:\n\n| Sponsor | Industry |\n|---------|----------|\n| **Armor All** | Car Care Products |\n| **Athletic Propulsion Labs (APL)** | Athletic Footwear |\n| **AvaTrade** | Online Trading & Finance |\n| **Carlyle** | Global Investment Management |\n| **DAMAC Properties** | Luxury Real Estate *(new for 2026)* |\n| **Clear** | Personal Care *(new for 2026)* |\n| **Gate.io** | Cryptocurrency Exchange |\n| **Hard Rock** | Hospitality & Entertainment |\n| **Heineken** | Beer & Beverages |\n| **Indeed** | Employment Platform & HR Tech *(new for 2026)* |\n| **Maui Jim** | Sunglasses & Optics |\n| **mophie** | Mobile Charging & Accessories |\n| **New Era** | Headwear & Lifestyle Accessories |\n| **Pepe Jeans** | Fashion & Lifestyle Clothing |\n| **Philips** | Professional LED Displays |\n| **Rauch** | Juice & Non-Alcoholic Beverages |\n| **Rokt** | E-Commerce Technology |\n| **TAG Heuer** | Luxury Watches & Official Timekeeper |\n| **Visa** | Digit\n\n… [469 chars truncated]"
+    },
+    {
+      "type": "user",
+      "content": "Great, next I have a question about a specific F1 figure: Laurent Mekies. Can you tell me all F1 teams, both past and present, that he has worked for?"
+    },
+    {
+      "type": "assistant",
+      "thinking": "The user is asking about all F1 teams Laurent Mekies has worked for. I actually already gathered this information earlier when researching his background. Let me compile what I already know:\n\n1. Arrows (2001)\n2. Minardi (2002-2005)\n3. Toro Rosso (2006-2013) - when Minardi became Toro Rosso\n4. FIA (2014-2017) - this isn't an F1 team though\n5. Ferrari (2018-2023)\n6. AlphaTauri/Racing Bulls (2024-mid 2025)\n7. Red Bull Racing (July 2025-present)\n\n\n8. \nI need to filter out the FIA since that's not an F1 team, so the actual F1 teams are Arrows, Minardi, Toro Rosso, Ferrari, AlphaTauri/Racing Bulls, and Red Bull Racing.\n\nActually, I'm confident in this list from the earlier research. I should present it clearly and note that several of these are the same organization under different names—Minardi became Toro Rosso, which later became AlphaTauri, then Racing Bulls, and now Red Bull Racing.",
+      "content": "Good news — we actually covered Laurent Mekies' full career history in detail earlier! I already have all the information needed. Here's every F1 team he has worked for:\n\n---\n\n### 🇫🇷 Laurent Mekies — Complete F1 Team History\n\n| # | Team | Years | Role(s) |\n|---|------|-------|---------|\n| 1 | **Arrows** | 2001 | Engineer (his first F1 role) |\n| 2 | **Minardi** | 2002–2005 | Race Engineer (for Mark Webber, Justin Wilson, Zsolt Baumgartner, Christijan Albers) |\n| 3 | **Scuderia Toro Rosso** | 2006–2013 | Chief Engineer → Head of Vehicle Performance (stayed on when Minardi was acquired by Red Bull and rebranded) |\n| 4 | **Scuderia Ferrari** | Sept 2018–July 2023 | Sporting Director → Head of Track & Performance Area → Deputy Team Principal & Racing Director |\n| 5 | **Racing Bulls** (AlphaTauri/RB) | 2024–July 2025 | Team Principal (returned to the Faenza-based team he'd spent his early career at) |\n| 6 | **Red Bull Racing** | July 9, 2025–present | CEO & Team Principal |\n\n---\n\n### A few interesting notes:\n- He also worked for the **FIA** (2014–2017) as Safety Director and F1 Deputy Race Director between his Toro Rosso and Ferrari stints — but that's the governing body, not an F1 team.\n- His very first motorsport role was with **Asiatech** in **Formula 3** (2000), before he entered F1.\n- Teams 2, 3, and 5 are technically the **same Faenza-based team** under different names (Minardi → Toro Rosso → AlphaTauri → RB → Racing Bulls), so he's returned to that operation multiple times throughout his career.\n- He's now worked for **both Red Bull-owned F1 teams** (Racing Bulls and Red Bull Racing).\n\nSo in total, that's **6 distinct F1 teams** (or **4 unique organisations** if you count the Faenza team's various identities as one). Would you like to know anything else?"
+    },
+    {
+      "type": "user",
+      "content": "Perfect, one last question for you: who is Scuderia Ferrari's number one driver right now?"
+    },
+    {
+      "type": "assistant",
+      "thinking": "The user is asking about Ferrari's number one driver right now. This is a bit of a tricky question because F1 teams don't always officially designate a \"number one\" driver. Many teams claim to treat their drivers equally. However, the user might be asking about:\n\n1. Who is considered the lead/primary driver\n2. Who has the #1 car number\n3. Who is performing better\n\nLet me think about what I know from earlier research. Ferrari's 2025 drivers are Charles Leclerc (#16) and Lewis Hamilton (#44). \n\nThe #1 car number in F1 is reserved for the reigning World Drivers' Champion - currently that would be Lando Norris (2025 champion) or Max Verstappen who uses #1. It's not related to Ferrari.\n\n\nI should clarify what the user means by \"number one driver\" since it's ambiguous—they could be asking about the lead driver, the car number, or performance. Let me search for any official Ferrari stance on this.",
+      "content": "That's actually a question worth clarifying a bit! The term \"number one driver\" can mean different things in F1. Could you tell me what you're looking for specifically? For example:\n\n1. **The driver with the #1 car number?** — In F1, the #1 is reserved exclusively for the reigning World Drivers' Champion (currently Lando Norris/Max Verstappen), so neither Ferrari driver carries that number. Ferrari's drivers use **#16 (Charles Leclerc)** and **#44 (Lewis Hamilton)**.\n\n2. **Ferrari's officially designated lead/primary driver?** — Many teams, including Ferrari, often publicly state they treat both drivers equally, though in practice one driver may get strategic priority.\n\n3. **Who's performing better currently?** — I could look up the 2025 standings to see which Ferrari driver scored more points.\n\nWhich of these are you most interested in? Or did you mean something else entirely? Let me know and I'll dig into it! 🏎️"
+    },
+    {
+      "type": "user",
+      "content": "I mean their officially designated lead driver that the team gives strategic priority to right now."
+    },
+    {
+      "type": "assistant",
+      "thinking": "The user wants to know who Ferrari's officially designated lead/number one driver is. This is a tricky question because Ferrari, like most modern F1 teams, typically doesn't officially designate a \"number one\" driver publicly. They usually say both drivers are treated equally. However, in practice, one driver may receive strategic priority based on championship position or other factors.\n\nLet me search for this to see if there's any official stance from Ferrari for 2025.",
+      "content": "Good question — let me look into whether Ferrari has made any official statements about driver hierarchy for the current season.",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_011qodURXa4BfJfWPUpKWejL",
+          "name": "search",
+          "args": {
+            "query": "Ferrari number one driver 2025 official lead driver Leclerc Hamilton team orders priority",
+            "topn": 10
+          },
+          "result": "A Google search for 'Ferrari number one driver 2025 official lead driver Leclerc Hamilton team orders priority' found 10 results:\n\n## Web Results\n\n0. [Ferrari Told to Prioritize Lewis Hamilton Over Charles Leclerc for ...](https://sports.yahoo.com/article/ferrari-told-prioritize-lewis-hamilton-210443491.html)\nDate published: Jun 7, 2025\nFerrari has been urged to shift its focus toward Lewis Hamilton as it builds its 2025 Formula 1 challenger.\n\n1. [Charles Leclerc has the beating of Lewis Hamilton at Ferrari!](https://www.facebook.com/planetf1com/posts/f1-2025-reader-predictionscharles-leclerc-has-the-beating-of-lewis-hamilton-at-f/1065583445598764/)\nDate published: Mar 10, 2025\nF1 2025 reader predictions: Charles Leclerc has the beating of Lewis Hamilton at Ferrari!\n\n2. [Ferrari boss makes Charles Leclerc excuse after Lewis Hamilton's ...](https://www.aol.com/ferrari-boss-makes-charles-leclerc-102400484.html)\nFerrari's 2026 Formula 1 machine doesn't mesh well with Charles Leclerc's driving approach, according to team principal Frederic Vasseur.\n\n3. [Ferrari unlikely to prioritize Hamilton like Schumacher even in F1 ...](https://scuderiafans.com/ferrari-unlikely-to-prioritize-hamilton-like-schumacher-even-in-f1-championship-contention/)\nDate published: Mar 20, 2026\nFerrari are unlikely to prioritize Lewis Hamilton over Charles Leclerc if both are in the 2026 F1 title fight. Discover how the Scuderia ...\n\n4. [If Ferrari have the fastest car, should they prioritize Leclerc? - Reddit](https://www.reddit.com/r/F1Discussions/comments/1rd929b/if_ferrari_have_the_fastest_car_should_they/)\nDate published: Feb 24, 2026\nI don't think there's any point prioritising a driver unless they're actually fighting for a WDC and one driver is clearly much faster than the ...\n\n5. [Leclerc wary of 'very, very strong' Mercedes as he assesses Ferrari's ...](https://www.formula1.com/en/latest/article/leclerc-wary-of-very-very-strong-mercedes-as-he-assesses-ferraris-start-to.1W2Mawkz0eTnLSyi8vOqkd)\nDate published: Mar 6, 2026\nLeclerc led a 1-2 for the Scuderia over team mate Lewis Hamilton during Friday's opening practice session at Melbourne's Albert Park, while the ...\n\n6. [Ferrari's 2025 season did not live up to expectations, as the team ...](https://www.instagram.com/p/DS6wN99CE87/)\nDate published: Dec 30, 2025\nA former F1 driver thinks Hamilton's performance might affect Leclerc\n\n… [1008 chars truncated]"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01PrzLXYakXSrZkFXvDSrigj",
+          "name": "search",
+          "args": {
+            "query": "Ferrari equal status drivers 2025 no number one Vasseur Leclerc Hamilton",
+            "topn": 5
+          },
+          "result": "A Google search for 'Ferrari equal status drivers 2025 no number one Vasseur Leclerc Hamilton' found 5 results:\n\n## Web Results\n\n0. [Hamilton and Leclerc 'showdown' predicted as Ferrari No.1 driver ...](https://www.planetf1.com/news/lewis-hamilton-ferrari-number-one-charles-leclerc-monaco-showdown-gary-anderson)\nDate published: Jan 5, 2025\nFerrari will start out in F1 2025 backing Lewis Hamilton, with the seven-time World Champion and Charles Leclerc on course for a Monaco GP “showdown”.\n\n1. [Can Ferrari maintain equal status if close to Hamilton? - Facebook](https://www.facebook.com/groups/f1onlymemes/posts/2441713733009970/)\nDate published: Apr 11, 2026\nIf Ferrari gets to the final six races with Leclerc and Hamilton separated by less than 20 points, can they really keep pretending equal ...\n\n2. [F1 - \"No number one\" at Ferrari in 2025, assures Vasseur - AutoHebdo](https://www.autohebdof1.com/news/f1/No-number-one-between-Leclerc-and-Hamilton-in-2025-assures-Vasseur.html)\nDate published: Dec 27, 2024\n\"No number one\" between Leclerc and Hamilton in 2025, assures Vasseur ... Hamilton will have priority and become the number 1 driver at ...\n\n3. [Hamilton, Leclerc Blame Ferrari's Focus on 2026 for Nightmare of a ...](https://www.roadandtrack.com/news/a69605835/ferrari-nightmare-2025-season-hamilton-leclerc-blame-focus-on-2026/)\nDate published: Dec 2, 2025\nThe Scuderia's star drivers have been frustrated by a lack of SF-25 updates, although boss Fred Vasseur insists things aren't that clear-cut ...\n\n4. [Ferrari decide if Lewis Hamilton or Charles Leclerc will receive ...](https://scuderiafans.com/ferrari-decide-if-lewis-hamilton-or-charles-leclerc-will-receive-status-of-number-one-driver-in-2025/)\nDate published: Nov 20, 2024\nFerrari make number one driver decision ahead of Lewis Hamilton joining Charles Leclerc in the 2025 Formula 1 championship."
+        },
+        {
+          "id": "toolu_vrtx_01GkcEpAJk3NSA4SKLZbdUqS",
+          "name": "search",
+          "args": {
+            "query": "Ferrari officially designate number one driver 2025 Fred Vasseur statement",
+            "topn": 5
+          },
+          "result": "A Google search for 'Ferrari officially designate number one driver 2025 Fred Vasseur statement' found 5 results:\n\n## Web Results\n\n0. [Ferrari will not have a number one driver this season while team ...](https://www.facebook.com/RACERmagazine/posts/ferrari-will-not-have-a-number-one-driver-this-season-while-team-principal-frede/554953416670485/)\nDate published: Jan 27, 2023\nFerrari will not have a number one driver this season while team principal Frederic Vasseur waits to start talks with Charles Leclerc about his ...\n\n1. [Vasseur admits to 'not ideal' start for Ferrari in 2025 - F1](https://www.formula1.com/en/latest/article/vasseur-admits-to-not-ideal-start-for-ferrari-in-2025-and-addresses-ride.133gCP1fR7SY0ttbiAp0FQ)\nDate published: Apr 7, 2025\nFerrari Team Principal Fred Vasseur conceded it had not been an ideal start to 2025 for the Scuderia following a disappointing race in Japan.\n\n2. [Ferrari Team Principal Fred Vasseur discusses the start of 2025](https://www.youtube.com/watch?v=UfkBBl-m6P8)\nDate published: May 2, 2025\n... a leader. ✔️ Subscribe to ESPN F1 on YouTube: https ... Ferrari Team Principal Fred Vasseur discusses the start of 2025 | ESPN F1.\n\n3. [Ferrari boss issues new statement after Fred Vasseur points to 'third ...](https://www.planetf1.com/news/ferrari-fred-vasseur-statement-vote-of-confidence)\nDate published: Nov 4, 2025\nFerrari chief Benedetto Vigna has issued a new statement after Fred Vasseur pointed to a mysterious \"third party\" after a vote of ...\n\n4. [Ferrari F1 team issue official statement over Fred Vasseur future](https://www.gpfans.com/en/f1-news/1057461/fred-vasseur-f1-team-official-statement-new-contract/)\nDate published: Jul 31, 2025\nFerrari F1 team have issued an official statement confirming the future of their team principal Fred Vasseur ahead of the Hungarian Grand ..."
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "tool_calls": [
+        {
+          "id": "toolu_vrtx_01BEcBvrMA2v6F6RvWZiySs2",
+          "name": "visit",
+          "args": {
+            "url": [
+              "https://www.autohebdof1.com/news/f1/No-number-one-between-Leclerc-and-Hamilton-in-2025-assures-Vasseur.html",
+              "https://scuderiafans.com/ferrari-decide-if-lewis-hamilton-or-charles-leclerc-will-receive-status-of-number-one-driver-in-2025/"
+            ],
+            "goal": "Find out if Ferrari has officially designated a number one driver for 2025, or if they treat both drivers equally"
+          },
+          "result": "The useful information in https://www.autohebdof1.com/news/f1/No-number-one-between-Leclerc-and-Hamilton-in-2025-assures-Vasseur.html for user goal Find out if Ferrari has officially designated a number one driver for 2025, or if they treat both drivers equally as follows:\n\nEvidence in page:\nA question quickly dismissed by Frédéric Vasseur. The director of the Scuderia does not want to change the philosophy applied during his last seasons at Ferrari, with a Charles Leclerc and a Carlos Sainz put on an equal footing. \"I think we made a good demonstration of not having a number one this year and last year. I'm very happy with the job that [Leclerc and Sainz] have done, underlines the French leader in an interview given to Canal+. There were some heated moments but we never lost points or had any collisions. Their emulation was really key to our performance. The desire to push your teammate, to go for the last thousandth of a second on every lap of every session, that was key for us and for the team's overall performance. That's why I don't want to change anything.\"\n\nSummary:\nFerrari has not officially designated a number one driver for 2025. Team principal Frédéric Vasseur confirmed that the team will maintain its equal treatment of drivers, continuing the philosophy established with Charles Leclerc and Carlos Sainz in recent seasons. He emphasized that the healthy competition between the two drivers was crucial to the team's performance and stated he has no intention of introducing a hierarchy, even with the arrival of Lewis Hamilton.\n\n=======\nThe useful information in https://scuderiafans.com/ferrari-decide-if-lewis-hamilton-or-charles-leclerc-will-receive-status-of-number-one-driver-in-2025/ for user goal Find out if Ferrari has officially designated a number one driver for 2025, or if they treat both drivers equally as follows:\n\nEvidence in page:\nFerrari’s internal policy will emphasize fairness, with both drivers receiving equal treatment at the start of the season. However, should one driver emerge as a clear championship contender, it’s expected that the team will prioritize their title bid. Ferrari’s ethos, which prioritizes the team over individual drivers, will undoubtedly guide their strategy. While Ferrari’s history includes controversial moments—such as Rubens Barrichello yielding to Michael Schumacher or Felipe Massa surrendering a win to Fernand\n\n… [598 chars truncated]"
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "content": "Interestingly, the honest answer is that **Ferrari does not officially have a designated number one driver**. \n\nTeam Principal **Fred Vasseur** has been very clear on this point. Ahead of the 2025 season, he stated:\n\n> *\"I think we made a good demonstration of not having a number one... I don't want to change anything.\"*\n\nFerrari's official policy is that **Charles Leclerc and Lewis Hamilton have equal status** within the team. Vasseur has emphasized that the internal competition and \"emulation\" between teammates is actually key to driving the team's overall performance, and he has no intention of introducing a driver hierarchy.\n\nThat said, the **unofficial reality** in F1 is a bit more nuanced:\n- If one driver emerges as a clear championship contender as the season progresses, Ferrari would likely shift strategic priority toward that driver's title bid — as is common across most F1 teams.\n- There have been occasional team orders during the 2025 season (e.g., a controversial moment at the Azerbaijan Grand Prix), but these tend to be situational rather than reflecting a pre-set hierarchy.\n\nSo to directly answer your question: **Ferrari has no officially designated lead driver** — both Leclerc and Hamilton are treated as equals, at least as a matter of stated team policy. It's one of those areas where F1 teams tend to keep things deliberately ambiguous! 😄\n\nIs there anything else you'd like to know about F1?"
+    },
+    {
+      "type": "user",
+      "content": "Now, please extract a structured knowledge graph based on our entire conversation.\n\n# Extraction Principles\nExtract all information that meets the user's information needs throughout the entire search process. The user has provided multi-turn inputs during the conversation, and each round of interaction has generated its own information needs and research discoveries. You must extract information relevant to the user's needs from every single turn, including intermediate results that were later filtered or narrowed down.\n\nExample: If in the first turn the user asked to find the top 20 beauty brands by sales on TikTok, and in the second turn the user asked to identify which of those brands have female spokespersons—then the final knowledge graph must contain all 20 brands found in the first turn (along with their sales/ranking information), rather than just keeping the subset of brands with female spokespersons filtered in the second turn. The research discoveries from each turn possess independent value. \n\n# Extraction Content\n1. **Discovered Entities**: All specific entities such as products, brands, goods, institutions, and people found during the research—including entities explored in intermediate turns.\n2. **Attributes relevant to user needs in any turn**: For each entity, extract every attribute dimension related to any of the user's questions throughout the entire conversation. For example, if the user cared about price, makeup longevity, suitable skin types, ingredients, ratings, spokesperson, and the spokesperson's gender, you must extract each attribute as a separate, independent triple.\n\n# Rules\n- Be exhaustive: Extract all relevant triples from every turn of the conversation, rather than just extracting the results from the final turn. If you researched 20 products and checked 5 attribute dimensions for each, there should likely be 100+ triples.\n- Extract only what the user asked for: Only extract triples related to the information needs the user explicitly expressed (stated aloud) in the conversation. If the user asked about price, ingredients, and suitable skin types, you extract the triples for those dimensions. Do not extract dimensions the user never mentioned (e.g., place of origin, packaging), even if you discovered this information during your research. For example, if they asked for the top 20 brands but didn't ask for the source of the \n\n… [1257 chars truncated]"
+    },
+    {
+      "type": "assistant",
+      "content": "```json\n[\n  {\"head\": \"McLaren\", \"relation\": \"is on\", \"tail\": \"2025 F1 grid\"},\n  {\"head\": \"Mercedes\", \"relation\": \"is on\", \"tail\": \"2025 F1 grid\"},\n  {\"head\": \"Red Bull Racing\", \"relation\": \"is on\", \"tail\": \"2025 F1 grid\"},\n  {\"head\": \"Scuderia Ferrari\", \"relation\": \"is on\", \"tail\": \"2025 F1 grid\"},\n  {\"head\": \"Williams\", \"relation\": \"is on\", \"tail\": \"2025 F1 grid\"},\n  {\"head\": \"Racing Bulls\", \"relation\": \"is on\", \"tail\": \"2025 F1 grid\"},\n  {\"head\": \"Aston Martin\", \"relation\": \"is on\", \"tail\": \"2025 F1 grid\"},\n  {\"head\": \"Alpine\", \"relation\": \"is on\", \"tail\": \"2025 F1 grid\"},\n  {\"head\": \"Haas F1 Team\", \"relation\": \"is on\", \"tail\": \"2025 F1 grid\"},\n  {\"head\": \"Kick Sauber\", \"relation\": \"is on\", \"tail\": \"2025 F1 grid\"},\n  {\"head\": \"McLaren\", \"relation\": \"2025 driver\", \"tail\": \"Lando Norris\"},\n  {\"head\": \"McLaren\", \"relation\": \"2025 driver\", \"tail\": \"Oscar Piastri\"},\n  {\"head\": \"Mercedes\", \"relation\": \"2025 driver\", \"tail\": \"George Russell\"},\n  {\"head\": \"Mercedes\", \"relation\": \"2025 driver\", \"tail\": \"Kimi Antonelli\"},\n  {\"head\": \"Red Bull Racing\", \"relation\": \"2025 driver (all rounds)\", \"tail\": \"Max Verstappen\"},\n  {\"head\": \"Red Bull Racing\", \"relation\": \"2025 driver (Rounds 1–2)\", \"tail\": \"Liam Lawson\"},\n  {\"head\": \"Red Bull Racing\", \"relation\": \"2025 driver (Rounds 3–24)\", \"tail\": \"Yuki Tsunoda\"},\n  {\"head\": \"Scuderia Ferrari\", \"relation\": \"2025 driver\", \"tail\": \"Charles Leclerc\"},\n  {\"head\": \"Scuderia Ferrari\", \"relation\": \"2025 driver\", \"tail\": \"Lewis Hamilton\"},\n  {\"head\": \"Williams\", \"relation\": \"2025 driver\", \"tail\": \"Alexander Albon\"},\n  {\"head\": \"Williams\", \"relation\": \"2025 driver\", \"tail\": \"Carlos Sainz Jr.\"},\n  {\"head\": \"Racing Bulls\", \"relation\": \"2025 driver (all rounds)\", \"tail\": \"Isack Hadjar\"},\n  {\"head\": \"Racing Bulls\", \"relation\": \"2025 driver (Rounds 1–2)\", \"tail\": \"Yuki Tsunoda\"},\n  {\"head\": \"Racing Bulls\", \"relation\": \"2025 driver (Rounds 3–24)\", \"tail\": \"Liam Lawson\"},\n  {\"head\": \"Aston Martin\", \"relation\": \"2025 driver\", \"tail\": \"Fernando Alonso\"},\n  {\"head\": \"Aston Martin\", \"relation\": \"2025 driver\", \"tail\": \"Lance Stroll\"},\n  {\"head\": \"Alpine\", \"relation\": \"2025 driver (all rounds)\", \"tail\": \"Pierre Gasly\"},\n  {\"head\": \"Alpine\", \"relation\": \"2025 driver (Rounds 1–6)\", \"tail\": \"Jack Doohan\"},\n  {\"head\": \"Alpine\", \"relation\": \"2025 driver (Rounds 7–24)\", \"tail\": \"Franco Colapinto\"},\n  {\"head\": \"Haas F1 Team\", \"relation\": \"2025 driver\", \"t\n\n… [17750 chars truncated]"
+    }
+  ]
+}
