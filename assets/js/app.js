@@ -465,39 +465,46 @@ function renderLeaderboard() {
 
 function renderHeroStats() {
   if (!leaderboardData) return;
-  const fw = "openclaw";
+  const fw = "react";
   const sub = "avg";
 
-  let bestF1 = 0;
-  leaderboardData.models.forEach((m) => {
-    const f1 = getMetrics(m, fw, sub).f1;
-    if (f1 > bestF1) bestF1 = f1;
-  });
-
-  const bestModels = leaderboardData.models.filter(
-    (m) => m.highlight || getMetrics(m, fw, sub).f1 >= bestF1 - 0.001
-  );
-
   const statsByModel = new Map(
-    (leaderboardData.interaction_stats || []).map((row) => [row.model, row[fw]])
+    (leaderboardData.interaction_stats || []).map((row) => [row.model, row])
   );
 
-  let userSum = 0;
-  let toolSum = 0;
-  let n = 0;
-  bestModels.forEach((m) => {
-    const s = statsByModel.get(m.name);
-    if (!s) return;
-    userSum += s.user;
-    toolSum += s.asst;
-    n += 1;
+  let bestF1 = 0;
+  let bestModelName = null;
+  leaderboardData.models.forEach((m) => {
+    if (!hasFramework(m, fw)) return;
+    const f1 = getMetrics(m, fw, sub).f1;
+    if (f1 > bestF1) {
+      bestF1 = f1;
+      bestModelName = m.name;
+    }
   });
+
+  let interaction = null;
+  if (bestModelName && statsByModel.get(bestModelName)?.[fw]) {
+    interaction = statsByModel.get(bestModelName)[fw];
+  } else {
+    let topF1WithStats = 0;
+    leaderboardData.models.forEach((m) => {
+      if (!hasFramework(m, fw)) return;
+      const row = statsByModel.get(m.name);
+      if (!row?.[fw]) return;
+      const f1 = getMetrics(m, fw, sub).f1;
+      if (f1 > topF1WithStats) {
+        topF1WithStats = f1;
+        interaction = row[fw];
+      }
+    });
+  }
 
   const userEl = document.getElementById("hero-user-turns");
   const toolEl = document.getElementById("hero-tool-turns");
   const f1El = document.getElementById("hero-best-f1");
-  if (userEl) userEl.textContent = n ? (userSum / n).toFixed(1) : "—";
-  if (toolEl) toolEl.textContent = n ? (toolSum / n).toFixed(1) : "—";
+  if (userEl) userEl.textContent = interaction ? interaction.user.toFixed(1) : "—";
+  if (toolEl) toolEl.textContent = interaction ? interaction.asst.toFixed(1) : "—";
   if (f1El) f1El.textContent = bestF1 ? bestF1.toFixed(1) : "—";
 }
 
