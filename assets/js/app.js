@@ -423,10 +423,16 @@ function getMetrics(model, fw, sub) {
   return model[fw]?.[sub] || { p: 0, r: 0, f1: 0 };
 }
 
+function hasFramework(model, fw) {
+  return model[fw] != null;
+}
+
 function renderLeaderboard() {
   if (!leaderboardData) return;
   const tbody = document.getElementById("leaderboard-body");
-  const rows = leaderboardData.models.map((m) => {
+  const rows = leaderboardData.models
+    .filter((m) => hasFramework(m, framework))
+    .map((m) => {
     const met = getMetrics(m, framework, subset);
     return { name: m.name, highlight: m.highlight, ...met };
   });
